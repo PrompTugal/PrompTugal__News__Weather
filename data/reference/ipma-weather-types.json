@@ -1,0 +1,135 @@
+{
+ "about": "IPMA weather type codes, as IPMA publishes them. Read once, by hand, on 17 Nov 2026 by weather@PrompTugal.dinis; reference data, not a collector. Spelling corrected only where IPMA has a typo (13).",
+ "source": "https://api.ipma.pt/open-data/weather-type-classe.json",
+ "read_at": "2026-11-17",
+ "types": {
+  "-99": {
+   "en": "--",
+   "pt": "---"
+  },
+  "0": {
+   "en": "No information",
+   "pt": "Sem informação"
+  },
+  "1": {
+   "en": "Clear sky",
+   "pt": "Céu limpo"
+  },
+  "2": {
+   "en": "Partly cloudy",
+   "pt": "Céu pouco nublado"
+  },
+  "3": {
+   "en": "Sunny intervals",
+   "pt": "Céu parcialmente nublado"
+  },
+  "4": {
+   "en": "Cloudy",
+   "pt": "Céu muito nublado ou encoberto"
+  },
+  "5": {
+   "en": "Cloudy (High cloud)",
+   "pt": "Céu nublado por nuvens altas"
+  },
+  "6": {
+   "en": "Showers/rain",
+   "pt": "Aguaceiros/chuva"
+  },
+  "7": {
+   "en": "Light showers/rain",
+   "pt": "Aguaceiros/chuva fracos"
+  },
+  "8": {
+   "en": "Heavy showers/rain",
+   "pt": "Aguaceiros/chuva fortes"
+  },
+  "9": {
+   "en": "Rain/showers",
+   "pt": "Chuva/aguaceiros"
+  },
+  "10": {
+   "en": "Light rain",
+   "pt": "Chuva fraca ou chuvisco"
+  },
+  "11": {
+   "en": "Heavy rain/showers",
+   "pt": "Chuva/aguaceiros forte"
+  },
+  "12": {
+   "en": "Intermittent rain",
+   "pt": "Períodos de chuva"
+  },
+  "13": {
+   "en": "Intermittent light rain",
+   "pt": "Períodos de chuva fraca"
+  },
+  "14": {
+   "en": "Intermittent heavy rain",
+   "pt": "Períodos de chuva forte"
+  },
+  "15": {
+   "en": "Drizzle",
+   "pt": "Chuvisco"
+  },
+  "16": {
+   "en": "Mist",
+   "pt": "Neblina"
+  },
+  "17": {
+   "en": "Fog",
+   "pt": "Nevoeiro ou nuvens baixas"
+  },
+  "18": {
+   "en": "Snow",
+   "pt": "Neve"
+  },
+  "19": {
+   "en": "Thunderstorms",
+   "pt": "Trovoada"
+  },
+  "20": {
+   "en": "Showers and thunderstorms",
+   "pt": "Aguaceiros e possibilidade de trovoada"
+  },
+  "21": {
+   "en": "Hail",
+   "pt": "Granizo"
+  },
+  "22": {
+   "en": "Frost",
+   "pt": "Geada"
+  },
+  "23": {
+   "en": "Rain and thunderstorms",
+   "pt": "Chuva e possibilidade de trovoada"
+  },
+  "24": {
+   "en": "Convective clouds",
+   "pt": "Nebulosidade convectiva"
+  },
+  "25": {
+   "en": "Partly cloudy",
+   "pt": "Céu com períodos de muito nublado"
+  },
+  "26": {
+   "en": "Fog",
+   "pt": "Nevoeiro"
+  },
+  "27": {
+   "en": "Cloudy",
+   "pt": "Céu nublado"
+  },
+  "28": {
+   "en": "Snow showers",
+   "pt": "Aguaceiros de neve"
+  },
+  "29": {
+   "en": "Rain and snow",
+   "pt": "Chuva e Neve"
+  },
+  "30": {
+   "en": "Rain and snow",
+   "pt": "Chuva e Neve"
+  }
+ }
+}

@@ -3,8 +3,11 @@
   "name": "PrompTugal.news Weather",
   "what_it_does": "Weather and civil protection for Portugal, place by place: IPMA warnings and forecasts, fire risk, storms, sea state and UV.",
   "owner": "AgentiCCells",
-  "team": "factory@AgentiCCells.dinis, instructed by Dinis Cruz",
-  "licence": { "code": "Apache-2.0", "text": "CC BY 4.0" },
+  "team": "weather@PrompTugal.dinis (lead, Opus) with weather.writer@ and weather.design@ (Sonnet), instructed by Dinis Cruz",
+  "licence": {
+    "code": "Apache-2.0",
+    "text": "CC BY 4.0"
+  },
   "repository": "https://github.com/PrompTugal/PrompTugal__News__Weather",
   "live_address": "https://weather.promptugal.news",
   "version_from": "https://weather.promptugal.news/version.json"

@@ -1,0 +1,5 @@
+{
+  "about": "The public halves of this site's agents' session keys (id <role>-promptugal). Never a private key, a token or a contact detail.",
+  "keys": [],
+  "gap": "weather@PrompTugal.dinis could not make its session key on 17 Nov 2026: running pki-agent.mjs keygen --session was refused by the session's permission settings. Commits are not signed with an agent key; the Agent: trailer states who made each. For Dinis: allow the key step in the next session, or say how the team should sign."
+}

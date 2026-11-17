@@ -1,0 +1,201 @@
+// Shared pieces of the site generator: data loading, escaping, the page frame, markdown, maps and charts.
+// Node 18+, no dependencies. weather@PrompTugal.dinis, 17 Nov 2026. Code: Apache-2.0.
+import { readFileSync, writeFileSync, mkdirSync, existsSync, readdirSync } from 'node:fs';
+import { join, dirname } from 'node:path';
+
+export const SITE = 'https://weather.promptugal.news';
+export const readJSON = p => JSON.parse(readFileSync(p, 'utf8'));
+export const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+// ---------------------------------------------------------------- data
+export function loadData() {
+  const now = {};
+  for (const f of readdirSync('data/now')) if (f.endsWith('.json')) now[f.replace(/\.json$/, '')] = readJSON(join('data/now', f));
+  const placesSrc = readJSON('data/map/places-source.json').places;
+  const next = readJSON('data/map/next-places-source.json').places;
+  const local = readJSON('data/map/storm-local-map.json');
+  const types = readJSON('data/reference/ipma-weather-types.json').types;
+  const sync = readJSON('data/sync.json');
+  const towns = placesSrc.filter(p => p.parent === 'algarve' || p.parent === 'loule').filter(p => now[p.id]).map(p => {
+    const m = (Array.isArray(local) ? local : local.places || []).find(x => x.place === p.id) || {};
+    return { id: p.id, name: p.name, kind: p.kind, at: p.at, dico: m.dico, now: now[p.id] };
+  }).sort((a, b) => a.name.localeCompare(b.name, 'pt'));
+  const capitals = next.map(p => ({ id: p.id, name: p.name, district: p.district, at: p.at }))
+    .concat([{ id: 'faro', name: 'Faro', district: 'Faro', at: [-7.935, 37.019], live: true }])
+    .sort((a, b) => a.name.localeCompare(b.name, 'pt'));
+  const storms = existsSync('data/storms') ? readdirSync('data/storms').filter(f => f.endsWith('.json')).map(f => readJSON(join('data/storms', f))) : [];
+  return { now, region: now.algarve, towns, capitals, types, sync, storms };
+}
+
+// ---------------------------------------------------------------- words and numbers
+export const WIND_DIR = { 0: 'calm', 1: 'N', 2: 'NE', 3: 'E', 4: 'SE', 5: 'S', 6: 'SW', 7: 'W', 8: 'NW', 9: 'N' };
+export const FIRE = { low: 1, moderate: 2, high: 3, 'very high': 4, maximum: 5 };
+export const FIRE_PT = { low: 'reduzido', moderate: 'moderado', high: 'elevado', 'very high': 'muito elevado', maximum: 'máximo' };
+export const LEVEL = { green: 0, yellow: 1, orange: 2, red: 3 };
+export const num = (v, unit = '', d = 1) => v === null || v === undefined || Number.isNaN(v) ? null : `${Number(v).toFixed(d).replace(/\.0$/, '')}${unit}`;
+export const show = (v, unit, d) => num(v, unit, d) ?? '<span class="na">not reported</span>';
+export const showMd = (v, unit, d) => num(v, unit, d) ?? 'not reported';
+const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+const DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+export function when(iso) { // "17 Nov 2026, 17:16 UTC"
+  if (!iso) return 'unknown time';
+  const d = new Date(/Z$|[+-]\d\d:?\d\d$/.test(iso) ? iso : iso + 'Z');
+  if (Number.isNaN(+d)) return esc(iso);
+  return `${d.getUTCDate()} ${MONTHS[d.getUTCMonth()]} ${d.getUTCFullYear()}, ${String(d.getUTCHours()).padStart(2, '0')}:${String(d.getUTCMinutes()).padStart(2, '0')} UTC`;
+}
+export function localWhen(s) { // IPMA warning times are Portugal mainland local time (UTC in winter)
+  const m = String(s || '').match(/^(\d{4})-(\d\d)-(\d\d)T(\d\d):(\d\d)/);
+  if (!m) return esc(s);
+  const d = new Date(Date.UTC(+m[1], +m[2] - 1, +m[3]));
+  return `${DAYS[d.getUTCDay()]} ${+m[3]} ${MONTHS[+m[2] - 1]}, ${m[4]}:${m[5]}`;
+}
+export function dayName(date) { const d = new Date(date + 'T12:00:00Z'); return `${DAYS[d.getUTCDay()]} ${d.getUTCDate()} ${MONTHS[d.getUTCMonth()]}`; }
+export function ageHours(iso, ref) { return (ref - new Date(iso)) / 3600000; }
+export const host = u => { try { return new URL(u).host; } catch { return u; } };
+
+// ---------------------------------------------------------------- the frame
+const NAV = [['/', 'Now'], ['/map/', 'Map'], ['/places/', 'Places'], ['/storms/', 'Storms'], ['/what-to-do/', 'What to do'], ['/about/', 'About']];
+export const CSS_VERSION = '1';
+
+export function page({ path, title, description, body, md, made, extraHead = '', bodyClass = '' }) {
+  const canonical = SITE + path;
+  const twin = path.endsWith('/') ? path + 'index.md' : path.replace(/\.html$/, '.md');
+  const nav = NAV.map(([href, label]) => `<a href="${href}"${(href === '/' ? path === '/' : path.startsWith(href)) ? ' aria-current="page"' : ''}>${label}</a>`).join('');
+  const html = `<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>${esc(title)}</title>
+<meta name="description" content="${esc(description)}">
+<link rel="canonical" href="${canonical}">
+<link rel="alternate" type="text/markdown" href="${twin}">
+<link rel="icon" href="/brand/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/site.css?v=${CSS_VERSION}">
+${extraHead}</head>
+<body class="${bodyClass}">
+<a class="skip" href="#main">Skip to the content</a>
+<div class="version-bar"><span>Version __VERSION__</span><span><a href="${twin}">This page as markdown</a></span></div>
+<header class="masthead">
+  <div class="masthead-row">
+    <a class="brand" href="/" aria-label="PrompTugal.news Weather, home"><span class="wm">Promp<span class="t">T</span><span class="g">ugal</span>.<i>news</i></span><span class="sub">· Weather</span></a>
+    <p class="pay">Pay for what you read: <a href="https://promptugal.news/account/">your PrompTugal.news account</a></p>
+  </div>
+  <nav class="nav" aria-label="Sections">${nav}</nav>
+</header>
+<p class="not-warning" role="note"><strong>Not a warning service.</strong> For warnings and what to do now, follow <a href="https://www.ipma.pt/">IPMA</a> and <a href="https://prociv.gov.pt/">ANEPC</a>. In an emergency call 112.</p>
+<main id="main">
+${body}
+</main>
+${madeBlock(made)}
+<footer class="footer">
+  <p>Part of <a href="https://promptugal.news/">PrompTugal.news</a>: Portugal, town by town. Independent: not an official or government site. Data from IPMA's open data, as published by the <a href="https://github.com/PrompTugal/PrompTugal__News__Website">PrompTugal.news Website repository</a>, until <a href="https://data.promptugal.news/">data.promptugal.news</a> publishes its APIs.</p>
+  <p>Version __VERSION__ · <a href="https://github.com/PrompTugal/PrompTugal__News__Weather">Source</a> · Code Apache-2.0, text CC BY 4.0 · <a href="/llms.txt">llms.txt</a></p>
+</footer>
+</body>
+</html>
+`;
+  const mdOut = `# ${title}\n\n> ${description}\n>\n> Not a warning service: follow IPMA (https://www.ipma.pt/) and ANEPC (https://prociv.gov.pt/). In an emergency call 112.\n> Version __VERSION__ · ${canonical}\n\n${md.trim()}\n\n${madeMd(made)}\n`;
+  return { path, html, md: mdOut, title, description };
+}
+
+const DEFAULT_MADE = { code: 'scripts/site/*.mjs builds this page from data/ on every push; no model runs at build time.', agents: 'weather@PrompTugal.dinis (Claude, Opus) wrote the code and the words.', person: 'Not yet checked by a person.' };
+function madeBlock(m = {}) {
+  m = { ...DEFAULT_MADE, ...m };
+  return `<aside class="made" aria-label="How this page was made"><h2>How this page was made</h2><dl><dt>Code</dt><dd>${m.code}</dd><dt>Agents</dt><dd>${m.agents}</dd><dt>A person</dt><dd>${m.person}</dd></dl><p><a href="/about/">More on how the site is made</a></p></aside>`;
+}
+function madeMd(m = {}) {
+  m = { ...DEFAULT_MADE, ...m };
+  const strip = s => s.replace(/<[^>]+>/g, '');
+  return `## How this page was made\n\n- Code: ${strip(m.code)}\n- Agents: ${strip(m.agents)}\n- A person: ${strip(m.person)}\n`;
+}
+
+export function write(outDir, p) {
+  const base = p.path.endsWith('/') ? join(outDir, p.path, 'index') : join(outDir, p.path.replace(/\.html$/, ''));
+  mkdirSync(dirname(base + '.html'), { recursive: true });
+  writeFileSync(base + '.html', p.html);
+  writeFileSync(base + '.md', p.md);
+}
+
+// ---------------------------------------------------------------- markdown (the small subset the content files use)
+export function parseFront(text) {
+  const m = text.match(/^---\n([\s\S]*?)\n---\n?/);
+  const meta = {};
+  if (m) for (const line of m[1].split('\n')) { const i = line.indexOf(':'); if (i > 0) meta[line.slice(0, i).trim()] = line.slice(i + 1).trim().replace(/^["']|["']$/g, ''); }
+  return { meta, body: m ? text.slice(m[0].length) : text };
+}
+function inline(s) {
+  return esc(s)
+    .replace(/`([^`]+)`/g, '<code>$1</code>')
+    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+    .replace(/(^|[^*])\*([^*\s][^*]*)\*/g, '$1<em>$2</em>')
+    .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (_, t, u) => `<a href="${u}">${t}</a>`)
+    .replace(/(^|[\s(])(https?:\/\/[^\s<)]+[^\s<).,;:])/g, '$1<a href="$2">$2</a>');
+}
+export function markdown(src) {
+  const lines = src.replace(/\r/g, '').split('\n');
+  const out = [];
+  let i = 0;
+  while (i < lines.length) {
+    const l = lines[i];
+    if (!l.trim()) { i++; continue; }
+    let m;
+    if ((m = l.match(/^(#{1,4})\s+(.*)/))) { const n = Math.min(m[1].length + 1, 5); const id = m[2].toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); out.push(`<h${n} id="${id}">${inline(m[2])}</h${n}>`); i++; continue; }
+    if (/^\s*[-*]\s+/.test(l)) { const items = []; while (i < lines.length && /^\s*[-*]\s+/.test(lines[i])) { let t = lines[i].replace(/^\s*[-*]\s+/, ''); i++; while (i < lines.length && /^\s{2,}\S/.test(lines[i]) && !/^\s*[-*]\s+/.test(lines[i])) t += ' ' + lines[i++].trim(); items.push(`<li>${inline(t)}</li>`); } out.push(`<ul>${items.join('')}</ul>`); continue; }
+    if (/^\s*\d+\.\s+/.test(l)) { const items = []; while (i < lines.length && /^\s*\d+\.\s+/.test(lines[i])) { items.push(`<li>${inline(lines[i].replace(/^\s*\d+\.\s+/, ''))}</li>`); i++; } out.push(`<ol>${items.join('')}</ol>`); continue; }
+    if (/^\|/.test(l)) { const rows = []; while (i < lines.length && /^\|/.test(lines[i])) rows.push(lines[i++]); const cells = r => r.replace(/^\||\|$/g, '').split('|').map(c => c.trim()); const head = cells(rows[0]); const body = rows.slice(/^\|[\s:|-]+\|$/.test(rows[1] || '') ? 2 : 1); out.push(`<div class="table-wrap"><table><thead><tr>${head.map(c => `<th>${inline(c)}</th>`).join('')}</tr></thead><tbody>${body.map(r => `<tr>${cells(r).map(c => `<td>${inline(c)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`); continue; }
+    if (/^>\s?/.test(l)) { const q = []; while (i < lines.length && /^>\s?/.test(lines[i])) q.push(lines[i++].replace(/^>\s?/, '')); out.push(`<blockquote><p>${inline(q.join(' '))}</p></blockquote>`); continue; }
+    const p = []; while (i < lines.length && lines[i].trim() && !/^(#{1,4}\s|\s*[-*]\s+|\s*\d+\.\s+|\||>)/.test(lines[i])) p.push(lines[i++].trim());
+    out.push(`<p>${inline(p.join(' '))}</p>`);
+  }
+  return out.join('\n');
+}
+
+// ---------------------------------------------------------------- colours as classes (the CSS holds the values)
+export const fireClass = level => `fire-${FIRE[level] || 0}`;
+export const warnClass = level => `warn-${level || 'green'}`;
+export function worstFire(town) { return (town.now.fire_risk?.days || []).reduce((m, d) => Math.max(m, FIRE[d.level] || 0), 0); }
+export function worstWarning(region) { return (region?.warnings?.active || []).reduce((m, w) => (LEVEL[w.level] ?? 0) > (LEVEL[m] ?? 0) ? w.level : m, 'green'); }
+
+// ---------------------------------------------------------------- maps
+function projector(bbox, width) { // equirectangular, scaled by cos(mid latitude)
+  const [x0, y0, x1, y1] = bbox; const k = Math.cos(((y0 + y1) / 2) * Math.PI / 180);
+  const w = (x1 - x0) * k, h = y1 - y0, s = width / w;
+  return { w: width, h: Math.round(h * s), p: ([lon, lat]) => [+(((lon - x0) * k) * s).toFixed(1), +((y1 - lat) * s).toFixed(1)] };
+}
+function polys(geo, pr) {
+  return geo.map(poly => poly.map(ring => 'M' + ring.map(c => pr.p(c).join(',')).join('L') + 'Z').join('')).join('');
+}
+export function portugalMap({ outline, capitals, towns, region, width = 360, linkCapitals = false }) {
+  const pr = projector([-9.6, 36.9, -6.1, 42.2], width);
+  const pt = polys(outline.countries.Portugal, pr), es = outline.countries.Spain ? polys(outline.countries.Spain, pr) : '';
+  const lvl = worstWarning(region);
+  const caps = capitals.map(c => { const [x, y] = pr.p(c.at); return `<g class="cap${c.live ? ' live' : ''}"><circle cx="${x}" cy="${y}" r="${c.live ? 4 : 3}"><title>${esc(c.name)}${c.live ? '' : ': data coming'}</title></circle>${c.live ? '' : `<text x="${x + 5}" y="${y + 3}">${esc(c.name)}</text>`}</g>`; }).join('');
+  const dots = towns.map(t => { const [x, y] = pr.p(t.at); return `<circle class="town ${fireClass(t.now.fire_risk?.days?.[0]?.level)}" cx="${x}" cy="${y}" r="${width > 400 ? 3.5 : 2.6}"><title>${esc(t.name)}</title></circle>`; }).join('');
+  const cut = pr.p([-9.7, 37.5])[1]; // the Faro district, drawn approximately as the mainland south of 37.5 N
+  const id = 'fd' + width;
+  return `<svg class="map map-pt" viewBox="0 0 ${pr.w} ${pr.h}" role="img" aria-labelledby="${id}-t ${id}-d"><title id="${id}-t">Map of mainland Portugal</title><desc id="${id}-d">The Faro district (the Algarve) is shaded by its highest IPMA warning in force or announced (${lvl}); its 17 places are dots coloured by today's fire risk. The other district capitals are grey: their data is still to come.</desc><defs><clipPath id="${id}"><rect x="0" y="${cut}" width="${pr.w}" height="${pr.h - cut}"/></clipPath></defs><rect class="sea" width="${pr.w}" height="${pr.h}"/><path class="land-es" d="${es}"/><path class="land-pt" d="${pt}"/><path class="district ${warnClass(lvl)}" d="${pt}" clip-path="url(#${id})"/>${caps}${dots}<text class="label-faro" x="${pr.p([-8.2, 37.6])[0]}" y="${pr.p([-8.2, 37.6])[1]}" text-anchor="middle">Algarve</text></svg>`;
+}
+export function algarveMap({ outline, towns, colour = t => fireClass(t.now.fire_risk?.days?.[0]?.level), label = t => t.name, width = 720, caption }) {
+  const pr = projector([-9.05, 36.92, -7.3, 37.58], width);
+  const pt = polys(outline.countries.Portugal, pr), es = outline.countries.Spain ? polys(outline.countries.Spain, pr) : '';
+  const dots = towns.map(t => { const [x, y] = pr.p(t.at); const anchor = x > width * 0.8 ? 'end' : 'start'; const dx = anchor === 'end' ? -9 : 9; return `<a href="/places/${t.id}/"><g class="pin"><circle class="town ${colour(t)}" cx="${x}" cy="${y}" r="7"/><text x="${x + dx}" y="${y + 4}" text-anchor="${anchor}">${esc(label(t))}</text></g><title>${esc(t.name)}</title></a>`; }).join('');
+  return `<svg class="map map-algarve" viewBox="0 0 ${pr.w} ${pr.h}" role="img" aria-label="${esc(caption || 'Map of the Algarve with its 17 places')}"><rect class="sea" width="${pr.w}" height="${pr.h}"/><path class="land-es" d="${es}"/><path class="land-pt" d="${pt}"/>${dots}</svg>`;
+}
+
+// ---------------------------------------------------------------- the five-day chart
+export function forecastChart(days, types, width = 640) {
+  if (!days?.length) return '';
+  const h = 220, top = 28, bottom = 52, left = 34, right = 10;
+  const ph = h - top - bottom, cw = (width - left - right) / days.length;
+  const ts = days.flatMap(d => [d.t_min_c, d.t_max_c]).filter(v => typeof v === 'number');
+  const lo = Math.floor(Math.min(...ts) / 5) * 5, hi = Math.ceil(Math.max(...ts) / 5) * 5 || lo + 5;
+  const y = t => top + ph - ((t - lo) / (hi - lo)) * ph;
+  const cx = i => left + cw * i + cw / 2;
+  const grid = []; for (let t = lo; t <= hi; t += 5) grid.push(`<line class="grid" x1="${left}" x2="${width - right}" y1="${y(t)}" y2="${y(t)}"/><text class="axis" x="${left - 6}" y="${y(t) + 4}" text-anchor="end">${t}°</text>`);
+  const bars = days.map((d, i) => { const bh = (d.rain_prob_pct || 0) / 100 * ph; return `<rect class="rain" x="${cx(i) - cw * 0.3}" y="${top + ph - bh}" width="${cw * 0.6}" height="${bh}"><title>${dayName(d.date)}: rain ${d.rain_prob_pct ?? '?'}%</title></rect>`; }).join('');
+  const line = (k, cls) => `<polyline class="${cls}" points="${days.map((d, i) => `${cx(i)},${y(d[k])}`).join(' ')}"/>` + days.map((d, i) => `<circle class="${cls}" cx="${cx(i)}" cy="${y(d[k])}" r="3.5"/><text class="val ${cls}" x="${cx(i)}" y="${y(d[k]) + (k === 't_max_c' ? -8 : 16)}" text-anchor="middle">${num(d[k], '°')}</text>`).join('');
+  const labels = days.map((d, i) => `<text class="axis day" x="${cx(i)}" y="${h - bottom + 18}" text-anchor="middle">${dayName(d.date).split(' ').slice(0, 2).join(' ')}</text><text class="axis rainpct" x="${cx(i)}" y="${h - bottom + 34}" text-anchor="middle">${d.rain_prob_pct ?? '?'}% rain</text>`).join('');
+  const desc = days.map(d => `${dayName(d.date)}: ${num(d.t_min_c, '°C')} to ${num(d.t_max_c, '°C')}, ${d.rain_prob_pct}% chance of rain, ${types[d.weather_type]?.en || 'unknown'}`).join('; ');
+  return `<figure class="chart"><svg viewBox="0 0 ${width} ${h}" role="img" aria-label="Five-day forecast. ${esc(desc)}">${grid.join('')}${bars}${line('t_max_c', 'tmax')}${line('t_min_c', 'tmin')}${labels}</svg><figcaption><span class="key tmax">highest</span> <span class="key tmin">lowest</span> <span class="key rain">chance of rain</span></figcaption></figure>`;
+}

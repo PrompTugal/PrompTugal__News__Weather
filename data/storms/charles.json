@@ -1,0 +1,510 @@
+{
+  "id": "charles",
+  "name": "Storm Charles",
+  "dates": {
+    "from": "2026-11-10",
+    "to": "2026-11-12"
+  },
+  "areas": [
+    "Lisbon",
+    "Madeira",
+    "Mainland Portugal",
+    "Algarve (Faro district)",
+    "Setúbal Peninsula"
+  ],
+  "standfirst": "Storm Charles brought IPMA red warnings for wind and rain to the Lisbon district on 11 November 2026, and the government declared an alert situation for the whole mainland from 00:00 to 23:59 that day; Web Summit's second day did not take place. By 15:55 UTC IPMA had lifted the last red warning on the mainland. Reported peaks include 249.5 mm of rain in six hours at IPMA's Areeiro station in Madeira, a 123 km/h gust at Fóia in the Algarve (press quoting IPMA) and 1,630 civil protection occurrences on the mainland by 19:00 (press relaying ANEPC). This site is not a warning service; this is an archive written from the Storm Charles record.",
+  "archive_site": "https://storm-charles.promptugal.news/",
+  "archive_repo": "https://github.com/PrompTugal/PrompTugal__News__Storm-Charles",
+  "written_by": "weather.writer@PrompTugal.dinis",
+  "written_at": "2026-11-17T19:22Z",
+  "checked_by_person": null,
+  "peaks": [
+    {
+      "what": "Strongest gust reported",
+      "value": "123 km/h",
+      "where": "Fóia (Serra de Monchique, Algarve)",
+      "label": "evidence",
+      "source": "SIC Notícias with Lusa, quoting an IPMA meteorologist (20:51 UTC, 11 Nov); not read at IPMA, no time given",
+      "url": "https://www.sapo.pt/artigo/vento-chegou-aos-123km-h-ipma-regista-maior-rajada-no-algarve-6af4d654faafdbf5cef748de",
+      "read": "11 Nov 2026 21:36 UTC, by the Storm Charles record's agents"
+    },
+    {
+      "what": "Strongest gust at Lisbon airport",
+      "value": "74 km/h (south, 14:00 UTC, 11 Nov)",
+      "where": "Lisbon airport (LPPT)",
+      "label": "fact",
+      "source": "METAR LPPT, issued by IPMA as the aeronautical met office, read through NOAA Aviation Weather; conversion from knots is the record's. Below IPMA's orange threshold of 90 km/h used in that warning",
+      "url": "https://aviationweather.gov/api/data/metar?ids=LPPT&hours=30&format=json",
+      "read": "12 Nov 2026 14:23 UTC, by the Storm Charles record's agents"
+    },
+    {
+      "what": "Strongest gust at Madeira airport",
+      "value": "98 km/h (02:30 UTC, 11 Nov)",
+      "where": "Madeira airport (LPMA)",
+      "label": "fact",
+      "source": "METAR LPMA 110230Z 22036G53KT, via NOAA Aviation Weather; a point observation, not a warning area. IPMA's own station feed carries mean wind only",
+      "url": "https://aviationweather.gov/api/data/metar?ids=LPMA&hours=30&format=json",
+      "read": "12 Nov 2026 14:23 UTC, by the Storm Charles record's agents"
+    },
+    {
+      "what": "Most rain in six hours, Madeira",
+      "value": "249.5 mm (hours labelled 01:00 to 06:00 UTC, 11 Nov)",
+      "where": "Areeiro station, Madeira",
+      "label": "fact",
+      "source": "IPMA hourly station observations. IPMA does not document whether an hour label is the hour starting or ending; the record infers hour ending (its own analysis)",
+      "url": "https://api.ipma.pt/open-data/observation/meteorology/stations/observations.json",
+      "read": "12 Nov 2026 14:23 UTC, by the Storm Charles record's agents"
+    },
+    {
+      "what": "Most rain in six hours, Lisbon area",
+      "value": "74.0 mm (hours labelled 09:00 to 14:00 UTC, 11 Nov)",
+      "where": "Lisboa, Relógio station",
+      "label": "fact",
+      "source": "IPMA hourly station observations; same hour-label caveat",
+      "url": "https://api.ipma.pt/open-data/observation/meteorology/stations/observations.json",
+      "read": "12 Nov 2026 14:23 UTC, by the Storm Charles record's agents"
+    },
+    {
+      "what": "Civil protection occurrences, mainland, since 00:00 on 11 November",
+      "value": "1,630, of which 781 floods (to 19:00 UTC)",
+      "where": "Mainland Portugal, most in Greater Lisbon, the Setúbal Peninsula and the Algarve",
+      "label": "evidence",
+      "source": "CNN Portugal live page relaying the ANEPC 19:00 briefing; ANEPC's own figures not read by the record",
+      "url": "https://cnnportugal.iol.pt/aominuto/6af2d07dd34e5a653d7338e2",
+      "read": "11 Nov 2026 19:36 UTC, by the Storm Charles record's agents"
+    },
+    {
+      "what": "Regional civil protection occurrences, Madeira",
+      "value": "325 (to 18:40 UTC, 11 Nov)",
+      "where": "Madeira",
+      "label": "evidence",
+      "source": "Lusa on Bluesky (19:14 UTC), relaying the regional civil protection; not read at its own page",
+      "url": "https://bsky.app/profile/lusa.pt",
+      "read": "11 Nov 2026 19:46 UTC, by the Storm Charles record's agents"
+    },
+    {
+      "what": "Flights cancelled in advance, Lisbon airport",
+      "value": "288 of 565 scheduled movements, plus 22 more by 11:00 UTC, 11 Nov",
+      "where": "Lisbon airport (Faro: 14 of 62; Madeira: 20 of 80; Porto: 12 of 214)",
+      "label": "fact",
+      "source": "ANA newsroom, \"Adverse weather conditions: update by airport, 11 November\"; the ANA page address is not given in the record, so the link is the record's timeline row",
+      "url": "https://storm-charles.promptugal.news/incidents/2026-11-10-storm-charles/timeline.md",
+      "read": "11 Nov 2026 13:35 UTC, by the Storm Charles record's agents"
+    }
+  ],
+  "warnings": [
+    {
+      "district": "Lisboa",
+      "kind": "wind",
+      "level": "red",
+      "from": "2026-11-11T12:00Z",
+      "to": "2026-11-11T21:00Z",
+      "source": "IPMA warning message (CAP) via MeteoAlarm Portugal feed, sent 10 Nov 07:18:40 UTC; gusts to 120 km/h, up to 140 km/h in the most exposed places",
+      "url": "https://feeds.meteoalarm.org/api/v1/warnings/feeds-portugal"
+    },
+    {
+      "district": "Lisboa",
+      "kind": "wind",
+      "level": "orange",
+      "from": "2026-11-11T09:00Z",
+      "to": "2026-11-11T21:00Z",
+      "source": "IPMA warning message (CAP) via MeteoAlarm Portugal feed, sent 11 Nov 07:16:30 UTC, lowering the red wind warning; gusts to 120 km/h",
+      "url": "https://feeds.meteoalarm.org/api/v1/warnings/feeds-portugal"
+    },
+    {
+      "district": "Lisboa",
+      "kind": "wind",
+      "level": "orange",
+      "from": "2026-11-11T12:34Z",
+      "to": "2026-11-11T15:56Z",
+      "source": "IPMA warnings open data; ended early by the CAP batch sent 11 Nov 15:55:03 UTC (it had run to 18:00); gusts to 90 km/h, up to 110 km/h in the most exposed places",
+      "url": "https://api.ipma.pt/open-data/forecast/warnings/warnings_www.json"
+    },
+    {
+      "district": "Lisboa",
+      "kind": "rain",
+      "level": "orange",
+      "from": "2026-11-11T00:00Z",
+      "to": "2026-11-11T09:00Z",
+      "source": "IPMA warning message (CAP) via MeteoAlarm Portugal feed, sent 10 Nov 21:23 UTC",
+      "url": "https://feeds.meteoalarm.org/api/v1/warnings/feeds-portugal"
+    },
+    {
+      "district": "Lisboa",
+      "kind": "rain",
+      "level": "red",
+      "from": "2026-11-11T12:00Z",
+      "to": "2026-11-11T18:00Z",
+      "source": "IPMA warning message (CAP) via MeteoAlarm Portugal feed, sent 10 Nov 16:30:01 UTC (first version)",
+      "url": "https://feeds.meteoalarm.org/api/v1/warnings/feeds-portugal"
+    },
+    {
+      "district": "Lisboa",
+      "kind": "rain",
+      "level": "red",
+      "from": "2026-11-11T09:00Z",
+      "to": "2026-11-11T15:00Z",
+      "source": "IPMA warning message (CAP) via MeteoAlarm Portugal feed, moved earlier by the message sent 10 Nov 21:23 UTC; shortened to end at 15:00 by the batch sent 11 Nov 12:18 UTC",
+      "url": "https://feeds.meteoalarm.org/api/v1/warnings/feeds-portugal"
+    },
+    {
+      "district": "Lisboa",
+      "kind": "rain",
+      "level": "yellow",
+      "from": "2026-11-11T15:00Z",
+      "to": "2026-11-11T18:00Z",
+      "source": "IPMA warnings open data and CAP messages",
+      "url": "https://api.ipma.pt/open-data/forecast/warnings/warnings_www.json"
+    },
+    {
+      "district": "Lisboa",
+      "kind": "rough sea",
+      "level": "orange",
+      "from": "2026-11-11T12:00Z",
+      "to": "2026-11-11T21:00Z",
+      "source": "IPMA warning message (CAP) via MeteoAlarm Portugal feed, sent 10 Nov 12:09:08 UTC; waves from the south-west of 5 to 7 m, up to 13 m maximum",
+      "url": "https://feeds.meteoalarm.org/api/v1/warnings/feeds-portugal"
+    },
+    {
+      "district": "Lisboa",
+      "kind": "rough sea",
+      "level": "yellow",
+      "from": "2026-11-11T21:00Z",
+      "to": "2026-11-12T03:00Z",
+      "source": "IPMA warnings open data; waves from the south-west of 4 to 5 m. The last IPMA warning for Lisbon in force",
+      "url": "https://api.ipma.pt/open-data/forecast/warnings/warnings_www.json"
+    },
+    {
+      "district": "Faro",
+      "kind": "rain",
+      "level": "red",
+      "from": "2026-11-11T12:19Z",
+      "to": "2026-11-11T15:56Z",
+      "source": "IPMA CAP batch sent 11 Nov 12:18:03 UTC (rain stays red); lowered to yellow 15:56 to 18:00 by the batch sent 15:55:03",
+      "url": "https://feeds.meteoalarm.org/api/v1/warnings/feeds-portugal"
+    },
+    {
+      "district": "Faro",
+      "kind": "wind",
+      "level": "red",
+      "from": "2026-11-11 (start not stated in the record)",
+      "to": "2026-11-11T15:56Z",
+      "source": "IPMA CAP message sent 10 Nov 07:18 UTC, as the record gives it; originally to 21:00, lowered to orange 15:56 to 18:00 by the batch sent 11 Nov 15:55:03",
+      "url": "https://feeds.meteoalarm.org/api/v1/warnings/feeds-portugal"
+    },
+    {
+      "district": "Setúbal, Santarém",
+      "kind": "rain",
+      "level": "red",
+      "from": "2026-11-11 (see source)",
+      "to": "2026-11-11T18:00Z",
+      "source": "IPMA CAP, as stated in the record at 12:34 UTC on 11 Nov (red rain stood in Lisboa, Setúbal, Santarém and Faro); Santarém lowered to yellow by the batch sent 15:05:38",
+      "url": "https://feeds.meteoalarm.org/api/v1/warnings/feeds-portugal"
+    },
+    {
+      "district": "Lisboa, Setúbal, Beja",
+      "kind": "wind",
+      "level": "red",
+      "from": "2026-11-11T12:00Z",
+      "to": "2026-11-11T21:00Z",
+      "source": "Red wind lowered to orange 09:00 to 21:00 for these three districts by the 11 Nov 07:16:30 UTC batch (11 messages); Leiria, Santarém, Portalegre and Évora lowered from red to yellow",
+      "url": "https://feeds.meteoalarm.org/api/v1/warnings/feeds-portugal"
+    },
+    {
+      "district": "Madeira, mountain regions",
+      "kind": "wind",
+      "level": "orange",
+      "from": "2026-11-11T06:00Z",
+      "to": "2026-11-11T12:00Z",
+      "source": "IPMA warning text \"Rajadas até 130 km/h\"; a red warning between this and a Tuesday-night orange one said 140 km/h (record, read 11 Nov 06:42 UTC)",
+      "url": "https://api.ipma.pt/open-data/forecast/warnings/warnings_www.json"
+    }
+  ],
+  "timeline": [
+    {
+      "at": "2026-11-09T13:17Z",
+      "text": "IPMA communiqué no. 1 names the low CHARLES and says orange warnings will be issued for the mainland, with an upgrade not ruled out.",
+      "label": "fact",
+      "source": "IPMA communiqués",
+      "url": "https://www.ipma.pt/pt/otempo/comunicados/"
+    },
+    {
+      "at": "2026-11-09T20:30Z",
+      "text": "ANEPC publishes Aviso 21 on Charles: gusts to 120 km/h, avoid unnecessary travel. This is civil protection's notice, not IPMA's.",
+      "label": "fact",
+      "source": "ANEPC",
+      "url": "https://prociv.gov.pt/pt/avisos-a-populacao/aviso-21-depressao-charles-agravamento-da-situacao-meteorologica-chuva-e-vento-forte-medidas-preventivas/"
+    },
+    {
+      "at": "2026-11-10T07:18Z",
+      "text": "IPMA sends the red wind warning for Lisbon, Wednesday 12:00 to 21:00. The press had it from 08:05 and gave 08:31 as the time; the CAP message is the issue time.",
+      "label": "fact",
+      "source": "IPMA CAP via MeteoAlarm",
+      "url": "https://feeds.meteoalarm.org/api/v1/warnings/feeds-portugal"
+    },
+    {
+      "at": "2026-11-10T09:17Z",
+      "text": "The Interior Minister announces at ANEPC's press conference that the government will declare an alert situation; schools and non-essential services close. The minute is not established (09:14 is the earliest entry).",
+      "label": "evidence",
+      "source": "Observador live blog",
+      "url": "https://observador.pt/liveblogs/manifestantes-detidos-no-porto-pronunciam-se-sobre-suspensao-provisoria-do-processo/"
+    },
+    {
+      "at": "2026-11-10T12:10Z",
+      "text": "The government's page declares an alert situation for the whole mainland on Wednesday, 00:00 to 23:59: schools and non-essential public services closed, outdoor events suspended.",
+      "label": "fact",
+      "source": "portugal.gov.pt",
+      "url": "https://portugal.gov.pt/gc25/comunicacao/noticias/governo-declara-situacao-de-alerta-em-todo-o-territorio-continental-1"
+    },
+    {
+      "at": "2026-11-10T16:30Z",
+      "text": "IPMA sends the message that makes Lisbon's rain warning red, Wednesday 12:00 to 18:00 (CAP sent 16:30:01; the open data showed it between 16:52 and 17:42).",
+      "label": "fact",
+      "source": "IPMA CAP via MeteoAlarm",
+      "url": "https://feeds.meteoalarm.org/api/v1/warnings/feeds-portugal"
+    },
+    {
+      "at": "2026-11-10T17:07Z",
+      "text": "IPMA communiqué no. 2: worse weather from early Wednesday morning; centre most likely to pass between Sines and Cabo Carvoeiro; gusts of 100 to 120 km/h, locally 140; high uncertainty in track and strength.",
+      "label": "fact",
+      "source": "IPMA communiqués",
+      "url": "https://www.ipma.pt/pt/otempo/comunicados/"
+    },
+    {
+      "at": "2026-11-10T17:53Z",
+      "text": "The government recommends that Web Summit be suspended on Wednesday; the decision rests with the organisers.",
+      "label": "evidence",
+      "source": "Jornal de Negócios live page",
+      "url": "https://www.jornaldenegocios.pt/economia/detalhe/fiquem-em-casa-todos-os-que-puderem-escolas-e-servicos-publicos-encerrados-amanha-siga-ao-minuto"
+    },
+    {
+      "at": "2026-11-10T19:09Z",
+      "text": "Web Summit's own page says Day 2 (Wednesday 11 November) will not take place and that it aims to proceed with Day 3 as planned. The press reported it from about 19:41.",
+      "label": "fact",
+      "source": "Web Summit",
+      "url": "https://websummit.com/blog/web-summit/important-event-update-2026/"
+    },
+    {
+      "at": "2026-11-10T21:23Z",
+      "text": "IPMA sends updates moving Lisbon's red rain earlier to Wednesday 09:00 to 18:00 and orange rain to 00:00 to 09:00. The open data showed it only from 23:51, at least 2 hours later.",
+      "label": "fact",
+      "source": "IPMA CAP via MeteoAlarm",
+      "url": "https://feeds.meteoalarm.org/api/v1/warnings/feeds-portugal"
+    },
+    {
+      "at": "2026-11-11T02:28Z",
+      "text": "The legal text of the alert situation is read at source: Despacho n.º 13773-A/2026, in force 00:00 to 23:59 on 11 November. It suspends outdoor events and does not mention Web Summit.",
+      "label": "fact",
+      "source": "Diário da República",
+      "url": "https://diariodarepublica.pt/dr/detalhe/despacho/13773-a-2026-1193823993"
+    },
+    {
+      "at": "2026-11-11T02:30Z",
+      "text": "Madeira airport observes wind of 67 km/h gusting 98 km/h, the highest gust in the previous 30 hours of its reports.",
+      "label": "fact",
+      "source": "METAR LPMA via NOAA Aviation Weather",
+      "url": "https://aviationweather.gov/api/data/metar?ids=LPMA&hours=30&format=json"
+    },
+    {
+      "at": "2026-11-11T07:16Z",
+      "text": "IPMA lowers wind warnings across the mainland (11 messages): red to orange, 09:00 to 21:00, for Lisboa, Setúbal and Beja. The open data still showed red until between 08:22 and 08:43.",
+      "label": "fact",
+      "source": "IPMA CAP via MeteoAlarm",
+      "url": "https://feeds.meteoalarm.org/api/v1/warnings/feeds-portugal"
+    },
+    {
+      "at": "2026-11-11T11:00Z",
+      "text": "ANA's figures at 11:00: Lisbon 288 of 565 movements cancelled in advance by airlines, with 22 more cancelled by 11:00; Madeira 20 of 80; Faro 14 of 62; Porto 12 of 214.",
+      "label": "fact",
+      "source": "ANA newsroom, as recorded in the Storm Charles timeline (ANA page address not given there)",
+      "url": "https://storm-charles.promptugal.news/incidents/2026-11-10-storm-charles/timeline.md"
+    },
+    {
+      "at": "2026-11-11T12:16Z",
+      "text": "IPMA communiqué no. 3: Charles passed north of Madeira and split into two low-pressure cores, so wind will be weaker than forecast the day before; rain still persistent and at times heavy; warnings adjusted.",
+      "label": "fact",
+      "source": "IPMA communiqués",
+      "url": "https://www.ipma.pt/pt/otempo/comunicados/"
+    },
+    {
+      "at": "2026-11-11T14:00Z",
+      "text": "Lisbon airport observes south wind of 54 km/h gusting 74 km/h with heavy rain, the strongest gust there in the record of the storm.",
+      "label": "fact",
+      "source": "METAR LPPT via NOAA Aviation Weather",
+      "url": "https://aviationweather.gov/api/data/metar?ids=LPPT&hours=30&format=json"
+    },
+    {
+      "at": "2026-11-11T15:55Z",
+      "text": "IPMA sends a batch of 14 messages: Lisbon's orange wind ends early, Faro's red rain is lowered to yellow and its red wind to orange. No red warning remains on the mainland.",
+      "label": "fact",
+      "source": "IPMA CAP via MeteoAlarm",
+      "url": "https://feeds.meteoalarm.org/api/v1/warnings/feeds-portugal"
+    },
+    {
+      "at": "2026-11-11T19:00Z",
+      "text": "ANEPC's briefing, as relayed by CNN Portugal: 1,630 occurrences on the mainland since midnight, 781 of them floods; one person assisted, four removed from their homes; described as much less serious than forecast.",
+      "label": "evidence",
+      "source": "CNN Portugal live page",
+      "url": "https://cnnportugal.iol.pt/aominuto/6af2d07dd34e5a653d7338e2"
+    },
+    {
+      "at": "2026-11-11T20:51Z",
+      "text": "An IPMA meteorologist, quoted by SIC Notícias with Lusa, gives the day's strongest gust as 123 km/h at Fóia, and 104 km/h at Cabo da Roca. No times given.",
+      "label": "evidence",
+      "source": "SIC Notícias on SAPO, with Lusa",
+      "url": "https://www.sapo.pt/artigo/vento-chegou-aos-123km-h-ipma-regista-maior-rajada-no-algarve-6af4d654faafdbf5cef748de"
+    },
+    {
+      "at": "2026-11-11T21:00Z",
+      "text": "Lisbon's orange sea warning ends. Only a yellow sea warning remains for Lisbon, to 03:00 on Thursday. The alert situation still runs to 23:59.",
+      "label": "fact",
+      "source": "IPMA CAP via MeteoAlarm",
+      "url": "https://feeds.meteoalarm.org/api/v1/warnings/feeds-portugal"
+    },
+    {
+      "at": "2026-11-11T21:36Z",
+      "text": "The Prime Minister says the conditions are met to end the alert situation and that the government's crisis centre will be stood down; CNN Portugal's live page has the alert not being extended beyond Wednesday. The government's own act was not read.",
+      "label": "evidence",
+      "source": "Jornal Económico with Lusa",
+      "url": "https://jornaleconomico.sapo.pt/noticias/governo-termina-com-situacao-de-alerta-montenegro-diz-que-pais-estava-preparado-para-a-tempestade/"
+    },
+    {
+      "at": "2026-11-12T03:00Z",
+      "text": "Lisbon's last IPMA warning, the yellow sea warning, ends. Not an all-clear: no warning is not the same as no risk.",
+      "label": "fact",
+      "source": "IPMA warnings open data",
+      "url": "https://api.ipma.pt/open-data/forecast/warnings/warnings_www.json"
+    },
+    {
+      "at": "2026-11-12T09:23Z",
+      "text": "Web Summit posts that Wednesday was cancelled and that Thursday is its biggest day of content and meetups.",
+      "label": "fact",
+      "source": "Web Summit on Bluesky",
+      "url": "https://bsky.app/profile/websummit.bsky.social/post/3n245iu57wk2i"
+    }
+  ],
+  "decisions": [
+    {
+      "who": "ANEPC",
+      "what": "Sent an SMS warning to the population about strong wind and persistent rain on Wednesday 11 November (free, no sign-up).",
+      "at": "2026-11-10",
+      "source": "ANEPC news item dated 10.11.2026",
+      "url": "https://prociv.gov.pt/pt/noticias/depressao-charles-anepc-avisa-populacao-por-sms/"
+    },
+    {
+      "who": "the government",
+      "what": "Declared an alert situation for the whole mainland, 00:00 to 23:59 on 11 November; schools and non-essential public services closed; outdoor events suspended.",
+      "at": "announced about 2026-11-10T09:17Z; page timed 12:10Z",
+      "source": "portugal.gov.pt; legal text Despacho n.º 13773-A/2026",
+      "url": "https://portugal.gov.pt/gc25/comunicacao/noticias/governo-declara-situacao-de-alerta-em-todo-o-territorio-continental-1"
+    },
+    {
+      "who": "the government",
+      "what": "Recommended that Web Summit be suspended on Wednesday (press report; the alert's legal text does not mention Web Summit).",
+      "at": "2026-11-10T17:53Z",
+      "source": "Jornal de Negócios live page",
+      "url": "https://www.jornaldenegocios.pt/economia/detalhe/fiquem-em-casa-todos-os-que-puderem-escolas-e-servicos-publicos-encerrados-amanha-siga-ao-minuto"
+    },
+    {
+      "who": "Web Summit",
+      "what": "Day 2 (Wednesday 11 November) did not take place; Day 3 aimed to go ahead as planned; those affected to be contacted directly.",
+      "at": "2026-11-10T19:09Z",
+      "source": "Web Summit, \"Important event update\"",
+      "url": "https://websummit.com/blog/web-summit/important-event-update-2026/"
+    },
+    {
+      "who": "IPMA",
+      "what": "Lowered wind warnings for Lisbon, Setúbal and Beja from red to orange (07:16 UTC), then ended the last red warnings on the mainland (15:55 UTC).",
+      "at": "2026-11-11T07:16Z and 2026-11-11T15:55Z",
+      "source": "IPMA CAP via MeteoAlarm",
+      "url": "https://feeds.meteoalarm.org/api/v1/warnings/feeds-portugal"
+    },
+    {
+      "who": "CP",
+      "what": "Suppressed its Lisbon urban trains between Campolide and Alcântara Terra, and four Intercidades over the 25 de Abril bridge, in the most critical hours; refund or free exchange for long-distance and regional tickets (the record paraphrases the notice; page address not given there).",
+      "at": "2026-11-11 (notice updated 13:30Z)",
+      "source": "CP notice on bad weather, 10 to 11 November, as recorded in the Storm Charles timeline",
+      "url": "https://storm-charles.promptugal.news/incidents/2026-11-10-storm-charles/timeline.md"
+    },
+    {
+      "who": "the government",
+      "what": "The Prime Minister said the conditions were met to end the alert situation; it was not extended beyond 23:59 on Wednesday (press report; no extension found in the Diário da República at 23:35 by the record).",
+      "at": "2026-11-11T21:36Z",
+      "source": "Jornal Económico with Lusa",
+      "url": "https://jornaleconomico.sapo.pt/noticias/governo-termina-com-situacao-de-alerta-montenegro-diz-que-pais-estava-preparado-para-a-tempestade/"
+    }
+  ],
+  "lessons": [
+    "Our analysis: warnings changed in both directions on the day. IPMA lowered Lisbon's red wind to orange at 07:16 and ended the last reds at 15:55. Read the time of IPMA's last update on its own warnings page, not a summary of it. Source: the record's timeline rows of 11 Nov 07:16 and 15:55.",
+    "Our analysis: copies lag. IPMA's open-data file showed changes 66 to 87 minutes (07:16 change) and about 2 hours 28 minutes (21:23 change) after IPMA sent them, and a Lusa report at about 17:00 still had Faro red after IPMA had lowered it at 15:55. Check IPMA directly. Source: the record's warnings history and timeline rows of 11 Nov 17:44.",
+    "Our analysis: some decisions were published where few were looking. Web Summit's notice went up at 19:09 under its blog section, and the press reported it from about 19:41. For an event, a venue or a school, follow that body's own official channels as well as the news. Source: the record's decisions page.",
+    "Our analysis: a warning is for a district and a time window, and the impact moved. The record's lead-time table puts the red wind about 28.7 hours ahead of its start, yet Lisbon airport's peak gust (74 km/h) stayed below the orange threshold used that afternoon, while the strongest reported gust was in the Algarve. Follow the warning for your own district and what civil protection asks, not a forecast track. Source: the record's weather data and timeline."
+  ],
+  "algarve": "Faro district kept the highest level longest. At 15:26 UTC on 11 November the only red warnings left on the mainland were Faro's: rain to 18:00 and wind to 21:00. IPMA's batch sent at 15:55 lowered them (rain to yellow, wind to orange, 15:56 to 18:00), and Faro's orange sea warning ran to 21:00 (IPMA CAP via MeteoAlarm). The strongest gust reported for the day was 123 km/h at Fóia in the Serra de Monchique, as an IPMA meteorologist told SIC Notícias with Lusa (evidence: press, no time given). ANEPC's 19:00 briefing, as relayed by CNN Portugal, put most of the 1,630 mainland occurrences in Greater Lisbon, the Setúbal Peninsula and the Algarve (evidence). ANA cancelled 14 of 62 Faro movements in advance (situation at 11:00). On 12 November IPMA issued a yellow sea warning for Faro, Setúbal and Beja, 10:25 Thursday to 03:00 Friday (CAP sent 10:24:25). Sources: https://feeds.meteoalarm.org/api/v1/warnings/feeds-portugal, https://www.sapo.pt/artigo/vento-chegou-aos-123km-h-ipma-regista-maior-rajada-no-algarve-6af4d654faafdbf5cef748de, https://cnnportugal.iol.pt/aominuto/6af2d07dd34e5a653d7338e2, read by the Storm Charles record's agents on 11 and 12 November 2026.",
+  "sources": [
+    {
+      "name": "IPMA open data",
+      "url": "https://api.ipma.pt/open-data/"
+    },
+    {
+      "name": "IPMA warnings open data (warnings_www.json)",
+      "url": "https://api.ipma.pt/open-data/forecast/warnings/warnings_www.json"
+    },
+    {
+      "name": "IPMA warnings as CAP messages via MeteoAlarm Portugal feed",
+      "url": "https://feeds.meteoalarm.org/api/v1/warnings/feeds-portugal"
+    },
+    {
+      "name": "IPMA communiqués",
+      "url": "https://www.ipma.pt/pt/otempo/comunicados/"
+    },
+    {
+      "name": "IPMA hourly station observations",
+      "url": "https://api.ipma.pt/open-data/observation/meteorology/stations/observations.json"
+    },
+    {
+      "name": "METAR LPPT via NOAA Aviation Weather",
+      "url": "https://aviationweather.gov/api/data/metar?ids=LPPT&hours=30&format=json"
+    },
+    {
+      "name": "METAR LPMA via NOAA Aviation Weather",
+      "url": "https://aviationweather.gov/api/data/metar?ids=LPMA&hours=30&format=json"
+    },
+    {
+      "name": "ANEPC, Aviso 21",
+      "url": "https://prociv.gov.pt/pt/avisos-a-populacao/aviso-21-depressao-charles-agravamento-da-situacao-meteorologica-chuva-e-vento-forte-medidas-preventivas/"
+    },
+    {
+      "name": "ANEPC, SMS warning news item",
+      "url": "https://prociv.gov.pt/pt/noticias/depressao-charles-anepc-avisa-populacao-por-sms/"
+    },
+    {
+      "name": "Government of Portugal, alert situation",
+      "url": "https://portugal.gov.pt/gc25/comunicacao/noticias/governo-declara-situacao-de-alerta-em-todo-o-territorio-continental-1"
+    },
+    {
+      "name": "Diário da República, Despacho n.º 13773-A/2026",
+      "url": "https://diariodarepublica.pt/dr/detalhe/despacho/13773-a-2026-1193823993"
+    },
+    {
+      "name": "Web Summit, Important event update",
+      "url": "https://websummit.com/blog/web-summit/important-event-update-2026/"
+    },
+    {
+      "name": "CNN Portugal live page",
+      "url": "https://cnnportugal.iol.pt/aominuto/6af2d07dd34e5a653d7338e2"
+    },
+    {
+      "name": "SIC Notícias on SAPO (with Lusa)",
+      "url": "https://www.sapo.pt/artigo/vento-chegou-aos-123km-h-ipma-regista-maior-rajada-no-algarve-6af4d654faafdbf5cef748de"
+    },
+    {
+      "name": "Storm Charles archive: timeline",
+      "url": "https://storm-charles.promptugal.news/incidents/2026-11-10-storm-charles/timeline.md"
+    },
+    {
+      "name": "Storm Charles archive site",
+      "url": "https://storm-charles.promptugal.news/"
+    }
+  ]
+}
