@@ -1,0 +1,9 @@
+{
+  "role": "weather@PrompTugal.dinis",
+  "state": "first version delivered; stopped",
+  "updated": "2026-11-17",
+  "debrief": "board/team/weather/debriefs/2026-11-17-first-version.md",
+  "done": ["front page", "map of warnings and fire risk", "17 place pages and the region page", "places index with district capitals", "Storm Charles archive", "what to do", "about", "three front-page designs at /design/", "markdown twins, llms.txt, sitemap"],
+  "next": ["read data.promptugal.news's APIs when published", "district capital pages", "an hourly rebuild", "Dinis's design choice applied to /"],
+  "asks": ["Dinis: choose a front page at /design/ (A, B or C)", "Dinis: allow the session key step (pki-agent keygen) or say how this team signs", "Dinis: may CI rebuild the site on a schedule so the data stays fresh?", "Dinis: Agent trailer as weather@AgentiCCells.dinis (what the CI check accepts) or change the check to accept @PrompTugal."]
+}
