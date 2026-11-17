@@ -225,3 +225,7 @@ __marimo__/
 *.pem
 # build output
 _site/
+
+# local credentials and SG/Send state: never committed (Dinis, 2026-11-17)
+.credentials/
+.sg-send/
