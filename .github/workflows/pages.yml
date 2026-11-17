@@ -1,0 +1,92 @@
+name: Pages
+# From the site repositories made by sites@AgentiCCells.dinis (2026-11-16). In the
+# template itself (.factory-template exists) nothing is deployed: it is built,
+# checked and versioned only. A seeded site deploys on every push to dev.
+on:
+  push:
+    branches: [dev]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: pages
+  cancel-in-progress: false
+env:
+  # Major and minor are set here by a person. The patch number is set by this workflow only:
+  # the first release is v0.1.0, and each later push to dev adds one.
+  VERSION_BASE: '0.1'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+      deploy: ${{ steps.mode.outputs.deploy }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: No release during a hold
+        run: if [ -e board/HOLD.md ]; then echo "board/HOLD.md exists" >&2; exit 1; fi
+      - id: version
+        name: Work out the next version from the tags
+        run: |
+          last=$(git tag --list "v${VERSION_BASE}.*" | sed "s/^v${VERSION_BASE}\.//" | grep -E '^[0-9]+$' | sort -n | tail -1 || true)
+          if [ -z "$last" ]; then next=0; else next=$((last + 1)); fi
+          echo "version=v${VERSION_BASE}.${next}" >> "$GITHUB_OUTPUT"
+          echo "Version: v${VERSION_BASE}.${next}"
+      - id: mode
+        name: Deploy unless this is the template itself
+        run: if [ -e .factory-template ]; then echo deploy=false >> "$GITHUB_OUTPUT"; else echo deploy=true >> "$GITHUB_OUTPUT"; fi
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Every commit since the last release carries an Agent trailer
+        # From the last release tag, not github.event.before: GitHub drops a pending run when a
+        # newer one queues, and the surviving run's "before" is the dropped push's head, so the
+        # dropped push's commits were never checked (specialist.code@ finding 3b).
+        env:
+          BEFORE: ${{ github.event.before }}
+          AFTER: ${{ github.sha }}
+        run: |
+          last=$(git describe --tags --abbrev=0 --match "v${VERSION_BASE}.*" "$AFTER" 2>/dev/null || true)
+          node scripts/check-commits.mjs "${last:-$BEFORE}" "$AFTER"
+      - run: node scripts/build.mjs
+        env:
+          SITE_VERSION: ${{ steps.version.outputs.version }}
+      - run: node scripts/validate.mjs
+      - name: Leak scan (tracked files and the built site)
+        run: node scripts/leak-scan.mjs
+      - if: steps.mode.outputs.deploy == 'true'
+        uses: actions/configure-pages@v5
+      - if: steps.mode.outputs.deploy == 'true'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+  deploy:
+    needs: build
+    if: needs.build.outputs.deploy == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
+  tag:
+    needs: [build, deploy]
+    if: ${{ always() && needs.build.result == 'success' && (needs.deploy.result == 'success' || needs.deploy.result == 'skipped') }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Tag the released commit
+        env:
+          VERSION: ${{ needs.build.outputs.version }}
+        run: |
+          git tag "$VERSION" "$GITHUB_SHA"
+          git push origin "$VERSION"
