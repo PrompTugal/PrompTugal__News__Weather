@@ -49,6 +49,15 @@ function capital(p, api) {
   c.level = active.reduce((lv, a) => (LEVEL[a.level] ?? 0) > (LEVEL[lv] ?? 0) ? a.level : lv, 'green');
   const coast = sea?.coasts?.find(x => plain(x.name).replace(/, costa$/, '') === plain(p.name));
   if (coast) c.sea = { coast: coast.name, days: coast.days, page: sea.provenance?.page, source: sea.provenance?.source, read_at: sea.read_at };
+  // the nearest IPMA station that reported in the latest hour, within 25 km
+  const ob = api['ipma-observations'];
+  if (ob?.stations) {
+    const [lon, lat] = p.at, k = Math.cos(lat * Math.PI / 180);
+    const near = ob.stations.filter(x => x.reading && x.reading.temp_c != null)
+      .map(x => ({ x, km: Math.round(Math.hypot((x.lat - lat) * 111.2, (x.lon - lon) * 111.2 * k) * 10) / 10 }))
+      .sort((a, b) => a.km - b.km)[0];
+    if (near && near.km <= 25) c.station = { name: near.x.name, id: near.x.id, km: near.km, at: ob.hour_utc, reading: near.x.reading, page: ob.provenance?.page, source: ob.provenance?.source, read_at: ob.read_at };
+  }
   c.read_at = cf.read_at;
   return c;
 }

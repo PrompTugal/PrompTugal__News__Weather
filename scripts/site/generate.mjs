@@ -82,8 +82,8 @@ ${portugalSection()}
 
 // ---------------------------------------------------------------- Portugal: the district capitals (data.promptugal.news's API)
 const capsLive = () => D.capitals.filter(c => c.live && !c.algarve);
-const capRow = c => { const d0 = c.forecast?.days?.[0] || {}, f0 = c.fire_risk?.days?.[0] || {}; return `<tr><th scope="row"><a href="/places/${c.id}/">${esc(c.name)}</a></th><td><span class="chip ${warnClass(c.level)}">${esc(c.level)}</span> ${(c.warnings?.active || []).length ? `<span class="src">${[...new Set(c.warnings.active.map(a => a.type))].map(esc).join(', ')}</span>` : ''}</td><td class="n">${show(d0.t_max_c, '°')} / ${show(d0.t_min_c, '°')}</td><td class="n">${d0.rain_prob_pct ?? '?'}%</td><td>${esc(typeOf(d0.weather_type))}</td><td><span class="chip ${fireClass(f0.level)}">${esc(f0.level || '?')}</span></td></tr>`; };
-const capMd = c => { const d0 = c.forecast?.days?.[0] || {}, f0 = c.fire_risk?.days?.[0] || {}; return `| [${c.name}](/places/${c.id}/) | ${c.level}${(c.warnings?.active || []).length ? ` (${[...new Set(c.warnings.active.map(a => a.type))].join(', ')})` : ''} | ${showMd(d0.t_max_c, '°C')} / ${showMd(d0.t_min_c, '°C')} | ${d0.rain_prob_pct ?? '?'}% | ${typeOf(d0.weather_type)} | ${f0.level || '?'} |`; };
+const capRow = c => { const d0 = c.forecast?.days?.[0] || {}, f0 = c.fire_risk?.days?.[0] || {}; return `<tr><th scope="row"><a href="/places/${c.id}/">${esc(c.name)}</a></th><td class="n">${c.station ? show(c.station.reading.temp_c, '°') : '<span class="na">none near</span>'}</td><td><span class="chip ${warnClass(c.level)}">${esc(c.level)}</span> ${(c.warnings?.active || []).length ? `<span class="src">${[...new Set(c.warnings.active.map(a => a.type))].map(esc).join(', ')}</span>` : ''}</td><td class="n">${show(d0.t_max_c, '°')} / ${show(d0.t_min_c, '°')}</td><td class="n">${d0.rain_prob_pct ?? '?'}%</td><td>${esc(typeOf(d0.weather_type))}</td><td><span class="chip ${fireClass(f0.level)}">${esc(f0.level || '?')}</span></td></tr>`; };
+const capMd = c => { const d0 = c.forecast?.days?.[0] || {}, f0 = c.fire_risk?.days?.[0] || {}; return `| [${c.name}](/places/${c.id}/) | ${c.station ? showMd(c.station.reading.temp_c, '°C') : 'none near'} | ${c.level}${(c.warnings?.active || []).length ? ` (${[...new Set(c.warnings.active.map(a => a.type))].join(', ')})` : ''} | ${showMd(d0.t_max_c, '°C')} / ${showMd(d0.t_min_c, '°C')} | ${d0.rain_prob_pct ?? '?'}% | ${typeOf(d0.weather_type)} | ${f0.level || '?'} |`; };
 function portugalSection() {
   const caps = capsLive(); if (!caps.length) return '';
   const worst = caps.slice().sort((a, b) => (LEVEL[b.level] ?? 0) - (LEVEL[a.level] ?? 0));
@@ -92,13 +92,13 @@ function portugalSection() {
   <h2>Portugal: the district capitals today</h2>
   <p>${n('red') ? `<strong>${n('red')} districts at red.</strong> ` : ''}${n('orange') ? `<strong>${n('orange')} at orange</strong>, ` : ''}${n('yellow')} at yellow, ${n('green')} at green, by each district's highest IPMA warning in force or announced. ${worst[0] && worst[0].level !== 'green' ? `Highest: ${worst.filter(c => c.level === worst[0].level).map(c => `<a href="/places/${c.id}/">${esc(c.district)}</a>`).join(', ')}.` : ''}</p>
   ${freshness(D.api['ipma-warnings']?.read_at)}
-  <div class="table-wrap"><table class="capitals"><thead><tr><th scope="col">Capital</th><th scope="col">District warning</th><th scope="col">Today high / low</th><th scope="col">Rain</th><th scope="col">Weather</th><th scope="col">Fire risk</th></tr></thead><tbody>${caps.map(capRow).join('')}</tbody></table></div>
-  <p class="src">Warnings: <a href="${esc(D.api['ipma-warnings']?.provenance?.page)}">IPMA</a>, by district. Forecasts: IPMA's for each capital. Fire risk: IPMA's for the capital's municipality. All as collected by <a href="https://data.promptugal.news/">data.promptugal.news</a>; sources and times on each capital's page. Faro: see the Algarve above.</p>
+  <div class="table-wrap"><table class="capitals"><thead><tr><th scope="col">Capital</th><th scope="col">Now</th><th scope="col">District warning</th><th scope="col">Today high / low</th><th scope="col">Rain</th><th scope="col">Weather</th><th scope="col">Fire risk</th></tr></thead><tbody>${caps.map(capRow).join('')}</tbody></table></div>
+  <p class="src">Warnings: <a href="${esc(D.api['ipma-warnings']?.provenance?.page)}">IPMA</a>, by district. Now: the nearest IPMA station that reported in the latest hour (within 25 km). Forecasts: IPMA's for each capital. Fire risk: IPMA's for the capital's municipality. All as collected by <a href="https://data.promptugal.news/">data.promptugal.news</a>; sources and times on each capital's page. Faro: see the Algarve above.</p>
 </section>`;
 }
 function portugalMd() {
   const caps = capsLive(); if (!caps.length) return '';
-  return `## Portugal: the district capitals today\n\n| Capital | District warning | Today high / low | Rain | Weather | Fire risk |\n|---|---|---|---|---|---|\n${caps.map(capMd).join('\n')}\n\nWarnings, forecasts and fire risk: IPMA, as collected by data.promptugal.news. Warnings read ${when(D.api['ipma-warnings']?.read_at)}.\n`;
+  return `## Portugal: the district capitals today\n\n| Capital | Now | District warning | Today high / low | Rain | Weather | Fire risk |\n|---|---|---|---|---|---|---|\n${caps.map(capMd).join('\n')}\n\nWarnings, forecasts and fire risk: IPMA, as collected by data.promptugal.news. Warnings read ${when(D.api['ipma-warnings']?.read_at)}.\n`;
 }
 function capitalPage(c) {
   const fc = c.forecast, fr = c.fire_risk, sea = c.sea, s0 = sea?.days?.[0];
@@ -109,11 +109,15 @@ function capitalPage(c) {
 <p class="standfirst">${esc(c.name)}, capital of the ${esc(c.district)} district. IPMA's warnings for the district, its forecast for the city and the fire risk for the municipality, each with its source.</p>
 ${freshness(c.read_at)}
 ${wHtml}
+${c.station ? `<section class="panel"><h2>Now</h2>
+  <p class="big">${show(c.station.reading.temp_c, '°C')}</p>
+  <dl class="kv"><dt>Humidity</dt><dd>${show(c.station.reading.humidity_pct, '%', 0)}</dd><dt>Wind</dt><dd>${c.station.reading.wind_kmh != null ? `${num(c.station.reading.wind_kmh, ' km/h')} from ${WIND_DIR[c.station.reading.wind_dir_id] || '?'}` : '<span class="na">not reported</span>'}</dd><dt>Rain, last hour</dt><dd>${show(c.station.reading.rain_mm, ' mm')}</dd><dt>Pressure</dt><dd>${show(c.station.reading.pressure_hpa, ' hPa')}</dd></dl>
+  <p class="src">IPMA station <strong>${esc(c.station.name)}</strong> (${c.station.km} km away), reading of ${when(c.station.at)}. <a href="${esc(c.station.page)}">IPMA observations</a>.</p></section>` : ''}
 <section class="grid2">
   <div class="panel"><h2>Today</h2>
     <p class="big">${show(fc.days?.[0]?.t_max_c, '°C')}</p>
     <dl class="kv"><dt>Lowest</dt><dd>${show(fc.days?.[0]?.t_min_c, '°C')}</dd><dt>Weather</dt><dd>${esc(typeOf(fc.days?.[0]?.weather_type))}</dd><dt>Chance of rain</dt><dd>${fc.days?.[0]?.rain_prob_pct ?? '?'}%</dd><dt>Wind from</dt><dd>${esc(fc.days?.[0]?.wind_dir || '?')}</dd></dl>
-    <p class="src">IPMA's forecast for ${esc(fc.place)}, updated ${esc(String(fc.updated || '').replace('T', ' '))} (Portugal time). There is no station reading on this page yet.</p></div>
+    <p class="src">IPMA's forecast for ${esc(fc.place)}, updated ${esc(String(fc.updated || '').replace('T', ' '))} (Portugal time). </p></div>
   <div class="panel"><h2>Fire risk</h2>${fr ? `<p>${fr.days.map(fireChip).join(' ')}</p><p class="src">IPMA rural fire risk for the municipality of ${esc(c.name)} (code ${esc(fr.municipality)}). <a href="${esc(fr.page)}">IPMA fire risk</a>. In high fire risk, see <a href="/what-to-do/">what to do</a>.</p>` : '<p class="na">No fire risk value for this municipality in the data.</p>'}</div>
 </section>
 <section class="panel"><h2>Five days</h2>${forecastChart(fc.days, D.types)}
@@ -125,11 +129,12 @@ ${s0 ? `<section class="panel"><h2>Sea</h2><dl class="kv"><dt>Waves</dt><dd>${sh
 <tr><td>Forecast</td><td><a href="${esc(fc.source)}">${esc(fc.source.replace('https://', ''))}</a></td><td>${when(fc.read_at)}</td></tr>
 <tr><td>Warnings</td><td><a href="${esc(w.source)}">${esc(String(w.source).replace('https://', ''))}</a></td><td>${when(w.read_at)}</td></tr>
 ${fr ? `<tr><td>Fire risk</td><td><a href="${esc(fr.source.replace('{0,1,2}', '0'))}">${esc(fr.source.replace('https://', ''))}</a></td><td>${when(fr.read_at)}</td></tr>` : ''}
+${c.station ? `<tr><td>Station</td><td><a href="${esc(c.station.source)}">${esc(String(c.station.source).replace('https://', ''))}</a></td><td>${when(c.station.read_at)}</td></tr>` : ''}
 ${sea ? `<tr><td>Sea</td><td><a href="${esc(String(sea.source).replace('{0,1,2}', '0'))}">${esc(String(sea.source).replace('https://', ''))}</a></td><td>${when(sea.read_at)}</td></tr>` : ''}
 </tbody></table></div><p class="src">Read from IPMA by data.promptugal.news's collectors (code, no model; data@PrompTugal.dinis) and copied here from <a href="https://data.promptugal.news/api/v1/">its API</a> (${esc(D.sync.api_version || '')}, copied ${when(D.sync.synced_at)}).</p></section>`;
   const md = `${c.name}, capital of the ${c.district} district. Read ${when(c.read_at)}.
 
-## Warnings (${w.area})
+${c.station ? `## Now\n\nIPMA station ${c.station.name} (${c.station.km} km away), reading of ${when(c.station.at)}: ${showMd(c.station.reading.temp_c, '°C')}, humidity ${showMd(c.station.reading.humidity_pct, '%', 0)}, rain in the last hour ${showMd(c.station.reading.rain_mm, ' mm')}. Source: ${c.station.source}\n\n` : ''}## Warnings (${w.area})
 
 ${warningsMd(w)}
 

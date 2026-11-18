@@ -1,0 +1,2602 @@
+{
+ "source": "ipma-observations",
+ "title": "IPMA station observations",
+ "read_at": "2026-11-18T10:11:24Z",
+ "provenance": {
+  "source": "https://api.ipma.pt/open-data/observation/meteorology/stations/observations.json",
+  "page": "https://www.ipma.pt/en/otempo/obs.superficie/",
+  "read_at": "2026-11-18T10:11:24Z",
+  "by": "sources/ipma-observations/collect.mjs (code, no model; run by data@PrompTugal.dinis)",
+  "terms": "IPMA: free to copy and use for personal or public use if the use has no profit-making or offensive purpose; always name IPMA as the source."
+ },
+ "about": "The latest hour IPMA published for each of its surface stations. Missing values (IPMA writes -99) are null; a station that sent nothing that hour has reading null. The hour is UTC.",
+ "hour_utc": "2026-11-18T09:00:00Z",
+ "hours_in_feed": 24,
+ "counts": {
+  "stations": 227,
+  "reporting": 124
+ },
+ "stations": [
+  {
+   "id": 1200501,
+   "name": "Flores (Aeródromo)",
+   "lat": 39.45819,
+   "lon": -31.1301,
+   "reading": {
+    "temp_c": 14.2,
+    "humidity_pct": 62,
+    "wind_kmh": 24.8,
+    "wind_dir_id": 8,
+    "rain_mm": 0,
+    "pressure_hpa": 1019,
+    "radiation_kj_m2": 0.6
+   }
+  },
+  {
+   "id": 1200502,
+   "name": "Corvo (Aeródromo)",
+   "lat": 39.67389,
+   "lon": -31.11362,
+   "reading": {
+    "temp_c": 15.1,
+    "humidity_pct": 55,
+    "wind_kmh": 39.2,
+    "wind_dir_id": 8,
+    "rain_mm": 0,
+    "pressure_hpa": 1018.5,
+    "radiation_kj_m2": 3.3
+   }
+  },
+  {
+   "id": 1200504,
+   "name": "Pico (Aeródromo)",
+   "lat": 38.55219,
+   "lon": -28.44137,
+   "reading": {
+    "temp_c": 14.8,
+    "humidity_pct": 88,
+    "wind_kmh": 20.2,
+    "wind_dir_id": 8,
+    "rain_mm": 0,
+    "pressure_hpa": 1018.2,
+    "radiation_kj_m2": 10.4
+   }
+  },
+  {
+   "id": 1200505,
+   "name": "Horta / Aeroporto",
+   "lat": 38.5211,
+   "lon": -28.7128,
+   "reading": {
+    "temp_c": 16.2,
+    "humidity_pct": 76,
+    "wind_kmh": 20.2,
+    "wind_dir_id": 8,
+    "rain_mm": 0,
+    "pressure_hpa": 1017.8,
+    "radiation_kj_m2": null
+   }
+  },
+  {
+   "id": 1200506,
+   "name": "Horta (Obs. Principe Alberto)",
+   "lat": 38.540781,
+   "lon": -28.63225,
+   "reading": {
+    "temp_c": 15.8,
+    "humidity_pct": 78,
+    "wind_kmh": 19.4,
+    "wind_dir_id": 8,
+    "rain_mm": 0,
+    "pressure_hpa": 1018.6,
+    "radiation_kj_m2": 8.9
+   }
+  },
+  {
+   "id": 1200507,
+   "name": "Graciosa (Aeródromo)",
+   "lat": 39.09036,
+   "lon": -28.02852,
+   "reading": {
+    "temp_c": 16.2,
+    "humidity_pct": 72,
+    "wind_kmh": 39.2,
+    "wind_dir_id": 8,
+    "rain_mm": 0,
+    "pressure_hpa": 1017,
+    "radiation_kj_m2": 0
+   }
+  },
+  {
+   "id": 1200510,
+   "name": "São Jorge",
+   "lat": 38.66,
+   "lon": -28.17,
+   "reading": {
+    "temp_c": 15.8,
+    "humidity_pct": 79,
+    "wind_kmh": 14.4,
+    "wind_dir_id": 8,
+    "rain_mm": 0,
+    "pressure_hpa": 1017.8,
+    "radiation_kj_m2": 8.6
+   }
+  },
+  {
+   "id": 1200511,
+   "name": "Angra do Heroísmo",
+   "lat": 38.6659435,
+   "lon": -27.216567,
+   "reading": {
+    "temp_c": 15.4,
+    "humidity_pct": 85,
+    "wind_kmh": 22,
+    "wind_dir_id": 8,
+    "rain_mm": 0,
+    "pressure_hpa": 1016.9,
+    "radiation_kj_m2": 19.4
+   }
+  },
+  {
+   "id": 1200512,
+   "name": "P. Delgada (Aeródromo)",
+   "lat": 37.74414,
+   "lon": -25.6953048,
+   "reading": {
+    "temp_c": 17.3,
+    "humidity_pct": 83,
+    "wind_kmh": 31.3,
+    "wind_dir_id": 7,
+    "rain_mm": 0,
+    "pressure_hpa": 1017.2,
+    "radiation_kj_m2": 63.2
+   }
+  },
+  {
+   "id": 1200515,
+   "name": "Santa Maria (Aeródromo)",
+   "lat": 36.967175,
+   "lon": -25.1679,
+   "reading": null
+  },
+  {
+   "id": 1200521,
+   "name": "Santa Catarina (Aeródromo)",
+   "lat": 32.69688,
+   "lon": -16.77612,
+   "reading": {
+    "temp_c": 21,
+    "humidity_pct": 98,
+    "wind_kmh": 1.1,
+    "wind_dir_id": 2,
+    "rain_mm": 0,
+    "pressure_hpa": 1022,
+    "radiation_kj_m2": 428.2
+   }
+  },
+  {
+   "id": 1200522,
+   "name": "Funchal",
+   "lat": 32.64786,
+   "lon": -16.888,
+   "reading": {
+    "temp_c": 21,
+    "humidity_pct": 72,
+    "wind_kmh": 0,
+    "wind_dir_id": 0,
+    "rain_mm": 0,
+    "pressure_hpa": 1022.1,
+    "radiation_kj_m2": 189.6
+   }
+  },
+  {
+   "id": 1200524,
+   "name": "Porto Santo",
+   "lat": 33.074029,
+   "lon": -16.34868,
+   "reading": {
+    "temp_c": 20.9,
+    "humidity_pct": null,
+    "wind_kmh": 12.2,
+    "wind_dir_id": 7,
+    "rain_mm": 0,
+    "pressure_hpa": 1021.7,
+    "radiation_kj_m2": null
+   }
+  },
+  {
+   "id": 1200531,
+   "name": "Cabo Carvoeiro",
+   "lat": 39.38,
+   "lon": -9.40737778,
+   "reading": {
+    "temp_c": null,
+    "humidity_pct": null,
+    "wind_kmh": 13.3,
+    "wind_dir_id": 5,
+    "rain_mm": 0.2,
+    "pressure_hpa": 1014.6,
+    "radiation_kj_m2": null
+   }
+  },
+  {
+   "id": 1200533,
+   "name": "Sagres",
+   "lat": 37.012835,
+   "lon": -8.949089,
+   "reading": {
+    "temp_c": 19.6,
+    "humidity_pct": 100,
+    "wind_kmh": 15.8,
+    "wind_dir_id": 6,
+    "rain_mm": 0,
+    "pressure_hpa": 1017.9,
+    "radiation_kj_m2": 199.5
+   }
+  },
+  {
+   "id": 1200535,
+   "name": "Lisboa (Geofísico)",
+   "lat": 38.71907778,
+   "lon": -9.14972222,
+   "reading": {
+    "temp_c": 18.5,
+    "humidity_pct": 100,
+    "wind_kmh": null,
+    "wind_dir_id": 0,
+    "rain_mm": null,
+    "pressure_hpa": 1015,
+    "radiation_kj_m2": null
+   }
+  },
+  {
+   "id": 1200541,
+   "name": "Sines",
+   "lat": 37.954504,
+   "lon": -8.838271,
+   "reading": {
+    "temp_c": 19.1,
+    "humidity_pct": 100,
+    "wind_kmh": 23.4,
+    "wind_dir_id": 6,
+    "rain_mm": 0,
+    "pressure_hpa": 1016.4,
+    "radiation_kj_m2": 85.7
+   }
+  },
+  {
+   "id": 1200545,
+   "name": "Porto, Pedras Rubras (Aeródromo)",
+   "lat": 41.233502,
+   "lon": -8.681332,
+   "reading": {
+    "temp_c": 17,
+    "humidity_pct": 96,
+    "wind_kmh": 10.1,
+    "wind_dir_id": 5,
+    "rain_mm": 0.1,
+    "pressure_hpa": 1012.3,
+    "radiation_kj_m2": 277.5
+   }
+  },
+  {
+   "id": 1200548,
+   "name": "Coimbra (Aeródromo)",
+   "lat": 40.15006944,
+   "lon": -8.46669167,
+   "reading": null
+  },
+  {
+   "id": 1200551,
+   "name": "Viana Castelo, Chafé",
+   "lat": 41.648875,
+   "lon": -8.804606,
+   "reading": {
+    "temp_c": 16,
+    "humidity_pct": 100,
+    "wind_kmh": null,
+    "wind_dir_id": 0,
+    "rain_mm": 0,
+    "pressure_hpa": 1011.7,
+    "radiation_kj_m2": null
+   }
+  },
+  {
+   "id": 1200554,
+   "name": "Faro (Aeródromo)",
+   "lat": 37.016579,
+   "lon": -7.971953,
+   "reading": {
+    "temp_c": 20,
+    "humidity_pct": 98,
+    "wind_kmh": 24.1,
+    "wind_dir_id": 7,
+    "rain_mm": 0,
+    "pressure_hpa": 1018,
+    "radiation_kj_m2": 283.6
+   }
+  },
+  {
+   "id": 1200558,
+   "name": "Évora (C.Coordenação)",
+   "lat": 38.53336389,
+   "lon": -7.88338056,
+   "reading": {
+    "temp_c": 18.3,
+    "humidity_pct": null,
+    "wind_kmh": 11.9,
+    "wind_dir_id": 7,
+    "rain_mm": 0.2,
+    "pressure_hpa": 1015.7,
+    "radiation_kj_m2": 229.5
+   }
+  },
+  {
+   "id": 1200559,
+   "name": "Viseu (Aeródromo)",
+   "lat": 40.72645,
+   "lon": -7.887472,
+   "reading": null
+  },
+  {
+   "id": 1200560,
+   "name": "Viseu (C.Coordenação)",
+   "lat": 40.71492222,
+   "lon": -7.89592222,
+   "reading": {
+    "temp_c": 13.2,
+    "humidity_pct": 90,
+    "wind_kmh": 5.8,
+    "wind_dir_id": 5,
+    "rain_mm": 0,
+    "pressure_hpa": 1014.1,
+    "radiation_kj_m2": 300.9
+   }
+  },
+  {
+   "id": 1200562,
+   "name": "Beja",
+   "lat": 38.02493056,
+   "lon": -7.867275,
+   "reading": {
+    "temp_c": 19.1,
+    "humidity_pct": 100,
+    "wind_kmh": 24.5,
+    "wind_dir_id": 7,
+    "rain_mm": 0,
+    "pressure_hpa": 1016.1,
+    "radiation_kj_m2": 228.9
+   }
+  },
+  {
+   "id": 1200567,
+   "name": "Vila Real",
+   "lat": 41.27418611,
+   "lon": -7.7171,
+   "reading": {
+    "temp_c": 13.9,
+    "humidity_pct": 100,
+    "wind_kmh": 11.9,
+    "wind_dir_id": 5,
+    "rain_mm": 0,
+    "pressure_hpa": 1012.4,
+    "radiation_kj_m2": 331
+   }
+  },
+  {
+   "id": 1200568,
+   "name": "Penhas Douradas",
+   "lat": 40.41136667,
+   "lon": -7.55865278,
+   "reading": null
+  },
+  {
+   "id": 1200570,
+   "name": "Castelo Branco",
+   "lat": 39.83339444,
+   "lon": -7.46678889,
+   "reading": {
+    "temp_c": 16.5,
+    "humidity_pct": 100,
+    "wind_kmh": 15.8,
+    "wind_dir_id": 7,
+    "rain_mm": 0.1,
+    "pressure_hpa": 1013,
+    "radiation_kj_m2": 99.8
+   }
+  },
+  {
+   "id": 1200571,
+   "name": "Portalegre",
+   "lat": 39.29546944,
+   "lon": -7.41996944,
+   "reading": {
+    "temp_c": 15,
+    "humidity_pct": 100,
+    "wind_kmh": 19.1,
+    "wind_dir_id": 7,
+    "rain_mm": 0,
+    "pressure_hpa": 1015.3,
+    "radiation_kj_m2": 149
+   }
+  },
+  {
+   "id": 1200575,
+   "name": "Bragança",
+   "lat": 41.80388889,
+   "lon": -6.74283889,
+   "reading": {
+    "temp_c": 12.7,
+    "humidity_pct": 70,
+    "wind_kmh": 10.4,
+    "wind_dir_id": 7,
+    "rain_mm": 0,
+    "pressure_hpa": 1011.9,
+    "radiation_kj_m2": 165.3
+   }
+  },
+  {
+   "id": 1200576,
+   "name": "Bragança (Aeródromo)",
+   "lat": 41.85763611,
+   "lon": -6.70796389,
+   "reading": null
+  },
+  {
+   "id": 1200843,
+   "name": "Évora (Aeródromo)",
+   "lat": 38.5296,
+   "lon": -7.8916,
+   "reading": {
+    "temp_c": 18.2,
+    "humidity_pct": 100,
+    "wind_kmh": 12.6,
+    "wind_dir_id": 6,
+    "rain_mm": 0.6,
+    "pressure_hpa": 1015.5,
+    "radiation_kj_m2": null
+   }
+  },
+  {
+   "id": 1210513,
+   "name": "P. Delgada (Obs. A. Chaves)",
+   "lat": 37.7464,
+   "lon": -25.662283,
+   "reading": {
+    "temp_c": 17.2,
+    "humidity_pct": 78,
+    "wind_kmh": 5,
+    "wind_dir_id": 9,
+    "rain_mm": 0.1,
+    "pressure_hpa": null,
+    "radiation_kj_m2": 46.5
+   }
+  },
+  {
+   "id": 1210517,
+   "name": "Flores / Morro Alto",
+   "lat": 39.4633,
+   "lon": -31.2207,
+   "reading": null
+  },
+  {
+   "id": 1210518,
+   "name": "São Miguel - Pico Santos De Cima",
+   "lat": 37.819,
+   "lon": -25.7512,
+   "reading": null
+  },
+  {
+   "id": 1210520,
+   "name": "Ilhas selvagens",
+   "lat": 30.140595,
+   "lon": -15.869153,
+   "reading": null
+  },
+  {
+   "id": 1210550,
+   "name": "Coruche / Cruz Do Leão",
+   "lat": 39.07101,
+   "lon": -8.4,
+   "reading": {
+    "temp_c": 17.6,
+    "humidity_pct": 100,
+    "wind_kmh": 5.4,
+    "wind_dir_id": 6,
+    "rain_mm": 0,
+    "pressure_hpa": 1015.4,
+    "radiation_kj_m2": null
+   }
+  },
+  {
+   "id": 1210553,
+   "name": "Loulé / Cavalos De Caldeirão",
+   "lat": 37.3042,
+   "lon": -7.9534,
+   "reading": {
+    "temp_c": 17.3,
+    "humidity_pct": 100,
+    "wind_kmh": 31.3,
+    "wind_dir_id": 6,
+    "rain_mm": 0,
+    "pressure_hpa": 1017.7,
+    "radiation_kj_m2": null
+   }
+  },
+  {
+   "id": 1210577,
+   "name": "Odemira, S.Teotónio",
+   "lat": 37.54710833,
+   "lon": -8.72899167,
+   "reading": null
+  },
+  {
+   "id": 1210580,
+   "name": "Lisboa, Relógio",
+   "lat": 38.7618,
+   "lon": -9.1254,
+   "reading": null
+  },
+  {
+   "id": 1210604,
+   "name": "V.N.Cerveira (Aeródromo)",
+   "lat": 41.96673056,
+   "lon": -8.66676111,
+   "reading": {
+    "temp_c": 17.1,
+    "humidity_pct": 83,
+    "wind_kmh": 10.4,
+    "wind_dir_id": 6,
+    "rain_mm": 0,
+    "pressure_hpa": 1011.3,
+    "radiation_kj_m2": 159.7
+   }
+  },
+  {
+   "id": 1210605,
+   "name": "Monção, Valinha",
+   "lat": 42.06669,
+   "lon": -8.383347,
+   "reading": null
+  },
+  {
+   "id": 1210606,
+   "name": "Lamas de Mouro, P.Ribeiro",
+   "lat": 42.03333333,
+   "lon": -8.18333333,
+   "reading": null
+  },
+  {
+   "id": 1210611,
+   "name": "Montalegre",
+   "lat": 41.82276667,
+   "lon": -7.78797778,
+   "reading": null
+  },
+  {
+   "id": 1210612,
+   "name": "Vinhais",
+   "lat": 41.8434,
+   "lon": -7.0034416,
+   "reading": {
+    "temp_c": 11.6,
+    "humidity_pct": 94,
+    "wind_kmh": 10.1,
+    "wind_dir_id": 7,
+    "rain_mm": 0,
+    "pressure_hpa": null,
+    "radiation_kj_m2": null
+   }
+  },
+  {
+   "id": 1210615,
+   "name": "Ponte de Lima",
+   "lat": 41.75013889,
+   "lon": -8.56671389,
+   "reading": null
+  },
+  {
+   "id": 1210616,
+   "name": "Chaves (Aeródromo)",
+   "lat": 41.72516667,
+   "lon": -7.46540833,
+   "reading": null
+  },
+  {
+   "id": 1210619,
+   "name": "Cabril",
+   "lat": 41.71666667,
+   "lon": -8.01666667,
+   "reading": null
+  },
+  {
+   "id": 1210622,
+   "name": "Braga, Merelim",
+   "lat": 41.56678056,
+   "lon": -8.45003056,
+   "reading": null
+  },
+  {
+   "id": 1210625,
+   "name": "Guimarães",
+   "lat": 41.4289,
+   "lon": -8.3178,
+   "reading": {
+    "temp_c": 16.3,
+    "humidity_pct": 93,
+    "wind_kmh": 3.2,
+    "wind_dir_id": 5,
+    "rain_mm": null,
+    "pressure_hpa": 1012.1,
+    "radiation_kj_m2": 276.4
+   }
+  },
+  {
+   "id": 1210630,
+   "name": "Cabeceiras de Basto",
+   "lat": 41.53333333,
+   "lon": -7.96666667,
+   "reading": {
+    "temp_c": 16.2,
+    "humidity_pct": 80,
+    "wind_kmh": 6.1,
+    "wind_dir_id": 6,
+    "rain_mm": 0,
+    "pressure_hpa": null,
+    "radiation_kj_m2": 239.3
+   }
+  },
+  {
+   "id": 1210632,
+   "name": "Mirandela",
+   "lat": 41.51478611,
+   "lon": -7.19083889,
+   "reading": null
+  },
+  {
+   "id": 1210633,
+   "name": "Macedo Cavaleiros, Bagueixe",
+   "lat": 41.56666667,
+   "lon": -6.78333333,
+   "reading": {
+    "temp_c": 12.7,
+    "humidity_pct": 93,
+    "wind_kmh": 13.7,
+    "wind_dir_id": 7,
+    "rain_mm": 0,
+    "pressure_hpa": 1011.5,
+    "radiation_kj_m2": null
+   }
+  },
+  {
+   "id": 1210635,
+   "name": "Miranda do Douro",
+   "lat": 41.51666667,
+   "lon": -6.28333333,
+   "reading": null
+  },
+  {
+   "id": 1210637,
+   "name": "Mogadouro",
+   "lat": 41.33333333,
+   "lon": -6.73333333,
+   "reading": null
+  },
+  {
+   "id": 1210643,
+   "name": "Paços Ferreira",
+   "lat": 41.27365,
+   "lon": -8.38012,
+   "reading": {
+    "temp_c": 14.8,
+    "humidity_pct": 96,
+    "wind_kmh": 7.9,
+    "wind_dir_id": 5,
+    "rain_mm": 0,
+    "pressure_hpa": null,
+    "radiation_kj_m2": null
+   }
+  },
+  {
+   "id": 1210644,
+   "name": "Carrazêda de Ansiães",
+   "lat": 41.23333333,
+   "lon": -7.28333333,
+   "reading": null
+  },
+  {
+   "id": 1210649,
+   "name": "S. Gens",
+   "lat": 41.18445,
+   "lon": -8.64445,
+   "reading": null
+  },
+  {
+   "id": 1210654,
+   "name": "Moncorvo",
+   "lat": 41.18333333,
+   "lon": -7.01666667,
+   "reading": null
+  },
+  {
+   "id": 1210655,
+   "name": "Pinhão, Santa Bárbara",
+   "lat": 41.172775,
+   "lon": -7.5489722,
+   "reading": {
+    "temp_c": 18.3,
+    "humidity_pct": 63,
+    "wind_kmh": 13.3,
+    "wind_dir_id": 8,
+    "rain_mm": 0,
+    "pressure_hpa": null,
+    "radiation_kj_m2": null
+   }
+  },
+  {
+   "id": 1210657,
+   "name": "Luzim",
+   "lat": 41.14585,
+   "lon": -8.2490333,
+   "reading": {
+    "temp_c": 14.7,
+    "humidity_pct": 90,
+    "wind_kmh": 8.3,
+    "wind_dir_id": 5,
+    "rain_mm": 0,
+    "pressure_hpa": null,
+    "radiation_kj_m2": 354.5
+   }
+  },
+  {
+   "id": 1210659,
+   "name": "Espinho/Aeródromo",
+   "lat": 40.97374,
+   "lon": -8.6434,
+   "reading": {
+    "temp_c": 16.3,
+    "humidity_pct": 96,
+    "wind_kmh": 15.8,
+    "wind_dir_id": 5,
+    "rain_mm": null,
+    "pressure_hpa": 1012.6,
+    "radiation_kj_m2": null
+   }
+  },
+  {
+   "id": 1210663,
+   "name": "Moimenta da Beira",
+   "lat": 40.98333333,
+   "lon": -7.6,
+   "reading": {
+    "temp_c": 13.9,
+    "humidity_pct": 81,
+    "wind_kmh": 18.7,
+    "wind_dir_id": 7,
+    "rain_mm": 0,
+    "pressure_hpa": null,
+    "radiation_kj_m2": 382.4
+   }
+  },
+  {
+   "id": 1210665,
+   "name": "Mêda",
+   "lat": 40.9689,
+   "lon": -7.2569,
+   "reading": null
+  },
+  {
+   "id": 1210666,
+   "name": "Trancoso, Bandarra",
+   "lat": 40.78333333,
+   "lon": -7.36666667,
+   "reading": null
+  },
+  {
+   "id": 1210669,
+   "name": "Arouca",
+   "lat": 40.93333333,
+   "lon": -8.25,
+   "reading": null
+  },
+  {
+   "id": 1210671,
+   "name": "F. Castelo Rodrigo, V.Torpim",
+   "lat": 40.75,
+   "lon": -6.88333333,
+   "reading": null
+  },
+  {
+   "id": 1210683,
+   "name": "Guarda",
+   "lat": 40.53333333,
+   "lon": -7.26666667,
+   "reading": {
+    "temp_c": 11.4,
+    "humidity_pct": 81,
+    "wind_kmh": 20.2,
+    "wind_dir_id": 7,
+    "rain_mm": 0,
+    "pressure_hpa": 1013.9,
+    "radiation_kj_m2": 598.5
+   }
+  },
+  {
+   "id": 1210685,
+   "name": "Nelas",
+   "lat": 40.51666667,
+   "lon": -7.85,
+   "reading": null
+  },
+  {
+   "id": 1210686,
+   "name": "Pampilhosa da Serra, Fajão",
+   "lat": 40.145653,
+   "lon": -7.92704,
+   "reading": {
+    "temp_c": 12,
+    "humidity_pct": 100,
+    "wind_kmh": 19.8,
+    "wind_dir_id": 7,
+    "rain_mm": 0,
+    "pressure_hpa": null,
+    "radiation_kj_m2": null
+   }
+  },
+  {
+   "id": 1210687,
+   "name": "Covilhã (Aeródromo)",
+   "lat": 40.264309,
+   "lon": -7.482302,
+   "reading": null
+  },
+  {
+   "id": 1210690,
+   "name": "Aldeia Souto (Q. Lageosa)",
+   "lat": 40.35425833,
+   "lon": -7.38931111,
+   "reading": {
+    "temp_c": 17.4,
+    "humidity_pct": 52,
+    "wind_kmh": 8.3,
+    "wind_dir_id": 7,
+    "rain_mm": 0,
+    "pressure_hpa": null,
+    "radiation_kj_m2": 247
+   }
+  },
+  {
+   "id": 1210697,
+   "name": "Lousã (Aeródromo)",
+   "lat": 40.143922,
+   "lon": -8.244066,
+   "reading": {
+    "temp_c": 18,
+    "humidity_pct": 95,
+    "wind_kmh": 4.3,
+    "wind_dir_id": 5,
+    "rain_mm": 0,
+    "pressure_hpa": null,
+    "radiation_kj_m2": null
+   }
+  },
+  {
+   "id": 1210698,
+   "name": "Fundão",
+   "lat": 40.14063611,
+   "lon": -7.55362778,
+   "reading": {
+    "temp_c": 15.8,
+    "humidity_pct": 86,
+    "wind_kmh": 8.3,
+    "wind_dir_id": 8,
+    "rain_mm": 0,
+    "pressure_hpa": null,
+    "radiation_kj_m2": 109
+   }
+  },
+  {
+   "id": 1210702,
+   "name": "Aveiro (Universidade)",
+   "lat": 40.63529722,
+   "lon": -8.65958333,
+   "reading": {
+    "temp_c": 17.8,
+    "humidity_pct": 95,
+    "wind_kmh": 6.1,
+    "wind_dir_id": 5,
+    "rain_mm": 0,
+    "pressure_hpa": 1013.6,
+    "radiation_kj_m2": 307.4
+   }
+  },
+  {
+   "id": 1210704,
+   "name": "Dunas de Mira",
+   "lat": 40.445955,
+   "lon": -8.76168055,
+   "reading": null
+  },
+  {
+   "id": 1210705,
+   "name": "Anadia",
+   "lat": 40.438852,
+   "lon": -8.439996,
+   "reading": null
+  },
+  {
+   "id": 1210707,
+   "name": "Coimbra, Bencanta",
+   "lat": 40.2134694,
+   "lon": -8.45515277,
+   "reading": {
+    "temp_c": 18.2,
+    "humidity_pct": 99,
+    "wind_kmh": 4,
+    "wind_dir_id": 5,
+    "rain_mm": 0,
+    "pressure_hpa": null,
+    "radiation_kj_m2": 204.1
+   }
+  },
+  {
+   "id": 1210713,
+   "name": "Figueira da Foz, Vila Verde",
+   "lat": 40.139764,
+   "lon": -8.805945,
+   "reading": null
+  },
+  {
+   "id": 1210716,
+   "name": "Ansião",
+   "lat": 39.9,
+   "lon": -8.4,
+   "reading": null
+  },
+  {
+   "id": 1210718,
+   "name": "Leiria (Aeródromo)",
+   "lat": 39.780553,
+   "lon": -8.818166,
+   "reading": {
+    "temp_c": 18.8,
+    "humidity_pct": 96,
+    "wind_kmh": 13.3,
+    "wind_dir_id": 6,
+    "rain_mm": 0.2,
+    "pressure_hpa": 1014.1,
+    "radiation_kj_m2": 106.9
+   }
+  },
+  {
+   "id": 1210721,
+   "name": "São Pedro de Moel",
+   "lat": 39.76361944,
+   "lon": -9.03058889,
+   "reading": {
+    "temp_c": 17.4,
+    "humidity_pct": 100,
+    "wind_kmh": 21.2,
+    "wind_dir_id": 6,
+    "rain_mm": 0.1,
+    "pressure_hpa": null,
+    "radiation_kj_m2": null
+   }
+  },
+  {
+   "id": 1210723,
+   "name": "Ourém / Fátima",
+   "lat": 39.6217,
+   "lon": -8.6489,
+   "reading": null
+  },
+  {
+   "id": 1210724,
+   "name": "Tomar, Valdonas",
+   "lat": 39.6,
+   "lon": -8.36666667,
+   "reading": {
+    "temp_c": 18.3,
+    "humidity_pct": 100,
+    "wind_kmh": null,
+    "wind_dir_id": 0,
+    "rain_mm": 0.4,
+    "pressure_hpa": null,
+    "radiation_kj_m2": 82.3
+   }
+  },
+  {
+   "id": 1210726,
+   "name": "Alcobaça",
+   "lat": 39.51666667,
+   "lon": -8.96666667,
+   "reading": null
+  },
+  {
+   "id": 1210729,
+   "name": "Rio Maior",
+   "lat": 39.35,
+   "lon": -8.93333333,
+   "reading": {
+    "temp_c": 18.4,
+    "humidity_pct": 97,
+    "wind_kmh": 4.3,
+    "wind_dir_id": 6,
+    "rain_mm": 0.4,
+    "pressure_hpa": null,
+    "radiation_kj_m2": 178.3
+   }
+  },
+  {
+   "id": 1210734,
+   "name": "Santarém, Fonte Boa",
+   "lat": 39.201216,
+   "lon": -8.736656,
+   "reading": null
+  },
+  {
+   "id": 1210735,
+   "name": "Chamusca / Chouto",
+   "lat": 39.27,
+   "lon": -8.3508,
+   "reading": {
+    "temp_c": 17.8,
+    "humidity_pct": 100,
+    "wind_kmh": 5.4,
+    "wind_dir_id": 4,
+    "rain_mm": 0.9,
+    "pressure_hpa": 1015,
+    "radiation_kj_m2": 132.3
+   }
+  },
+  {
+   "id": 1210739,
+   "name": "Torres Vedras, Dois Portos",
+   "lat": 39.04389444,
+   "lon": -9.179,
+   "reading": null
+  },
+  {
+   "id": 1210744,
+   "name": "Coruche",
+   "lat": 38.94096667,
+   "lon": -8.51073611,
+   "reading": {
+    "temp_c": 18.7,
+    "humidity_pct": 99,
+    "wind_kmh": 8.3,
+    "wind_dir_id": 7,
+    "rain_mm": 0,
+    "pressure_hpa": null,
+    "radiation_kj_m2": 84
+   }
+  },
+  {
+   "id": 1210746,
+   "name": "Santa Cruz (Aeródromo)",
+   "lat": 39.12594166,
+   "lon": -9.3790388,
+   "reading": null
+  },
+  {
+   "id": 1210747,
+   "name": "Sintra, Colares",
+   "lat": 38.8126,
+   "lon": -9.46,
+   "reading": null
+  },
+  {
+   "id": 1210750,
+   "name": "Cabo da Roca",
+   "lat": 38.78171,
+   "lon": -9.4975361,
+   "reading": {
+    "temp_c": 17.9,
+    "humidity_pct": 100,
+    "wind_kmh": 24.8,
+    "wind_dir_id": 6,
+    "rain_mm": 0,
+    "pressure_hpa": null,
+    "radiation_kj_m2": 67.2
+   }
+  },
+  {
+   "id": 1210752,
+   "name": "Sintra/Tapada do Mouco",
+   "lat": 38.781669,
+   "lon": -9.400398,
+   "reading": null
+  },
+  {
+   "id": 1210762,
+   "name": "Lisboa, Tapada da Ajuda",
+   "lat": 38.70956111,
+   "lon": -9.182825,
+   "reading": null
+  },
+  {
+   "id": 1210765,
+   "name": "Cabo Raso",
+   "lat": 38.70900833,
+   "lon": -9.48538333,
+   "reading": null
+  },
+  {
+   "id": 1210766,
+   "name": "Barreiro, Lavradio",
+   "lat": 38.67448611,
+   "lon": -9.04766111,
+   "reading": null
+  },
+  {
+   "id": 1210767,
+   "name": "Pegões",
+   "lat": 38.65079,
+   "lon": -8.63503,
+   "reading": null
+  },
+  {
+   "id": 1210770,
+   "name": "Setúbal",
+   "lat": 38.54846008,
+   "lon": -8.89077058,
+   "reading": {
+    "temp_c": null,
+    "humidity_pct": null,
+    "wind_kmh": 1.8,
+    "wind_dir_id": 6,
+    "rain_mm": 2.6,
+    "pressure_hpa": 1015.3,
+    "radiation_kj_m2": 172.5
+   }
+  },
+  {
+   "id": 1210773,
+   "name": "Almada, P.Rainha",
+   "lat": 38.617111,
+   "lon": -9.212804,
+   "reading": null
+  },
+  {
+   "id": 1210776,
+   "name": "Alcácer do Sal, Barrosinha",
+   "lat": 38.36666667,
+   "lon": -8.48333333,
+   "reading": null
+  },
+  {
+   "id": 1210782,
+   "name": "Odemira - Vila Nova de Milfontes",
+   "lat": 37.726755,
+   "lon": -8.792547,
+   "reading": null
+  },
+  {
+   "id": 1210783,
+   "name": "Alvalade",
+   "lat": 37.946806,
+   "lon": -8.394504,
+   "reading": null
+  },
+  {
+   "id": 1210785,
+   "name": "Ourique / Santana Da Serra",
+   "lat": 37.5025,
+   "lon": -8.3019,
+   "reading": {
+    "temp_c": 19.7,
+    "humidity_pct": 96,
+    "wind_kmh": 13.7,
+    "wind_dir_id": 5,
+    "rain_mm": null,
+    "pressure_hpa": 1017,
+    "radiation_kj_m2": 137.7
+   }
+  },
+  {
+   "id": 1210787,
+   "name": "Odemira - Sabóia",
+   "lat": 37.49620894,
+   "lon": -8.50077748,
+   "reading": null
+  },
+  {
+   "id": 1210788,
+   "name": "Zambujeira",
+   "lat": 37.58195833,
+   "lon": -8.74286944,
+   "reading": {
+    "temp_c": 19.7,
+    "humidity_pct": 100,
+    "wind_kmh": 16.6,
+    "wind_dir_id": 7,
+    "rain_mm": 0,
+    "pressure_hpa": null,
+    "radiation_kj_m2": 111.2
+   }
+  },
+  {
+   "id": 1210789,
+   "name": "Aljezur",
+   "lat": 37.31675278,
+   "lon": -8.80001667,
+   "reading": null
+  },
+  {
+   "id": 1210790,
+   "name": "Fóia",
+   "lat": 37.3143,
+   "lon": -8.595733,
+   "reading": {
+    "temp_c": 16.1,
+    "humidity_pct": 100,
+    "wind_kmh": 33.8,
+    "wind_dir_id": 7,
+    "rain_mm": 0.8,
+    "pressure_hpa": null,
+    "radiation_kj_m2": 118.6
+   }
+  },
+  {
+   "id": 1210791,
+   "name": "Aljezur - Rogil",
+   "lat": 37.373399,
+   "lon": -8.79572,
+   "reading": null
+  },
+  {
+   "id": 1210793,
+   "name": "Silves - São Marcos da Serra",
+   "lat": 37.36031,
+   "lon": -8.37207,
+   "reading": null
+  },
+  {
+   "id": 1210800,
+   "name": "Sabugal, Martim Rei",
+   "lat": 40.33918056,
+   "lon": -7.03693333,
+   "reading": null
+  },
+  {
+   "id": 1210803,
+   "name": "Zebreira",
+   "lat": 39.86666667,
+   "lon": -7.01666667,
+   "reading": null
+  },
+  {
+   "id": 1210806,
+   "name": "Proença-a-Nova, P.Moitas",
+   "lat": 39.73333333,
+   "lon": -7.86666667,
+   "reading": null
+  },
+  {
+   "id": 1210812,
+   "name": "Alvega",
+   "lat": 39.46666667,
+   "lon": -8.05,
+   "reading": {
+    "temp_c": 18.3,
+    "humidity_pct": 98,
+    "wind_kmh": 4.7,
+    "wind_dir_id": 6,
+    "rain_mm": 0.7,
+    "pressure_hpa": null,
+    "radiation_kj_m2": null
+   }
+  },
+  {
+   "id": 1210824,
+   "name": "Avis, Benavila",
+   "lat": 39.1,
+   "lon": -7.86666667,
+   "reading": null
+  },
+  {
+   "id": 1210826,
+   "name": "Mora",
+   "lat": 38.94068,
+   "lon": -8.16406,
+   "reading": null
+  },
+  {
+   "id": 1210835,
+   "name": "Elvas",
+   "lat": 38.8908,
+   "lon": -7.13976111,
+   "reading": {
+    "temp_c": 17.4,
+    "humidity_pct": 95,
+    "wind_kmh": 11.5,
+    "wind_dir_id": 7,
+    "rain_mm": 0.3,
+    "pressure_hpa": null,
+    "radiation_kj_m2": 239.2
+   }
+  },
+  {
+   "id": 1210837,
+   "name": "Estremoz",
+   "lat": 38.86666667,
+   "lon": -7.51666667,
+   "reading": null
+  },
+  {
+   "id": 1210840,
+   "name": "Reguengos, S. P. do Corval",
+   "lat": 38.484866,
+   "lon": -7.4729166,
+   "reading": {
+    "temp_c": 18.5,
+    "humidity_pct": 100,
+    "wind_kmh": 12.6,
+    "wind_dir_id": 7,
+    "rain_mm": 2.2,
+    "pressure_hpa": null,
+    "radiation_kj_m2": 173.4
+   }
+  },
+  {
+   "id": 1210846,
+   "name": "Montemor-O-Novo",
+   "lat": 38.6451,
+   "lon": -8.1991,
+   "reading": null
+  },
+  {
+   "id": 1210847,
+   "name": "Viana do Alentejo",
+   "lat": 38.3319194,
+   "lon": -8.04553888,
+   "reading": {
+    "temp_c": 18.8,
+    "humidity_pct": 98,
+    "wind_kmh": 13.3,
+    "wind_dir_id": 6,
+    "rain_mm": 0.5,
+    "pressure_hpa": null,
+    "radiation_kj_m2": 121.9
+   }
+  },
+  {
+   "id": 1210848,
+   "name": "Portel, Oriola",
+   "lat": 38.31666667,
+   "lon": -7.86666667,
+   "reading": null
+  },
+  {
+   "id": 1210851,
+   "name": "Amareleja",
+   "lat": 38.2007,
+   "lon": -7.2261,
+   "reading": {
+    "temp_c": 19.6,
+    "humidity_pct": 100,
+    "wind_kmh": 20.9,
+    "wind_dir_id": 6,
+    "rain_mm": 0,
+    "pressure_hpa": 1015.5,
+    "radiation_kj_m2": 237.1
+   }
+  },
+  {
+   "id": 1210861,
+   "name": "Almodôvar - Pico do Mu",
+   "lat": 37.37083,
+   "lon": -8.080301,
+   "reading": null
+  },
+  {
+   "id": 1210863,
+   "name": "Mértola, Vale Formoso",
+   "lat": 37.75,
+   "lon": -7.55,
+   "reading": null
+  },
+  {
+   "id": 1210864,
+   "name": "Castro Verde, N.Corvo",
+   "lat": 37.57655833,
+   "lon": -7.97211389,
+   "reading": {
+    "temp_c": 19.8,
+    "humidity_pct": null,
+    "wind_kmh": 12.2,
+    "wind_dir_id": 6,
+    "rain_mm": 0,
+    "pressure_hpa": null,
+    "radiation_kj_m2": 211.4
+   }
+  },
+  {
+   "id": 1210865,
+   "name": "Alcoutim, Mart.Longo",
+   "lat": 37.43333333,
+   "lon": -7.76666667,
+   "reading": null
+  },
+  {
+   "id": 1210866,
+   "name": "Vila Real de S. António",
+   "lat": 37.1871055,
+   "lon": -7.416325,
+   "reading": {
+    "temp_c": 19.5,
+    "humidity_pct": 99,
+    "wind_kmh": null,
+    "wind_dir_id": 0,
+    "rain_mm": 0,
+    "pressure_hpa": null,
+    "radiation_kj_m2": null
+   }
+  },
+  {
+   "id": 1210867,
+   "name": "Castro Marim (RN Sapal)",
+   "lat": 37.21666667,
+   "lon": -7.45,
+   "reading": null
+  },
+  {
+   "id": 1210874,
+   "name": "Albufeira",
+   "lat": 37.0935,
+   "lon": -8.262,
+   "reading": null
+  },
+  {
+   "id": 1210878,
+   "name": "Portimão (Aeródromo)",
+   "lat": 37.149167,
+   "lon": -8.581389,
+   "reading": {
+    "temp_c": null,
+    "humidity_pct": null,
+    "wind_kmh": 10.8,
+    "wind_dir_id": 6,
+    "rain_mm": null,
+    "pressure_hpa": null,
+    "radiation_kj_m2": null
+   }
+  },
+  {
+   "id": 1210881,
+   "name": "Olhão, EPPO",
+   "lat": 37.033,
+   "lon": -7.821,
+   "reading": {
+    "temp_c": 19.7,
+    "humidity_pct": 100,
+    "wind_kmh": 16.9,
+    "wind_dir_id": 6,
+    "rain_mm": 0,
+    "pressure_hpa": 1017.9,
+    "radiation_kj_m2": null
+   }
+  },
+  {
+   "id": 1210883,
+   "name": "Tavira",
+   "lat": 37.12166968,
+   "lon": -7.62050375,
+   "reading": null
+  },
+  {
+   "id": 1210907,
+   "name": "Faja / Ilha das Flores",
+   "lat": 39.45328,
+   "lon": -31.2647,
+   "reading": {
+    "temp_c": 15.5,
+    "humidity_pct": 60,
+    "wind_kmh": null,
+    "wind_dir_id": 0,
+    "rain_mm": null,
+    "pressure_hpa": 1020,
+    "radiation_kj_m2": null
+   }
+  },
+  {
+   "id": 1210932,
+   "name": "S. Miguel, Nordeste",
+   "lat": 37.83256,
+   "lon": -25.150108,
+   "reading": {
+    "temp_c": 16.3,
+    "humidity_pct": 81,
+    "wind_kmh": 14.4,
+    "wind_dir_id": 7,
+    "rain_mm": 0.5,
+    "pressure_hpa": null,
+    "radiation_kj_m2": null
+   }
+  },
+  {
+   "id": 1210956,
+   "name": "Madeira, Porto Moniz",
+   "lat": 32.867477,
+   "lon": -17.171373,
+   "reading": {
+    "temp_c": 23.1,
+    "humidity_pct": 72,
+    "wind_kmh": null,
+    "wind_dir_id": 0,
+    "rain_mm": 0,
+    "pressure_hpa": null,
+    "radiation_kj_m2": 222.4
+   }
+  },
+  {
+   "id": 1210960,
+   "name": "Madeira, S. Jorge, Santana",
+   "lat": 32.83446944,
+   "lon": -16.906219,
+   "reading": {
+    "temp_c": 19.3,
+    "humidity_pct": 83,
+    "wind_kmh": 12.2,
+    "wind_dir_id": 7,
+    "rain_mm": 0,
+    "pressure_hpa": 1022,
+    "radiation_kj_m2": 241.7
+   }
+  },
+  {
+   "id": 1210965,
+   "name": "Madeira, Santana",
+   "lat": 32.808238,
+   "lon": -16.8864166,
+   "reading": {
+    "temp_c": 17,
+    "humidity_pct": 93,
+    "wind_kmh": null,
+    "wind_dir_id": 0,
+    "rain_mm": 0,
+    "pressure_hpa": null,
+    "radiation_kj_m2": 120.5
+   }
+  },
+  {
+   "id": 1210967,
+   "name": "Madeira, São Vicente",
+   "lat": 32.8001833,
+   "lon": -17.044722,
+   "reading": {
+    "temp_c": 17.2,
+    "humidity_pct": 92,
+    "wind_kmh": null,
+    "wind_dir_id": 0,
+    "rain_mm": 0,
+    "pressure_hpa": null,
+    "radiation_kj_m2": 57.7
+   }
+  },
+  {
+   "id": 1210970,
+   "name": "Madeira, Bica da Cana",
+   "lat": 32.75646944,
+   "lon": -17.0576888,
+   "reading": null
+  },
+  {
+   "id": 1210972,
+   "name": "Madeira, Pico Alto",
+   "lat": 32.693491,
+   "lon": -16.903955,
+   "reading": {
+    "temp_c": 16.4,
+    "humidity_pct": 70,
+    "wind_kmh": 0,
+    "wind_dir_id": 0,
+    "rain_mm": 0,
+    "pressure_hpa": null,
+    "radiation_kj_m2": 459.6
+   }
+  },
+  {
+   "id": 1210973,
+   "name": "Madeira, Areeiro",
+   "lat": 32.71666667,
+   "lon": -16.91666667,
+   "reading": {
+    "temp_c": 16.5,
+    "humidity_pct": 57,
+    "wind_kmh": 6.5,
+    "wind_dir_id": 7,
+    "rain_mm": 0,
+    "pressure_hpa": null,
+    "radiation_kj_m2": 805.1
+   }
+  },
+  {
+   "id": 1210974,
+   "name": "Madeira, Pico do Areeiro",
+   "lat": 32.735107,
+   "lon": -16.928271,
+   "reading": {
+    "temp_c": 14.7,
+    "humidity_pct": 62,
+    "wind_kmh": null,
+    "wind_dir_id": 0,
+    "rain_mm": 0,
+    "pressure_hpa": null,
+    "radiation_kj_m2": null
+   }
+  },
+  {
+   "id": 1210975,
+   "name": "Madeira, Santo da Serra",
+   "lat": 32.7258972,
+   "lon": -16.816822,
+   "reading": {
+    "temp_c": 14.1,
+    "humidity_pct": 100,
+    "wind_kmh": null,
+    "wind_dir_id": 0,
+    "rain_mm": 0.1,
+    "pressure_hpa": null,
+    "radiation_kj_m2": 8.5
+   }
+  },
+  {
+   "id": 1210976,
+   "name": "Madeira, Monte",
+   "lat": 32.675833,
+   "lon": -16.906944,
+   "reading": {
+    "temp_c": 16.5,
+    "humidity_pct": 87,
+    "wind_kmh": 1.8,
+    "wind_dir_id": 6,
+    "rain_mm": 0,
+    "pressure_hpa": null,
+    "radiation_kj_m2": 210.4
+   }
+  },
+  {
+   "id": 1210977,
+   "name": "Madeira, Cancela",
+   "lat": 32.64500556,
+   "lon": -16.86575,
+   "reading": {
+    "temp_c": 19.7,
+    "humidity_pct": 87,
+    "wind_kmh": 2.5,
+    "wind_dir_id": 7,
+    "rain_mm": 0,
+    "pressure_hpa": null,
+    "radiation_kj_m2": 174.4
+   }
+  },
+  {
+   "id": 1210978,
+   "name": "Madeira, S. Lourenço",
+   "lat": 32.747,
+   "lon": -16.706,
+   "reading": {
+    "temp_c": 20.9,
+    "humidity_pct": 89,
+    "wind_kmh": 5.8,
+    "wind_dir_id": 6,
+    "rain_mm": 0,
+    "pressure_hpa": null,
+    "radiation_kj_m2": 425.4
+   }
+  },
+  {
+   "id": 1210980,
+   "name": "Madeira, Lombo da Terça",
+   "lat": 32.831,
+   "lon": -17.202,
+   "reading": null
+  },
+  {
+   "id": 1210984,
+   "name": "Madeira, Quinta Grande",
+   "lat": 32.6629722,
+   "lon": -17.01503611,
+   "reading": {
+    "temp_c": 18.8,
+    "humidity_pct": 80,
+    "wind_kmh": null,
+    "wind_dir_id": 0,
+    "rain_mm": 0,
+    "pressure_hpa": null,
+    "radiation_kj_m2": 221.7
+   }
+  },
+  {
+   "id": 1210986,
+   "name": "Ponta do Sol/Lugar de Baixo",
+   "lat": 32.681502,
+   "lon": -17.104167,
+   "reading": {
+    "temp_c": 21.8,
+    "humidity_pct": 74,
+    "wind_kmh": 16.9,
+    "wind_dir_id": 6,
+    "rain_mm": 0,
+    "pressure_hpa": null,
+    "radiation_kj_m2": 193.2
+   }
+  },
+  {
+   "id": 1210987,
+   "name": "Prazeres (Calheta)",
+   "lat": 32.757205,
+   "lon": -17.201551,
+   "reading": null
+  },
+  {
+   "id": 1210990,
+   "name": "Madeira, Calheta",
+   "lat": 32.81384167,
+   "lon": -17.26321389,
+   "reading": {
+    "temp_c": 19.2,
+    "humidity_pct": 91,
+    "wind_kmh": 6.8,
+    "wind_dir_id": 6,
+    "rain_mm": 0,
+    "pressure_hpa": 1020.2,
+    "radiation_kj_m2": 106.5
+   }
+  },
+  {
+   "id": 1240546,
+   "name": "Porto, Serra do Pilar",
+   "lat": 41.1385194,
+   "lon": -8.6025,
+   "reading": {
+    "temp_c": 17.1,
+    "humidity_pct": 100,
+    "wind_kmh": null,
+    "wind_dir_id": 0,
+    "rain_mm": 0,
+    "pressure_hpa": null,
+    "radiation_kj_m2": null
+   }
+  },
+  {
+   "id": 1240566,
+   "name": "Vila Real (Cidade)",
+   "lat": 41.30898056,
+   "lon": -7.740522,
+   "reading": {
+    "temp_c": 14.9,
+    "humidity_pct": 82,
+    "wind_kmh": 6.5,
+    "wind_dir_id": 6,
+    "rain_mm": 0,
+    "pressure_hpa": null,
+    "radiation_kj_m2": null
+   }
+  },
+  {
+   "id": 1240610,
+   "name": "Viana do Castelo",
+   "lat": 41.695,
+   "lon": -8.82916,
+   "reading": {
+    "temp_c": 16.8,
+    "humidity_pct": 95,
+    "wind_kmh": null,
+    "wind_dir_id": 0,
+    "rain_mm": 0,
+    "pressure_hpa": null,
+    "radiation_kj_m2": null
+   }
+  },
+  {
+   "id": 1240675,
+   "name": "Viseu (Cidade)",
+   "lat": 40.662738,
+   "lon": -7.9039694,
+   "reading": {
+    "temp_c": 14.9,
+    "humidity_pct": 90,
+    "wind_kmh": null,
+    "wind_dir_id": 0,
+    "rain_mm": 0,
+    "pressure_hpa": null,
+    "radiation_kj_m2": null
+   }
+  },
+  {
+   "id": 1240820,
+   "name": "Portalegre (cidade)",
+   "lat": 39.2675444,
+   "lon": -7.42088333,
+   "reading": null
+  },
+  {
+   "id": 1240903,
+   "name": "Porto, Massarelos",
+   "lat": 41.15257,
+   "lon": -8.62598,
+   "reading": {
+    "temp_c": 17,
+    "humidity_pct": 100,
+    "wind_kmh": null,
+    "wind_dir_id": 0,
+    "rain_mm": 0,
+    "pressure_hpa": null,
+    "radiation_kj_m2": null
+   }
+  },
+  {
+   "id": 1240916,
+   "name": "Leiria",
+   "lat": 39.744764,
+   "lon": -8.810466,
+   "reading": null
+  },
+  {
+   "id": 1240929,
+   "name": "Setúbal, Areias",
+   "lat": 38.54846667,
+   "lon": -8.89066111,
+   "reading": null
+  },
+  {
+   "id": 1240935,
+   "name": "Amadora",
+   "lat": 38.757579,
+   "lon": -9.24244,
+   "reading": null
+  },
+  {
+   "id": 1240971,
+   "name": "Madeira, Funchal, Lido",
+   "lat": 32.63655,
+   "lon": -16.935592,
+   "reading": {
+    "temp_c": 21.4,
+    "humidity_pct": 74,
+    "wind_kmh": null,
+    "wind_dir_id": 0,
+    "rain_mm": 0,
+    "pressure_hpa": null,
+    "radiation_kj_m2": 230.1
+   }
+  },
+  {
+   "id": 1259201,
+   "name": "Lousã/Trevim",
+   "lat": 40.09328521,
+   "lon": -8.17904215,
+   "reading": null
+  },
+  {
+   "id": 1259202,
+   "name": "Lousã/Candal",
+   "lat": 40.08090803,
+   "lon": -8.20484533,
+   "reading": null
+  },
+  {
+   "id": 1259203,
+   "name": "Seia/Aeródromo",
+   "lat": 40.45517056,
+   "lon": -7.68614846,
+   "reading": {
+    "temp_c": 15.3,
+    "humidity_pct": 91,
+    "wind_kmh": 14,
+    "wind_dir_id": 6,
+    "rain_mm": 0,
+    "pressure_hpa": 1014.8,
+    "radiation_kj_m2": null
+   }
+  },
+  {
+   "id": 1259204,
+   "name": "Seia/Senhora do Espinheiro",
+   "lat": 40.412775,
+   "lon": -7.673406,
+   "reading": {
+    "temp_c": 10.3,
+    "humidity_pct": 100,
+    "wind_kmh": 19.4,
+    "wind_dir_id": 6,
+    "rain_mm": 0,
+    "pressure_hpa": 1015.6,
+    "radiation_kj_m2": null
+   }
+  },
+  {
+   "id": 5210758,
+   "name": "Alcochete / Campo Tiro",
+   "lat": 38.7627,
+   "lon": -8.7825,
+   "reading": null
+  },
+  {
+   "id": 6210817,
+   "name": "Ponte de Sôr / Aeródromo",
+   "lat": 39.21536,
+   "lon": -8.05417,
+   "reading": {
+    "temp_c": 18.6,
+    "humidity_pct": 94,
+    "wind_kmh": null,
+    "wind_dir_id": 0,
+    "rain_mm": null,
+    "pressure_hpa": 1014.8,
+    "radiation_kj_m2": null
+   }
+  },
+  {
+   "id": 6210872,
+   "name": "Loulé (CML)",
+   "lat": 37.129946,
+   "lon": -8.06523593,
+   "reading": {
+    "temp_c": null,
+    "humidity_pct": null,
+    "wind_kmh": 10.8,
+    "wind_dir_id": 6,
+    "rain_mm": 0.4,
+    "pressure_hpa": 1018.3,
+    "radiation_kj_m2": null
+   }
+  },
+  {
+   "id": 6210879,
+   "name": "Portimão (Praia da Rocha)",
+   "lat": 37.11670461,
+   "lon": -8.52946314,
+   "reading": null
+  },
+  {
+   "id": 6211211,
+   "name": "Monção - Guimil (CIM)",
+   "lat": 42.042944,
+   "lon": -8.421872,
+   "reading": null
+  },
+  {
+   "id": 6211212,
+   "name": "Vila Nova De Cerveira- Alto Pena (CIM)",
+   "lat": 41.920056,
+   "lon": -8.711917,
+   "reading": null
+  },
+  {
+   "id": 6211213,
+   "name": "Paredes De Coura - Vascões (CIM)",
+   "lat": 41.913444,
+   "lon": -8.492111,
+   "reading": {
+    "temp_c": 11.9,
+    "humidity_pct": 96,
+    "wind_kmh": null,
+    "wind_dir_id": 0,
+    "rain_mm": null,
+    "pressure_hpa": 1012.1,
+    "radiation_kj_m2": null
+   }
+  },
+  {
+   "id": 6211214,
+   "name": "Ponte Da Barca - Lindoso (CIM)",
+   "lat": 41.872525,
+   "lon": -8.192542,
+   "reading": null
+  },
+  {
+   "id": 6211215,
+   "name": "Caminha - Agra De Baixo (CIM)",
+   "lat": 41.847817,
+   "lon": -8.715642,
+   "reading": null
+  },
+  {
+   "id": 6211216,
+   "name": "Arcos De Valdevez - Heliporto (CIM)",
+   "lat": 41.831,
+   "lon": -8.44375,
+   "reading": {
+    "temp_c": 13.9,
+    "humidity_pct": 96,
+    "wind_kmh": null,
+    "wind_dir_id": 0,
+    "rain_mm": null,
+    "pressure_hpa": 1012.2,
+    "radiation_kj_m2": null
+   }
+  },
+  {
+   "id": 6211217,
+   "name": "Viana Do Castelo - Fonte Louçã (CIM)",
+   "lat": 41.745722,
+   "lon": -8.815306,
+   "reading": null
+  },
+  {
+   "id": 6211218,
+   "name": "Ponte De Lima - Anais (CIM)",
+   "lat": 41.698083,
+   "lon": -8.522444,
+   "reading": {
+    "temp_c": 14.2,
+    "humidity_pct": 94,
+    "wind_kmh": null,
+    "wind_dir_id": 0,
+    "rain_mm": null,
+    "pressure_hpa": 1011.5,
+    "radiation_kj_m2": null
+   }
+  },
+  {
+   "id": 6212121,
+   "name": "Terras de Bouro/Barral (CIM)",
+   "lat": 41.70225278,
+   "lon": -8.31808611,
+   "reading": {
+    "temp_c": 14.6,
+    "humidity_pct": 94,
+    "wind_kmh": null,
+    "wind_dir_id": 0,
+    "rain_mm": null,
+    "pressure_hpa": 1012.7,
+    "radiation_kj_m2": null
+   }
+  },
+  {
+   "id": 6212122,
+   "name": "Amares Caldelas (CIM)",
+   "lat": 41.66796389,
+   "lon": -8.37977778,
+   "reading": null
+  },
+  {
+   "id": 6212123,
+   "name": "Vila Verde (CIM)",
+   "lat": 41.64686111,
+   "lon": -8.43398056,
+   "reading": null
+  },
+  {
+   "id": 6212124,
+   "name": "Braga (CIM)",
+   "lat": 41.53568333,
+   "lon": -8.42514722,
+   "reading": {
+    "temp_c": 15.6,
+    "humidity_pct": 94,
+    "wind_kmh": 12.2,
+    "wind_dir_id": 6,
+    "rain_mm": 0,
+    "pressure_hpa": 1012,
+    "radiation_kj_m2": null
+   }
+  },
+  {
+   "id": 6212125,
+   "name": "Barcelos (CIM)",
+   "lat": 41.529375,
+   "lon": -8.62705278,
+   "reading": null
+  },
+  {
+   "id": 6212126,
+   "name": "Esposende (CIM)",
+   "lat": 41.52645556,
+   "lon": -8.77984444,
+   "reading": {
+    "temp_c": null,
+    "humidity_pct": 98,
+    "wind_kmh": null,
+    "wind_dir_id": 0,
+    "rain_mm": null,
+    "pressure_hpa": 1012.4,
+    "radiation_kj_m2": null
+   }
+  },
+  {
+   "id": 6212410,
+   "name": "Vila Nova Famalicão (CIM)",
+   "lat": 41.3882,
+   "lon": -8.52185,
+   "reading": null
+  },
+  {
+   "id": 6213011,
+   "name": "Aguiar da Beira (CIM)",
+   "lat": 40.81203611,
+   "lon": -7.53371944,
+   "reading": null
+  },
+  {
+   "id": 6213012,
+   "name": "Carregal do Sal (CIM)",
+   "lat": 40.46718056,
+   "lon": -7.92626389,
+   "reading": {
+    "temp_c": 15.9,
+    "humidity_pct": 95,
+    "wind_kmh": 9.7,
+    "wind_dir_id": 5,
+    "rain_mm": null,
+    "pressure_hpa": null,
+    "radiation_kj_m2": null
+   }
+  },
+  {
+   "id": 6213013,
+   "name": "Castro Daire / Mézio (CIM)",
+   "lat": 40.98086111,
+   "lon": -7.88318889,
+   "reading": {
+    "temp_c": 11.1,
+    "humidity_pct": 99,
+    "wind_kmh": 19.1,
+    "wind_dir_id": 6,
+    "rain_mm": null,
+    "pressure_hpa": null,
+    "radiation_kj_m2": null
+   }
+  },
+  {
+   "id": 6213014,
+   "name": "Mangualde / Chãs de Tavares  (CIM)",
+   "lat": 40.61096111,
+   "lon": -7.60838889,
+   "reading": {
+    "temp_c": 13.4,
+    "humidity_pct": 98,
+    "wind_kmh": 23.4,
+    "wind_dir_id": 6,
+    "rain_mm": 0,
+    "pressure_hpa": null,
+    "radiation_kj_m2": null
+   }
+  },
+  {
+   "id": 6213015,
+   "name": "Nelas / Vilar Seco (CIM)",
+   "lat": 40.56577222,
+   "lon": -7.83693333,
+   "reading": null
+  },
+  {
+   "id": 6213016,
+   "name": "Oliveira de Frades (CIM)",
+   "lat": 40.716925,
+   "lon": -8.20133889,
+   "reading": {
+    "temp_c": 13.5,
+    "humidity_pct": 98,
+    "wind_kmh": 13.7,
+    "wind_dir_id": 4,
+    "rain_mm": null,
+    "pressure_hpa": null,
+    "radiation_kj_m2": null
+   }
+  },
+  {
+   "id": 6213017,
+   "name": "Penalva do Castelo (CIM)",
+   "lat": 40.65706389,
+   "lon": -7.69655278,
+   "reading": {
+    "temp_c": 14.6,
+    "humidity_pct": 100,
+    "wind_kmh": null,
+    "wind_dir_id": 0,
+    "rain_mm": null,
+    "pressure_hpa": null,
+    "radiation_kj_m2": null
+   }
+  },
+  {
+   "id": 6213018,
+   "name": "São Pedro do Sul (CIM)",
+   "lat": 40.83031944,
+   "lon": -8.11568056,
+   "reading": null
+  },
+  {
+   "id": 6213019,
+   "name": "Santa Comba Dão (CIM)",
+   "lat": 40.39644722,
+   "lon": -8.13996389,
+   "reading": null
+  },
+  {
+   "id": 6213020,
+   "name": "Satão (CIM)",
+   "lat": 40.76072778,
+   "lon": -7.72019722,
+   "reading": {
+    "temp_c": 12.3,
+    "humidity_pct": 97,
+    "wind_kmh": 7.9,
+    "wind_dir_id": 6,
+    "rain_mm": 0.1,
+    "pressure_hpa": null,
+    "radiation_kj_m2": null
+   }
+  },
+  {
+   "id": 6213021,
+   "name": "Tondela, Caramulinho (CIM)",
+   "lat": 40.54575278,
+   "lon": -8.20829722,
+   "reading": null
+  },
+  {
+   "id": 6213022,
+   "name": "Vila Nova de Paiva (CIM)",
+   "lat": 40.85595,
+   "lon": -7.72716389,
+   "reading": {
+    "temp_c": 11.7,
+    "humidity_pct": null,
+    "wind_kmh": 11.2,
+    "wind_dir_id": 6,
+    "rain_mm": 0,
+    "pressure_hpa": null,
+    "radiation_kj_m2": null
+   }
+  },
+  {
+   "id": 6213023,
+   "name": "Vouzela (CIM)",
+   "lat": 40.6742,
+   "lon": -8.1334,
+   "reading": {
+    "temp_c": 11.9,
+    "humidity_pct": 100,
+    "wind_kmh": null,
+    "wind_dir_id": 0,
+    "rain_mm": null,
+    "pressure_hpa": null,
+    "radiation_kj_m2": null
+   }
+  },
+  {
+   "id": 6213024,
+   "name": "Viseu / Torredeita (CIM)",
+   "lat": 40.67424167,
+   "lon": -8.13344167,
+   "reading": null
+  },
+  {
+   "id": 6213611,
+   "name": "Arganil / Aeródromo (CIM)",
+   "lat": 40.274578,
+   "lon": -7.974399,
+   "reading": {
+    "temp_c": 16.3,
+    "humidity_pct": 97,
+    "wind_kmh": 5,
+    "wind_dir_id": 5,
+    "rain_mm": 0,
+    "pressure_hpa": null,
+    "radiation_kj_m2": null
+   }
+  },
+  {
+   "id": 6213612,
+   "name": "Cantanhede / Fonte Dom Pedro (CIM)",
+   "lat": 40.341894,
+   "lon": -8.577613,
+   "reading": {
+    "temp_c": 17.4,
+    "humidity_pct": 96,
+    "wind_kmh": null,
+    "wind_dir_id": 0,
+    "rain_mm": null,
+    "pressure_hpa": null,
+    "radiation_kj_m2": null
+   }
+  },
+  {
+   "id": 6213613,
+   "name": "Coimbra / Mata de São Pedro (CIM)",
+   "lat": 40.330787,
+   "lon": -8.374887,
+   "reading": {
+    "temp_c": 15.3,
+    "humidity_pct": 100,
+    "wind_kmh": 6.8,
+    "wind_dir_id": 5,
+    "rain_mm": null,
+    "pressure_hpa": null,
+    "radiation_kj_m2": null
+   }
+  },
+  {
+   "id": 6213614,
+   "name": "Góis / Quinta da Ribeira (CIM)",
+   "lat": 40.171642,
+   "lon": -8.103238,
+   "reading": {
+    "temp_c": null,
+    "humidity_pct": null,
+    "wind_kmh": 4.3,
+    "wind_dir_id": 6,
+    "rain_mm": null,
+    "pressure_hpa": null,
+    "radiation_kj_m2": null
+   }
+  },
+  {
+   "id": 6213615,
+   "name": "Mealhada / Quinta do Vale (CIM)",
+   "lat": 40.373343,
+   "lon": -8.4388429,
+   "reading": {
+    "temp_c": 19,
+    "humidity_pct": 90,
+    "wind_kmh": null,
+    "wind_dir_id": 0,
+    "rain_mm": null,
+    "pressure_hpa": null,
+    "radiation_kj_m2": null
+   }
+  },
+  {
+   "id": 6213616,
+   "name": "Mortágua / Aeródromo (CIM)",
+   "lat": 40.426239,
+   "lon": -8.232142,
+   "reading": {
+    "temp_c": 16.6,
+    "humidity_pct": null,
+    "wind_kmh": 3.2,
+    "wind_dir_id": 6,
+    "rain_mm": 0,
+    "pressure_hpa": null,
+    "radiation_kj_m2": null
+   }
+  },
+  {
+   "id": 6213617,
+   "name": "Penacova / Hombres (CIM)",
+   "lat": 40.280921,
+   "lon": -8.198685,
+   "reading": {
+    "temp_c": null,
+    "humidity_pct": 90,
+    "wind_kmh": null,
+    "wind_dir_id": 0,
+    "rain_mm": null,
+    "pressure_hpa": null,
+    "radiation_kj_m2": null
+   }
+  },
+  {
+   "id": 6213618,
+   "name": "Penela / Serra do Espinhal (CIM)",
+   "lat": 40.028817,
+   "lon": -8.334616,
+   "reading": {
+    "temp_c": null,
+    "humidity_pct": 89,
+    "wind_kmh": null,
+    "wind_dir_id": 0,
+    "rain_mm": null,
+    "pressure_hpa": null,
+    "radiation_kj_m2": null
+   }
+  },
+  {
+   "id": 6213619,
+   "name": "Vila Nova de Poiares (CIM)",
+   "lat": 40.211411,
+   "lon": -8.241995,
+   "reading": null
+  },
+  {
+   "id": 6213620,
+   "name": "Oliveira do Hospital (CIM)",
+   "lat": 40.413306,
+   "lon": -7.867972,
+   "reading": {
+    "temp_c": 18,
+    "humidity_pct": 91,
+    "wind_kmh": 5.8,
+    "wind_dir_id": 5,
+    "rain_mm": 0,
+    "pressure_hpa": null,
+    "radiation_kj_m2": null
+   }
+  },
+  {
+   "id": 6213621,
+   "name": "Soure (CIM)",
+   "lat": 40.02927,
+   "lon": -8.504909,
+   "reading": null
+  },
+  {
+   "id": 6214119,
+   "name": "Pedrógão Grande (CMPG)",
+   "lat": 39.926573,
+   "lon": -8.150912,
+   "reading": {
+    "temp_c": 15.9,
+    "humidity_pct": 98,
+    "wind_kmh": 7.2,
+    "wind_dir_id": 6,
+    "rain_mm": 0.6,
+    "pressure_hpa": 1013.7,
+    "radiation_kj_m2": null
+   }
+  },
+  {
+   "id": 6215302,
+   "name": "Lisboa, Carnide (CML)",
+   "lat": 38.7751,
+   "lon": -9.1855,
+   "reading": {
+    "temp_c": 18.4,
+    "humidity_pct": 99,
+    "wind_kmh": 10.8,
+    "wind_dir_id": 6,
+    "rain_mm": 0.1,
+    "pressure_hpa": 1014.6,
+    "radiation_kj_m2": null
+   }
+  },
+  {
+   "id": 6215360,
+   "name": "Oeiras / Vila Fria (CMO)",
+   "lat": 38.7239536,
+   "lon": -9.2939255,
+   "reading": {
+    "temp_c": 18.2,
+    "humidity_pct": 100,
+    "wind_kmh": 15.8,
+    "wind_dir_id": 6,
+    "rain_mm": 0.2,
+    "pressure_hpa": 1014.6,
+    "radiation_kj_m2": 99
+   }
+  },
+  {
+   "id": 7240919,
+   "name": "Lisboa, Amoreiras (LFCL)",
+   "lat": 38.7239,
+   "lon": -9.1649,
+   "reading": {
+    "temp_c": 18,
+    "humidity_pct": 100,
+    "wind_kmh": 9.7,
+    "wind_dir_id": 7,
+    "rain_mm": 0.2,
+    "pressure_hpa": null,
+    "radiation_kj_m2": null
+   }
+  },
+  {
+   "id": 11217160,
+   "name": "Santa Maria / Praia Formosa (DROTRH)",
+   "lat": 36.9542,
+   "lon": -25.0917,
+   "reading": {
+    "temp_c": 17.1,
+    "humidity_pct": 86,
+    "wind_kmh": null,
+    "wind_dir_id": 0,
+    "rain_mm": null,
+    "pressure_hpa": null,
+    "radiation_kj_m2": null
+   }
+  },
+  {
+   "id": 11217165,
+   "name": "Santa Maria / Maia (DROTRH)",
+   "lat": 36.9412,
+   "lon": -25.0176,
+   "reading": null
+  },
+  {
+   "id": 11217217,
+   "name": "São Miguel / Santana (DROTRH)",
+   "lat": 37.8049,
+   "lon": -25.5618,
+   "reading": {
+    "temp_c": 16.7,
+    "humidity_pct": 85,
+    "wind_kmh": 5.4,
+    "wind_dir_id": 6,
+    "rain_mm": 0,
+    "pressure_hpa": null,
+    "radiation_kj_m2": 37.6
+   }
+  },
+  {
+   "id": 11217225,
+   "name": "São Miguel / Sete Cidades (DROTRH)",
+   "lat": 37.8679,
+   "lon": -25.772,
+   "reading": {
+    "temp_c": 15.9,
+    "humidity_pct": 89,
+    "wind_kmh": 18,
+    "wind_dir_id": 7,
+    "rain_mm": 0,
+    "pressure_hpa": null,
+    "radiation_kj_m2": 20
+   }
+  },
+  {
+   "id": 11217255,
+   "name": "São Miguel / Lagoa das Furnas (DROTRH)",
+   "lat": 37.7619,
+   "lon": -25.3291,
+   "reading": {
+    "temp_c": 14.6,
+    "humidity_pct": 89,
+    "wind_kmh": 2.5,
+    "wind_dir_id": 4,
+    "rain_mm": 0,
+    "pressure_hpa": null,
+    "radiation_kj_m2": 30.6
+   }
+  },
+  {
+   "id": 11217370,
+   "name": "Terceira / Ribeira das Nove (DROTRH)",
+   "lat": 38.754,
+   "lon": -27.3245,
+   "reading": null
+  },
+  {
+   "id": 11217372,
+   "name": "Terceira / Serra do Cume (DROTRH)",
+   "lat": 38.7002,
+   "lon": -27.1031,
+   "reading": null
+  },
+  {
+   "id": 11217430,
+   "name": "Graciosa / Serra das Fontes (DROTRH)",
+   "lat": 39.0672,
+   "lon": -28.0038,
+   "reading": null
+  },
+  {
+   "id": 11217510,
+   "name": "São Jorge / Pico do Areeiro (DROTRH)",
+   "lat": 38.6435,
+   "lon": -28.0591,
+   "reading": null
+  },
+  {
+   "id": 11217625,
+   "name": "Pico / Cabeço do Teicho (DROTRH)",
+   "lat": 38.489,
+   "lon": -28.3534,
+   "reading": null
+  },
+  {
+   "id": 11217645,
+   "name": "Pico / Cabecinho (DROTRH)",
+   "lat": 38.4338,
+   "lon": -28.1141,
+   "reading": null
+  },
+  {
+   "id": 11217710,
+   "name": "Faial / Alto do Cabouco (DROTRH)",
+   "lat": 38.587,
+   "lon": -28.6992,
+   "reading": null
+  },
+  {
+   "id": 11217730,
+   "name": "Faial / Cabeço Verde (DROTRH)",
+   "lat": 38.5843,
+   "lon": -28.7576,
+   "reading": null
+  }
+ ]
+}

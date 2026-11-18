@@ -1,15 +1,15 @@
 {
  "source": "ipma-uv",
  "title": "IPMA UV index",
- "read_at": "2026-11-18T02:28:20Z",
+ "read_at": "2026-11-18T10:11:39Z",
  "provenance": {
   "source": "https://api.ipma.pt/open-data/forecast/meteorology/uv/uv.json",
   "page": "https://www.ipma.pt/en/otempo/prev.uv/",
-  "read_at": "2026-11-18T02:28:20Z",
+  "read_at": "2026-11-18T10:11:39Z",
   "by": "sources/ipma-uv/collect.mjs (code, no model; run by data@PrompTugal.dinis)",
   "terms": "IPMA: free to copy and use for personal or public use if the use has no profit-making or offensive purpose; always name IPMA as the source."
  },
- "about": "IPMA's UV index forecast by place (globalIdLocal), by day. Names are given where the place is a district capital or island in IPMA's list; others by id only.",
+ "about": "IPMA's UV index forecast by place (globalIdLocal), by day. Names are given where the place is a district capital or island in IPMA's list; others by id only (on 18 November: 1081525, not in that list, and 0, which IPMA's file uses with several values a day and no place).",
  "counts": {
   "places": 28
  },
