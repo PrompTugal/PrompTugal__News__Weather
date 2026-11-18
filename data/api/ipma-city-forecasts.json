@@ -1,11 +1,11 @@
 {
  "source": "ipma-city-forecasts",
  "title": "IPMA daily forecasts by place",
- "read_at": "2026-11-18T10:09:47Z",
+ "read_at": "2026-11-18T13:08:24Z",
  "provenance": {
   "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1010500.json",
   "page": "https://www.ipma.pt/en/otempo/prev.localidade.hora/",
-  "read_at": "2026-11-18T10:09:47Z",
+  "read_at": "2026-11-18T13:08:24Z",
   "by": "sources/ipma-city-forecasts/collect.mjs (code, no model; run by data@PrompTugal.dinis)",
   "terms": "IPMA: free to copy and use for personal or public use if the use has no profit-making or offensive purpose; always name IPMA as the source.",
   "sources": [
@@ -60,8 +60,8 @@
    "lat": 40.6413,
    "lon": -8.6535,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1010500.json",
-   "read_at": "2026-11-18T10:09:51Z",
-   "updated": "2026-11-18T09:31:02",
+   "read_at": "2026-11-18T13:08:29Z",
+   "updated": "2026-11-18T12:31:02",
    "days": [
     {
      "date": "2026-11-18",
@@ -122,8 +122,8 @@
    "lat": 38.02,
    "lon": -7.87,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1020500.json",
-   "read_at": "2026-11-18T10:09:54Z",
-   "updated": "2026-11-18T09:31:02",
+   "read_at": "2026-11-18T13:08:31Z",
+   "updated": "2026-11-18T12:31:02",
    "days": [
     {
      "date": "2026-11-18",
@@ -184,8 +184,8 @@
    "lat": 41.5475,
    "lon": -8.4227,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1030300.json",
-   "read_at": "2026-11-18T10:09:56Z",
-   "updated": "2026-11-18T09:31:02",
+   "read_at": "2026-11-18T13:08:34Z",
+   "updated": "2026-11-18T12:31:02",
    "days": [
     {
      "date": "2026-11-18",
@@ -246,8 +246,8 @@
    "lat": 41.4434,
    "lon": -8.2938,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1030800.json",
-   "read_at": "2026-11-18T10:09:59Z",
-   "updated": "2026-11-18T09:31:02",
+   "read_at": "2026-11-18T13:08:36Z",
+   "updated": "2026-11-18T12:31:02",
    "days": [
     {
      "date": "2026-11-18",
@@ -308,8 +308,8 @@
    "lat": 41.8076,
    "lon": -6.7606,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1040200.json",
-   "read_at": "2026-11-18T10:10:01Z",
-   "updated": "2026-11-18T09:31:02",
+   "read_at": "2026-11-18T13:08:39Z",
+   "updated": "2026-11-18T12:31:02",
    "days": [
     {
      "date": "2026-11-18",
@@ -370,8 +370,8 @@
    "lat": 39.8217,
    "lon": -7.4957,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1050200.json",
-   "read_at": "2026-11-18T10:10:04Z",
-   "updated": "2026-11-18T09:31:02",
+   "read_at": "2026-11-18T13:08:41Z",
+   "updated": "2026-11-18T12:31:02",
    "days": [
     {
      "date": "2026-11-18",
@@ -432,8 +432,8 @@
    "lat": 40.2081,
    "lon": -8.4194,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1060300.json",
-   "read_at": "2026-11-18T10:10:06Z",
-   "updated": "2026-11-18T09:31:02",
+   "read_at": "2026-11-18T13:08:44Z",
+   "updated": "2026-11-18T12:31:02",
    "days": [
     {
      "date": "2026-11-18",
@@ -494,8 +494,8 @@
    "lat": 38.5701,
    "lon": -7.9104,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1070500.json",
-   "read_at": "2026-11-18T10:10:09Z",
-   "updated": "2026-11-18T09:31:02",
+   "read_at": "2026-11-18T13:08:46Z",
+   "updated": "2026-11-18T12:31:02",
    "days": [
     {
      "date": "2026-11-18",
@@ -556,8 +556,8 @@
    "lat": 37.0146,
    "lon": -7.9331,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1080500.json",
-   "read_at": "2026-11-18T10:10:11Z",
-   "updated": "2026-11-18T09:31:02",
+   "read_at": "2026-11-18T13:08:49Z",
+   "updated": "2026-11-18T12:31:02",
    "days": [
     {
      "date": "2026-11-18",
@@ -618,8 +618,8 @@
    "lat": 37.0168,
    "lon": -8.9403,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1081505.json",
-   "read_at": "2026-11-18T10:10:14Z",
-   "updated": "2026-11-18T09:31:02",
+   "read_at": "2026-11-18T13:08:51Z",
+   "updated": "2026-11-18T12:31:02",
    "days": [
     {
      "date": "2026-11-18",
@@ -680,8 +680,8 @@
    "lat": 37.15,
    "lon": -8.52,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1081100.json",
-   "read_at": "2026-11-18T10:10:16Z",
-   "updated": "2026-11-18T09:31:02",
+   "read_at": "2026-11-18T13:08:54Z",
+   "updated": "2026-11-18T12:31:02",
    "days": [
     {
      "date": "2026-11-18",
@@ -742,8 +742,8 @@
    "lat": 37.1397,
    "lon": -8.0202,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1080800.json",
-   "read_at": "2026-11-18T10:10:19Z",
-   "updated": "2026-11-18T09:31:02",
+   "read_at": "2026-11-18T13:08:56Z",
+   "updated": "2026-11-18T12:31:02",
    "days": [
     {
      "date": "2026-11-18",
@@ -804,8 +804,8 @@
    "lat": 40.5379,
    "lon": -7.2647,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1090700.json",
-   "read_at": "2026-11-18T10:10:21Z",
-   "updated": "2026-11-18T09:31:02",
+   "read_at": "2026-11-18T13:08:59Z",
+   "updated": "2026-11-18T12:31:02",
    "days": [
     {
      "date": "2026-11-18",
@@ -866,8 +866,8 @@
    "lat": 40.4075,
    "lon": -7.5665,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1090821.json",
-   "read_at": "2026-11-18T10:10:24Z",
-   "updated": "2026-11-18T09:31:02",
+   "read_at": "2026-11-18T13:09:01Z",
+   "updated": "2026-11-18T12:31:02",
    "days": [
     {
      "date": "2026-11-18",
@@ -928,8 +928,8 @@
    "lat": 39.7473,
    "lon": -8.8069,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1100900.json",
-   "read_at": "2026-11-18T10:10:26Z",
-   "updated": "2026-11-18T09:31:02",
+   "read_at": "2026-11-18T13:09:04Z",
+   "updated": "2026-11-18T12:31:02",
    "days": [
     {
      "date": "2026-11-18",
@@ -990,8 +990,8 @@
    "lat": 38.766,
    "lon": -9.1286,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1110600.json",
-   "read_at": "2026-11-18T10:10:29Z",
-   "updated": "2026-11-18T09:31:02",
+   "read_at": "2026-11-18T13:09:06Z",
+   "updated": "2026-11-18T12:31:02",
    "days": [
     {
      "date": "2026-11-18",
@@ -1052,8 +1052,8 @@
    "lat": 39.29,
    "lon": -7.42,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1121400.json",
-   "read_at": "2026-11-18T10:10:31Z",
-   "updated": "2026-11-18T09:31:02",
+   "read_at": "2026-11-18T13:09:09Z",
+   "updated": "2026-11-18T12:31:02",
    "days": [
     {
      "date": "2026-11-18",
@@ -1114,8 +1114,8 @@
    "lat": 41.158,
    "lon": -8.6294,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1131200.json",
-   "read_at": "2026-11-18T10:10:34Z",
-   "updated": "2026-11-18T09:31:02",
+   "read_at": "2026-11-18T13:09:11Z",
+   "updated": "2026-11-18T12:31:02",
    "days": [
     {
      "date": "2026-11-18",
@@ -1176,8 +1176,8 @@
    "lat": 39.2,
    "lon": -8.74,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1141600.json",
-   "read_at": "2026-11-18T10:10:36Z",
-   "updated": "2026-11-18T09:31:02",
+   "read_at": "2026-11-18T13:09:14Z",
+   "updated": "2026-11-18T12:31:02",
    "days": [
     {
      "date": "2026-11-18",
@@ -1238,8 +1238,8 @@
    "lat": 38.5246,
    "lon": -8.8856,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1151200.json",
-   "read_at": "2026-11-18T10:10:39Z",
-   "updated": "2026-11-18T09:31:02",
+   "read_at": "2026-11-18T13:09:16Z",
+   "updated": "2026-11-18T12:31:02",
    "days": [
     {
      "date": "2026-11-18",
@@ -1300,8 +1300,8 @@
    "lat": 37.956,
    "lon": -8.8643,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1151300.json",
-   "read_at": "2026-11-18T10:10:41Z",
-   "updated": "2026-11-18T09:31:02",
+   "read_at": "2026-11-18T13:09:19Z",
+   "updated": "2026-11-18T12:31:02",
    "days": [
     {
      "date": "2026-11-18",
@@ -1362,8 +1362,8 @@
    "lat": 41.6952,
    "lon": -8.8365,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1160900.json",
-   "read_at": "2026-11-18T10:10:44Z",
-   "updated": "2026-11-18T09:31:02",
+   "read_at": "2026-11-18T13:09:21Z",
+   "updated": "2026-11-18T12:31:02",
    "days": [
     {
      "date": "2026-11-18",
@@ -1424,8 +1424,8 @@
    "lat": 41.3053,
    "lon": -7.744,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1171400.json",
-   "read_at": "2026-11-18T10:10:46Z",
-   "updated": "2026-11-18T09:31:02",
+   "read_at": "2026-11-18T13:09:24Z",
+   "updated": "2026-11-18T12:31:02",
    "days": [
     {
      "date": "2026-11-18",
@@ -1486,8 +1486,8 @@
    "lat": 40.6585,
    "lon": -7.912,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1182300.json",
-   "read_at": "2026-11-18T10:10:49Z",
-   "updated": "2026-11-18T09:31:02",
+   "read_at": "2026-11-18T13:09:26Z",
+   "updated": "2026-11-18T12:31:02",
    "days": [
     {
      "date": "2026-11-18",
@@ -1548,8 +1548,8 @@
    "lat": 32.6485,
    "lon": -16.9084,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/2310300.json",
-   "read_at": "2026-11-18T10:10:51Z",
-   "updated": "2026-11-18T09:31:02",
+   "read_at": "2026-11-18T13:09:29Z",
+   "updated": "2026-11-18T12:31:02",
    "days": [
     {
      "date": "2026-11-18",
@@ -1610,8 +1610,8 @@
    "lat": 33.07,
    "lon": -16.34,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/2320100.json",
-   "read_at": "2026-11-18T10:10:54Z",
-   "updated": "2026-11-18T09:31:02",
+   "read_at": "2026-11-18T13:09:31Z",
+   "updated": "2026-11-18T12:31:02",
    "days": [
     {
      "date": "2026-11-18",
@@ -1672,8 +1672,8 @@
    "lat": 36.9563,
    "lon": -25.1409,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/3410100.json",
-   "read_at": "2026-11-18T10:10:56Z",
-   "updated": "2026-11-18T09:31:02",
+   "read_at": "2026-11-18T13:09:34Z",
+   "updated": "2026-11-18T12:31:02",
    "days": [
     {
      "date": "2026-11-18",
@@ -1734,8 +1734,8 @@
    "lat": 37.7415,
    "lon": -25.6677,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/3420300.json",
-   "read_at": "2026-11-18T10:10:59Z",
-   "updated": "2026-11-18T09:31:02",
+   "read_at": "2026-11-18T13:09:36Z",
+   "updated": "2026-11-18T12:31:02",
    "days": [
     {
      "date": "2026-11-18",
@@ -1796,8 +1796,8 @@
    "lat": 38.67,
    "lon": -27.22,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/3430100.json",
-   "read_at": "2026-11-18T10:11:01Z",
-   "updated": "2026-11-18T09:31:02",
+   "read_at": "2026-11-18T13:09:39Z",
+   "updated": "2026-11-18T12:31:02",
    "days": [
     {
      "date": "2026-11-18",
@@ -1858,8 +1858,8 @@
    "lat": 39.08,
    "lon": -28,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/3440100.json",
-   "read_at": "2026-11-18T10:11:04Z",
-   "updated": "2026-11-18T09:31:02",
+   "read_at": "2026-11-18T13:09:41Z",
+   "updated": "2026-11-18T12:31:02",
    "days": [
     {
      "date": "2026-11-18",
@@ -1920,8 +1920,8 @@
    "lat": 38.6842,
    "lon": -28.2133,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/3450200.json",
-   "read_at": "2026-11-18T10:11:06Z",
-   "updated": "2026-11-18T09:31:02",
+   "read_at": "2026-11-18T13:09:44Z",
+   "updated": "2026-11-18T12:31:02",
    "days": [
     {
      "date": "2026-11-18",
@@ -1982,8 +1982,8 @@
    "lat": 38.5325,
    "lon": -28.5237,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/3460200.json",
-   "read_at": "2026-11-18T10:11:09Z",
-   "updated": "2026-11-18T09:31:02",
+   "read_at": "2026-11-18T13:09:46Z",
+   "updated": "2026-11-18T12:31:02",
    "days": [
     {
      "date": "2026-11-18",
@@ -2044,8 +2044,8 @@
    "lat": 38.5363,
    "lon": -28.6315,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/3470100.json",
-   "read_at": "2026-11-18T10:11:11Z",
-   "updated": "2026-11-18T09:31:02",
+   "read_at": "2026-11-18T13:09:49Z",
+   "updated": "2026-11-18T12:31:02",
    "days": [
     {
      "date": "2026-11-18",
@@ -2106,8 +2106,8 @@
    "lat": 39.45,
    "lon": -31.13,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/3480200.json",
-   "read_at": "2026-11-18T10:11:14Z",
-   "updated": "2026-11-18T09:31:02",
+   "read_at": "2026-11-18T13:09:51Z",
+   "updated": "2026-11-18T12:31:02",
    "days": [
     {
      "date": "2026-11-18",
@@ -2168,8 +2168,8 @@
    "lat": 39.67,
    "lon": -31.12,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/3490100.json",
-   "read_at": "2026-11-18T10:11:16Z",
-   "updated": "2026-11-18T09:31:02",
+   "read_at": "2026-11-18T13:09:54Z",
+   "updated": "2026-11-18T12:31:02",
    "days": [
     {
      "date": "2026-11-18",

@@ -2,8 +2,8 @@
   "role": "weather.b@PrompTugal.dinis",
   "account": "B",
   "started_by": "conductor.b@PrompTugal.dinis at Dinis's word (PrompTugal__News__Website board/guidance/2026-11-18-five-sites-on-account-b.md)",
-  "state": "run 2 done (10:15 UTC wake); waits for the next wake",
-  "updated": "2026-11-18T10:40Z",
+  "state": "run 3 done (13:14 UTC wake); waits for the next wake",
+  "updated": "2026-11-18T13:30Z",
   "debrief": "board/team/weather/debriefs/2026-11-18-account-b-first-run.md",
   "observability_lane": "weather",
   "observability_note": "For conductor.b@ to relay to account A's observability@: assets/obs/obs.js is on every page and writes only to obs.json lanes.weather, which is empty, so nothing is sent yet. observability@ issues the lane's append tokens (in the vault of its choice; the drain key is read from promptugal.news/assets/obs/obs.json unless set in this site's obs.json).",
@@ -21,13 +21,14 @@
     "Portugal map: capitals coloured by district warning, linked on /map/",
     "/account/: your reading, free",
     "run 2: station readings for the capitals (16 of 17 within 25 km)",
-    "run 2: warnings timeline by district on /map/ (weather.b.dev@, Sonnet), with the same data as a table"
+    "run 2: warnings timeline by district on /map/ (weather.b.dev@, Sonnet), with the same data as a table",
+    "run 3: UV for the district capitals (IPMA's index by place id, highest value each day, WHO bands); data refreshed (API v0.1.11)"
   ],
   "next": [
+    "UV on the Algarve place pages for all five days (they show one day now)",
+    "the Storm Charles archive: a picture of the warnings over the storm's days, like /map/'s timeline",
     "the session key, when allowed",
     "CI rebuild on a schedule so pages follow the hourly data (needs Dinis's yes)",
-    "UV for the capitals once the API's UV names are checked",
-    "a warnings timeline per district",
     "Dinis's front page choice applied"
   ],
   "asks": [
@@ -36,5 +37,5 @@
     "Dinis: may CI rebuild the site hourly (a schedule in pages.yml) so pages follow data.promptugal.news?",
     "Dinis: the masthead chip says 'free here' because this site cannot read the promptugal.news balance (another origin) and charges nothing; keep, or say what it should show"
   ],
-  "live": "v0.1.6 at 10:14 UTC; run 2 deploys as the next version"
+  "live": "v0.1.8 (run 2) at 13:14 UTC; run 3 deploys as the next version"
 }

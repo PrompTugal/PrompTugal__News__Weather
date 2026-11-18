@@ -49,6 +49,15 @@ function capital(p, api) {
   c.level = active.reduce((lv, a) => (LEVEL[a.level] ?? 0) > (LEVEL[lv] ?? 0) ? a.level : lv, 'green');
   const coast = sea?.coasts?.find(x => plain(x.name).replace(/, costa$/, '') === plain(p.name));
   if (coast) c.sea = { coast: coast.name, days: coast.days, page: sea.provenance?.page, source: sea.provenance?.source, read_at: sea.read_at };
+  // UV: IPMA's file is keyed by the same place id as the city forecast; where it gives several values for a day,
+  // the highest is kept (the reader's worst case), and the page says so
+  const uvp = api['ipma-uv']?.places?.find(x => x.id === city.id);
+  if (uvp?.days?.length) {
+    const by = {}; let multi = false;
+    for (const d of uvp.days) { if (d.index == null) continue; if (d.date in by) multi = true; by[d.date] = Math.max(by[d.date] ?? -1, d.index); }
+    const days = Object.keys(by).sort().map(date => ({ date, index: by[date] }));
+    if (days.length) c.uv = { days, multi, page: api['ipma-uv'].provenance?.page, source: api['ipma-uv'].provenance?.source, read_at: api['ipma-uv'].read_at };
+  }
   // the nearest IPMA station that reported in the latest hour, within 25 km
   const ob = api['ipma-observations'];
   if (ob?.stations) {
@@ -194,6 +203,9 @@ export function markdown(src) {
 }
 
 // ---------------------------------------------------------------- colours as classes (the CSS holds the values)
+// UV index bands: the WHO's Global Solar UV Index (2002): low 0-2, moderate 3-5, high 6-7, very high 8-10, extreme 11+
+export const uvBand = i => i == null ? null : i < 3 ? 'low' : i < 6 ? 'moderate' : i < 8 ? 'high' : i < 11 ? 'very high' : 'extreme';
+export const uvClass = i => `uv-${['low', 'moderate', 'high', 'very high', 'extreme'].indexOf(uvBand(i)) + 1}`;
 export const fireClass = level => `fire-${FIRE[level] || 0}`;
 export const warnClass = level => `warn-${level || 'green'}`;
 export function worstFire(town) { return (town.now.fire_risk?.days || []).reduce((m, d) => Math.max(m, FIRE[d.level] || 0), 0); }

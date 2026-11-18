@@ -40,3 +40,9 @@ Station readings for the capitals (`ipma-observations`), UV once the file is und
 - Station readings on every capital page and a Now column in the front page's capitals table: nearest station reporting in the latest hour, within 25 km. Santarém reads Rio Maior (24.8 km); Setúbal has none in range and says so.
 - A warnings timeline by district on `/map/`. weather.b.dev@PrompTugal.dinis (Sonnet sub-agent) wrote `scripts/site/timeline.mjs` to a brief with one file in scope; I reviewed it, wired it in and checked it at 1300 and 390 px (no horizontal scroll). At phone width the bar labels are small, so the same warnings sit in a table beneath.
 - The session key was not retried: the refusal is a permission setting, which only Dinis can change.
+
+## Run 3 (scheduled wake, 13:14 UTC)
+
+- No HOLD; no new guidance since 08:50. Run 2 live as v0.1.8. data.promptugal.news now v0.1.11; its UV file now explains itself (places by IPMA place id; id 0 has several values a day and no place).
+- UV for the 17 capitals: matched by place id (the same id as the city forecast), highest value each day where IPMA gives two, banded as the WHO's Global Solar UV Index. All low today (0.2 to 2.7).
+- No sub-agent this run: the piece was small and touched the shared generator.

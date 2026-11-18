@@ -1,6 +1,6 @@
 {
  "place": "albufeira",
- "read_at": "2026-11-18T10:11:48Z",
+ "read_at": "2026-11-18T13:10:26Z",
  "by": "collect/by-place-now.mjs (code, no model; data@PrompTugal.dinis), from this site's collected sources",
  "about": "Now in this place, from IPMA's open data and (for Faro) adsb.lol, as collected by data.promptugal.news: each value with its source and the time read. Not a warning service: follow IPMA (https://www.ipma.pt/) and ANEPC.",
  "station": {
@@ -91,8 +91,8 @@
  },
  "uv": {
   "place": "Faro",
-  "date": "2026-11-21",
-  "index": 2.5,
+  "date": "2026-11-22",
+  "index": 3,
   "page": "https://www.ipma.pt/en/otempo/prev.uv/",
   "source": "https://api.ipma.pt/open-data/forecast/meteorology/uv/uv.json"
  },
@@ -109,37 +109,37 @@
  "reads": {
   "observations": {
    "url": "https://data.promptugal.news/api/v1/ipma-observations/latest.json",
-   "at": "2026-11-18T10:11:24Z",
+   "at": "2026-11-18T13:10:02Z",
    "status": 200
   },
   "warnings": {
    "url": "https://data.promptugal.news/api/v1/ipma-warnings/latest.json",
-   "at": "2026-11-18T10:11:42Z",
+   "at": "2026-11-18T13:10:19Z",
    "status": 200
   },
   "forecasts": {
    "url": "https://data.promptugal.news/api/v1/ipma-city-forecasts/latest.json",
-   "at": "2026-11-18T10:09:47Z",
+   "at": "2026-11-18T13:08:24Z",
    "status": 200
   },
   "fire-risk": {
    "url": "https://data.promptugal.news/api/v1/ipma-fire-risk/latest.json",
-   "at": "2026-11-18T10:11:17Z",
+   "at": "2026-11-18T13:09:54Z",
    "status": 200
   },
   "uv": {
    "url": "https://data.promptugal.news/api/v1/ipma-uv/latest.json",
-   "at": "2026-11-18T10:11:39Z",
+   "at": "2026-11-18T13:10:17Z",
    "status": 200
   },
   "sea": {
    "url": "https://data.promptugal.news/api/v1/ipma-sea/latest.json",
-   "at": "2026-11-18T10:11:29Z",
+   "at": "2026-11-18T13:10:07Z",
    "status": 200
   },
   "adsb": {
    "url": "https://data.promptugal.news/api/v1/adsb-faro/latest.json",
-   "at": "2026-11-18T10:09:46Z",
+   "at": "2026-11-18T13:08:24Z",
    "status": 200
   }
  }

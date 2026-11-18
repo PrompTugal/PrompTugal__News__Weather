@@ -5,7 +5,7 @@ import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import {
   SITE, esc, readJSON, loadData, page, write, markdown, parseFront, when, localWhen, dayName, ageHours, host,
-  WIND_DIR, FIRE, FIRE_PT, LEVEL, num, show, showMd, fireClass, warnClass, worstFire, worstWarning, portugalMap, algarveMap, forecastChart,
+  WIND_DIR, FIRE, FIRE_PT, LEVEL, num, show, showMd, fireClass, warnClass, uvBand, uvClass, worstFire, worstWarning, portugalMap, algarveMap, forecastChart,
 } from './lib.mjs';
 import { warningsTimeline, TIMELINE_CSS } from './timeline.mjs';
 
@@ -124,6 +124,7 @@ ${c.station ? `<section class="panel"><h2>Now</h2>
 <section class="panel"><h2>Five days</h2>${forecastChart(fc.days, D.types)}
 <div class="table-wrap"><table class="days"><thead><tr><th scope="col">Day</th><th scope="col">Weather</th><th scope="col">Low</th><th scope="col">High</th><th scope="col">Rain</th><th scope="col">Wind from</th></tr></thead><tbody>${fc.days.map(d => `<tr><th scope="row">${dayName(d.date)}</th><td>${esc(typeOf(d.weather_type))}</td><td class="n">${show(d.t_min_c, '°')}</td><td class="n">${show(d.t_max_c, '°')}</td><td class="n">${d.rain_prob_pct ?? '?'}%</td><td>${esc(d.wind_dir || '?')}</td></tr>`).join('')}</tbody></table></div>
 <p class="src">IPMA forecast for ${esc(fc.place)}. <a href="${esc(fc.page)}">IPMA forecast page</a>, <a href="${esc(fc.source)}">open data</a>, read ${when(fc.read_at)}.</p></section>
+${c.uv ? `<section class="panel"><h2>UV</h2><p>${c.uv.days.map(d => `<span class="chip ${uvClass(d.index)}"><span class="d">${dayName(d.date)}</span> ${num(d.index, '', 1)} ${uvBand(d.index)}</span>`).join(' ')}</p><p class="src">IPMA's UV index forecast for ${esc(c.name)}${c.uv.multi ? '; where IPMA gives more than one value for a day, the highest is shown' : ''}. Bands as the WHO's Global Solar UV Index. <a href="${esc(c.uv.page)}">IPMA UV</a>.</p></section>` : ''}
 ${s0 ? `<section class="panel"><h2>Sea</h2><dl class="kv"><dt>Waves</dt><dd>${show(s0.waves_min_m, ' m')} to ${show(s0.waves_max_m, ' m')}${s0.wave_dir ? ` from ${esc(s0.wave_dir)}` : ''}</dd><dt>Total sea, up to</dt><dd>${show(s0.sea_max_m, ' m')}</dd><dt>Sea temperature</dt><dd>${show(s0.sea_temp_max_c, '°C')}</dd></dl><p class="src">IPMA's coastal forecast for ${esc(sea.coast)}, ${dayName(s0.date)}. <a href="${esc(sea.page)}">IPMA sea forecast</a>.</p></section>` : ''}
 <section class="panel follow"><h2>What to do, and who to follow</h2><ul><li>Warnings and forecasts: <a href="https://www.ipma.pt/">IPMA</a>, the national weather service.</li><li>Civil protection: <a href="https://prociv.gov.pt/">ANEPC</a>, and the municipality's civil protection service.</li><li>In an emergency: call <strong>112</strong>.</li></ul><p><a href="/what-to-do/">What IPMA's warning levels and fire risk classes mean, and what to do</a>.</p></section>
 <section><h2>Sources, as read</h2><div class="table-wrap"><table class="reads"><thead><tr><th scope="col">Data set</th><th scope="col">Address</th><th scope="col">Read</th></tr></thead><tbody>
@@ -131,6 +132,7 @@ ${s0 ? `<section class="panel"><h2>Sea</h2><dl class="kv"><dt>Waves</dt><dd>${sh
 <tr><td>Warnings</td><td><a href="${esc(w.source)}">${esc(String(w.source).replace('https://', ''))}</a></td><td>${when(w.read_at)}</td></tr>
 ${fr ? `<tr><td>Fire risk</td><td><a href="${esc(fr.source.replace('{0,1,2}', '0'))}">${esc(fr.source.replace('https://', ''))}</a></td><td>${when(fr.read_at)}</td></tr>` : ''}
 ${c.station ? `<tr><td>Station</td><td><a href="${esc(c.station.source)}">${esc(String(c.station.source).replace('https://', ''))}</a></td><td>${when(c.station.read_at)}</td></tr>` : ''}
+${c.uv ? `<tr><td>UV</td><td><a href="${esc(c.uv.source)}">${esc(String(c.uv.source).replace('https://', ''))}</a></td><td>${when(c.uv.read_at)}</td></tr>` : ''}
 ${sea ? `<tr><td>Sea</td><td><a href="${esc(String(sea.source).replace('{0,1,2}', '0'))}">${esc(String(sea.source).replace('https://', ''))}</a></td><td>${when(sea.read_at)}</td></tr>` : ''}
 </tbody></table></div><p class="src">Read from IPMA by data.promptugal.news's collectors (code, no model; data@PrompTugal.dinis) and copied here from <a href="https://data.promptugal.news/api/v1/">its API</a> (${esc(D.sync.api_version || '')}, copied ${when(D.sync.synced_at)}).</p></section>`;
   const md = `${c.name}, capital of the ${c.district} district. Read ${when(c.read_at)}.
@@ -150,7 +152,7 @@ ${fr ? fr.days.map(d => `- ${dayName(d.date)}: ${d.level} (${FIRE_PT[d.level] ||
 ${fc.days.map(d => `| ${dayName(d.date)} | ${typeOf(d.weather_type)} | ${showMd(d.t_min_c, '°C')} | ${showMd(d.t_max_c, '°C')} | ${d.rain_prob_pct ?? '?'}% | ${d.wind_dir || '?'} |`).join('\n')}
 
 Source: ${fc.source}
-${s0 ? `\n## Sea\n\n${sea.coast}, ${dayName(s0.date)}: waves ${showMd(s0.waves_min_m, ' m')} to ${showMd(s0.waves_max_m, ' m')}, total sea up to ${showMd(s0.sea_max_m, ' m')}, sea temperature ${showMd(s0.sea_temp_max_c, '°C')}. Source: ${sea.source}\n` : ''}
+${c.uv ? `\n## UV (IPMA, highest value each day)\n\n${c.uv.days.map(d => `- ${dayName(d.date)}: ${num(d.index, '', 1)} (${uvBand(d.index)})`).join('\n')}\n\nSource: ${c.uv.source}\n` : ''}${s0 ? `\n## Sea\n\n${sea.coast}, ${dayName(s0.date)}: waves ${showMd(s0.waves_min_m, ' m')} to ${showMd(s0.waves_max_m, ' m')}, total sea up to ${showMd(s0.sea_max_m, ' m')}, sea temperature ${showMd(s0.sea_temp_max_c, '°C')}. Source: ${sea.source}\n` : ''}
 ## Who to follow
 
 - IPMA: https://www.ipma.pt/

@@ -1,6 +1,6 @@
 {
  "place": "algarve",
- "read_at": "2026-11-18T10:11:48Z",
+ "read_at": "2026-11-18T13:10:26Z",
  "by": "collect/by-place-now.mjs (code, no model; data@PrompTugal.dinis), from this site's collected sources",
  "about": "Now in the Algarve: IPMA's warnings for the Faro district, Faro airport, and each place's nearest station. Not a warning service.",
  "warnings": {
@@ -22,23 +22,23 @@
   "icao": "LPFR",
   "name": "Faro airport",
   "within_nm": 40,
-  "at": "2026-11-18T10:09:46Z",
+  "at": "2026-11-18T13:08:24Z",
   "airline": [
    {
-    "callsign": "EFW39MS",
-    "airline": "EFW",
+    "callsign": "IBS16SM",
+    "airline": "IBS",
     "type": "A320",
-    "alt_ft": 5400,
+    "alt_ft": 36000,
     "on_ground": false,
-    "ground_speed_kt": 295.2
+    "ground_speed_kt": 477.3
    },
    {
-    "callsign": "RAM809P",
+    "callsign": "RAM832B",
     "airline": "RAM",
-    "type": "B738",
-    "alt_ft": 37000,
+    "type": "B38M",
+    "alt_ft": 36000,
     "on_ground": false,
-    "ground_speed_kt": 446.3
+    "ground_speed_kt": 469.5
    }
   ],
   "other_aircraft": 0,
@@ -50,7 +50,7 @@
   {
    "place": "faro",
    "station": "Faro (Aeródromo)",
-   "temp_c": 20
+   "temp_c": 21.1
   },
   {
    "place": "loule",
@@ -75,7 +75,7 @@
   {
    "place": "vila-real-de-santo-antonio",
    "station": "Vila Real de S. António",
-   "temp_c": 19.5
+   "temp_c": 20.3
   },
   {
    "place": "portimao",
@@ -90,7 +90,7 @@
   {
    "place": "olhao",
    "station": "Olhão, EPPO",
-   "temp_c": 19.7
+   "temp_c": 20.8
   },
   {
    "place": "albufeira",
@@ -105,68 +105,68 @@
   {
    "place": "monchique",
    "station": "Fóia",
-   "temp_c": 16.1
+   "temp_c": null
   },
   {
    "place": "aljezur",
    "station": "Aljezur",
-   "temp_c": null
+   "temp_c": 21.1
   },
   {
    "place": "vila-do-bispo",
    "station": "Sagres",
-   "temp_c": 19.6
+   "temp_c": 20.2
   },
   {
    "place": "castro-marim",
    "station": "Castro Marim (RN Sapal)",
-   "temp_c": null
+   "temp_c": 21
   },
   {
    "place": "alcoutim",
    "station": "Alcoutim, Mart.Longo",
-   "temp_c": null
+   "temp_c": 21.3
   },
   {
    "place": "sao-bras-de-alportel",
    "station": "Olhão, EPPO",
-   "temp_c": 19.7
+   "temp_c": 20.8
   }
  ],
  "reads": {
   "observations": {
    "url": "https://data.promptugal.news/api/v1/ipma-observations/latest.json",
-   "at": "2026-11-18T10:11:24Z",
+   "at": "2026-11-18T13:10:02Z",
    "status": 200
   },
   "warnings": {
    "url": "https://data.promptugal.news/api/v1/ipma-warnings/latest.json",
-   "at": "2026-11-18T10:11:42Z",
+   "at": "2026-11-18T13:10:19Z",
    "status": 200
   },
   "forecasts": {
    "url": "https://data.promptugal.news/api/v1/ipma-city-forecasts/latest.json",
-   "at": "2026-11-18T10:09:47Z",
+   "at": "2026-11-18T13:08:24Z",
    "status": 200
   },
   "fire-risk": {
    "url": "https://data.promptugal.news/api/v1/ipma-fire-risk/latest.json",
-   "at": "2026-11-18T10:11:17Z",
+   "at": "2026-11-18T13:09:54Z",
    "status": 200
   },
   "uv": {
    "url": "https://data.promptugal.news/api/v1/ipma-uv/latest.json",
-   "at": "2026-11-18T10:11:39Z",
+   "at": "2026-11-18T13:10:17Z",
    "status": 200
   },
   "sea": {
    "url": "https://data.promptugal.news/api/v1/ipma-sea/latest.json",
-   "at": "2026-11-18T10:11:29Z",
+   "at": "2026-11-18T13:10:07Z",
    "status": 200
   },
   "adsb": {
    "url": "https://data.promptugal.news/api/v1/adsb-faro/latest.json",
-   "at": "2026-11-18T10:09:46Z",
+   "at": "2026-11-18T13:08:24Z",
    "status": 200
   }
  }
