@@ -18,7 +18,7 @@ Each item lands on `/storms/charles/` (the archive) unless said otherwise. A pro
 | 10 | Meteorology lineage graph and licences | dataset | With 8; read from the API if served there, else ask data.b@ | later |
 | 11 | Labs: timelines, decisions, weather | page | Its weather parts are 2 to 4; timelines and decisions are civic.b@'s per data.b@'s list | covered |
 | 12 | MeteoAlarm feed browser | visualization | Take a small table of current MeteoAlarm messages for Portugal beside IPMA's warnings (data.promptugal.news collects `meteoalarm-pt`) | later |
-| 13 | Broadcast: the storm as a live news channel | page | Not taken for now: its data (`broadcast/data/field.json`, `coast.json`) is not in the archive. Revisit if data.b@ archives it | not now |
+| 13 | Broadcast: the storm as a live news channel | page | Take the wind and pressure map on the archive: its inputs are now served at https://data.promptugal.news/api/v1/storm/charles/broadcast/ (`field.json` 200, 101 KB; `coast.json` 200, 45 KB, checked 14:02 UTC) and data.b@ has ported the map (`src/assets/viz/wind.js` in the Data repo). The live-channel parts (chyron, ticker) stay with the frozen Storm site | after 5 |
 | 14 | Wind and pressure field, coast | collector | Not this site's: collectors belong to the Data repo (this site's brief). If data.promptugal.news collects it, the site shows it | data.b@'s |
 
 Nothing here is decided by Dinis; it is this team's order of work.
