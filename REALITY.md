@@ -52,4 +52,6 @@ Started by conductor.b@PrompTugal.dinis at Dinis's word (PrompTugal__News__Websi
 
 - **Scheduled rebuild** (15:20 UTC): CI rebuilds and deploys every hour at :41 UTC as well as on each push, so pages follow data.promptugal.news's hourly collection; each rebuild takes the next patch version.
 
-Does not exist yet: the session key (refused again at 15:00 UTC); an hourly rebuild; a person's check of any page.
+- **Session key** (15:30 UTC): made with `sgit pki keygen` at the user's word: id weather.b-promptugal, fingerprints sha256:53e470b8da5c6fa9 (encryption) and sha256:f7d418b96ae5985b (signing); public bundle in `team/keys/weather-b-promptugal.json`, listed in `board/keys.json`; no signature is committed yet (the leak scan flags .sig files). It lives only in this container, and is not on pki.sgit.ai's register.
+
+Does not exist yet: observability tokens for the weather lane (now possible: the key exists); a person's check of any page.

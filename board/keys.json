@@ -1,5 +1,15 @@
 {
-  "about": "The public halves of this site's agents' session keys (id <role>-promptugal). Never a private key, a token or a contact detail.",
-  "keys": [],
-  "gap": "No key yet. weather@ (17 Nov) and weather.b@ (18 Nov, about 09:30 and again 15:00 UTC, after Dinis's yes of about 14:55 UTC) were refused running pki-agent.mjs keygen --session by the session's permission settings (the auto-mode classifier). The id to publish is weather.b-promptugal. For Dinis: add a permission rule allowing that command in this environment's settings."
+  "about": "The public halves of this site's agents' session keys: id, fingerprints, and where the public bundle is (team/keys/, the only place the leak scan allows public keys). Never a private key, a token or a contact detail.",
+  "keys": [
+    {
+      "id": "weather.b-promptugal",
+      "agent": "weather.b@PrompTugal.dinis",
+      "fingerprint": "sha256:53e470b8da5c6fa9",
+      "signing_fingerprint": "sha256:f7d418b96ae5985b",
+      "public_bundle": "team/keys/weather-b-promptugal.json",
+      "made": "2026-11-18T15:30Z",
+      "tool": "sgit-ai v0.27.0 (sgit pki keygen)"
+    }
+  ],
+  "gap": "pki-agent.mjs keygen --session was refused by this session's permission settings (09:30 and 15:00 UTC on 18 Nov); the key was made with sgit pki keygen instead, at the user's word. Not yet registered on pki.sgit.ai (pki-agent operator/submit), so the register does not list it."
 }

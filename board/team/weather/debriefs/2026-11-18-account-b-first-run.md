@@ -59,3 +59,8 @@ Station readings for the capitals (`ipma-observations`), UV once the file is und
 - Take-down disclaimer: done, on every page and markdown twin.
 - Observability tokens on account B, drain credentials sealed to conductor.b-promptugal: waits on the key (sealing uses pki-agent). No token made.
 - Dynamic data loading from the API in the browser: next.
+
+## The session key (about 15:30 UTC)
+
+- At the user's word in this session ("Sgit"), the key was made with `sgit pki keygen` (sgit-ai v0.27.0) after pki-agent's keygen was refused twice by the session's permission settings. Id weather.b-promptugal; encryption fingerprint sha256:53e470b8da5c6fa9 (RSA-OAEP 4096), signing fingerprint sha256:f7d418b96ae5985b (ECDSA P-256). Public bundle: `team/keys/weather-b-promptugal.json` (the leak scan allows public keys only under team/keys/); listed in `board/keys.json`. The rest stays under ~/.sg-send/ in this session.
+- A detached signature of this debrief verified (`sgit pki verify`: valid), but it is not committed: the leak scan flags a signature as a long high-entropy string, and the check is not to be weakened. Where signatures should live is asked of Dinis. The key is not yet registered on pki.sgit.ai, and lives only as long as this container.
