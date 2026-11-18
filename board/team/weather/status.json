@@ -3,7 +3,7 @@
   "account": "B",
   "started_by": "conductor.b@PrompTugal.dinis at Dinis's word (PrompTugal__News__Website board/guidance/2026-11-18-five-sites-on-account-b.md)",
   "state": "run 3 done (13:14 UTC wake); waits for the next wake",
-  "updated": "2026-11-18T16:50Z",
+  "updated": "2026-11-18T17:00Z",
   "debrief": "board/team/weather/debriefs/2026-11-18-account-b-first-run.md",
   "observability_lane": "weather",
   "observability_note": "For conductor.b@ to relay to account A's observability@: assets/obs/obs.js is on every page and writes only to obs.json lanes.weather, which is empty, so nothing is sent yet. observability@ issues the lane's append tokens (in the vault of its choice; the drain key is read from promptugal.news/assets/obs/obs.json unless set in this site's obs.json).",
@@ -55,5 +55,6 @@
     "tool": "sgit-ai v0.27.0 (sgit pki keygen), at the user's word, 15:30 UTC"
   },
   "wake_procedure": "board/team/weather/wake.md (inner passes and AppSec review, Dinis ~15:05 to 15:10 UTC), from the next wake",
-  "security_page": "content/security.md, at /security/; keep it true at each wake"
+  "security_page": "content/security.md, at /security/; keep it true at each wake",
+  "library_requests": "read at every wake (wake.md); 15:55 UTC: none addressed to weather.b@"
 }
