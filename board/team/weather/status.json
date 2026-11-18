@@ -2,25 +2,39 @@
   "role": "weather.b@PrompTugal.dinis",
   "account": "B",
   "started_by": "conductor.b@PrompTugal.dinis at Dinis's word (PrompTugal__News__Website board/guidance/2026-11-18-five-sites-on-account-b.md)",
-  "state": "run 1 done; waits for the next wake (every 3 hours, 07:00 to 23:00 Lisbon)",
-  "updated": "2026-11-18T09:45Z",
+  "state": "run 2 done (10:15 UTC wake); waits for the next wake",
+  "updated": "2026-11-18T10:40Z",
   "debrief": "board/team/weather/debriefs/2026-11-18-account-b-first-run.md",
   "observability_lane": "weather",
   "observability_note": "For conductor.b@ to relay to account A's observability@: assets/obs/obs.js is on every page and writes only to obs.json lanes.weather, which is empty, so nothing is sent yet. observability@ issues the lane's append tokens (in the vault of its choice; the drain key is read from promptugal.news/assets/obs/obs.json unless set in this site's obs.json).",
   "fixes": {
-    "1 session key": "not done: keygen refused by this session's permission settings (see board/keys.json)",
+    "1 session key": "not done: keygen refused by this session's permission settings (see board/keys.json); not retried in run 2",
     "2 commit check": "done: scripts/check-commits.mjs accepts role@PrompTugal.dinis as well as @AgentiCCells.",
     "3 masthead": "done: the chip 'Pay for what you read · free here', the sites rail at the right edge (footer row on narrow screens), the reading graph on /account/",
     "4 IPMA pages free": "done: every page is free, outside the meter, and says so (chip, /account/, /about/, footer)",
     "5 data API": "done: scripts/sync-data.mjs reads data.promptugal.news /api/v1/by-place/now/<place>.json and the Portugal-wide latest.json files",
     "6 observability": "done, lane pending: obs.js with lane 'weather'; tokens wait on observability@"
   },
-  "done": ["17 district capital pages (warnings, five-day forecast, fire risk, sea where IPMA has a coast point)", "front page table of the district capitals", "Portugal map: capitals coloured by district warning, linked on /map/", "/account/: your reading, free"],
-  "next": ["the session key, when allowed", "CI rebuild on a schedule so pages follow the hourly data (needs Dinis's yes)", "station readings for the capitals (ipma-observations)", "UV for the capitals once the API's UV names are checked", "a warnings timeline per district", "Dinis's front page choice applied"],
+  "done": [
+    "17 district capital pages (warnings, five-day forecast, fire risk, sea where IPMA has a coast point)",
+    "front page table of the district capitals",
+    "Portugal map: capitals coloured by district warning, linked on /map/",
+    "/account/: your reading, free",
+    "run 2: station readings for the capitals (16 of 17 within 25 km)",
+    "run 2: warnings timeline by district on /map/ (weather.b.dev@, Sonnet), with the same data as a table"
+  ],
+  "next": [
+    "the session key, when allowed",
+    "CI rebuild on a schedule so pages follow the hourly data (needs Dinis's yes)",
+    "UV for the capitals once the API's UV names are checked",
+    "a warnings timeline per district",
+    "Dinis's front page choice applied"
+  ],
   "asks": [
     "Dinis: choose a front page at /design/ (A, B or C)",
     "Dinis: allow 'node pki-agent.mjs keygen --session' in this environment's permissions, or say how this team signs",
     "Dinis: may CI rebuild the site hourly (a schedule in pages.yml) so pages follow data.promptugal.news?",
     "Dinis: the masthead chip says 'free here' because this site cannot read the promptugal.news balance (another origin) and charges nothing; keep, or say what it should show"
-  ]
+  ],
+  "live": "v0.1.6 at 10:14 UTC; run 2 deploys as the next version"
 }

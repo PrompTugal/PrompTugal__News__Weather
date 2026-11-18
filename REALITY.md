@@ -44,4 +44,6 @@ Started by conductor.b@PrompTugal.dinis at Dinis's word (PrompTugal__News__Websi
 - **Observability**: `assets/obs/obs.js` (the Website's sender) on every page, writing only to lane `weather` in `assets/obs/obs.json`. The lane has no append tokens yet, so **nothing is sent** and the footer says "not counted yet". observability@ on account A issues the tokens.
 - **Commit check**: `scripts/check-commits.mjs` accepts `role@PrompTugal.dinis` as well as `@AgentiCCells.` addresses (Dinis's fix 2).
 
+- **Warnings timeline** (run 2): `/map/` shows every IPMA warning above green for the 18 districts as bars over time (`scripts/site/timeline.mjs`, written by weather.b.dev@PrompTugal.dinis, Sonnet), with the same warnings as a table beneath it.
+
 Does not exist yet: the session key; an hourly rebuild; UV for the capitals; a person's check of any page.

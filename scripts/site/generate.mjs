@@ -7,6 +7,7 @@ import {
   SITE, esc, readJSON, loadData, page, write, markdown, parseFront, when, localWhen, dayName, ageHours, host,
   WIND_DIR, FIRE, FIRE_PT, LEVEL, num, show, showMd, fireClass, warnClass, worstFire, worstWarning, portugalMap, algarveMap, forecastChart,
 } from './lib.mjs';
+import { warningsTimeline, TIMELINE_CSS } from './timeline.mjs';
 
 const OUT = '_site';
 const D = loadData();
@@ -72,7 +73,7 @@ ${portugalSection()}
   <p class="src">"Now" is the nearest IPMA weather station's last hourly reading; "not reported" means the station sent no value. Forecasts are IPMA's for the nearest of its four Algarve forecast places. Sources and times on each place's page.</p>
 </section>
 <section class="cards">
-  <a class="card" href="/map/"><h2>Map</h2><p>Warnings and fire risk for the Algarve, day by day for three days.</p></a>
+  <a class="card" href="/map/"><h2>Map</h2><p>Every district's warnings on a map and a timeline; fire risk for the Algarve, day by day.</p></a>
   <a class="card" href="/storms/charles/"><h2>Storm Charles</h2><p>The archive of 10 to 12 November 2026: warnings, peaks, decisions, timeline.</p></a>
   <a class="card" href="/what-to-do/"><h2>What to do</h2><p>IPMA's warning levels and fire risk classes explained, and who to follow.</p></a>
 </section>`;
@@ -180,9 +181,31 @@ function mapPage() {
 <p class="standfirst">IPMA issues weather warnings by district: the whole Algarve is the Faro district. It gives rural fire risk by municipality, for today and the next two days.</p>
 ${freshness(r.read_at)}
 <section class="map-split"><div>${portugalMap({ outline, capitals: D.capitals, towns: D.towns, region: r, width: 420, linkCapitals: true })}<p class="legend"><span class="chip warn-green">green</span> <span class="chip warn-yellow">yellow</span> <span class="chip warn-orange">orange</span> <span class="chip warn-red">red</span> each capital by its district's highest IPMA warning; select one for its page.</p></div><div>${warningsHtml(r.warnings)}<p>Every district's warnings are on its capital's page, and in the table on <a href="/">the front page</a>. For the map IPMA keeps itself, see <a href="https://www.ipma.pt/en/otempo/prev-sam/">IPMA's warnings map</a>.</p></div></section>
+${timelineSection()}
 <section><h2>Fire risk, by place and day</h2>${legend}<div class="map-days">${maps}</div>${table}<p class="src">Source: <a href="${esc(D.now.faro.fire_risk?.page)}">IPMA rural fire risk (RCM)</a>, open data <a href="https://api.ipma.pt/open-data/forecast/meteorology/rcm/rcm-d0.json">d0</a>, d1, d2. Quarteira shares Loulé's municipal value.</p></section>`;
-  const md = `IPMA issues weather warnings by district (the Algarve is the Faro district) and rural fire risk by municipality.\n\nRead ${when(r.read_at)}.\n\n## Warnings, Faro district\n\n${warningsMd(r.warnings)}\n\n## Fire risk, by place and day\n\n| Place | ${days.map(d => dayName(d.date)).join(' | ')} |\n|---|${days.map(() => '---').join('|')}|\n${D.towns.map(t => `| ${t.name} | ${(t.now.fire_risk?.days || []).map(d => d.level).join(' | ')} |`).join('\n')}\n\nSource: IPMA rural fire risk, ${D.now.faro.fire_risk?.page}\n\n${portugalMd()}`;
-  add(page({ path: '/map/', title: 'Map: warnings and fire risk', description: 'IPMA warnings for every district of mainland Portugal on a map, and rural fire risk for each of the Algarve\'s 17 places for three days.', body, md }));
+  const md = `IPMA issues weather warnings by district (the Algarve is the Faro district) and rural fire risk by municipality.\n\n${timeline() ? `## Warnings by district, over time\n\n${timeline().md}\n\nSource: IPMA, as collected by data.promptugal.news.\n\n` : ''}\n\nRead ${when(r.read_at)}.\n\n## Warnings, Faro district\n\n${warningsMd(r.warnings)}\n\n## Fire risk, by place and day\n\n| Place | ${days.map(d => dayName(d.date)).join(' | ')} |\n|---|${days.map(() => '---').join('|')}|\n${D.towns.map(t => `| ${t.name} | ${(t.now.fire_risk?.days || []).map(d => d.level).join(' | ')} |`).join('\n')}\n\nSource: IPMA rural fire risk, ${D.now.faro.fire_risk?.page}\n\n${portugalMd()}`;
+  add(page({ path: '/map/', extraHead: `<style>${TIMELINE_CSS}</style>\n`, title: 'Map: warnings and fire risk', description: 'IPMA warnings for every district of mainland Portugal on a map, and rural fire risk for each of the Algarve\'s 17 places for three days.', body, md }));
+}
+
+// ---------------------------------------------------------------- the warnings timeline (scripts/site/timeline.mjs, weather.b.dev@)
+let _tl;
+function timeline() {
+  if (_tl !== undefined) return _tl;
+  const w = D.api['ipma-warnings'];
+  const districts = D.capitals.filter(c => c.live).map(c => ({ name: c.district, area: c.area || (c.algarve ? 'FAR' : ''), href: c.algarve ? '/places/algarve/' : `/places/${c.id}/` }))
+    .sort((a, b) => a.name.localeCompare(b.name, 'pt'));
+  _tl = w && districts.length ? warningsTimeline({ warnings: w, districts, now: BUILT }) : null;
+  return _tl;
+}
+function timelineSection() {
+  const t = timeline(); if (!t) return '';
+  return `<section><h2>Warnings by district, over time</h2>
+<p>Every IPMA warning above green for mainland Portugal's 18 districts, from today to the last one's end. Each bar is one warning, coloured by level; the red line is when this page was built.</p>
+${freshness(D.api['ipma-warnings'].read_at)}
+${t.html}
+<details class="tl-table"><summary>The same warnings as a table</summary>${markdown(t.md)}</details>
+<p class="src">Source: <a href="${esc(D.api['ipma-warnings'].provenance?.page)}">IPMA warnings</a> (<a href="${esc(D.api['ipma-warnings'].provenance?.source)}">open data</a>), as collected by <a href="https://data.promptugal.news/sources/ipma-warnings/">data.promptugal.news</a>. Times are Portugal time. Check IPMA for the warning in force now.</p>
+</section>`;
 }
 
 // ---------------------------------------------------------------- a page per place

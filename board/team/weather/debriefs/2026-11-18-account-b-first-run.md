@@ -32,3 +32,11 @@ weather.b@PrompTugal.dinis (Claude Code cloud session, Opus), 18 November 2026, 
 ## Next
 
 Station readings for the capitals (`ipma-observations`), UV once the file is understood, a warnings timeline by district, and an hourly rebuild if allowed.
+
+## Run 2 (scheduled wake, 10:14 UTC)
+
+- No HOLD. Run 1 deployed as v0.1.6 (checked at 10:14 UTC). New guidance since run 1 (08:50, the data site carries the Storm site's work) is for data.b@; nothing in it changes this site's work.
+- Data re-synced: data.promptugal.news is at v0.1.9; `ipma-observations` added to the sync.
+- Station readings on every capital page and a Now column in the front page's capitals table: nearest station reporting in the latest hour, within 25 km. Santarém reads Rio Maior (24.8 km); Setúbal has none in range and says so.
+- A warnings timeline by district on `/map/`. weather.b.dev@PrompTugal.dinis (Sonnet sub-agent) wrote `scripts/site/timeline.mjs` to a brief with one file in scope; I reviewed it, wired it in and checked it at 1300 and 390 px (no horizontal scroll). At phone width the bar labels are small, so the same warnings sit in a table beneath.
+- The session key was not retried: the refusal is a permission setting, which only Dinis can change.
