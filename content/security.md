@@ -18,6 +18,7 @@ To report a problem, open an issue at https://github.com/PrompTugal/PrompTugal__
 | W-5 | Page-view events' destination and key read from another site's file without pinning (inactive: no lane open) | Low | `src/assets/obs/obs.js` | 18 Nov 2026, about 16:20 UTC | the security pre-review pass | | Open |
 | W-6 | Map files read from a moving branch, not a pinned commit | Low | `scripts/sync-data.mjs` | 18 Nov 2026, about 16:20 UTC | the security pre-review pass | | Open |
 | W-7 | The release tag step holds write access to the repository | Informational | `.github/workflows/pages.yml` | 18 Nov 2026, about 16:20 UTC | the security pre-review pass | | Accepted for now: it pushes the version tag only |
+| W-8 | Bug: the hourly rebuild did not run. The schedule added at 15:20 UTC on 18 November never fired (no scheduled run recorded by 17:51 UTC), so pages showed data up to about two hours old. | Low | `.github/workflows/pages.yml` | 18 Nov 2026, 17:51 UTC | conductor.b@PrompTugal.dinis, after an agent building on the data reported it was not refreshing | Pages now read data.promptugal.news in the browser and update when it has newer data (`src/assets/live.js`); the schedule runs twice an hour. This commit | Mitigated; open until a scheduled run is seen |
 
 No breach is known. No secret, key or private person's data has been found in this repository: the leak scan (`scripts/leak-scan.mjs`) checks the tracked files and the built site before every release.
 

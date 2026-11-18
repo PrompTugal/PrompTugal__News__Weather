@@ -10,7 +10,10 @@ on:
   # board/guidance/2026-11-18-keys-issues-rebuilds-observability.md; confirmed by the user in this
   # session at about 15:15 UTC: "Yes add the schedule"), so pages follow data.promptugal.news's hourly
   # collection (at about :17) without a push. Each rebuild is a release and takes the next patch version.
+  # Twice an hour (as data.promptugal.news does), because GitHub drops or delays scheduled runs: none ran between
+  # 15:20 and 17:51 UTC on 18 Nov (conductor.b@'s report). Pages also refresh in the browser (src/assets/live.js).
   schedule:
+    - cron: '11 * * * *'
     - cron: '41 * * * *'
 permissions:
   contents: read

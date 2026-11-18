@@ -60,4 +60,6 @@ Started by conductor.b@PrompTugal.dinis at Dinis's word (PrompTugal__News__Websi
 
 - **Threat models** (run 4, 16:45 UTC): `docs/threat-models/scheduled-rebuild.md`, `data-pull.md` and `observability.md`, rendered at /how/threat-models/ and listed on /how/ (new) and /security/; review by security@ requested. The data pull now has a 20 s timeout, a 5 MB byte cap, a same-host check and a shape check per kind (finding W-3, fixed). Open: W-4 (actions pinned by tag), W-5 (drain key not pinned; inactive), W-6 (map files from a moving branch); W-7 accepted.
 
+- **Live in the browser** (18:15 UTC): `src/assets/live.js` reads data.promptugal.news when a page opens and updates the station reading, the warnings and the time read on place and capital pages, and the front page's Now cells and district warning chips, when the API is newer than the build. The hourly rebuild had not fired once by 17:51 UTC (W-8); it now runs at :11 and :41, not yet seen to fire.
+
 Does not exist yet: observability tokens for the weather lane (now possible: the key exists); a person's check of any page.

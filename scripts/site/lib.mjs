@@ -104,7 +104,7 @@ export const host = u => { try { return new URL(u).host; } catch { return u; } }
 const NAV = [['/', 'Now'], ['/map/', 'Map'], ['/places/', 'Places'], ['/storms/', 'Storms'], ['/what-to-do/', 'What to do'], ['/about/', 'About']];
 // The sites rail (promptugal.news's masthead, Website repo assets/top/top.tmpl, Dinis 17 Nov 2026)
 const SITES = [['https://weather.promptugal.news/', 'Weather'], ['https://civic.promptugal.news/', 'Civic'], ['https://startups.promptugal.news/', 'Startups'], ['https://travel.promptugal.news/', 'Travel'], ['https://data.promptugal.news/', 'Data']];
-export const CSS_VERSION = '4';
+export const CSS_VERSION = '5';
 
 // ---------------------------------------------------------------- the front pages to choose from (as on hub.agenticcells.site's sites:
 // a strip at the very top, a Designs chip that opens a picker of screenshots; the user, 18 Nov 2026, about 15:20 UTC)
@@ -156,6 +156,7 @@ export function page({ path, title, description, body: rawBody, md, made, extraH
 <link rel="stylesheet" href="/site.css?v=${CSS_VERSION}">
 <meta name="page-type" content="free">
 <script defer src="/assets/reading.js?v=${CSS_VERSION}"></script>
+<script defer src="/assets/live.js?v=${CSS_VERSION}"></script>
 <script defer src="/assets/obs/obs.js?v=${CSS_VERSION}" data-lane="weather"></script>
 ${extraHead}</head>
 <body class="${bodyClass}">

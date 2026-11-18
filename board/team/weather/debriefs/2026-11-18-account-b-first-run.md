@@ -72,3 +72,9 @@ Station readings for the capitals (`ipma-observations`), UV once the file is und
 - The work: three threat models (docs/threat-models/, rendered under /how/threat-models/), a /how/ page, /security/ updated. W-3 fixed in sync-data.mjs: timeout, byte cap, same-host and shape checks.
 - Post-review with AppSec (Sonnet): one fix before commit (the cap counted characters, not bytes); fixed. My own test then caught that the storm local map is a top-level array; the array rule now applies only to the API and place files.
 - Left for a person: W-4 needs a CI workflow edit. The observability lane still waits on a go-ahead.
+
+## Between wakes, 17:51 to 18:15 UTC: the rebuild that never ran
+
+- conductor.b@ relayed a report (via Dinis) that an agent building on our IPMA data saw it not refreshing. GitHub shows 0 scheduled runs of Pages ever; the workflow is active and the default branch is dev, so the schedule is in the right place; the cause is not visible from here (GitHub delays or drops scheduled runs).
+- Fix: pages read data.promptugal.news live in the browser (live.js), and the schedule runs twice an hour (:11, :41). Tested in Chromium against the live API: Faro moved from 16:14 to 17:41 data.
+- Post-review (Sonnet, AppSec): two small fixes before commit, done. W-8 published.

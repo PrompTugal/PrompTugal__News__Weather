@@ -12,6 +12,7 @@ import { DESIGNS } from './lib.mjs';
 const SHOTS_AT = existsSync('src/assets/designs/shots.json') ? JSON.parse(readFileSync('src/assets/designs/shots.json', 'utf8')).taken : 'not yet';
 
 const OUT = '_site';
+const API = 'https://data.promptugal.news/api/v1/';
 const D = loadData();
 const BUILT = new Date();
 const outline = readJSON('data/map/portugal-outline-50m.json');
@@ -50,7 +51,7 @@ function front() {
   const r = D.region; const lvl = worstWarning(r);
   const rows = D.towns.map(t => {
     const n = t.now, st = n.station?.reading || {}, f0 = n.forecast?.days?.[0] || {}, fr = n.fire_risk?.days?.[0] || {};
-    return { t, html: `<tr><th scope="row"><a href="/places/${t.id}/">${esc(t.name)}</a></th><td class="n">${show(st.temp_c, '°')}</td><td class="n">${show(f0.t_max_c, '°')} / ${show(f0.t_min_c, '°')}</td><td class="n">${f0.rain_prob_pct ?? '?'}%</td><td><span class="chip ${fireClass(fr.level)}">${esc(fr.level || '?')}</span></td><td class="n">${n.sea ? show(n.sea.waves_max_m, ' m') : '<span class="na">inland</span>'}</td></tr>`,
+    return { t, html: `<tr><th scope="row"><a href="/places/${t.id}/">${esc(t.name)}</a></th><td class="n" data-live-place="${t.id}">${show(st.temp_c, '°')}</td><td class="n">${show(f0.t_max_c, '°')} / ${show(f0.t_min_c, '°')}</td><td class="n">${f0.rain_prob_pct ?? '?'}%</td><td><span class="chip ${fireClass(fr.level)}">${esc(fr.level || '?')}</span></td><td class="n">${n.sea ? show(n.sea.waves_max_m, ' m') : '<span class="na">inland</span>'}</td></tr>`,
       md: `| [${t.name}](/places/${t.id}/) | ${showMd(st.temp_c, '°C')} | ${showMd(f0.t_max_c, '°C')} / ${showMd(f0.t_min_c, '°C')} | ${f0.rain_prob_pct ?? '?'}% | ${fr.level || '?'} | ${n.sea ? showMd(n.sea.waves_max_m, ' m') : 'inland'} |` };
   });
   const maxFire = Math.max(...D.towns.map(worstFire));
@@ -85,7 +86,7 @@ ${portugalSection()}
 
 // ---------------------------------------------------------------- Portugal: the district capitals (data.promptugal.news's API)
 const capsLive = () => D.capitals.filter(c => c.live && !c.algarve);
-const capRow = c => { const d0 = c.forecast?.days?.[0] || {}, f0 = c.fire_risk?.days?.[0] || {}; return `<tr><th scope="row"><a href="/places/${c.id}/">${esc(c.name)}</a></th><td class="n">${c.station ? show(c.station.reading.temp_c, '°') : '<span class="na">none near</span>'}</td><td><span class="chip ${warnClass(c.level)}">${esc(c.level)}</span> ${(c.warnings?.active || []).length ? `<span class="src">${[...new Set(c.warnings.active.map(a => a.type))].map(esc).join(', ')}</span>` : ''}</td><td class="n">${show(d0.t_max_c, '°')} / ${show(d0.t_min_c, '°')}</td><td class="n">${d0.rain_prob_pct ?? '?'}%</td><td>${esc(typeOf(d0.weather_type))}</td><td><span class="chip ${fireClass(f0.level)}">${esc(f0.level || '?')}</span></td></tr>`; };
+const capRow = c => { const d0 = c.forecast?.days?.[0] || {}, f0 = c.fire_risk?.days?.[0] || {}; return `<tr><th scope="row"><a href="/places/${c.id}/">${esc(c.name)}</a></th><td class="n" data-live-station="${esc(c.station?.id ?? '')}">${c.station ? show(c.station.reading.temp_c, '°') : '<span class="na">none near</span>'}</td><td><span class="chip ${warnClass(c.level)}" data-live-area="${esc(c.area)}">${esc(c.level)}</span> ${(c.warnings?.active || []).length ? `<span class="src">${[...new Set(c.warnings.active.map(a => a.type))].map(esc).join(', ')}</span>` : ''}</td><td class="n">${show(d0.t_max_c, '°')} / ${show(d0.t_min_c, '°')}</td><td class="n">${d0.rain_prob_pct ?? '?'}%</td><td>${esc(typeOf(d0.weather_type))}</td><td><span class="chip ${fireClass(f0.level)}">${esc(f0.level || '?')}</span></td></tr>`; };
 const capMd = c => { const d0 = c.forecast?.days?.[0] || {}, f0 = c.fire_risk?.days?.[0] || {}; return `| [${c.name}](/places/${c.id}/) | ${c.station ? showMd(c.station.reading.temp_c, '°C') : 'none near'} | ${c.level}${(c.warnings?.active || []).length ? ` (${[...new Set(c.warnings.active.map(a => a.type))].join(', ')})` : ''} | ${showMd(d0.t_max_c, '°C')} / ${showMd(d0.t_min_c, '°C')} | ${d0.rain_prob_pct ?? '?'}% | ${typeOf(d0.weather_type)} | ${f0.level || '?'} |`; };
 function portugalSection() {
   const caps = capsLive(); if (!caps.length) return '';
@@ -110,12 +111,13 @@ function capitalPage(c) {
   const body = `<nav class="crumbs" aria-label="Breadcrumb"><a href="/places/">Places</a> › District capitals › ${esc(c.name)}</nav>
 <h1>${esc(c.name)}: weather and civil protection</h1>
 <p class="standfirst">${esc(c.name)}, capital of the ${esc(c.district)} district. IPMA's warnings for the district, its forecast for the city and the fire risk for the municipality, each with its source.</p>
-${freshness(c.read_at)}
-${wHtml}
+<div id="live" hidden data-kind="capital" data-area="${esc(c.area)}" data-district="${esc(c.district)}" data-station="${esc(c.station?.id ?? '')}" data-read="${esc(c.read_at)}"></div>
+<div data-live="fresh">${freshness(c.read_at)}</div>
+<div data-live="warnings">${wHtml}</div>
 ${c.station ? `<section class="panel"><h2>Now</h2>
-  <p class="big">${show(c.station.reading.temp_c, '°C')}</p>
-  <dl class="kv"><dt>Humidity</dt><dd>${show(c.station.reading.humidity_pct, '%', 0)}</dd><dt>Wind</dt><dd>${c.station.reading.wind_kmh != null ? `${num(c.station.reading.wind_kmh, ' km/h')} from ${WIND_DIR[c.station.reading.wind_dir_id] || '?'}` : '<span class="na">not reported</span>'}</dd><dt>Rain, last hour</dt><dd>${show(c.station.reading.rain_mm, ' mm')}</dd><dt>Pressure</dt><dd>${show(c.station.reading.pressure_hpa, ' hPa')}</dd></dl>
-  <p class="src">IPMA station <strong>${esc(c.station.name)}</strong> (${c.station.km} km away), reading of ${when(c.station.at)}. <a href="${safeHref(c.station.page)}">IPMA observations</a>.</p></section>` : ''}
+  <p class="big" data-live="temp">${show(c.station.reading.temp_c, '°C')}</p>
+  <dl class="kv"><dt>Humidity</dt><dd data-live="humidity">${show(c.station.reading.humidity_pct, '%', 0)}</dd><dt>Wind</dt><dd data-live="wind">${c.station.reading.wind_kmh != null ? `${num(c.station.reading.wind_kmh, ' km/h')} from ${WIND_DIR[c.station.reading.wind_dir_id] || '?'}` : '<span class="na">not reported</span>'}</dd><dt>Rain, last hour</dt><dd>${show(c.station.reading.rain_mm, ' mm')}</dd><dt>Pressure</dt><dd>${show(c.station.reading.pressure_hpa, ' hPa')}</dd></dl>
+  <p class="src">IPMA station <strong>${esc(c.station.name)}</strong> (${c.station.km} km away), reading of <span data-live="at">${when(c.station.at)}</span>. <a href="${safeHref(c.station.page)}">IPMA observations</a>.</p></section>` : ''}
 <section class="grid2">
   <div class="panel"><h2>Today</h2>
     <p class="big">${show(fc.days?.[0]?.t_max_c, '°C')}</p>
@@ -221,13 +223,14 @@ function placePage(t) {
   const body = `<nav class="crumbs" aria-label="Breadcrumb"><a href="/places/">Places</a> › <a href="/places/algarve/">The Algarve</a> › ${esc(t.name)}</nav>
 <h1>${esc(t.name)}: weather and civil protection</h1>
 <p class="standfirst">${esc(t.name)}${t.kind === 'city' ? ', a city in the municipality of Loulé' : ', a municipality'} in the Faro district. IPMA's data for here, each value with its source.</p>
-${freshness(n.read_at)}
-${warningsHtml(n.warnings)}
+<div id="live" hidden data-kind="place" data-src="${API}by-place/now/${t.id}.json" data-read="${esc(n.read_at)}"></div>
+<div data-live="fresh">${freshness(n.read_at)}</div>
+<div data-live="warnings">${warningsHtml(n.warnings)}</div>
 <section class="grid2">
   <div class="panel"><h2>Now</h2>
-    <p class="big">${show(rd.temp_c, '°C')}</p>
-    <dl class="kv"><dt>Humidity</dt><dd>${show(rd.humidity_pct, '%', 0)}</dd><dt>Wind</dt><dd>${rd.wind_kmh != null ? `${num(rd.wind_kmh, ' km/h')} from ${WIND_DIR[rd.wind_dir_id] || '?'}` : '<span class="na">not reported</span>'}</dd><dt>Rain, last hour</dt><dd>${show(rd.rain_mm, ' mm')}</dd><dt>Pressure</dt><dd>${show(rd.pressure_hpa, ' hPa')}</dd></dl>
-    <p class="src">IPMA station <strong>${esc(st?.name)}</strong> (${st?.km} km away), reading of ${when(rd.at)}. <a href="${safeHref(st?.page)}">IPMA observations</a>.</p></div>
+    <p class="big" data-live="temp">${show(rd.temp_c, '°C')}</p>
+    <dl class="kv"><dt>Humidity</dt><dd data-live="humidity">${show(rd.humidity_pct, '%', 0)}</dd><dt>Wind</dt><dd data-live="wind">${rd.wind_kmh != null ? `${num(rd.wind_kmh, ' km/h')} from ${WIND_DIR[rd.wind_dir_id] || '?'}` : '<span class="na">not reported</span>'}</dd><dt>Rain, last hour</dt><dd>${show(rd.rain_mm, ' mm')}</dd><dt>Pressure</dt><dd>${show(rd.pressure_hpa, ' hPa')}</dd></dl>
+    <p class="src">IPMA station <strong>${esc(st?.name)}</strong> (${st?.km} km away), reading of <span data-live="at">${when(rd.at)}</span>. <a href="${safeHref(st?.page)}">IPMA observations</a>.</p></div>
   <div class="panel"><h2>Fire risk</h2><p>${(fr?.days || []).map(fireChip).join(' ')}</p><p class="src">IPMA rural fire risk for the municipality (code ${esc(fr?.municipality)}). <a href="${safeHref(fr?.page)}">IPMA fire risk</a>. In high fire risk, see <a href="/what-to-do/">what to do</a>.</p></div>
 </section>
 <section class="panel"><h2>Five days</h2>${forecastChart(fc?.days, D.types)}
@@ -389,6 +392,7 @@ function about() {
 <h2>Not a warning service</h2><p>Nothing here is a forecast or advice of our own. Warnings are IPMA's; civil protection is ANEPC's and your municipality's. The pages are rebuilt when new data is pushed, so they can be hours behind: always check <a href="https://www.ipma.pt/">IPMA</a> and <a href="https://prociv.gov.pt/">ANEPC</a>.</p>
 <h2>Where the data comes from</h2><p>IPMA's open data (<a href="https://api.ipma.pt/open-data/">api.ipma.pt/open-data</a>), read hourly by <a href="https://data.promptugal.news/">data.promptugal.news</a>'s collectors (code, no model; data@PrompTugal.dinis) and published at its API (<a href="https://data.promptugal.news/api/v1/">/api/v1/</a>): one file per Algarve place, and Portugal-wide files for city forecasts, warnings by district, fire risk by municipality and the sea. This site copies them (<code>scripts/sync-data.mjs</code>) and builds its pages from them. Map outlines and the list of places come from the <a href="https://github.com/PrompTugal/PrompTugal__News__Website">PrompTugal.news Website repository</a>. This site runs no collector of its own.</p>
 <p>Last copy: ${when(D.sync.synced_at)}, from data.promptugal.news ${esc(D.sync.api_version || '')}. Data last read from IPMA: ${when(D.region.read_at)}. Built ${when(BUILT.toISOString())}.</p>
+<h2>Live in your browser</h2><p>Each place page, capital page and the front page also read data.promptugal.news's API from your browser when they open, and update the station reading, the warnings and the time read if the API has newer data than the page (so a missed rebuild does not leave them stale). That request goes to data.promptugal.news, which sees your IP address and which place file you asked for, as any site would; no cookie or credential is sent, and no referrer. The page trusts that host for the values it shows, as the build does.</p>
 <h2>Free to read</h2><p>IPMA allows its data to be copied and used for personal or public use with no profit-making purpose, naming IPMA as the source. So every page here is free and outside promptugal.news's reading meter, until Dinis decides otherwise. <a href="/account/">Your reading</a> on this site is kept in your browser only.</p>
 <h2>How it is made</h2><ul><li><strong>Code</strong>: a small build in Node with no dependencies (<code>scripts/</code>) turns the data into pages, a markdown twin for each, <a href="/llms.txt">llms.txt</a> and a sitemap. A gate checks every page before it goes live.</li><li><strong>Agents</strong>: weather@PrompTugal.dinis (Claude, Opus) led the first version and wrote the code; weather.b@PrompTugal.dinis (Claude, Opus) carries it on from 18 November 2026; weather.writer@ and weather.design@ (Claude, Sonnet) wrote the storm archive, the advice page and the design variations. Each page says who made it.</li><li><strong>A person</strong>: Dinis Cruz instructs the team. No page has been checked by a person yet; each page says so until one is.</li></ul>
 <h2>Licences</h2><p>Code Apache-2.0; text CC BY 4.0. IPMA's data is IPMA's. Map outlines from Natural Earth (public domain) via world-atlas (ISC). Fonts under the SIL Open Font License (<a href="/fonts/LICENSE.md">details</a>).</p>
