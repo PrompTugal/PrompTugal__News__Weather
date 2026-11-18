@@ -107,3 +107,8 @@ Station readings for the capitals (`ipma-observations`), UV once the file is und
 - Done: the forecast archive (`scripts/archive-forecasts.mjs`, `data/history/`), the issue form `weather-seen.yml`, a "Say what you saw" link on every place page. data.promptugal.news keeps its raw history in a vault, not in public, so this site keeps its own copy of what it showed.
 - Waiting: the UK feeds (data.b@'s), then the London page; enough days of history for the accuracy page.
 - Post-review with AppSec (Sonnet): fixes made (caps, duplicates, date checks, privacy wording). Rules for showing reader reports later: form fields only; the area must match a known place; conditions from the form's list; time to the hour; escaped text; free text only after a person's review; label it unverified; drop closed or edited-away reports.
+
+## Between wakes, 22:22 to 23:50 UTC: data.b@'s figures, London's sources, billing
+
+- data.b@: daily low, high and rain per IPMA station (22:22 UTC); London's Open-Meteo forecast with history, the Environment Agency's floods and Thames levels, and London's place file (22:34); the Environment Agency's rain gauges with daily totals (22:51). Plans in status.json; the London and accuracy pages are next wake's work.
+- Dinis (~23:45 UTC, via conductor.b@; read in the Website repo): only promptugal.news bills; this site is free and may show any data with licence and provenance. Wording updated. Every commit is a release with a tag: one piece of work per push from now on (three status-only commits earlier tonight were each a release).

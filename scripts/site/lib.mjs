@@ -168,7 +168,7 @@ ${extraHead}</head>
   <div class="masthead-row">
     <a class="brand" href="/" aria-label="PrompTugal.news Weather, home"><span class="wm">Promp<span class="t">T</span><span class="g">ugal</span>.<i>news</i></span><span class="sub">· Weather</span></a>
     <a class="chip designs-chip" href="/design/" data-designs>Designs</a>
-    <a class="tool meter free" id="nr-meter-chip" href="/account/" title="Pages built on IPMA's data are free and outside the reading meter: IPMA's terms allow no profit-making use, so nothing here is charged until Dinis decides. Your PrompTugal.news balance is kept on promptugal.news."><span class="meter-label">Pay for what you read · </span><b>free here</b></a>
+    <a class="tool meter free" id="nr-meter-chip" href="/account/" title="This site is free: it carries no billing, and only promptugal.news bills (Dinis, 18 Nov 2026). Your PrompTugal.news balance is kept on promptugal.news."><span class="meter-label">Pay for what you read · </span><b>free here</b></a>
   </div>
   <nav class="nav" aria-label="Sections">${nav}</nav>
 </header>
@@ -179,7 +179,7 @@ ${body}
 </main>
 ${madeBlock(made)}
 <footer class="footer">
-  <p>Part of <a href="https://promptugal.news/">PrompTugal.news</a>: Portugal, town by town. Independent: not an official or government site. Data from IPMA's open data, as collected and published by <a href="https://data.promptugal.news/">data.promptugal.news</a>. Free to read: IPMA's terms allow no profit-making use, so these pages are outside the reading meter.</p>
+  <p>Part of <a href="https://promptugal.news/">PrompTugal.news</a>: Portugal, town by town. Independent: not an official or government site. Data from IPMA's open data, as collected and published by <a href="https://data.promptugal.news/">data.promptugal.news</a>. Free to read: this site carries no billing; only promptugal.news bills. Each value keeps its source's licence.</p>
   <p class="licences">Licences: ${used.map(k => k === 'ours' ? `our pages, words and charts ${licLink('ours')}` : `data from ${licLink(k)}`).join('; ')}. Every JSON file here carries a <code>license</code> field.</p>
   <p class="takedown"><strong>Is something here yours, and should it not be?</strong> <a href="https://github.com/PrompTugal/PrompTugal__News__Weather/issues/new?title=Take%20down%3A%20">Open an issue</a> saying what and why: we take it down while we talk.</p>
   <p class="sites-row">Also from PrompTugal.news: ${SITES.map(([href, label]) => `<a href="${href}">${label}</a>`).join(' · ')}</p>

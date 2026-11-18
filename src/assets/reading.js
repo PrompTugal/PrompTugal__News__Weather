@@ -1,9 +1,8 @@
 /* assets/reading.js: what you have read on weather.promptugal.news, and your reading graph.
  * weather.b@PrompTugal.dinis, 18 November 2026. Code: Apache-2.0.
  *
- * Every page of this site is built on IPMA's data, and IPMA's terms allow no profit-making use, so nothing here is
- * charged: the pages are outside promptugal.news's reading meter until Dinis decides (Dinis, 18 Nov 2026, kept in the
- * Website repo's board/guidance/2026-11-18-five-sites-on-account-b.md). This script only keeps a list of the pages
+ * This site carries no billing: only promptugal.news bills (Dinis, 18 Nov 2026, about 23:45 UTC, kept in the Website repo's
+ * board/guidance/2026-11-18-billing-only-on-the-main-site.md). This script only keeps a list of the pages
  * opened, in this browser's localStorage, and draws it on /account/ as a graph. Nothing is sent anywhere.
  *
  * The graph is promptugal.news's (Website repo assets/meter/meter.js, readingGraph, Apache-2.0; Dinis, 17 November
