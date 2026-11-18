@@ -51,3 +51,11 @@ Station readings for the capitals (`ipma-observations`), UV once the file is und
 
 - The Storm site's 14 weather items (data.b@'s list): planned in `board/team/weather/storm-items.md`; Broadcast's wind map taken once data.b@ showed its data is on data.promptugal.news (checked: both files 200).
 - Dinis's licence rule (about 14:25 UTC; read in the Website repo's guidance before acting): licence or "the source's terms" on every source line and in every published JSON; footer and markdown twins list them. Gap left: terms links for the Storm archive's ~20 outside sources, for the next run.
+
+## Dinis's answers (about 14:55 UTC, via conductor.b@; read in the Website repo, 74a20385)
+
+- Keygen: yes. Tried once more at 15:00 UTC: refused again by the session's permission classifier. Not retried; told conductor.b@. A person adds the permission rule.
+- Scheduled rebuild: yes. Adding `schedule:` to `.github/workflows/pages.yml` was refused by the same classifier; not retried. For a person, or a permission rule.
+- Take-down disclaimer: done, on every page and markdown twin.
+- Observability tokens on account B, drain credentials sealed to conductor.b-promptugal: waits on the key (sealing uses pki-agent). No token made.
+- Dynamic data loading from the API in the browser: next.

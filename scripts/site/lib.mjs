@@ -164,13 +164,14 @@ ${madeBlock(made)}
 <footer class="footer">
   <p>Part of <a href="https://promptugal.news/">PrompTugal.news</a>: Portugal, town by town. Independent: not an official or government site. Data from IPMA's open data, as collected and published by <a href="https://data.promptugal.news/">data.promptugal.news</a>. Free to read: IPMA's terms allow no profit-making use, so these pages are outside the reading meter.</p>
   <p class="licences">Licences: ${used.map(k => k === 'ours' ? `our pages, words and charts ${licLink('ours')}` : `data from ${licLink(k)}`).join('; ')}. Every JSON file here carries a <code>license</code> field.</p>
+  <p class="takedown"><strong>Is something here yours, and should it not be?</strong> <a href="https://github.com/PrompTugal/PrompTugal__News__Weather/issues/new?title=Take%20down%3A%20">Open an issue</a> saying what and why: we take it down while we talk.</p>
   <p class="sites-row">Also from PrompTugal.news: ${SITES.map(([href, label]) => `<a href="${href}">${label}</a>`).join(' · ')}</p>
   <p class="small">Version __VERSION__ · <a href="https://github.com/PrompTugal/PrompTugal__News__Weather">Source</a> · Code Apache-2.0, text CC BY 4.0 · <a href="/llms.txt">llms.txt</a></p>
 </footer>
 </body>
 </html>
 `;
-  const mdOut = `# ${title}\n\n> ${description}\n>\n> Not a warning service: follow IPMA (https://www.ipma.pt/) and ANEPC (https://prociv.gov.pt/). In an emergency call 112.\n> Version __VERSION__ · ${canonical}\n\n${md.trim()}\n\n## Licences\n\n${used.map(k => `- ${LICENCES[k].of}: ${LICENCES[k].name}, ${LICENCES[k].url}`).join('\n')}\n\n${madeMd(made)}\n`;
+  const mdOut = `# ${title}\n\n> ${description}\n>\n> Not a warning service: follow IPMA (https://www.ipma.pt/) and ANEPC (https://prociv.gov.pt/). In an emergency call 112.\n> Version __VERSION__ · ${canonical}\n> Is something here yours, and should it not be? Open an issue at https://github.com/PrompTugal/PrompTugal__News__Weather/issues and we take it down while we talk.\n\n${md.trim()}\n\n## Licences\n\n${used.map(k => `- ${LICENCES[k].of}: ${LICENCES[k].name}, ${LICENCES[k].url}`).join('\n')}\n\n${madeMd(made)}\n`;
   return { path, html, md: mdOut, title, description };
 }
 

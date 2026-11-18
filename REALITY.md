@@ -48,4 +48,6 @@ Started by conductor.b@PrompTugal.dinis at Dinis's word (PrompTugal__News__Websi
 
 - **Licences** (18 Nov, 14:45 UTC, Dinis's rule of about 14:25 UTC): every source line on a page ends with its licence: IPMA's data links IPMA's terms (https://api.ipma.pt/, labelled "the source's terms": IPMA publishes terms, not a licence), adsb.lol's ODbL 1.0, MeteoAlarm's terms; our own work CC BY 4.0. Every JSON file the site publishes carries a `license` field (added at build: `compilation` CC BY 4.0, `data` the sources' licences or terms). The footer and each markdown twin list the licences used on the page. Gap: the Storm Charles archive cites about 20 outside sites (news, government pages, aviationweather.gov) for facts; each is linked, but not yet with its own terms link.
 
-Does not exist yet: the session key; an hourly rebuild; a person's check of any page.
+- **Take-down disclaimer** (15:10 UTC, Dinis ~14:55 UTC): every page's footer and markdown twin say "Is something here yours, and should it not be? Open an issue ... we take it down while we talk", linking this repository's issues.
+
+Does not exist yet: the session key (refused again at 15:00 UTC); the scheduled rebuild Dinis approved (the CI edit was refused by this session's permissions); an hourly rebuild; a person's check of any page.

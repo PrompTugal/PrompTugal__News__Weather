@@ -1,5 +1,5 @@
 {
   "about": "The public halves of this site's agents' session keys (id <role>-promptugal). Never a private key, a token or a contact detail.",
   "keys": [],
-  "gap": "No key yet. weather@PrompTugal.dinis (account A, 17 Nov 2026) and weather.b@PrompTugal.dinis (account B, 18 Nov 2026, about 09:30 UTC) were both refused running pki-agent.mjs keygen --session by the session's permission settings (on 18 Nov the auto-mode classifier refused it). The id to publish is weather.b-promptugal. Commits are not signed with an agent key; the Agent: trailer states who made each. For Dinis: allow 'node pki-agent.mjs keygen --session' in this environment's permission settings, or say how this team should sign."
+  "gap": "No key yet. weather@ (17 Nov) and weather.b@ (18 Nov, about 09:30 and again 15:00 UTC, after Dinis's yes of about 14:55 UTC) were refused running pki-agent.mjs keygen --session by the session's permission settings (the auto-mode classifier). The id to publish is weather.b-promptugal. For Dinis: add a permission rule allowing that command in this environment's settings."
 }
