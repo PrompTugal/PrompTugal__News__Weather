@@ -69,7 +69,7 @@
   },
   "wake_procedure": "board/team/weather/wake.md (inner passes and AppSec review, Dinis ~15:05 to 15:10 UTC), from the next wake",
   "security_page": "content/security.md, at /security/; keep it true at each wake",
-  "library_requests": "read at every wake (wake.md); 22:14 UTC: none addressed to weather.b@ (not re-listed this wake: no library requests channel change in the guidance since 19:13)",
+  "library_requests": "read at every wake (wake.md; https://library.promptugal.news/api/v1/requests/index.json); 22:50 UTC: 9, none addressed to weather.b@",
   "security_review_requested": "security@PrompTugal.dinis: the three threat models and W-3 to W-7 (18 Nov, 16:45 UTC)",
   "inner_passes": "run 6: opening + pre-review (Sonnet, yes), post-review with AppSec (Sonnet; three findings, fixed)"
 }

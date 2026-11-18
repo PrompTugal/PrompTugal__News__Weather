@@ -95,7 +95,7 @@ Station readings for the capitals (`ipma-observations`), UV once the file is und
 
 ## Run 6 (scheduled wake, 22:14 UTC)
 
-- No HOLD. v0.1.24 live (the preview, 59d8c3b). New guidance since run 5: the sites bar (done in part between wakes: the preview) and cells.b@ starting on account B (another agent; nothing for this site).
+- No HOLD. v0.1.24 live (the preview, 59d8c3b). Library requests: 9, none to weather. New guidance since run 5: the sites bar (done in part between wakes: the preview) and cells.b@ starting on account B (another agent; nothing for this site).
 - Opening pass and security pre-review (Sonnet): yes. Rules: links only from four fields, https, allowlisted hosts; "the operator's page answered", never "live"; MEO's refusal shown as recorded.
 - The work: official cameras by link only, from data.promptugal.news's `cams` source. `scripts/site/cams.mjs`; `/cameras/`; a section on 11 place pages; Cameras in the nav; validate.mjs refuses a frame from outside the site. Checked in Chromium at 1300 and 390 px: no horizontal scroll, and no request to any camera host.
 - Post-review with AppSec (Sonnet): one medium (the markdown twins carried the raw URL, newlines and all), two low (the frame check could be fooled by an attribute value or srcdoc; a thin shape check). All fixed and tested.
