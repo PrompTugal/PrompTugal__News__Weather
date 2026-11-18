@@ -23,6 +23,8 @@ for (const f of [...files, 'hub.json', 'README.md']) {
     if (!/<title>[^<]+<\/title>/.test(s)) fail(`${f}: no <title>`);
     if (!/<meta name="description" content="[^"]+"/.test(s)) fail(`${f}: no description`);
     if (!/<html lang="/.test(s)) fail(`${f}: no lang on <html>`);
+    // no link or source may carry a script or data scheme (AppSec review, 18 Nov 2026: values from fetched data reach hrefs)
+    for (const m of s.matchAll(/(?:href|src|action)\s*=\s*"\s*([a-z][a-z0-9+.-]*):/gi)) if (/^(javascript|data|vbscript|file)$/i.test(m[1])) fail(`${f}: ${m[1]}: URL in an attribute`);
     for (const m of s.matchAll(/<script[^>]+src="([^"]+)"/g)) if (/^(https?:)?\/\//.test(m[1])) fail(`${f}: third-party script ${m[1]}`);
     for (const m of s.matchAll(/<link[^>]+rel="stylesheet"[^>]+href="([^"]+)"/g)) if (/^(https?:)?\/\//.test(m[1])) fail(`${f}: third-party stylesheet ${m[1]}`);
     for (const m of s.matchAll(/(?:href|src)="([^"#?]+)/g)) {

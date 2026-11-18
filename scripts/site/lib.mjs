@@ -6,6 +6,9 @@ import { join, dirname } from 'node:path';
 export const SITE = 'https://weather.promptugal.news';
 export const readJSON = p => JSON.parse(readFileSync(p, 'utf8'));
 export const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+// A link built from data (a fetched source or the API) is kept only if it is http(s) or site-relative; anything else
+// (javascript:, data:, vbscript:, protocol-relative ...) becomes "#". Escaped for an attribute either way.
+export const safeHref = u => { const v = String(u ?? '').trim(); return /^(https?:\/\/[^\s]+|\/(?!\/)[^\s]*|#[^\s]*)$/i.test(v) ? esc(v) : '#'; };
 
 // ---------------------------------------------------------------- data
 export function loadData() {
@@ -223,7 +226,7 @@ function inline(s) {
     .replace(/`([^`]+)`/g, '<code>$1</code>')
     .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
     .replace(/(^|[^*])\*([^*\s][^*]*)\*/g, '$1<em>$2</em>')
-    .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (_, t, u) => `<a href="${u}">${t}</a>`)
+    .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (_, t, u) => `<a href="${safeHref(u.replace(/&amp;/g, '&'))}">${t}</a>`)
     .replace(/(^|[\s(])(https?:\/\/[^\s<)]+[^\s<).,;:])/g, '$1<a href="$2">$2</a>');
 }
 export function markdown(src) {

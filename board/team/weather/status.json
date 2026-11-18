@@ -3,7 +3,7 @@
   "account": "B",
   "started_by": "conductor.b@PrompTugal.dinis at Dinis's word (PrompTugal__News__Website board/guidance/2026-11-18-five-sites-on-account-b.md)",
   "state": "run 3 done (13:14 UTC wake); waits for the next wake",
-  "updated": "2026-11-18T16:10Z",
+  "updated": "2026-11-18T16:35Z",
   "debrief": "board/team/weather/debriefs/2026-11-18-account-b-first-run.md",
   "observability_lane": "weather",
   "observability_note": "For conductor.b@ to relay to account A's observability@: assets/obs/obs.js is on every page and writes only to obs.json lanes.weather, which is empty, so nothing is sent yet. observability@ issues the lane's append tokens (in the vault of its choice; the drain key is read from promptugal.news/assets/obs/obs.json unless set in this site's obs.json).",
@@ -26,7 +26,8 @@
     "14:45 UTC: licences on every page and JSON file (Dinis, 18 Nov ~14:25 UTC, Website board/guidance/2026-11-18-licences-and-submissions.md): every source line names its licence or 'the source's terms'; the build adds a license field to every published JSON; footer lists the licences used",
     "15:10 UTC: take-down disclaimer on every page and markdown twin (Dinis ~14:55 UTC, Website board/guidance/2026-11-18-keys-issues-rebuilds-observability.md)",
     "15:20 UTC: hourly scheduled rebuild at :41 in .github/workflows/pages.yml (Dinis ~14:55 UTC; confirmed by the user in this session ~15:15 UTC)",
-    "15:55 UTC: the front pages to choose from, at the top of every page (the user's ask, as on hub.agenticcells.site's sites): a strip linking Now, A, B and C, a Designs chip opening a picker with screenshots, and the same cards on /design/. Screenshots by scripts/dev/shots.mjs, run by hand"
+    "15:55 UTC: the front pages to choose from, at the top of every page (the user's ask, as on hub.agenticcells.site's sites): a strip linking Now, A, B and C, a Designs chip opening a picker with screenshots, and the same cards on /design/. Screenshots by scripts/dev/shots.mjs, run by hand",
+    "16:35 UTC: AppSec fix after conductor.b@'s heads-up (events.b@'s XSS finding): every href built from data goes through safeHref() (http(s), site-relative or # only; else '#'), markdown links too; validate.mjs now fails on javascript:, data:, vbscript: or file: URLs in href/src/action; reading.js keeps only site-relative paths. Review: no innerHTML anywhere; all data was already HTML-escaped; the gap was the URL scheme. No page changed in the build output"
   ],
   "next": [
     "threat models at docs/threat-models/ for the scheduled rebuild, scripts/sync-data.mjs and obs.js, and a /how/ page linking them",

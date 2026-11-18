@@ -1,6 +1,6 @@
 // Design A: warnings first. weather.design@PrompTugal.dinis, 17 Nov 2026. Code: Apache-2.0.
 export function render({ D, BUILT, lib }) {
-  const { esc, when, localWhen, dayName, show, showMd, num, fireClass, warnClass, worstWarning } = lib;
+  const { esc, safeHref, when, localWhen, dayName, show, showMd, num, fireClass, warnClass, worstWarning } = lib;
   const r = D.region, w = r.warnings || {};
   const active = (w.active || []).slice().sort((a, b) => ['green', 'yellow', 'orange', 'red'].indexOf(b.level) - ['green', 'yellow', 'orange', 'red'].indexOf(a.level));
   const lvl = worstWarning(r), top = active[0];
@@ -18,13 +18,13 @@ export function render({ D, BUILT, lib }) {
   const body = `<section class="a-top">
 ${band}
 ${more ? `<ul class="a-more">${more}</ul>` : ''}
-<p class="a-src">Warnings for ${esc(w.area)}, read ${when(r.read_at)}. Source: <a href="${esc(w.page)}">IPMA warnings</a>, <a href="${esc(w.source)}">open data</a>. This site is not a warning service: follow <a href="https://www.ipma.pt/">IPMA</a> and <a href="https://prociv.gov.pt/">ANEPC</a>.</p>
+<p class="a-src">Warnings for ${esc(w.area)}, read ${when(r.read_at)}. Source: <a href="${safeHref(w.page)}">IPMA warnings</a>, <a href="${safeHref(w.source)}">open data</a>. This site is not a warning service: follow <a href="https://www.ipma.pt/">IPMA</a> and <a href="https://prociv.gov.pt/">ANEPC</a>.</p>
 </section>
 <section>
 <h2>The 17 places</h2>
 <p class="a-key">Each tile: now (nearest station), today's high / low, today's fire risk.</p>
 <ul class="a-tiles">${tiles}</ul>
-<p class="a-src">Sources: <a href="${esc(f0.station?.page)}">IPMA station readings</a> (last hourly value), <a href="${esc(f0.forecast?.page)}">IPMA forecast</a> (nearest of four Algarve places), <a href="${esc(f0.fire_risk?.page)}">IPMA rural fire risk</a>. "Not reported" means the station sent no value. Open a tile for each value's source and time.</p>
+<p class="a-src">Sources: <a href="${safeHref(f0.station?.page)}">IPMA station readings</a> (last hourly value), <a href="${safeHref(f0.forecast?.page)}">IPMA forecast</a> (nearest of four Algarve places), <a href="${safeHref(f0.fire_risk?.page)}">IPMA rural fire risk</a>. "Not reported" means the station sent no value. Open a tile for each value's source and time.</p>
 </section>`;
   const md = `## ${top ? `${cap(lvl)} warning: ${top.type}` : 'No IPMA warning above green'}\n\n${top ? `${localWhen(top.start)} to ${localWhen(top.end)} Portugal time. ${top.text || ''}\n\n` : ''}Source: IPMA, ${w.page}. Read ${when(r.read_at)}. Not a warning service: follow IPMA and ANEPC.\n\n## The 17 places\n\n${D.towns.map(t => { const n = t.now, f = n.forecast?.days?.[0] || {}; return `- [${t.name}](/places/${t.id}/): now ${showMd(n.station?.reading?.temp_c, '°C')}, today ${showMd(f.t_max_c, '°C')} / ${showMd(f.t_min_c, '°C')}, fire risk ${n.fire_risk?.days?.[0]?.level || '?'}`; }).join('\n')}\n`;
   const css = `

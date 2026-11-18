@@ -9,6 +9,7 @@ const RANK = { yellow: 1, orange: 2, red: 3 };
 const LEVEL_NAME = { yellow: 'Yellow', orange: 'Orange', red: 'Red' };
 
 const esc = (s) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+const safeHref = (u) => { const v = String(u ?? '').trim(); return /^(https?:\/\/[^\s]+|\/(?!\/)[^\s]*|#[^\s]*)$/i.test(v) ? esc(v) : '#'; };
 const pad = (n) => String(n).padStart(2, '0');
 const cap = (s) => { s = String(s ?? ''); return s.charAt(0).toUpperCase() + s.slice(1); };
 
@@ -108,7 +109,7 @@ export function warningsTimeline({ warnings, districts, now, width = 760 }) {
   // District rows.
   districts.forEach((d, i) => {
     const cy = rowY[i] + rowH[i] / 2 + 4.5;
-    g.push(`<a href="${esc(d.href)}"><text class="dname" x="8" y="${f(cy)}">${esc(d.name)}</text></a>`);
+    g.push(`<a href="${safeHref(d.href)}"><text class="dname" x="8" y="${f(cy)}">${esc(d.name)}</text></a>`);
     g.push(`<line class="rowline" x1="0" y1="${rowY[i] + rowH[i]}" x2="${W}" y2="${rowY[i] + rowH[i]}"/>`);
     if (!lanesOf[i].length) {
       g.push(`<text class="empty" x="${L + 6}" y="${f(cy)}">no warning</text>`);

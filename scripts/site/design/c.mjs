@@ -1,6 +1,6 @@
 // Design C: your town. weather.design@PrompTugal.dinis, 17 Nov 2026. Code: Apache-2.0.
 export function render({ D, BUILT, lib }) {
-  const { esc, when, localWhen, dayName, show, showMd, num, fireClass, warnClass, worstWarning } = lib;
+  const { esc, safeHref, when, localWhen, dayName, show, showMd, num, fireClass, warnClass, worstWarning } = lib;
   const r = D.region, w = r.warnings || {}, lvl = worstWarning(r), top = (w.active || [])[0];
   const f0 = D.now.faro;
   const picker = D.towns.map(t => {
@@ -23,12 +23,12 @@ export function render({ D, BUILT, lib }) {
   const body = `<section class="c-head">
 <p class="kicker">Your town</p>
 <h1>Pick your place in the Algarve</h1>
-<p class="c-warn"><span class="chip ${warnClass(lvl)}">${top ? `${esc(lvl)} warning` : 'no warning above green'}</span> ${top ? `${esc(top.type)}, ${localWhen(top.start)} to ${localWhen(top.end)} Portugal time. ` : ''}<span class="c-src">Read ${when(r.read_at)}. <a href="${esc(w.page)}">IPMA warnings</a>. Not a warning service: follow <a href="https://www.ipma.pt/">IPMA</a> and <a href="https://prociv.gov.pt/">ANEPC</a>.</span></p>
+<p class="c-warn"><span class="chip ${warnClass(lvl)}">${top ? `${esc(lvl)} warning` : 'no warning above green'}</span> ${top ? `${esc(top.type)}, ${localWhen(top.start)} to ${localWhen(top.end)} Portugal time. ` : ''}<span class="c-src">Read ${when(r.read_at)}. <a href="${safeHref(w.page)}">IPMA warnings</a>. Not a warning service: follow <a href="https://www.ipma.pt/">IPMA</a> and <a href="https://prociv.gov.pt/">ANEPC</a>.</span></p>
 </section>
 <ul class="c-grid">${picker}</ul>
-<p class="c-src">Now: nearest station's last hourly reading (<a href="${esc(f0.station?.page)}">IPMA</a>). Today: <a href="${esc(f0.forecast?.page)}">IPMA forecast</a> high/low. Fire risk: <a href="${esc(f0.fire_risk?.page)}">IPMA</a>.</p>
+<p class="c-src">Now: nearest station's last hourly reading (<a href="${safeHref(f0.station?.page)}">IPMA</a>). Today: <a href="${safeHref(f0.forecast?.page)}">IPMA forecast</a> high/low. Fire risk: <a href="${safeHref(f0.fire_risk?.page)}">IPMA</a>.</p>
 <section><h2>Five days of highest temperature</h2>
-<p class="c-src">One small chart per place, all on the same scale (${lo}° to ${hi}°), from ${days0.length ? `${dayName(days0[0].date)} to ${dayName(days0[days0.length - 1].date)}` : 'the forecast days'}. Each value is <a href="${esc(f0.forecast?.page)}">IPMA's forecast</a> for the nearest of four Algarve places.</p>
+<p class="c-src">One small chart per place, all on the same scale (${lo}° to ${hi}°), from ${days0.length ? `${dayName(days0[0].date)} to ${dayName(days0[days0.length - 1].date)}` : 'the forecast days'}. Each value is <a href="${safeHref(f0.forecast?.page)}">IPMA's forecast</a> for the nearest of four Algarve places.</p>
 <ul class="c-multi">${multiples}</ul></section>`;
   const md = `## Pick your place\n\n${top ? `${lvl} warning: ${top.type}, ${localWhen(top.start)} to ${localWhen(top.end)} Portugal time.` : 'No IPMA warning above green.'} Read ${when(r.read_at)}. Not a warning service: follow IPMA and ANEPC.\n\n${D.towns.map(t => { const n = t.now, f = n.forecast?.days || []; return `- [${t.name}](/places/${t.id}/): now ${showMd(n.station?.reading?.temp_c, '°C')}, today ${showMd(f[0]?.t_max_c, '°C')}/${showMd(f[0]?.t_min_c, '°C')}, fire risk ${n.fire_risk?.days?.[0]?.level || '?'}; highest ${f.map(d => showMd(d.t_max_c, '°')).join(', ')}`; }).join('\n')}\n`;
   const css = `

@@ -13,7 +13,8 @@
 (function () {
     'use strict'
     var KEY = 'pt.weather.reads', MAX = 200
-    function load() { try { var v = JSON.parse(localStorage.getItem(KEY) || '[]'); return Array.isArray(v) ? v : [] } catch (e) { return [] } }
+    // only entries whose path is site-relative are kept (the list feeds hrefs on /account/)
+    function load() { try { var v = JSON.parse(localStorage.getItem(KEY) || '[]'); return Array.isArray(v) ? v.filter(function (e) { return e && typeof e.path === 'string' && /^\/(?!\/)/.test(e.path) }) : [] } catch (e) { return [] } }
     function save(log) { try { localStorage.setItem(KEY, JSON.stringify(log.slice(-MAX))); return true } catch (e) { return false } }
 
     var path = location.pathname.replace(/index\.html$/, '')
