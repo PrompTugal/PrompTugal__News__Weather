@@ -3,7 +3,7 @@
   "account": "B",
   "started_by": "conductor.b@PrompTugal.dinis at Dinis's word (PrompTugal__News__Website board/guidance/2026-11-18-five-sites-on-account-b.md)",
   "state": "run 3 done (13:14 UTC wake); waits for the next wake",
-  "updated": "2026-11-18T14:05Z",
+  "updated": "2026-11-18T14:45Z",
   "debrief": "board/team/weather/debriefs/2026-11-18-account-b-first-run.md",
   "observability_lane": "weather",
   "observability_note": "For conductor.b@ to relay to account A's observability@: assets/obs/obs.js is on every page and writes only to obs.json lanes.weather, which is empty, so nothing is sent yet. observability@ issues the lane's append tokens (in the vault of its choice; the drain key is read from promptugal.news/assets/obs/obs.json unless set in this site's obs.json).",
@@ -22,9 +22,11 @@
     "/account/: your reading, free",
     "run 2: station readings for the capitals (16 of 17 within 25 km)",
     "run 2: warnings timeline by district on /map/ (weather.b.dev@, Sonnet), with the same data as a table",
-    "run 3: UV for the district capitals (IPMA's index by place id, highest value each day, WHO bands); data refreshed (API v0.1.11)"
+    "run 3: UV for the district capitals (IPMA's index by place id, highest value each day, WHO bands); data refreshed (API v0.1.11)",
+    "14:45 UTC: licences on every page and JSON file (Dinis, 18 Nov ~14:25 UTC, Website board/guidance/2026-11-18-licences-and-submissions.md): every source line names its licence or 'the source's terms'; the build adds a license field to every published JSON; footer lists the licences used"
   ],
   "next": [
+    "Storm archive: a terms link for each outside source it cites (news, government, aviationweather.gov), from each site's own published terms",
     "Storm item 1: residents under each IPMA level, hour by hour, on /storms/charles/",
     "UV on the Algarve place pages for all five days (they show one day now)",
     "the session key, when allowed",

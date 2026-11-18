@@ -101,9 +101,32 @@ export const host = u => { try { return new URL(u).host; } catch { return u; } }
 const NAV = [['/', 'Now'], ['/map/', 'Map'], ['/places/', 'Places'], ['/storms/', 'Storms'], ['/what-to-do/', 'What to do'], ['/about/', 'About']];
 // The sites rail (promptugal.news's masthead, Website repo assets/top/top.tmpl, Dinis 17 Nov 2026)
 const SITES = [['https://weather.promptugal.news/', 'Weather'], ['https://civic.promptugal.news/', 'Civic'], ['https://startups.promptugal.news/', 'Startups'], ['https://travel.promptugal.news/', 'Travel'], ['https://data.promptugal.news/', 'Data']];
-export const CSS_VERSION = '2';
+export const CSS_VERSION = '3';
 
-export function page({ path, title, description, body, md, made, extraHead = '', bodyClass = '' }) {
+// ---------------------------------------------------------------- licences (Dinis, 18 Nov 2026, about 14:25 UTC, kept in the Website
+// repo's board/guidance/2026-11-18-licences-and-submissions.md: every piece of data, in the JSON and on the page, carries a licence link;
+// ours is CC BY 4.0; a source with no published licence gets a link to its terms, labelled "the source's terms")
+export const LICENCES = {
+  ours: { name: 'CC BY 4.0', url: 'https://creativecommons.org/licenses/by/4.0/', of: 'PrompTugal.news Weather (our pages, words, charts and the way the data is put together)' },
+  ipma: { name: "the source's terms", url: 'https://api.ipma.pt/', of: 'IPMA (free for personal or public use with no profit-making purpose; name IPMA as the source)' },
+  adsb: { name: 'ODbL 1.0', url: 'https://opendatacommons.org/licenses/odbl/1-0/', of: 'adsb.lol' },
+  meteoalarm: { name: "the source's terms", url: 'https://www.meteoalarm.org/en/live/page/terms-and-conditions', of: 'MeteoAlarm' },
+};
+const LIC_RULES = [[/adsb\.lol/i, 'adsb'], [/meteoalarm/i, 'meteoalarm'], [/IPMA/, 'ipma']];
+export const licLink = k => `<a class="lic" href="${LICENCES[k].url}">${k === 'ours' ? 'CC BY 4.0' : `${LICENCES[k].of.split(' (')[0]}: ${LICENCES[k].name}`}</a>`;
+// every source line on a page names the licence of the data it cites
+function addLicences(html) {
+  return html.replace(/<p class="src">([\s\S]*?)<\/p>/g, (m, inner) => {
+    if (/class="lic"/.test(inner)) return m;
+    const keys = LIC_RULES.filter(([re]) => re.test(inner.replace(/<[^>]+>/g, ' '))).map(([, k]) => k);
+    return keys.length ? `<p class="src">${inner} Licence: ${keys.map(licLink).join('; ')}.</p>` : m;
+  });
+}
+function licencesUsed(html) { return Object.keys(LICENCES).filter(k => k === 'ours' || LIC_RULES.some(([re, kk]) => kk === k && re.test(html.replace(/<[^>]+>/g, ' ')))); }
+
+export function page({ path, title, description, body: rawBody, md, made, extraHead = '', bodyClass = '' }) {
+  const body = addLicences(rawBody);
+  const used = licencesUsed(rawBody);
   const canonical = SITE + path;
   const twin = path.endsWith('/') ? path + 'index.md' : path.replace(/\.html$/, '.md');
   const nav = NAV.map(([href, label]) => `<a href="${href}"${(href === '/' ? path === '/' : path.startsWith(href)) ? ' aria-current="page"' : ''}>${label}</a>`).join('');
@@ -140,13 +163,14 @@ ${body}
 ${madeBlock(made)}
 <footer class="footer">
   <p>Part of <a href="https://promptugal.news/">PrompTugal.news</a>: Portugal, town by town. Independent: not an official or government site. Data from IPMA's open data, as collected and published by <a href="https://data.promptugal.news/">data.promptugal.news</a>. Free to read: IPMA's terms allow no profit-making use, so these pages are outside the reading meter.</p>
+  <p class="licences">Licences: ${used.map(k => k === 'ours' ? `our pages, words and charts ${licLink('ours')}` : `data from ${licLink(k)}`).join('; ')}. Every JSON file here carries a <code>license</code> field.</p>
   <p class="sites-row">Also from PrompTugal.news: ${SITES.map(([href, label]) => `<a href="${href}">${label}</a>`).join(' · ')}</p>
   <p class="small">Version __VERSION__ · <a href="https://github.com/PrompTugal/PrompTugal__News__Weather">Source</a> · Code Apache-2.0, text CC BY 4.0 · <a href="/llms.txt">llms.txt</a></p>
 </footer>
 </body>
 </html>
 `;
-  const mdOut = `# ${title}\n\n> ${description}\n>\n> Not a warning service: follow IPMA (https://www.ipma.pt/) and ANEPC (https://prociv.gov.pt/). In an emergency call 112.\n> Version __VERSION__ · ${canonical}\n\n${md.trim()}\n\n${madeMd(made)}\n`;
+  const mdOut = `# ${title}\n\n> ${description}\n>\n> Not a warning service: follow IPMA (https://www.ipma.pt/) and ANEPC (https://prociv.gov.pt/). In an emergency call 112.\n> Version __VERSION__ · ${canonical}\n\n${md.trim()}\n\n## Licences\n\n${used.map(k => `- ${LICENCES[k].of}: ${LICENCES[k].name}, ${LICENCES[k].url}`).join('\n')}\n\n${madeMd(made)}\n`;
   return { path, html, md: mdOut, title, description };
 }
 

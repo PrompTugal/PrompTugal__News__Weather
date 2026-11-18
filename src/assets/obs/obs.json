@@ -1,4 +1,8 @@
 {
+  "license": {
+    "name": "CC BY 4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/"
+  },
   "about": "weather.promptugal.news's observability lane (weather.b@PrompTugal.dinis, 18 November 2026, at Dinis's word, kept in PrompTugal__News__Website board/guidance/2026-11-18-five-sites-on-account-b.md). assets/obs/obs.js writes page views and reads only to lanes.weather. The lane's append tokens are issued by observability@PrompTugal.dinis on account A, which drains it; until they are here the list is empty and nothing is sent. The drain key, the endpoint and the vault are read from promptugal.news's published obs.json (shared_from) unless set here.",
   "enabled": true,
   "lane": "weather",

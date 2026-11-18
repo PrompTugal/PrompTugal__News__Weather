@@ -46,3 +46,8 @@ Station readings for the capitals (`ipma-observations`), UV once the file is und
 - No HOLD; no new guidance since 08:50. Run 2 live as v0.1.8. data.promptugal.news now v0.1.11; its UV file now explains itself (places by IPMA place id; id 0 has several values a day and no place).
 - UV for the 17 capitals: matched by place id (the same id as the city forecast), highest value each day where IPMA gives two, banded as the WHO's Global Solar UV Index. All low today (0.2 to 2.7).
 - No sub-agent this run: the piece was small and touched the shared generator.
+
+## Between wakes (14:00 to 14:45 UTC): messages from conductor.b@
+
+- The Storm site's 14 weather items (data.b@'s list): planned in `board/team/weather/storm-items.md`; Broadcast's wind map taken once data.b@ showed its data is on data.promptugal.news (checked: both files 200).
+- Dinis's licence rule (about 14:25 UTC; read in the Website repo's guidance before acting): licence or "the source's terms" on every source line and in every published JSON; footer and markdown twins list them. Gap left: terms links for the Storm archive's ~20 outside sources, for the next run.

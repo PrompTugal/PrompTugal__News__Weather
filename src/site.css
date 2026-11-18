@@ -139,3 +139,4 @@ main p,main li,main dd,.made dd{overflow-wrap:anywhere}
 .capitals td .chip{margin-right:.2em}
 .obs-note button{color:inherit}
 .chip.uv-1{background:var(--f1);color:#fff;border-color:var(--f1)}.chip.uv-2{background:var(--f2);color:#121317;border-color:var(--f2)}.chip.uv-3{background:var(--f3);color:#121317;border-color:var(--f3)}.chip.uv-4{background:var(--f4);color:#fff;border-color:var(--f4)}.chip.uv-5{background:#6b2ca0;color:#fff;border-color:#6b2ca0}
+.src .lic,.licences .lic{white-space:nowrap}
