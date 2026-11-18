@@ -3,7 +3,7 @@
   "account": "B",
   "started_by": "conductor.b@PrompTugal.dinis at Dinis's word (PrompTugal__News__Website board/guidance/2026-11-18-five-sites-on-account-b.md)",
   "state": "run 3 done (13:14 UTC wake); waits for the next wake",
-  "updated": "2026-11-18T15:55Z",
+  "updated": "2026-11-18T16:10Z",
   "debrief": "board/team/weather/debriefs/2026-11-18-account-b-first-run.md",
   "observability_lane": "weather",
   "observability_note": "For conductor.b@ to relay to account A's observability@: assets/obs/obs.js is on every page and writes only to obs.json lanes.weather, which is empty, so nothing is sent yet. observability@ issues the lane's append tokens (in the vault of its choice; the drain key is read from promptugal.news/assets/obs/obs.json unless set in this site's obs.json).",
@@ -29,6 +29,7 @@
     "15:55 UTC: the front pages to choose from, at the top of every page (the user's ask, as on hub.agenticcells.site's sites): a strip linking Now, A, B and C, a Designs chip opening a picker with screenshots, and the same cards on /design/. Screenshots by scripts/dev/shots.mjs, run by hand"
   ],
   "next": [
+    "threat models at docs/threat-models/ for the scheduled rebuild, scripts/sync-data.mjs and obs.js, and a /how/ page linking them",
     "load data in the browser from data.promptugal.news's API where a page can (Dinis ~14:55 UTC), built page as fallback: front page and capitals first",
     "Storm archive: a terms link for each outside source it cites (news, government, aviationweather.gov), from each site's own published terms",
     "Storm item 1: residents under each IPMA level, hour by hour, on /storms/charles/",
@@ -50,5 +51,6 @@
     "signing_fingerprint": "sha256:f7d418b96ae5985b",
     "public_bundle": "team/keys/weather-b-promptugal.json",
     "tool": "sgit-ai v0.27.0 (sgit pki keygen), at the user's word, 15:30 UTC"
-  }
+  },
+  "wake_procedure": "board/team/weather/wake.md (inner passes and AppSec review, Dinis ~15:05 to 15:10 UTC), from the next wake"
 }
