@@ -100,3 +100,10 @@ Station readings for the capitals (`ipma-observations`), UV once the file is und
 - The work: official cameras by link only, from data.promptugal.news's `cams` source. `scripts/site/cams.mjs`; `/cameras/`; a section on 11 place pages; Cameras in the nav; validate.mjs refuses a frame from outside the site. Checked in Chromium at 1300 and 390 px: no horizontal scroll, and no request to any camera host.
 - Post-review with AppSec (Sonnet): one medium (the markdown twins carried the raw URL, newlines and all), two low (the frame check could be fooled by an attribute value or srcdoc; a thin shape check). All fixed and tested.
 - Not done: an embed. No operator's embed terms have been read (MEO refused the data site; the two others publish none). Windy's API needs a key and its terms first.
+
+## Between wakes, 22:20 to 23:05 UTC: London, and forecasts against what happened
+
+- conductor.b@ relayed Dinis's guidance (about 22:20 UTC; read in the Website repo, board/guidance/2026-11-18-london.md): London is the first place beyond Portugal; this site keeps every forecast and compares it with what was observed; readers (Dinis first) can say what they saw.
+- Done: the forecast archive (`scripts/archive-forecasts.mjs`, `data/history/`), the issue form `weather-seen.yml`, a "Say what you saw" link on every place page. data.promptugal.news keeps its raw history in a vault, not in public, so this site keeps its own copy of what it showed.
+- Waiting: the UK feeds (data.b@'s), then the London page; enough days of history for the accuracy page.
+- Post-review with AppSec (Sonnet): fixes made (caps, duplicates, date checks, privacy wording). Rules for showing reader reports later: form fields only; the area must match a known place; conditions from the form's list; time to the hour; escaped text; free text only after a person's review; label it unverified; drop closed or edited-away reports.

@@ -1,0 +1,65 @@
+# A reader's report of the weather they actually saw (Dinis, 18 Nov 2026, about 22:20 UTC, kept in the Website
+# repo's board/guidance/2026-11-18-london.md). Shown on weather.promptugal.news as "observed by a reader on the
+# ground", dated and placed to the area, never an address. weather.b@PrompTugal.dinis. Text: CC BY 4.0.
+name: The weather I saw
+description: Say what the weather actually was where you are, so forecasts can be checked against it.
+title: "Weather seen: <area>, <date>"
+labels: ["weather-seen"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This issue is public. It will be shown on weather.promptugal.news as "observed by a reader on the ground", with the area and time you give and your GitHub name, under CC BY 4.0.
+        Give an area only (a town, a district or a London borough), never a street or a home address, and no one else's name. GitHub keeps an issue and its edit history in public, and others may reuse what is published under CC BY 4.0. To have a report taken off the site, close it with a comment asking for that, or use promptugal.news/report/. This is not a way to report an emergency: call 112 (999 in the UK).
+  - type: input
+    id: area
+    attributes:
+      label: Area
+      description: A town, district or borough. Not a street or an address.
+      placeholder: "Faro, or London: Camden"
+    validations:
+      required: true
+  - type: input
+    id: when
+    attributes:
+      label: When you saw it
+      description: Date and local time.
+      placeholder: "18 Nov 2026, 14:00"
+    validations:
+      required: true
+  - type: dropdown
+    id: sky
+    attributes:
+      label: What it was like
+      multiple: true
+      options:
+        - Sunny or clear
+        - Some cloud
+        - Overcast
+        - Drizzle
+        - Rain
+        - Heavy rain
+        - Thunder or lightning
+        - Strong wind
+        - Fog or mist
+        - Hail or snow
+    validations:
+      required: true
+  - type: input
+    id: temperature
+    attributes:
+      label: Temperature, if you know it
+      description: From a thermometer, or say "felt cold", "felt mild" and so on.
+      placeholder: "about 12°C"
+  - type: textarea
+    id: notes
+    attributes:
+      label: Anything else
+      description: For example flooding on a road, a fallen tree, or the forecast you compared it with. No addresses, no one's name, and no photos of people or number plates.
+  - type: checkboxes
+    id: ok
+    attributes:
+      label: Before you send
+      options:
+        - label: I gave an area, not an address, and this can be published with my GitHub name under CC BY 4.0.
+          required: true
