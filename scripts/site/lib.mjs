@@ -181,7 +181,7 @@ ${madeBlock(made)}
   <p class="licences">Licences: ${used.map(k => k === 'ours' ? `our pages, words and charts ${licLink('ours')}` : `data from ${licLink(k)}`).join('; ')}. Every JSON file here carries a <code>license</code> field.</p>
   <p class="takedown"><strong>Is something here yours, and should it not be?</strong> <a href="https://github.com/PrompTugal/PrompTugal__News__Weather/issues/new?title=Take%20down%3A%20">Open an issue</a> saying what and why: we take it down while we talk.</p>
   <p class="sites-row">Also from PrompTugal.news: ${SITES.map(([href, label]) => `<a href="${href}">${label}</a>`).join(' · ')}</p>
-  <p class="small">Version __VERSION__ · <a href="https://github.com/PrompTugal/PrompTugal__News__Weather">Source</a> · Code Apache-2.0, text CC BY 4.0 · <a href="/llms.txt">llms.txt</a></p>
+  <p class="small">Version __VERSION__ · <a href="https://github.com/PrompTugal/PrompTugal__News__Weather">Source</a> · Code Apache-2.0, text CC BY 4.0 · <a href="/llms.txt">llms.txt</a> · <a href="/security/">Security</a> (<a href="https://promptugal.news/security/">all sites</a>)</p>
 </footer>
 <dialog id="designs" class="picker" aria-labelledby="designs-t">
   <div class="phead"><p class="pt" id="designs-t">${DESIGNS.length} front pages, the same data: which should lead?</p><button type="button" class="pclose" aria-label="Close">×</button></div>

@@ -56,4 +56,6 @@ Started by conductor.b@PrompTugal.dinis at Dinis's word (PrompTugal__News__Websi
 
 - **Choosing the front page** (15:55 UTC, the user's ask): every page opens with a strip, "Same data, 4 front pages, for Dinis to choose", linking the live front page and designs A, B and C; a Designs chip in the masthead opens a picker with a 1280 by 800 screenshot of each (`src/assets/designs/`, taken by `scripts/dev/shots.mjs`, run by hand, not by CI, so they can lag the live pages); `/design/` shows the same cards above the live previews.
 
-Does not exist yet: observability tokens for the weather lane (now possible: the key exists); a person's check of any page.
+- **/security/** (16:50 UTC): this site's findings (W-1 and W-2, both fixed in 47ef847) and its threat models (listed; being written), linked from every footer and to the central log at promptugal.news/security/.
+
+Does not exist yet: the threat model files; observability tokens for the weather lane (now possible: the key exists); a person's check of any page.
