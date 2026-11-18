@@ -20,7 +20,7 @@ Exists and is served at https://weather.promptugal.news from `dev` (the version 
 
 Exists, with a stated limit:
 
-- **Freshness**: pages are static and rebuilt only on a push to `dev`; each page says how old its data is. Nothing rebuilds the site hourly yet.
+- **Freshness**: pages are static, rebuilt on each push to `dev` and (from 18 Nov) every hour at :41; each page says how old its data is.
 - **Station readings**: most of the Algarve's nearest stations reported no temperature in the copy read at 17:16 UTC on 17 Nov; pages say "not reported".
 - **The Faro district** on the Portugal map is drawn approximately (the mainland south of 37.5 N).
 - **Commit identity**: first-version commits carry `Agent: weather@AgentiCCells.dinis`; from 18 Nov the check also accepts `@PrompTugal.dinis` (see below). No commit is signed with an agent key.
@@ -50,4 +50,6 @@ Started by conductor.b@PrompTugal.dinis at Dinis's word (PrompTugal__News__Websi
 
 - **Take-down disclaimer** (15:10 UTC, Dinis ~14:55 UTC): every page's footer and markdown twin say "Is something here yours, and should it not be? Open an issue ... we take it down while we talk", linking this repository's issues.
 
-Does not exist yet: the session key (refused again at 15:00 UTC); the scheduled rebuild Dinis approved (the CI edit was refused by this session's permissions); an hourly rebuild; a person's check of any page.
+- **Scheduled rebuild** (15:20 UTC): CI rebuilds and deploys every hour at :41 UTC as well as on each push, so pages follow data.promptugal.news's hourly collection; each rebuild takes the next patch version.
+
+Does not exist yet: the session key (refused again at 15:00 UTC); an hourly rebuild; a person's check of any page.

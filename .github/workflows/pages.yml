@@ -6,6 +6,12 @@ on:
   push:
     branches: [dev]
   workflow_dispatch:
+  # A scheduled rebuild (Dinis, 18 Nov 2026, about 14:55 UTC, kept in the Website repo's
+  # board/guidance/2026-11-18-keys-issues-rebuilds-observability.md; confirmed by the user in this
+  # session at about 15:15 UTC: "Yes add the schedule"), so pages follow data.promptugal.news's hourly
+  # collection (at about :17) without a push. Each rebuild is a release and takes the next patch version.
+  schedule:
+    - cron: '41 * * * *'
 permissions:
   contents: read
 concurrency:
