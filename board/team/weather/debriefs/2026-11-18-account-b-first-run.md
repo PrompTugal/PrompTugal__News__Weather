@@ -78,3 +78,11 @@ Station readings for the capitals (`ipma-observations`), UV once the file is und
 - conductor.b@ relayed a report (via Dinis) that an agent building on our IPMA data saw it not refreshing. GitHub shows 0 scheduled runs of Pages ever; the workflow is active and the default branch is dev, so the schedule is in the right place; the cause is not visible from here (GitHub delays or drops scheduled runs).
 - Fix: pages read data.promptugal.news live in the browser (live.js), and the schedule runs twice an hour (:11, :41). Tested in Chromium against the live API: Faro moved from 16:14 to 17:41 data.
 - Post-review (Sonnet, AppSec): two small fixes before commit, done. W-8 published.
+
+## Run 5 (scheduled wake, 19:13 UTC)
+
+- No HOLD. v0.1.22 live (built 17:56 UTC). Library requests: 6, none to weather. Scheduled runs of Pages: still 0. Asked of Dinis in status.json: check the repository's Actions settings.
+- New guidance at 19:00 UTC (cameras, provenance on every item): read; cameras are next run.
+- Opening pass and security pre-review (one Sonnet sub-agent): yes. It set the wording ("residents in areas under", never "people affected"; not a warning), asked for a table beside the chart, the file's about, method and confidence verbatim, and a provenance block.
+- The work: Storm item 1 on `/storms/charles/`: residents in areas under red, orange and yellow IPMA warnings by UTC hour, 32 hours from 22:00 UTC on 11 Nov. Built in `scripts/site/exposure.mjs`; the data is copied by `sync-data.mjs` from data.promptugal.news. Checked at 1300 and 390 px (no horizontal scroll).
+- Post-review with AppSec (Sonnet): no blocker; five findings (clamp numbers, cap and type-check text, strip link and tag characters from the markdown twin, check each row's shape, at most 400 hours), all fixed before commit and tested with a hostile file.

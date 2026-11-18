@@ -1,7 +1,7 @@
 // Build: copy src/ to _site/, generate the pages from data/ and content/ (scripts/site/generate.mjs),
 // copy the data the pages were built from, stamp the version, write version.json.
 // SITE_VERSION is set by CI only (v0.1.N); a local build says "dev".
-import { cpSync, rmSync, readdirSync, readFileSync, writeFileSync, statSync } from 'node:fs';
+import { cpSync, rmSync, readdirSync, readFileSync, writeFileSync, statSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 const version = process.env.SITE_VERSION || 'dev';
 rmSync('_site', { recursive: true, force: true });
@@ -9,6 +9,7 @@ cpSync('src', '_site', { recursive: true });
 await import('./site/generate.mjs');
 cpSync('data/now', '_site/data/now', { recursive: true });
 cpSync('data/api', '_site/data/api', { recursive: true });
+if (existsSync('data/storm')) cpSync('data/storm', '_site/data/storm', { recursive: true });
 cpSync('data/sync.json', '_site/data/sync.json');
 // every JSON file published carries a licence (Dinis, 18 Nov 2026; see LICENCES in scripts/site/lib.mjs)
 const { LICENCES } = await import('./site/lib.mjs');

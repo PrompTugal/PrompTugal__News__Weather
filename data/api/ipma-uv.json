@@ -7,11 +7,11 @@
  },
  "source": "ipma-uv",
  "title": "IPMA UV index",
- "read_at": "2026-11-18T16:13:47Z",
+ "read_at": "2026-11-18T19:12:21Z",
  "provenance": {
   "source": "https://api.ipma.pt/open-data/forecast/meteorology/uv/uv.json",
   "page": "https://www.ipma.pt/en/otempo/prev.uv/",
-  "read_at": "2026-11-18T16:13:47Z",
+  "read_at": "2026-11-18T19:12:21Z",
   "by": "sources/ipma-uv/collect.mjs (code, no model; run by data@PrompTugal.dinis)",
   "terms": "IPMA: free to copy and use for personal or public use if the use has no profit-making or offensive purpose; always name IPMA as the source."
  },

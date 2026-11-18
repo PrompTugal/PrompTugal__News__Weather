@@ -25,6 +25,7 @@ const SOURCES = ['ipma-city-forecasts', 'ipma-warnings', 'ipma-fire-risk', 'ipma
 const API_FILES = [
   ...PLACES.map(p => [`by-place/now/${p}.json`, `data/now/${p}.json`]),
   ...SOURCES.map(s => [`${s}/latest.json`, `data/api/${s}.json`]),
+  ['storm/charles/exposure/people-by-hour.json', 'data/storm/charles-people-by-hour.json'],
 ];
 const WEB_FILES = [
   ['data/by-place/places.json', 'data/map/places-source.json'],
@@ -60,6 +61,8 @@ async function fetchText(url) {
 const SHAPES = [
   [/^data\/now\//, j => typeof j.place === 'string' && typeof j.read_at === 'string'],
   [/^data\/api\//, j => typeof j.source === 'string' && typeof j.read_at === 'string'],
+  [/^data\/storm\//, j => Array.isArray(j.hours) && j.hours.length <= 400 && typeof j.about === 'string' &&
+    j.hours.every(h => h && typeof h.hour_utc === 'string' && ['red', 'orange', 'yellow'].every(k => Number.isFinite(h[k]) && h[k] >= 0))],
 ];
 const save = (to, text) => {
   const j = JSON.parse(text); // refuse anything that is not JSON

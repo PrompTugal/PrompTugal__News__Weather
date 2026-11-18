@@ -20,7 +20,7 @@
   }
  },
  "place": "aljezur",
- "read_at": "2026-11-18T16:14:19Z",
+ "read_at": "2026-11-18T19:12:54Z",
  "by": "collect/by-place-now.mjs (code, no model; data@PrompTugal.dinis), from this site's collected sources",
  "about": "Now in this place, from IPMA's open data and (for Faro) adsb.lol, as collected by data.promptugal.news: each value with its source and the time read. Not a warning service: follow IPMA (https://www.ipma.pt/) and ANEPC.",
  "station": {
@@ -28,14 +28,14 @@
   "id": 1210789,
   "km": 0,
   "reading": {
-   "at": "2026-11-18T15:00:00Z",
-   "temp_c": 20.9,
-   "humidity_pct": 95,
-   "wind_kmh": 12.6,
+   "at": "2026-11-18T18:00:00Z",
+   "temp_c": 20.4,
+   "humidity_pct": 92,
+   "wind_kmh": 11.9,
    "wind_dir_id": 6,
    "rain_mm": 0,
    "pressure_hpa": null,
-   "radiation_kj_m2": 294.9
+   "radiation_kj_m2": 43.1
   },
   "page": "https://www.ipma.pt/en/otempo/obs.superficie/",
   "source": "https://api.ipma.pt/open-data/observation/meteorology/stations/observations.json"
@@ -91,7 +91,7 @@
     "type": "rough sea",
     "type_pt": "Agitação Marítima",
     "level": "yellow",
-    "start": "2026-11-18T13:15:00",
+    "start": "2026-11-18T17:19:00",
     "end": "2026-11-20T09:00:00",
     "text": "Na costa Ocidental, ondas de noroeste com 4 a 5 metros."
    }
@@ -138,37 +138,37 @@
  "reads": {
   "observations": {
    "url": "https://data.promptugal.news/api/v1/ipma-observations/latest.json",
-   "at": "2026-11-18T16:13:32Z",
+   "at": "2026-11-18T19:12:06Z",
    "status": 200
   },
   "warnings": {
    "url": "https://data.promptugal.news/api/v1/ipma-warnings/latest.json",
-   "at": "2026-11-18T16:13:49Z",
+   "at": "2026-11-18T19:12:24Z",
    "status": 200
   },
   "forecasts": {
    "url": "https://data.promptugal.news/api/v1/ipma-city-forecasts/latest.json",
-   "at": "2026-11-18T16:11:56Z",
+   "at": "2026-11-18T19:10:31Z",
    "status": 200
   },
   "fire-risk": {
    "url": "https://data.promptugal.news/api/v1/ipma-fire-risk/latest.json",
-   "at": "2026-11-18T16:13:24Z",
+   "at": "2026-11-18T19:11:59Z",
    "status": 200
   },
   "uv": {
    "url": "https://data.promptugal.news/api/v1/ipma-uv/latest.json",
-   "at": "2026-11-18T16:13:47Z",
+   "at": "2026-11-18T19:12:21Z",
    "status": 200
   },
   "sea": {
    "url": "https://data.promptugal.news/api/v1/ipma-sea/latest.json",
-   "at": "2026-11-18T16:13:37Z",
+   "at": "2026-11-18T19:12:11Z",
    "status": 200
   },
   "adsb": {
    "url": "https://data.promptugal.news/api/v1/adsb-faro/latest.json",
-   "at": "2026-11-18T16:11:23Z",
+   "at": "2026-11-18T19:09:59Z",
    "status": 200
   }
  }

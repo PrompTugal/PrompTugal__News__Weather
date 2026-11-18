@@ -29,7 +29,8 @@ export function loadData() {
     .concat([{ id: 'faro', name: 'Faro', district: 'Faro', at: [-7.935, 37.019], live: true, algarve: true, level: worstWarning(now.algarve) }])
     .sort((a, b) => a.name.localeCompare(b.name, 'pt'));
   const storms = existsSync('data/storms') ? readdirSync('data/storms').filter(f => f.endsWith('.json')).map(f => readJSON(join('data/storms', f))) : [];
-  return { now, region: now.algarve, towns, capitals, types, sync, storms, api };
+  const stormExposure = existsSync('data/storm/charles-people-by-hour.json') ? readJSON('data/storm/charles-people-by-hour.json') : null;
+  return { now, region: now.algarve, towns, capitals, types, sync, storms, api, stormExposure };
 }
 
 // ---------------------------------------------------------------- a district capital, from data.promptugal.news's API
