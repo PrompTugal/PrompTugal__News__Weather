@@ -8,6 +8,8 @@ import {
   WIND_DIR, FIRE, FIRE_PT, LEVEL, num, show, showMd, fireClass, warnClass, uvBand, uvClass, worstFire, worstWarning, portugalMap, algarveMap, forecastChart,
 } from './lib.mjs';
 import { warningsTimeline, TIMELINE_CSS } from './timeline.mjs';
+import { DESIGNS } from './lib.mjs';
+const SHOTS_AT = existsSync('src/assets/designs/shots.json') ? JSON.parse(readFileSync('src/assets/designs/shots.json', 'utf8')).taken : 'not yet';
 
 const OUT = '_site';
 const D = loadData();
@@ -356,7 +358,9 @@ async function designPages() {
     shown.push({ id, ...v });
   }
   if (!shown.length) return;
-  const body = `<h1>Three front pages, for Dinis to choose</h1><p class="standfirst">The same data, three ways. Each is a full page; open them side by side.</p><div class="design-grid">${shown.map(v => `<figure><a href="/design/${v.id}/"><iframe src="/design/${v.id}/" title="Design ${v.id.toUpperCase()}" loading="lazy" tabindex="-1"></iframe></a><figcaption><a href="/design/${v.id}/"><strong>${v.id.toUpperCase()}: ${esc(v.name)}</strong></a><br>${esc(v.description)}</figcaption></figure>`).join('')}</div><p>The live front page is <a href="/">the current one</a>; the choice replaces it.</p>`;
+  const body = `<h1>Three front pages, for Dinis to choose</h1><p class="standfirst">The same data, three ways, beside the live front page. Each is a full page; open them side by side.</p>
+<ul class="pick pick-page">${DESIGNS.map(d => `<li><a href="${d.href}"><img src="/assets/designs/${d.id}.jpg" width="1280" height="800" alt="Screenshot of ${esc(d.name)}" loading="lazy"><b>${esc(d.name)}</b><span>${esc(d.tag)}</span></a></li>`).join('')}</ul>
+<p class="src">Screenshots at 1280 by 800 pixels, taken ${esc(SHOTS_AT)}. The live pages below.</p><div class="design-grid">${shown.map(v => `<figure><a href="/design/${v.id}/"><iframe src="/design/${v.id}/" title="Design ${v.id.toUpperCase()}" loading="lazy" tabindex="-1"></iframe></a><figcaption><a href="/design/${v.id}/"><strong>${v.id.toUpperCase()}: ${esc(v.name)}</strong></a><br>${esc(v.description)}</figcaption></figure>`).join('')}</div><p>The live front page is <a href="/">the current one</a>; the choice replaces it.</p>`;
   const md = shown.map(v => `- [${v.id.toUpperCase()}: ${v.name}](/design/${v.id}/): ${v.description}`).join('\n');
   add(page({ path: '/design/', title: 'Design: three front pages', description: 'Three variations of the weather.promptugal.news front page, side by side, for Dinis to choose.', body, md }));
 }

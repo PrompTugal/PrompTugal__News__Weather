@@ -101,7 +101,17 @@ export const host = u => { try { return new URL(u).host; } catch { return u; } }
 const NAV = [['/', 'Now'], ['/map/', 'Map'], ['/places/', 'Places'], ['/storms/', 'Storms'], ['/what-to-do/', 'What to do'], ['/about/', 'About']];
 // The sites rail (promptugal.news's masthead, Website repo assets/top/top.tmpl, Dinis 17 Nov 2026)
 const SITES = [['https://weather.promptugal.news/', 'Weather'], ['https://civic.promptugal.news/', 'Civic'], ['https://startups.promptugal.news/', 'Startups'], ['https://travel.promptugal.news/', 'Travel'], ['https://data.promptugal.news/', 'Data']];
-export const CSS_VERSION = '3';
+export const CSS_VERSION = '4';
+
+// ---------------------------------------------------------------- the front pages to choose from (as on hub.agenticcells.site's sites:
+// a strip at the very top, a Designs chip that opens a picker of screenshots; the user, 18 Nov 2026, about 15:20 UTC)
+// Screenshots: src/assets/designs/<id>.jpg, taken by scripts/shots.mjs (run by hand after a design changes).
+export const DESIGNS = [
+  { id: 'now', href: '/', name: 'Now', tag: 'the live front page' },
+  { id: 'a', href: '/design/a/', name: 'A: Warnings first', tag: 'the worst warning, then the towns' },
+  { id: 'b', href: '/design/b/', name: 'B: The map is the page', tag: 'maps first, list beneath' },
+  { id: 'c', href: '/design/c/', name: 'C: Your town', tag: 'pick a place, five-day highs' },
+];
 
 // ---------------------------------------------------------------- licences (Dinis, 18 Nov 2026, about 14:25 UTC, kept in the Website
 // repo's board/guidance/2026-11-18-licences-and-submissions.md: every piece of data, in the JSON and on the page, carries a licence link;
@@ -147,10 +157,12 @@ export function page({ path, title, description, body: rawBody, md, made, extraH
 ${extraHead}</head>
 <body class="${bodyClass}">
 <a class="skip" href="#main">Skip to the content</a>
+<nav class="designs" aria-label="Front page designs"><a href="/design/">Same data, ${DESIGNS.length} front pages, for Dinis to choose:</a>${DESIGNS.map(d => `<a href="${d.href}"${(d.href === '/' ? path === '/' : path.startsWith(d.href)) ? ' aria-current="page"' : ''}>${esc(d.name)}</a>`).join('')}</nav>
 <div class="version-bar"><span>Version __VERSION__</span><span><a href="${twin}">This page as markdown</a></span></div>
 <header class="masthead">
   <div class="masthead-row">
     <a class="brand" href="/" aria-label="PrompTugal.news Weather, home"><span class="wm">Promp<span class="t">T</span><span class="g">ugal</span>.<i>news</i></span><span class="sub">· Weather</span></a>
+    <a class="chip designs-chip" href="/design/" data-designs>Designs</a>
     <a class="tool meter free" id="nr-meter-chip" href="/account/" title="Pages built on IPMA's data are free and outside the reading meter: IPMA's terms allow no profit-making use, so nothing here is charged until Dinis decides. Your PrompTugal.news balance is kept on promptugal.news."><span class="meter-label">Pay for what you read · </span><b>free here</b></a>
   </div>
   <nav class="nav" aria-label="Sections">${nav}</nav>
@@ -168,6 +180,12 @@ ${madeBlock(made)}
   <p class="sites-row">Also from PrompTugal.news: ${SITES.map(([href, label]) => `<a href="${href}">${label}</a>`).join(' · ')}</p>
   <p class="small">Version __VERSION__ · <a href="https://github.com/PrompTugal/PrompTugal__News__Weather">Source</a> · Code Apache-2.0, text CC BY 4.0 · <a href="/llms.txt">llms.txt</a></p>
 </footer>
+<dialog id="designs" class="picker" aria-labelledby="designs-t">
+  <div class="phead"><p class="pt" id="designs-t">${DESIGNS.length} front pages, the same data: which should lead?</p><button type="button" class="pclose" aria-label="Close">×</button></div>
+  <ul class="pick">${DESIGNS.map(d => `<li><a href="${d.href}"><img src="/assets/designs/${d.id}.jpg" width="1280" height="800" alt="" loading="lazy"><b>${esc(d.name)}</b><span>${esc(d.tag)}</span></a></li>`).join('')}</ul>
+  <p class="pnote">Dinis chooses; the others stay at <a href="/design/">/design/</a>.</p>
+</dialog>
+<script defer src="/assets/designs.js?v=${CSS_VERSION}"></script>
 </body>
 </html>
 `;

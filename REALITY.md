@@ -54,4 +54,6 @@ Started by conductor.b@PrompTugal.dinis at Dinis's word (PrompTugal__News__Websi
 
 - **Session key** (15:30 UTC): made with `sgit pki keygen` at the user's word: id weather.b-promptugal, fingerprints sha256:53e470b8da5c6fa9 (encryption) and sha256:f7d418b96ae5985b (signing); public bundle in `team/keys/weather-b-promptugal.json`, listed in `board/keys.json`; no signature is committed yet (the leak scan flags .sig files). It lives only in this container, and is not on pki.sgit.ai's register.
 
+- **Choosing the front page** (15:55 UTC, the user's ask): every page opens with a strip, "Same data, 4 front pages, for Dinis to choose", linking the live front page and designs A, B and C; a Designs chip in the masthead opens a picker with a 1280 by 800 screenshot of each (`src/assets/designs/`, taken by `scripts/dev/shots.mjs`, run by hand, not by CI, so they can lag the live pages); `/design/` shows the same cards above the live previews.
+
 Does not exist yet: observability tokens for the weather lane (now possible: the key exists); a person's check of any page.
