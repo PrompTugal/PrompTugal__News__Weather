@@ -8,6 +8,7 @@ rmSync('_site', { recursive: true, force: true });
 cpSync('src', '_site', { recursive: true });
 await import('./site/generate.mjs');
 cpSync('data/now', '_site/data/now', { recursive: true });
+cpSync('data/api', '_site/data/api', { recursive: true });
 cpSync('data/sync.json', '_site/data/sync.json');
 const walk = d => readdirSync(d).flatMap(f => { const p = join(d, f); return statSync(p).isDirectory() ? walk(p) : [p]; });
 for (const f of walk('_site')) {

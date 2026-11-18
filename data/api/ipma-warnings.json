@@ -1,0 +1,264 @@
+{
+ "source": "ipma-warnings",
+ "title": "IPMA weather warnings",
+ "read_at": "2026-11-18T02:28:22Z",
+ "provenance": {
+  "source": "https://api.ipma.pt/open-data/forecast/warnings/warnings_www.json",
+  "page": "https://www.ipma.pt/en/otempo/prev-sam/",
+  "read_at": "2026-11-18T02:28:22Z",
+  "by": "sources/ipma-warnings/collect.mjs (code, no model; run by data@PrompTugal.dinis)",
+  "terms": "IPMA: free to copy and use for personal or public use if the use has no profit-making or offensive purpose; always name IPMA as the source."
+ },
+ "about": "IPMA's weather warnings, every area: the active ones (yellow, orange, red) in full, and a count of the rest. Times as IPMA gives them (Portugal local time). Not a warning service: follow IPMA and ANEPC.",
+ "counts": {
+  "active": 24,
+  "by_level": {
+   "yellow": 18,
+   "orange": 6
+  },
+  "green": 200,
+  "areas": 25
+ },
+ "active": [
+  {
+   "area": "AVR",
+   "area_name": "Aveiro",
+   "type": "rough sea",
+   "type_pt": "Agitação Marítima",
+   "level": "yellow",
+   "start": "2026-11-18T03:00:00",
+   "end": "2026-11-18T18:00:00",
+   "text": "Ondas de noroeste com 4 a 5 metros."
+  },
+  {
+   "area": "AVR",
+   "area_name": "Aveiro",
+   "type": "rough sea",
+   "type_pt": "Agitação Marítima",
+   "level": "orange",
+   "start": "2026-11-18T18:00:00",
+   "end": "2026-11-20T07:00:00",
+   "text": "Ondas de noroeste com 5 a 6 metros, com altura máxima até 10 metros."
+  },
+  {
+   "area": "BJA",
+   "area_name": "Beja",
+   "type": "rough sea",
+   "type_pt": "Agitação Marítima",
+   "level": "yellow",
+   "start": "2026-11-18T12:00:00",
+   "end": "2026-11-20T07:00:00",
+   "text": "Ondas de noroeste com 4 a 5 metros."
+  },
+  {
+   "area": "BRG",
+   "area_name": "Braga",
+   "type": "rain",
+   "type_pt": "Precipitação",
+   "level": "yellow",
+   "start": "2026-11-17T19:19:00",
+   "end": "2026-11-18T03:00:00",
+   "text": "Períodos de chuva ou aguaceiros, por vezes fortes."
+  },
+  {
+   "area": "BRG",
+   "area_name": "Braga",
+   "type": "rough sea",
+   "type_pt": "Agitação Marítima",
+   "level": "yellow",
+   "start": "2026-11-18T03:00:00",
+   "end": "2026-11-18T18:00:00",
+   "text": "Ondas de noroeste com 4 a 5 metros."
+  },
+  {
+   "area": "BRG",
+   "area_name": "Braga",
+   "type": "rough sea",
+   "type_pt": "Agitação Marítima",
+   "level": "orange",
+   "start": "2026-11-18T18:00:00",
+   "end": "2026-11-20T07:00:00",
+   "text": "Ondas de noroeste com 5 a 6 metros, com altura máxima até 10 metros."
+  },
+  {
+   "area": "CBO",
+   "area_name": "Castelo Branco",
+   "type": "rain",
+   "type_pt": "Precipitação",
+   "level": "yellow",
+   "start": "2026-11-18T12:00:00",
+   "end": "2026-11-18T18:00:00",
+   "text": "Períodos de chuva persistente, e por vezes forte."
+  },
+  {
+   "area": "CBR",
+   "area_name": "Coimbra",
+   "type": "rough sea",
+   "type_pt": "Agitação Marítima",
+   "level": "yellow",
+   "start": "2026-11-18T06:00:00",
+   "end": "2026-11-18T18:00:00",
+   "text": "Ondas de noroeste com 4 a 5 metros."
+  },
+  {
+   "area": "CBR",
+   "area_name": "Coimbra",
+   "type": "rain",
+   "type_pt": "Precipitação",
+   "level": "yellow",
+   "start": "2026-11-18T12:00:00",
+   "end": "2026-11-18T18:00:00",
+   "text": "Períodos de chuva persistente, e por vezes forte."
+  },
+  {
+   "area": "CBR",
+   "area_name": "Coimbra",
+   "type": "rough sea",
+   "type_pt": "Agitação Marítima",
+   "level": "orange",
+   "start": "2026-11-18T18:00:00",
+   "end": "2026-11-20T07:00:00",
+   "text": "Ondas de noroeste com 5 a 6 metros, com altura máxima até 10 metros."
+  },
+  {
+   "area": "FAR",
+   "area_name": "Faro",
+   "type": "rough sea",
+   "type_pt": "Agitação Marítima",
+   "level": "yellow",
+   "start": "2026-11-18T12:00:00",
+   "end": "2026-11-20T07:00:00",
+   "text": "Na costa Ocidental, ondas de noroeste com 4 a 5 metros."
+  },
+  {
+   "area": "LRA",
+   "area_name": "Leiria",
+   "type": "rough sea",
+   "type_pt": "Agitação Marítima",
+   "level": "yellow",
+   "start": "2026-11-18T06:00:00",
+   "end": "2026-11-18T18:00:00",
+   "text": "Ondas de noroeste com 4 a 5 metros."
+  },
+  {
+   "area": "LRA",
+   "area_name": "Leiria",
+   "type": "rain",
+   "type_pt": "Precipitação",
+   "level": "yellow",
+   "start": "2026-11-18T09:00:00",
+   "end": "2026-11-18T18:00:00",
+   "text": "Períodos de chuva persistente, e por vezes forte."
+  },
+  {
+   "area": "LRA",
+   "area_name": "Leiria",
+   "type": "rough sea",
+   "type_pt": "Agitação Marítima",
+   "level": "orange",
+   "start": "2026-11-18T18:00:00",
+   "end": "2026-11-20T07:00:00",
+   "text": "Ondas de noroeste com 5 a 6 metros, com altura máxima até 10 metros."
+  },
+  {
+   "area": "LSB",
+   "area_name": "Lisboa",
+   "type": "rough sea",
+   "type_pt": "Agitação Marítima",
+   "level": "yellow",
+   "start": "2026-11-18T06:00:00",
+   "end": "2026-11-20T07:00:00",
+   "text": "Ondas de noroeste com 4 a 5 metros."
+  },
+  {
+   "area": "LSB",
+   "area_name": "Lisboa",
+   "type": "rain",
+   "type_pt": "Precipitação",
+   "level": "yellow",
+   "start": "2026-11-18T06:00:00",
+   "end": "2026-11-18T18:00:00",
+   "text": "Períodos de chuva persistente, e por vezes forte."
+  },
+  {
+   "area": "PTG",
+   "area_name": "Portalegre",
+   "type": "rain",
+   "type_pt": "Precipitação",
+   "level": "yellow",
+   "start": "2026-11-18T12:00:00",
+   "end": "2026-11-18T18:00:00",
+   "text": "Períodos de chuva, por vezes fortes."
+  },
+  {
+   "area": "PTO",
+   "area_name": "Porto",
+   "type": "rough sea",
+   "type_pt": "Agitação Marítima",
+   "level": "yellow",
+   "start": "2026-11-18T03:00:00",
+   "end": "2026-11-18T18:00:00",
+   "text": "Ondas de noroeste com 4 a 5 metros."
+  },
+  {
+   "area": "PTO",
+   "area_name": "Porto",
+   "type": "rough sea",
+   "type_pt": "Agitação Marítima",
+   "level": "orange",
+   "start": "2026-11-18T18:00:00",
+   "end": "2026-11-20T07:00:00",
+   "text": "Ondas de noroeste com 5 a 6 metros, com altura máxima até 10 metros."
+  },
+  {
+   "area": "STB",
+   "area_name": "Setúbal",
+   "type": "rough sea",
+   "type_pt": "Agitação Marítima",
+   "level": "yellow",
+   "start": "2026-11-18T12:00:00",
+   "end": "2026-11-20T07:00:00",
+   "text": "Ondas de noroeste com 4 a 5 metros."
+  },
+  {
+   "area": "STM",
+   "area_name": "Santarém",
+   "type": "rain",
+   "type_pt": "Precipitação",
+   "level": "yellow",
+   "start": "2026-11-18T09:00:00",
+   "end": "2026-11-18T18:00:00",
+   "text": "Períodos de chuva persistente, e por vezes forte."
+  },
+  {
+   "area": "VCT",
+   "area_name": "Viana do Castelo",
+   "type": "rain",
+   "type_pt": "Precipitação",
+   "level": "yellow",
+   "start": "2026-11-17T19:19:00",
+   "end": "2026-11-18T03:00:00",
+   "text": "Períodos de chuva ou aguaceiros, por vezes fortes."
+  },
+  {
+   "area": "VCT",
+   "area_name": "Viana do Castelo",
+   "type": "rough sea",
+   "type_pt": "Agitação Marítima",
+   "level": "yellow",
+   "start": "2026-11-18T03:00:00",
+   "end": "2026-11-18T18:00:00",
+   "text": "Ondas de noroeste com 4 a 5 metros."
+  },
+  {
+   "area": "VCT",
+   "area_name": "Viana do Castelo",
+   "type": "rough sea",
+   "type_pt": "Agitação Marítima",
+   "level": "orange",
+   "start": "2026-11-18T18:00:00",
+   "end": "2026-11-20T07:00:00",
+   "text": "Ondas de noroeste com 5 a 6 metros, com altura máxima até 10 metros."
+  }
+ ]
+}

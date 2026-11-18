@@ -23,11 +23,25 @@ Exists, with a stated limit:
 - **Freshness**: pages are static and rebuilt only on a push to `dev`; each page says how old its data is. Nothing rebuilds the site hourly yet.
 - **Station readings**: most of the Algarve's nearest stations reported no temperature in the copy read at 17:16 UTC on 17 Nov; pages say "not reported".
 - **The Faro district** on the Portugal map is drawn approximately (the mainland south of 37.5 N).
-- **Commit identity**: commits carry `Agent: weather@AgentiCCells.dinis` (the CI check requires an `@AgentiCCells.` address) and the subject `weather@PrompTugal.dinis:` (the five-sites brief). No commit is signed with an agent key.
+- **Commit identity**: first-version commits carry `Agent: weather@AgentiCCells.dinis`; from 18 Nov the check also accepts `@PrompTugal.dinis` (see below). No commit is signed with an agent key.
 
 Does not exist:
 
-- Data for the 17 district capitals other than Faro (waits on data.promptugal.news, which publishes no API yet: its /api/ returned 404 at 19:20 UTC on 17 Nov).
-- This team's session key and its entry in `board/keys.json` (keygen was refused by the session's permission settings).
+- This team's session key and its entry in `board/keys.json` (keygen was refused by the session's permission settings on 17 and again on 18 Nov).
 - Sea state for all coasts beyond IPMA's two Algarve coastal points; seismic data; a live (client-side) refresh.
 - Any check of a page by a person.
+
+## Account B, run 1, 18 November 2026 (weather.b@PrompTugal.dinis, from about 09:20 UTC)
+
+Started by conductor.b@PrompTugal.dinis at Dinis's word (PrompTugal__News__Website `board/guidance/2026-11-18-five-sites-on-account-b.md`). Exists in `dev` (live after CI deploys it):
+
+- **Data from data.promptugal.news**: `scripts/sync-data.mjs` reads `https://data.promptugal.news/api/v1/by-place/now/<place>.json` (18 places, same shape as before) and the Portugal-wide `ipma-city-forecasts`, `ipma-warnings`, `ipma-fire-risk`, `ipma-uv` and `ipma-sea` `latest.json` into `data/api/` (served at `/data/api/`). Map files still come from the Website repository. The API answered 200 at about 09:25 UTC; its data was read from IPMA at 02:28 UTC.
+- **District capitals**: a page for each of the 17 other capitals (`/places/<id>/`): the district's IPMA warnings, IPMA's five-day city forecast, fire risk for the capital's municipality (code taken from IPMA's place id), and the sea where IPMA has a coastal point of the same name (Lisboa, Porto, Viana do Castelo). No station reading or UV for them yet.
+- **Front page and map**: a table of the 17 capitals (district warning, today, rain, fire risk); the Portugal map colours each capital by its district's highest warning; on /map/ they link to their pages.
+- **Masthead** (from the Website's `assets/meter/` and `assets/top/`): the chip "Pay for what you read · free here" linking to `/account/`; the sites rail (Weather, Civic, Startups, Travel, Data) fixed at the right edge on wide screens, a footer row on narrow ones.
+- **Free, outside the meter**: IPMA's terms allow no profit-making use, so no page loads the meter or charges anything; the chip, `/account/`, `/about/` and the footer say so. Every page carries `<meta name="page-type" content="free">`.
+- **/account/**: the pages read on this site, kept in this browser only (`assets/reading.js`, localStorage `pt.weather.reads`), drawn as the reading graph (adapted from the Website's meter.js). Nothing is sent.
+- **Observability**: `assets/obs/obs.js` (the Website's sender) on every page, writing only to lane `weather` in `assets/obs/obs.json`. The lane has no append tokens yet, so **nothing is sent** and the footer says "not counted yet". observability@ on account A issues the tokens.
+- **Commit check**: `scripts/check-commits.mjs` accepts `role@PrompTugal.dinis` as well as `@AgentiCCells.` addresses (Dinis's fix 2).
+
+Does not exist yet: the session key; an hourly rebuild; station readings and UV for the capitals; a person's check of any page.

@@ -58,13 +58,14 @@ function front() {
   <div class="hero-text">
     <p class="kicker">Weather and civil protection · Portugal, place by place</p>
     <h1>The Algarve now: ${headline(r)}</h1>
-    <p class="standfirst">IPMA's warnings, forecasts, fire risk, sea and UV for the Algarve's 17 places, each value with its source and the time it was read. The other district capitals follow when <a href="https://data.promptugal.news/">data.promptugal.news</a> publishes their data.</p>
+    <p class="standfirst">IPMA's warnings, forecasts, fire risk, sea and UV for the Algarve's 17 places, and for the capitals of mainland Portugal's 18 districts, each value with its source and the time it was read.</p>
     ${freshness(r.read_at)}
     ${warningsHtml(r.warnings)}
     <p>Highest fire risk in the next three days across the 17: <span class="chip ${fireClass(fireWord)}">${esc(fireWord)}</span> (<a href="${esc(faro.fire_risk?.page)}">IPMA rural fire risk</a>).</p>
   </div>
-  <div class="hero-map"><a href="/map/">${portugalMap({ outline, capitals: D.capitals, towns: D.towns, region: r })}</a><p class="caption">The Algarve (shading approximate) by its highest warning; dots by today's fire risk; grey: district capitals still to come. <a href="/map/">The full map</a></p></div>
+  <div class="hero-map"><a href="/map/">${portugalMap({ outline, capitals: D.capitals, towns: D.towns, region: r })}</a><p class="caption">The Algarve (shading approximate) by its highest warning; small dots by today's fire risk; district capitals coloured by their district's highest IPMA warning. <a href="/map/">The full map</a></p></div>
 </section>
+${portugalSection()}
 <section>
   <h2>The 17 places</h2>
   <div class="table-wrap"><table class="towns"><thead><tr><th scope="col">Place</th><th scope="col">Now</th><th scope="col">Today high / low</th><th scope="col">Rain</th><th scope="col">Fire risk</th><th scope="col">Waves</th></tr></thead><tbody>${rows.map(x => x.html).join('')}</tbody></table></div>
@@ -75,8 +76,92 @@ function front() {
   <a class="card" href="/storms/charles/"><h2>Storm Charles</h2><p>The archive of 10 to 12 November 2026: warnings, peaks, decisions, timeline.</p></a>
   <a class="card" href="/what-to-do/"><h2>What to do</h2><p>IPMA's warning levels and fire risk classes explained, and who to follow.</p></a>
 </section>`;
-  const md = `## The Algarve now\n\n${warningsMd(r.warnings)}\n\nRead ${when(r.read_at)}. Highest fire risk in the next three days across the 17 places: ${fireWord}.\n\n## The 17 places\n\n| Place | Now | Today high / low | Rain | Fire risk | Waves |\n|---|---|---|---|---|---|\n${rows.map(x => x.md).join('\n')}\n\n"Now" is the nearest IPMA station's last hourly reading. Forecasts are IPMA's for the nearest of its four Algarve forecast places.\n\n## More\n\n- [Map](/map/): warnings and fire risk\n- [Places](/places/): every place, and the district capitals to come\n- [Storm Charles](/storms/charles/): the archive\n- [What to do](/what-to-do/)\n`;
-  add(page({ path: '/', title: 'PrompTugal.news Weather: the Algarve now', description: 'Weather and civil protection for Portugal, place by place: IPMA warnings, forecasts, fire risk, sea and UV for the Algarve\'s 17 places, with sources.', body, md }));
+  const md = `## The Algarve now\n\n${warningsMd(r.warnings)}\n\n${portugalMd()}\n\nRead ${when(r.read_at)}. Highest fire risk in the next three days across the 17 places: ${fireWord}.\n\n## The 17 places\n\n| Place | Now | Today high / low | Rain | Fire risk | Waves |\n|---|---|---|---|---|---|\n${rows.map(x => x.md).join('\n')}\n\n"Now" is the nearest IPMA station's last hourly reading. Forecasts are IPMA's for the nearest of its four Algarve forecast places.\n\n## More\n\n- [Map](/map/): warnings and fire risk\n- [Places](/places/): every place, and the district capitals\n- [Storm Charles](/storms/charles/): the archive\n- [What to do](/what-to-do/)\n`;
+  add(page({ path: '/', title: 'PrompTugal.news Weather: the Algarve now', description: 'Weather and civil protection for Portugal, place by place: IPMA warnings, forecasts, fire risk, sea and UV for the Algarve\'s 17 places and the district capitals, with sources.', body, md }));
+}
+
+// ---------------------------------------------------------------- Portugal: the district capitals (data.promptugal.news's API)
+const capsLive = () => D.capitals.filter(c => c.live && !c.algarve);
+const capRow = c => { const d0 = c.forecast?.days?.[0] || {}, f0 = c.fire_risk?.days?.[0] || {}; return `<tr><th scope="row"><a href="/places/${c.id}/">${esc(c.name)}</a></th><td><span class="chip ${warnClass(c.level)}">${esc(c.level)}</span> ${(c.warnings?.active || []).length ? `<span class="src">${[...new Set(c.warnings.active.map(a => a.type))].map(esc).join(', ')}</span>` : ''}</td><td class="n">${show(d0.t_max_c, '°')} / ${show(d0.t_min_c, '°')}</td><td class="n">${d0.rain_prob_pct ?? '?'}%</td><td>${esc(typeOf(d0.weather_type))}</td><td><span class="chip ${fireClass(f0.level)}">${esc(f0.level || '?')}</span></td></tr>`; };
+const capMd = c => { const d0 = c.forecast?.days?.[0] || {}, f0 = c.fire_risk?.days?.[0] || {}; return `| [${c.name}](/places/${c.id}/) | ${c.level}${(c.warnings?.active || []).length ? ` (${[...new Set(c.warnings.active.map(a => a.type))].join(', ')})` : ''} | ${showMd(d0.t_max_c, '°C')} / ${showMd(d0.t_min_c, '°C')} | ${d0.rain_prob_pct ?? '?'}% | ${typeOf(d0.weather_type)} | ${f0.level || '?'} |`; };
+function portugalSection() {
+  const caps = capsLive(); if (!caps.length) return '';
+  const worst = caps.slice().sort((a, b) => (LEVEL[b.level] ?? 0) - (LEVEL[a.level] ?? 0));
+  const n = l => caps.filter(c => c.level === l).length;
+  return `<section>
+  <h2>Portugal: the district capitals today</h2>
+  <p>${n('red') ? `<strong>${n('red')} districts at red.</strong> ` : ''}${n('orange') ? `<strong>${n('orange')} at orange</strong>, ` : ''}${n('yellow')} at yellow, ${n('green')} at green, by each district's highest IPMA warning in force or announced. ${worst[0] && worst[0].level !== 'green' ? `Highest: ${worst.filter(c => c.level === worst[0].level).map(c => `<a href="/places/${c.id}/">${esc(c.district)}</a>`).join(', ')}.` : ''}</p>
+  ${freshness(D.api['ipma-warnings']?.read_at)}
+  <div class="table-wrap"><table class="capitals"><thead><tr><th scope="col">Capital</th><th scope="col">District warning</th><th scope="col">Today high / low</th><th scope="col">Rain</th><th scope="col">Weather</th><th scope="col">Fire risk</th></tr></thead><tbody>${caps.map(capRow).join('')}</tbody></table></div>
+  <p class="src">Warnings: <a href="${esc(D.api['ipma-warnings']?.provenance?.page)}">IPMA</a>, by district. Forecasts: IPMA's for each capital. Fire risk: IPMA's for the capital's municipality. All as collected by <a href="https://data.promptugal.news/">data.promptugal.news</a>; sources and times on each capital's page. Faro: see the Algarve above.</p>
+</section>`;
+}
+function portugalMd() {
+  const caps = capsLive(); if (!caps.length) return '';
+  return `## Portugal: the district capitals today\n\n| Capital | District warning | Today high / low | Rain | Weather | Fire risk |\n|---|---|---|---|---|---|\n${caps.map(capMd).join('\n')}\n\nWarnings, forecasts and fire risk: IPMA, as collected by data.promptugal.news. Warnings read ${when(D.api['ipma-warnings']?.read_at)}.\n`;
+}
+function capitalPage(c) {
+  const fc = c.forecast, fr = c.fire_risk, sea = c.sea, s0 = sea?.days?.[0];
+  const w = c.warnings;
+  const wHtml = warningsHtml({ ...w, area: w.area });
+  const body = `<nav class="crumbs" aria-label="Breadcrumb"><a href="/places/">Places</a> › District capitals › ${esc(c.name)}</nav>
+<h1>${esc(c.name)}: weather and civil protection</h1>
+<p class="standfirst">${esc(c.name)}, capital of the ${esc(c.district)} district. IPMA's warnings for the district, its forecast for the city and the fire risk for the municipality, each with its source.</p>
+${freshness(c.read_at)}
+${wHtml}
+<section class="grid2">
+  <div class="panel"><h2>Today</h2>
+    <p class="big">${show(fc.days?.[0]?.t_max_c, '°C')}</p>
+    <dl class="kv"><dt>Lowest</dt><dd>${show(fc.days?.[0]?.t_min_c, '°C')}</dd><dt>Weather</dt><dd>${esc(typeOf(fc.days?.[0]?.weather_type))}</dd><dt>Chance of rain</dt><dd>${fc.days?.[0]?.rain_prob_pct ?? '?'}%</dd><dt>Wind from</dt><dd>${esc(fc.days?.[0]?.wind_dir || '?')}</dd></dl>
+    <p class="src">IPMA's forecast for ${esc(fc.place)}, updated ${esc(String(fc.updated || '').replace('T', ' '))} (Portugal time). There is no station reading on this page yet.</p></div>
+  <div class="panel"><h2>Fire risk</h2>${fr ? `<p>${fr.days.map(fireChip).join(' ')}</p><p class="src">IPMA rural fire risk for the municipality of ${esc(c.name)} (code ${esc(fr.municipality)}). <a href="${esc(fr.page)}">IPMA fire risk</a>. In high fire risk, see <a href="/what-to-do/">what to do</a>.</p>` : '<p class="na">No fire risk value for this municipality in the data.</p>'}</div>
+</section>
+<section class="panel"><h2>Five days</h2>${forecastChart(fc.days, D.types)}
+<div class="table-wrap"><table class="days"><thead><tr><th scope="col">Day</th><th scope="col">Weather</th><th scope="col">Low</th><th scope="col">High</th><th scope="col">Rain</th><th scope="col">Wind from</th></tr></thead><tbody>${fc.days.map(d => `<tr><th scope="row">${dayName(d.date)}</th><td>${esc(typeOf(d.weather_type))}</td><td class="n">${show(d.t_min_c, '°')}</td><td class="n">${show(d.t_max_c, '°')}</td><td class="n">${d.rain_prob_pct ?? '?'}%</td><td>${esc(d.wind_dir || '?')}</td></tr>`).join('')}</tbody></table></div>
+<p class="src">IPMA forecast for ${esc(fc.place)}. <a href="${esc(fc.page)}">IPMA forecast page</a>, <a href="${esc(fc.source)}">open data</a>, read ${when(fc.read_at)}.</p></section>
+${s0 ? `<section class="panel"><h2>Sea</h2><dl class="kv"><dt>Waves</dt><dd>${show(s0.waves_min_m, ' m')} to ${show(s0.waves_max_m, ' m')}${s0.wave_dir ? ` from ${esc(s0.wave_dir)}` : ''}</dd><dt>Total sea, up to</dt><dd>${show(s0.sea_max_m, ' m')}</dd><dt>Sea temperature</dt><dd>${show(s0.sea_temp_max_c, '°C')}</dd></dl><p class="src">IPMA's coastal forecast for ${esc(sea.coast)}, ${dayName(s0.date)}. <a href="${esc(sea.page)}">IPMA sea forecast</a>.</p></section>` : ''}
+<section class="panel follow"><h2>What to do, and who to follow</h2><ul><li>Warnings and forecasts: <a href="https://www.ipma.pt/">IPMA</a>, the national weather service.</li><li>Civil protection: <a href="https://prociv.gov.pt/">ANEPC</a>, and the municipality's civil protection service.</li><li>In an emergency: call <strong>112</strong>.</li></ul><p><a href="/what-to-do/">What IPMA's warning levels and fire risk classes mean, and what to do</a>.</p></section>
+<section><h2>Sources, as read</h2><div class="table-wrap"><table class="reads"><thead><tr><th scope="col">Data set</th><th scope="col">Address</th><th scope="col">Read</th></tr></thead><tbody>
+<tr><td>Forecast</td><td><a href="${esc(fc.source)}">${esc(fc.source.replace('https://', ''))}</a></td><td>${when(fc.read_at)}</td></tr>
+<tr><td>Warnings</td><td><a href="${esc(w.source)}">${esc(String(w.source).replace('https://', ''))}</a></td><td>${when(w.read_at)}</td></tr>
+${fr ? `<tr><td>Fire risk</td><td><a href="${esc(fr.source.replace('{0,1,2}', '0'))}">${esc(fr.source.replace('https://', ''))}</a></td><td>${when(fr.read_at)}</td></tr>` : ''}
+${sea ? `<tr><td>Sea</td><td><a href="${esc(String(sea.source).replace('{0,1,2}', '0'))}">${esc(String(sea.source).replace('https://', ''))}</a></td><td>${when(sea.read_at)}</td></tr>` : ''}
+</tbody></table></div><p class="src">Read from IPMA by data.promptugal.news's collectors (code, no model; data@PrompTugal.dinis) and copied here from <a href="https://data.promptugal.news/api/v1/">its API</a> (${esc(D.sync.api_version || '')}, copied ${when(D.sync.synced_at)}).</p></section>`;
+  const md = `${c.name}, capital of the ${c.district} district. Read ${when(c.read_at)}.
+
+## Warnings (${w.area})
+
+${warningsMd(w)}
+
+## Fire risk
+
+${fr ? fr.days.map(d => `- ${dayName(d.date)}: ${d.level} (${FIRE_PT[d.level] || ''})`).join('\n') + `\n\nSource: IPMA, ${fr.page} (municipality ${fr.municipality})` : 'No value in the data.'}
+
+## Five days (IPMA forecast for ${fc.place})
+
+| Day | Weather | Low | High | Rain | Wind from |
+|---|---|---|---|---|---|
+${fc.days.map(d => `| ${dayName(d.date)} | ${typeOf(d.weather_type)} | ${showMd(d.t_min_c, '°C')} | ${showMd(d.t_max_c, '°C')} | ${d.rain_prob_pct ?? '?'}% | ${d.wind_dir || '?'} |`).join('\n')}
+
+Source: ${fc.source}
+${s0 ? `\n## Sea\n\n${sea.coast}, ${dayName(s0.date)}: waves ${showMd(s0.waves_min_m, ' m')} to ${showMd(s0.waves_max_m, ' m')}, total sea up to ${showMd(s0.sea_max_m, ' m')}, sea temperature ${showMd(s0.sea_temp_max_c, '°C')}. Source: ${sea.source}\n` : ''}
+## Who to follow
+
+- IPMA: https://www.ipma.pt/
+- ANEPC: https://prociv.gov.pt/
+- Emergency: 112
+`;
+  add(page({ path: `/places/${c.id}/`, title: `${c.name}: weather, warnings and fire risk`, description: `IPMA warnings for the ${c.district} district, a five-day forecast and fire risk for ${c.name}, with sources and times read.`, body, md }));
+}
+
+// ---------------------------------------------------------------- your reading (free here: outside the meter)
+function accountPage() {
+  const body = `<h1>Your reading</h1>
+<p class="standfirst">What you have read on PrompTugal.news Weather, kept in this browser only, and drawn as a graph.</p>
+<div class="warnings none"><p><strong>Free here: £0.00 charged.</strong> Every page of this site is built on IPMA's data, and IPMA's terms allow no profit-making use, so these pages are outside promptugal.news's reading meter until Dinis decides. Nothing on this page is sent anywhere.</p><p>Your reading credit, and the graph of what you read on promptugal.news, are on <a href="https://promptugal.news/account/">your promptugal.news account</a>.</p></div>
+<div id="nr-account"><p class="na">Your reading graph appears here when JavaScript is on.</p></div>`;
+  const md = `What you have read on this site, kept in your browser only, and drawn as a graph (it needs JavaScript).\n\nFree here: every page is built on IPMA's data, whose terms allow no profit-making use, so the pages are outside promptugal.news's reading meter until Dinis decides.\n\nYour reading credit: https://promptugal.news/account/\n`;
+  add(page({ path: '/account/', title: 'Your reading on PrompTugal.news Weather', description: 'The pages you have read on weather.promptugal.news and your reading graph, kept in your browser only. Free: outside the reading meter.', body, md }));
 }
 
 // ---------------------------------------------------------------- the map page
@@ -89,10 +174,10 @@ function mapPage() {
   const body = `<h1>Map: warnings and fire risk</h1>
 <p class="standfirst">IPMA issues weather warnings by district: the whole Algarve is the Faro district. It gives rural fire risk by municipality, for today and the next two days.</p>
 ${freshness(r.read_at)}
-<section class="map-split"><div>${portugalMap({ outline, capitals: D.capitals, towns: D.towns, region: r, width: 420 })}</div><div>${warningsHtml(r.warnings)}<p>The other 17 district capitals are on the map in grey: their warnings and forecasts appear here once <a href="https://data.promptugal.news/">data.promptugal.news</a> publishes them. Until then, see <a href="https://www.ipma.pt/en/otempo/prev-sam/">IPMA's warnings map</a>.</p></div></section>
+<section class="map-split"><div>${portugalMap({ outline, capitals: D.capitals, towns: D.towns, region: r, width: 420, linkCapitals: true })}<p class="legend"><span class="chip warn-green">green</span> <span class="chip warn-yellow">yellow</span> <span class="chip warn-orange">orange</span> <span class="chip warn-red">red</span> each capital by its district's highest IPMA warning; select one for its page.</p></div><div>${warningsHtml(r.warnings)}<p>Every district's warnings are on its capital's page, and in the table on <a href="/">the front page</a>. For the map IPMA keeps itself, see <a href="https://www.ipma.pt/en/otempo/prev-sam/">IPMA's warnings map</a>.</p></div></section>
 <section><h2>Fire risk, by place and day</h2>${legend}<div class="map-days">${maps}</div>${table}<p class="src">Source: <a href="${esc(D.now.faro.fire_risk?.page)}">IPMA rural fire risk (RCM)</a>, open data <a href="https://api.ipma.pt/open-data/forecast/meteorology/rcm/rcm-d0.json">d0</a>, d1, d2. Quarteira shares Loulé's municipal value.</p></section>`;
-  const md = `IPMA issues weather warnings by district (the Algarve is the Faro district) and rural fire risk by municipality.\n\nRead ${when(r.read_at)}.\n\n## Warnings, Faro district\n\n${warningsMd(r.warnings)}\n\n## Fire risk, by place and day\n\n| Place | ${days.map(d => dayName(d.date)).join(' | ')} |\n|---|${days.map(() => '---').join('|')}|\n${D.towns.map(t => `| ${t.name} | ${(t.now.fire_risk?.days || []).map(d => d.level).join(' | ')} |`).join('\n')}\n\nSource: IPMA rural fire risk, ${D.now.faro.fire_risk?.page}\n\nDistrict capitals still to come: ${D.capitals.filter(c => !c.live).map(c => c.name).join(', ')}.\n`;
-  add(page({ path: '/map/', title: 'Map: warnings and fire risk in the Algarve', description: 'IPMA warnings for the Faro district and rural fire risk for each of the Algarve\'s 17 places, for three days, on a map.', body, md }));
+  const md = `IPMA issues weather warnings by district (the Algarve is the Faro district) and rural fire risk by municipality.\n\nRead ${when(r.read_at)}.\n\n## Warnings, Faro district\n\n${warningsMd(r.warnings)}\n\n## Fire risk, by place and day\n\n| Place | ${days.map(d => dayName(d.date)).join(' | ')} |\n|---|${days.map(() => '---').join('|')}|\n${D.towns.map(t => `| ${t.name} | ${(t.now.fire_risk?.days || []).map(d => d.level).join(' | ')} |`).join('\n')}\n\nSource: IPMA rural fire risk, ${D.now.faro.fire_risk?.page}\n\n${portugalMd()}`;
+  add(page({ path: '/map/', title: 'Map: warnings and fire risk', description: 'IPMA warnings for every district of mainland Portugal on a map, and rural fire risk for each of the Algarve\'s 17 places for three days.', body, md }));
 }
 
 // ---------------------------------------------------------------- a page per place
@@ -122,7 +207,7 @@ ${far}<p class="src">IPMA forecast for ${esc(fc?.place)} (${fc?.km} km). <a href
 </section>
 ${ap ? `<section class="panel"><h2>Faro airport</h2><p>${ap.airline.length} airline flight${ap.airline.length === 1 ? '' : 's'} and ${ap.other_aircraft} other aircraft seen within ${ap.within_nm} nautical miles at ${when(ap.at)}.</p><p class="src">${esc(ap.note)} <a href="${esc(ap.page)}">adsb.lol</a>. For flight status, ask your airline or <a href="https://www.aeroportofaro.pt/">the airport</a>.</p></section>` : ''}
 <section class="panel follow"><h2>What to do, and who to follow</h2><ul><li>Warnings and forecasts: <a href="https://www.ipma.pt/">IPMA</a>, the national weather service.</li><li>Civil protection: <a href="https://prociv.gov.pt/">ANEPC</a>, and your municipality's civil protection service.</li><li>In an emergency: call <strong>112</strong>.</li></ul><p><a href="/what-to-do/">What IPMA's warning levels and fire risk classes mean, and what to do</a>.</p></section>
-<section><h2>Sources, as read</h2><div class="table-wrap"><table class="reads"><thead><tr><th scope="col">Data set</th><th scope="col">Address</th><th scope="col">Read</th><th scope="col">HTTP</th></tr></thead><tbody>${reads}</tbody></table></div><p class="src">Read by ${esc(n.by)}; copied here from the <a href="https://github.com/PrompTugal/PrompTugal__News__Website/blob/dev/data/by-place/now/${t.id}.json">PrompTugal.news Website repository</a> (commit ${esc(D.sync.commit.slice(0, 7))}).</p></section>`;
+<section><h2>Sources, as read</h2><div class="table-wrap"><table class="reads"><thead><tr><th scope="col">Data set</th><th scope="col">Address</th><th scope="col">Read</th><th scope="col">HTTP</th></tr></thead><tbody>${reads}</tbody></table></div><p class="src">Read by ${esc(n.by)}; copied here from <a href="https://data.promptugal.news/api/v1/by-place/now/${t.id}.json">data.promptugal.news's API</a> (${esc(D.sync.api_version || '')}, copied ${when(D.sync.synced_at)}).</p></section>`;
   const md = `${t.name}, in the Faro district. Read ${when(n.read_at)}.
 
 ## Warnings
@@ -183,10 +268,10 @@ function placesIndex() {
 <h2><a href="/places/algarve/">The Algarve</a></h2>
 <ul class="place-list">${D.towns.map(t => `<li><a href="/places/${t.id}/">${esc(t.name)}</a> <span class="chip ${fireClass(t.now.fire_risk?.days?.[0]?.level)}">${esc(t.now.fire_risk?.days?.[0]?.level || '?')}</span></li>`).join('')}</ul>
 <h2>District capitals</h2>
-<p>Faro is live. The other 17 wait for their data: warnings, forecasts and fire risk for every district, read by the Data team and published at <a href="https://data.promptugal.news/">data.promptugal.news</a>. This site does not collect data itself.</p>
-<ul class="place-list coming">${D.capitals.map(c => c.live ? `<li><a href="/places/faro/">Faro</a> <span class="tag-live">live</span></li>` : `<li>${esc(c.name)} <span class="na">(${esc(c.district)} district, data coming)</span></li>`).join('')}</ul>`;
-  const md = `## The Algarve\n\n${D.towns.map(t => `- [${t.name}](/places/${t.id}/): fire risk today ${t.now.fire_risk?.days?.[0]?.level || '?'}`).join('\n')}\n\n## District capitals\n\nFaro is live; the others wait for data.promptugal.news.\n\n${D.capitals.map(c => `- ${c.name} (${c.district})${c.live ? ': live, /places/faro/' : ': data coming'}`).join('\n')}\n`;
-  add(page({ path: '/places/', title: 'Places: the Algarve and the district capitals', description: 'Every place with weather and civil protection data: the Algarve\'s 17 now, the district capitals next.', body, md }));
+<p>Each with its district's IPMA warnings, IPMA's forecast for the city and the fire risk for its municipality, as collected by <a href="https://data.promptugal.news/">data.promptugal.news</a>. This site does not collect data itself.</p>
+<ul class="place-list">${D.capitals.map(c => c.live ? `<li><a href="/places/${c.id}/">${esc(c.name)}</a> <span class="chip ${warnClass(c.level)}">${esc(c.level || 'green')}</span></li>` : `<li>${esc(c.name)} <span class="na">(${esc(c.district)} district, data coming)</span></li>`).join('')}</ul>`;
+  const md = `## The Algarve\n\n${D.towns.map(t => `- [${t.name}](/places/${t.id}/): fire risk today ${t.now.fire_risk?.days?.[0]?.level || '?'}`).join('\n')}\n\n## District capitals\n\n${D.capitals.map(c => `- ${c.live ? `[${c.name}](/places/${c.id}/)` : c.name} (${c.district} district)${c.live ? `: highest IPMA warning ${c.level || 'green'}` : ': data coming'}`).join('\n')}\n`;
+  add(page({ path: '/places/', title: 'Places: the Algarve and the district capitals', description: 'Every place with weather and civil protection data: the Algarve\'s 17 and the capitals of mainland Portugal\'s 18 districts.', body, md }));
 }
 
 // ---------------------------------------------------------------- storms
@@ -251,17 +336,18 @@ function about() {
   const body = `<article class="prose"><h1>About this site</h1>
 <p class="standfirst">PrompTugal.news Weather shows weather and civil protection for Portugal, place by place, from public data, each value with its source and the time it was read.</p>
 <h2>Not a warning service</h2><p>Nothing here is a forecast or advice of our own. Warnings are IPMA's; civil protection is ANEPC's and your municipality's. The pages are rebuilt when new data is pushed, so they can be hours behind: always check <a href="https://www.ipma.pt/">IPMA</a> and <a href="https://prociv.gov.pt/">ANEPC</a>.</p>
-<h2>Where the data comes from</h2><p>IPMA's open data (<a href="https://api.ipma.pt/open-data/">api.ipma.pt/open-data</a>), read hourly by the PrompTugal.news Website repository's collector (no model involved) and published there as one small JSON file per place. This site copies those files (<code>scripts/sync-data.mjs</code>) and builds its pages from them. When <a href="https://data.promptugal.news/">data.promptugal.news</a> publishes its APIs, the site reads from them instead. This site runs no collector of its own.</p>
-<p>Last copy: ${when(D.sync.synced_at)}, from commit <code>${esc(D.sync.commit.slice(0, 7))}</code> of <a href="${esc(D.sync.from)}">${esc(D.sync.from.replace('https://github.com/', ''))}</a>. Data last read from IPMA: ${when(D.region.read_at)}. Built ${when(BUILT.toISOString())}.</p>
-<h2>How it is made</h2><ul><li><strong>Code</strong>: a small build in Node with no dependencies (<code>scripts/</code>) turns the data into pages, a markdown twin for each, <a href="/llms.txt">llms.txt</a> and a sitemap. A gate checks every page before it goes live.</li><li><strong>Agents</strong>: weather@PrompTugal.dinis (Claude, Opus) leads the team and wrote the code; weather.writer@ and weather.design@ (Claude, Sonnet) wrote the storm archive, the advice page and the design variations. Each page says who made it.</li><li><strong>A person</strong>: Dinis Cruz instructs the team. No page has been checked by a person yet; each page says so until one is.</li></ul>
+<h2>Where the data comes from</h2><p>IPMA's open data (<a href="https://api.ipma.pt/open-data/">api.ipma.pt/open-data</a>), read hourly by <a href="https://data.promptugal.news/">data.promptugal.news</a>'s collectors (code, no model; data@PrompTugal.dinis) and published at its API (<a href="https://data.promptugal.news/api/v1/">/api/v1/</a>): one file per Algarve place, and Portugal-wide files for city forecasts, warnings by district, fire risk by municipality and the sea. This site copies them (<code>scripts/sync-data.mjs</code>) and builds its pages from them. Map outlines and the list of places come from the <a href="https://github.com/PrompTugal/PrompTugal__News__Website">PrompTugal.news Website repository</a>. This site runs no collector of its own.</p>
+<p>Last copy: ${when(D.sync.synced_at)}, from data.promptugal.news ${esc(D.sync.api_version || '')}. Data last read from IPMA: ${when(D.region.read_at)}. Built ${when(BUILT.toISOString())}.</p>
+<h2>Free to read</h2><p>IPMA allows its data to be copied and used for personal or public use with no profit-making purpose, naming IPMA as the source. So every page here is free and outside promptugal.news's reading meter, until Dinis decides otherwise. <a href="/account/">Your reading</a> on this site is kept in your browser only.</p>
+<h2>How it is made</h2><ul><li><strong>Code</strong>: a small build in Node with no dependencies (<code>scripts/</code>) turns the data into pages, a markdown twin for each, <a href="/llms.txt">llms.txt</a> and a sitemap. A gate checks every page before it goes live.</li><li><strong>Agents</strong>: weather@PrompTugal.dinis (Claude, Opus) led the first version and wrote the code; weather.b@PrompTugal.dinis (Claude, Opus) carries it on from 18 November 2026; weather.writer@ and weather.design@ (Claude, Sonnet) wrote the storm archive, the advice page and the design variations. Each page says who made it.</li><li><strong>A person</strong>: Dinis Cruz instructs the team. No page has been checked by a person yet; each page says so until one is.</li></ul>
 <h2>Licences</h2><p>Code Apache-2.0; text CC BY 4.0. IPMA's data is IPMA's. Map outlines from Natural Earth (public domain) via world-atlas (ISC). Fonts under the SIL Open Font License (<a href="/fonts/LICENSE.md">details</a>).</p>
 <h2>Corrections</h2><p>Open an issue on <a href="https://github.com/PrompTugal/PrompTugal__News__Weather/issues">the repository</a>.</p></article>`;
-  const md = `PrompTugal.news Weather shows weather and civil protection for Portugal, place by place, from public data.\n\n## Not a warning service\n\nWarnings are IPMA's; civil protection is ANEPC's. Pages can be hours behind.\n\n## Data\n\nIPMA open data, read hourly by the PrompTugal.news Website repository and copied here by scripts/sync-data.mjs. Last copy ${when(D.sync.synced_at)} (commit ${D.sync.commit.slice(0, 7)}). Data read from IPMA ${when(D.region.read_at)}.\n\n## How it is made\n\n- Code: Node, no dependencies, scripts/.\n- Agents: weather@PrompTugal.dinis (Claude, Opus); weather.writer@ and weather.design@ (Claude, Sonnet).\n- A person: Dinis Cruz instructs; no page checked by a person yet.\n\n## Licences\n\nCode Apache-2.0, text CC BY 4.0.\n`;
+  const md = `PrompTugal.news Weather shows weather and civil protection for Portugal, place by place, from public data.\n\n## Not a warning service\n\nWarnings are IPMA's; civil protection is ANEPC's. Pages can be hours behind.\n\n## Data\n\nIPMA open data, read hourly by data.promptugal.news and copied here from its API by scripts/sync-data.mjs. Last copy ${when(D.sync.synced_at)} (${D.sync.api_version || ''}). Free to read: IPMA's terms allow no profit-making use. Data read from IPMA ${when(D.region.read_at)}.\n\n## How it is made\n\n- Code: Node, no dependencies, scripts/.\n- Agents: weather@PrompTugal.dinis and, from 18 Nov 2026, weather.b@PrompTugal.dinis (Claude, Opus); weather.writer@ and weather.design@ (Claude, Sonnet).\n- A person: Dinis Cruz instructs; no page checked by a person yet.\n\n## Licences\n\nCode Apache-2.0, text CC BY 4.0.\n`;
   add(page({ path: '/about/', title: 'About PrompTugal.news Weather', description: 'How weather.promptugal.news is made: where the data comes from, who wrote what, and why it is not a warning service.', body, md }));
 }
 
 // ---------------------------------------------------------------- run
-front(); mapPage(); placesIndex(); regionPage(); for (const t of D.towns) placePage(t);
+front(); mapPage(); placesIndex(); regionPage(); for (const t of D.towns) placePage(t); for (const c of capsLive()) capitalPage(c); accountPage();
 for (const s of D.storms) stormPage(s); stormsIndex(); contentPages(); about();
 await designPages();
 
@@ -277,7 +363,8 @@ ${pages.filter(p => !p.path.startsWith('/design/')).map(p => `- [${p.title}](${S
 
 ## Data
 
-- Per-place data, copied from https://github.com/PrompTugal/PrompTugal__News__Website (data/by-place/now/): ${SITE}/data/now/{place}.json
+- Per-place data, copied from https://data.promptugal.news/api/v1/by-place/now/: ${SITE}/data/now/{place}.json
+- Portugal-wide IPMA data (city forecasts, warnings, fire risk, UV, sea), copied from https://data.promptugal.news/api/v1/: ${SITE}/data/api/{source}.json
 - Where it came from: ${SITE}/data/sync.json
 `;
 writeFileSync(join(OUT, 'llms.txt'), llms);

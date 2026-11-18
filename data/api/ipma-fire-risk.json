@@ -1,0 +1,6160 @@
+{
+ "source": "ipma-fire-risk",
+ "title": "IPMA fire risk",
+ "read_at": "2026-11-18T02:27:57Z",
+ "provenance": {
+  "source": "https://api.ipma.pt/open-data/forecast/meteorology/rcm/rcm-d{0,1,2}.json",
+  "page": "https://www.ipma.pt/en/riscoincendio/rcm.pt/",
+  "read_at": "2026-11-18T02:27:57Z",
+  "by": "sources/ipma-fire-risk/collect.mjs (code, no model; run by data@PrompTugal.dinis)",
+  "terms": "IPMA: free to copy and use for personal or public use if the use has no profit-making or offensive purpose; always name IPMA as the source."
+ },
+ "about": "IPMA's daily fire risk class (RCM, 1 low to 5 maximum) for each municipality by its DICO code (district and municipality), for today and the next two days.",
+ "files": [
+  {
+   "d": 0,
+   "date": "2026-11-18",
+   "run": "2026-11-17",
+   "file_date": "2026-11-18 00:05:02",
+   "source": "https://api.ipma.pt/open-data/forecast/meteorology/rcm/rcm-d0.json"
+  },
+  {
+   "d": 1,
+   "date": "2026-11-19",
+   "run": "2026-11-17",
+   "file_date": "2026-11-18 00:05:02",
+   "source": "https://api.ipma.pt/open-data/forecast/meteorology/rcm/rcm-d1.json"
+  },
+  {
+   "d": 2,
+   "date": "2026-11-20",
+   "run": "2026-11-17",
+   "file_date": "2026-11-18 00:05:03",
+   "source": "https://api.ipma.pt/open-data/forecast/meteorology/rcm/rcm-d2.json"
+  }
+ ],
+ "counts": {
+  "municipalities": 278,
+  "today_by_level": {
+   "low": 278
+  }
+ },
+ "municipalities": [
+  {
+   "dico": "0101",
+   "lat": 40.58,
+   "lon": -8.44,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0102",
+   "lat": 40.6909,
+   "lon": -8.4784,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0103",
+   "lat": 40.44,
+   "lon": -8.44,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0104",
+   "lat": 40.93,
+   "lon": -8.26,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0105",
+   "lat": 40.6413,
+   "lon": -8.6535,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0106",
+   "lat": 41.0409,
+   "lon": -8.2707,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0107",
+   "lat": 41.01,
+   "lon": -8.64,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0108",
+   "lat": 40.754,
+   "lon": -8.572,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0109",
+   "lat": 40.93,
+   "lon": -8.55,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0110",
+   "lat": 40.6,
+   "lon": -8.67,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0111",
+   "lat": 40.3783,
+   "lon": -8.4503,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0112",
+   "lat": 40.74,
+   "lon": -8.64,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0113",
+   "lat": 40.84,
+   "lon": -8.48,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0114",
+   "lat": 40.5157,
+   "lon": -8.4941,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0115",
+   "lat": 40.8596,
+   "lon": -8.6254,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0116",
+   "lat": 40.9,
+   "lon": -8.49,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0117",
+   "lat": 40.7334,
+   "lon": -8.3713,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0118",
+   "lat": 40.5535,
+   "lon": -8.6833,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0119",
+   "lat": 40.85,
+   "lon": -8.39,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0201",
+   "lat": 37.88,
+   "lon": -8.17,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0202",
+   "lat": 37.5108,
+   "lon": -8.056,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0203",
+   "lat": 38.26,
+   "lon": -8,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0204",
+   "lat": 38.13,
+   "lon": -6.98,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0205",
+   "lat": 38.02,
+   "lon": -7.87,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0206",
+   "lat": 38.07,
+   "lon": -7.93,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0207",
+   "lat": 38.17,
+   "lon": -7.89,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0208",
+   "lat": 38.06,
+   "lon": -8.11,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0209",
+   "lat": 37.6428,
+   "lon": -7.6605,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0210",
+   "lat": 38.14,
+   "lon": -7.45,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0211",
+   "lat": 37.5978,
+   "lon": -8.639,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0212",
+   "lat": 37.65,
+   "lon": -8.22,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0213",
+   "lat": 37.95,
+   "lon": -7.6,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0214",
+   "lat": 38.21,
+   "lon": -7.8,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0301",
+   "lat": 41.54,
+   "lon": -8.61,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0302",
+   "lat": 41.6314,
+   "lon": -8.3489,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0303",
+   "lat": 41.5475,
+   "lon": -8.4227,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0304",
+   "lat": 41.514,
+   "lon": -7.9901,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0305",
+   "lat": 41.39,
+   "lon": -8,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0306",
+   "lat": 41.5356,
+   "lon": -8.7819,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0307",
+   "lat": 41.4472,
+   "lon": -8.1732,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0308",
+   "lat": 41.4434,
+   "lon": -8.2938,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0309",
+   "lat": 41.5762,
+   "lon": -8.2708,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0310",
+   "lat": 41.72,
+   "lon": -8.31,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0311",
+   "lat": 41.6355,
+   "lon": -8.1416,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0312",
+   "lat": 41.4087,
+   "lon": -8.5205,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0313",
+   "lat": 41.6545,
+   "lon": -8.4348,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0314",
+   "lat": 41.38,
+   "lon": -8.31,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0401",
+   "lat": 41.3424,
+   "lon": -6.9625,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0402",
+   "lat": 41.8076,
+   "lon": -6.7606,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0403",
+   "lat": 41.2431,
+   "lon": -7.3077,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0404",
+   "lat": 41.09,
+   "lon": -6.81,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0405",
+   "lat": 41.5373,
+   "lon": -6.9635,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0406",
+   "lat": 41.5,
+   "lon": -6.27,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0407",
+   "lat": 41.4823,
+   "lon": -7.1812,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0408",
+   "lat": 41.3421,
+   "lon": -6.7115,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0409",
+   "lat": 41.1742,
+   "lon": -7.0532,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0410",
+   "lat": 41.3083,
+   "lon": -7.1519,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0411",
+   "lat": 41.59,
+   "lon": -6.53,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0412",
+   "lat": 41.8314,
+   "lon": -7.0099,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0501",
+   "lat": 40.3597,
+   "lon": -7.3486,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0502",
+   "lat": 39.8217,
+   "lon": -7.4957,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0503",
+   "lat": 40.2779,
+   "lon": -7.4992,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0504",
+   "lat": 40.1378,
+   "lon": -7.5011,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0505",
+   "lat": 39.93,
+   "lon": -7.24,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0506",
+   "lat": 39.92,
+   "lon": -7.91,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0507",
+   "lat": 40.17,
+   "lon": -7.17,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0508",
+   "lat": 39.7495,
+   "lon": -7.9229,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0509",
+   "lat": 39.8007,
+   "lon": -8.0979,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0510",
+   "lat": 39.6753,
+   "lon": -8.144,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0511",
+   "lat": 39.6571,
+   "lon": -7.6705,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0601",
+   "lat": 40.22,
+   "lon": -8.05,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0602",
+   "lat": 40.3466,
+   "lon": -8.5943,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0603",
+   "lat": 40.2081,
+   "lon": -8.4194,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0604",
+   "lat": 40.1097,
+   "lon": -8.5027,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0605",
+   "lat": 40.1512,
+   "lon": -8.8558,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0606",
+   "lat": 40.15,
+   "lon": -8.11,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0607",
+   "lat": 40.112,
+   "lon": -8.2469,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0608",
+   "lat": 40.4275,
+   "lon": -8.7369,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0609",
+   "lat": 40.0915,
+   "lon": -8.3309,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0610",
+   "lat": 40.1775,
+   "lon": -8.6803,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0611",
+   "lat": 40.36,
+   "lon": -7.86,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0612",
+   "lat": 40.15,
+   "lon": -7.93,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0613",
+   "lat": 40.27,
+   "lon": -8.27,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0614",
+   "lat": 40.03,
+   "lon": -8.39,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0615",
+   "lat": 40.06,
+   "lon": -8.61,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0616",
+   "lat": 40.36,
+   "lon": -8.02,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0617",
+   "lat": 40.2099,
+   "lon": -8.2586,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0701",
+   "lat": 38.7,
+   "lon": -7.4,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0702",
+   "lat": 38.72,
+   "lon": -7.99,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0703",
+   "lat": 38.8056,
+   "lon": -7.4554,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0704",
+   "lat": 38.8434,
+   "lon": -7.5869,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0705",
+   "lat": 38.5701,
+   "lon": -7.9104,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0706",
+   "lat": 38.65,
+   "lon": -8.21,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0707",
+   "lat": 38.94,
+   "lon": -8.16,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0708",
+   "lat": 38.39,
+   "lon": -7.34,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0709",
+   "lat": 38.307,
+   "lon": -7.7079,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0710",
+   "lat": 38.65,
+   "lon": -7.55,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0711",
+   "lat": 38.4229,
+   "lon": -7.5397,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0712",
+   "lat": 38.68,
+   "lon": -8.46,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0713",
+   "lat": 38.3375,
+   "lon": -8.0019,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0714",
+   "lat": 38.7747,
+   "lon": -7.4204,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0801",
+   "lat": 37.0897,
+   "lon": -8.2472,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0802",
+   "lat": 37.47,
+   "lon": -7.48,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0803",
+   "lat": 37.3169,
+   "lon": -8.8028,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0804",
+   "lat": 37.2198,
+   "lon": -7.4445,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0805",
+   "lat": 37.0146,
+   "lon": -7.9331,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0806",
+   "lat": 37.1352,
+   "lon": -8.455,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0807",
+   "lat": 37.1039,
+   "lon": -8.6765,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0808",
+   "lat": 37.1397,
+   "lon": -8.0202,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0809",
+   "lat": 37.32,
+   "lon": -8.56,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0810",
+   "lat": 37.03,
+   "lon": -7.84,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0811",
+   "lat": 37.15,
+   "lon": -8.52,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0812",
+   "lat": 37.15,
+   "lon": -7.89,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0813",
+   "lat": 37.19,
+   "lon": -8.44,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0814",
+   "lat": 37.13,
+   "lon": -7.65,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0815",
+   "lat": 37.0828,
+   "lon": -8.9103,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0816",
+   "lat": 37.19,
+   "lon": -7.42,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0901",
+   "lat": 40.82,
+   "lon": -7.54,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0902",
+   "lat": 40.72,
+   "lon": -6.91,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0903",
+   "lat": 40.64,
+   "lon": -7.39,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0904",
+   "lat": 40.8943,
+   "lon": -6.9629,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0905",
+   "lat": 40.6201,
+   "lon": -7.5393,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0906",
+   "lat": 40.4921,
+   "lon": -7.5937,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0907",
+   "lat": 40.5379,
+   "lon": -7.2647,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0908",
+   "lat": 40.4,
+   "lon": -7.54,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0909",
+   "lat": 40.97,
+   "lon": -7.26,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0910",
+   "lat": 40.7716,
+   "lon": -7.0678,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0911",
+   "lat": 40.3519,
+   "lon": -7.0898,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0912",
+   "lat": 40.4143,
+   "lon": -7.71,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0913",
+   "lat": 40.78,
+   "lon": -7.35,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "0914",
+   "lat": 41.0818,
+   "lon": -7.1433,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1001",
+   "lat": 39.55,
+   "lon": -8.97,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1002",
+   "lat": 39.8222,
+   "lon": -8.3814,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1003",
+   "lat": 39.9131,
+   "lon": -8.4378,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1004",
+   "lat": 39.6605,
+   "lon": -8.8228,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1005",
+   "lat": 39.27,
+   "lon": -9.16,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1006",
+   "lat": 39.4067,
+   "lon": -9.1405,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1007",
+   "lat": 40.01,
+   "lon": -8.21,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1008",
+   "lat": 39.9,
+   "lon": -8.27,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1009",
+   "lat": 39.7473,
+   "lon": -8.8069,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1010",
+   "lat": 39.75,
+   "lon": -8.93,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1011",
+   "lat": 39.6,
+   "lon": -9.07,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1012",
+   "lat": 39.36,
+   "lon": -9.16,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1013",
+   "lat": 39.92,
+   "lon": -8.15,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1014",
+   "lat": 39.3617,
+   "lon": -9.3893,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1015",
+   "lat": 39.92,
+   "lon": -8.63,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1016",
+   "lat": 39.6001,
+   "lon": -8.8169,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1101",
+   "lat": 39.0537,
+   "lon": -9.0095,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1102",
+   "lat": 38.9834,
+   "lon": -9.0777,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1103",
+   "lat": 39.0697,
+   "lon": -8.8695,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1104",
+   "lat": 39.25,
+   "lon": -9.1,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1105",
+   "lat": 38.6995,
+   "lon": -9.4296,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1106",
+   "lat": 38.766,
+   "lon": -9.1286,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1107",
+   "lat": 38.83,
+   "lon": -9.17,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1108",
+   "lat": 39.2426,
+   "lon": -9.3126,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1109",
+   "lat": 38.94,
+   "lon": -9.33,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1110",
+   "lat": 38.7005,
+   "lon": -9.3059,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1111",
+   "lat": 38.7973,
+   "lon": -9.3904,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1112",
+   "lat": 39.02,
+   "lon": -9.15,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1113",
+   "lat": 39.095,
+   "lon": -9.261,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1114",
+   "lat": 38.9541,
+   "lon": -8.9899,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1115",
+   "lat": 38.7566,
+   "lon": -9.2267,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1116",
+   "lat": 38.79,
+   "lon": -9.19,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1201",
+   "lat": 39.2,
+   "lon": -7.66,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1202",
+   "lat": 39.13,
+   "lon": -7.29,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1203",
+   "lat": 39.11,
+   "lon": -7.88,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1204",
+   "lat": 39.01,
+   "lon": -7.07,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1205",
+   "lat": 39.4151,
+   "lon": -7.4552,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1206",
+   "lat": 39.29,
+   "lon": -7.64,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1207",
+   "lat": 38.8788,
+   "lon": -7.1662,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1208",
+   "lat": 39.06,
+   "lon": -7.65,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1209",
+   "lat": 39.4651,
+   "lon": -7.936,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1210",
+   "lat": 39.394,
+   "lon": -7.3768,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1211",
+   "lat": 39.06,
+   "lon": -7.43,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1212",
+   "lat": 39.52,
+   "lon": -7.65,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1213",
+   "lat": 39.25,
+   "lon": -8.01,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1214",
+   "lat": 39.29,
+   "lon": -7.42,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1215",
+   "lat": 38.96,
+   "lon": -7.67,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1301",
+   "lat": 41.2697,
+   "lon": -8.0795,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1302",
+   "lat": 41.1609,
+   "lon": -8.0376,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1303",
+   "lat": 41.37,
+   "lon": -8.19,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1304",
+   "lat": 41.14,
+   "lon": -8.5315,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1305",
+   "lat": 41.2763,
+   "lon": -8.2833,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1306",
+   "lat": 41.2335,
+   "lon": -8.6216,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1307",
+   "lat": 41.19,
+   "lon": -8.15,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1308",
+   "lat": 41.1805,
+   "lon": -8.681,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1309",
+   "lat": 41.28,
+   "lon": -8.38,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1310",
+   "lat": 41.21,
+   "lon": -8.33,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1311",
+   "lat": 41.2089,
+   "lon": -8.2798,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1312",
+   "lat": 41.158,
+   "lon": -8.6294,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1313",
+   "lat": 41.38,
+   "lon": -8.76,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1314",
+   "lat": 41.3412,
+   "lon": -8.4776,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1315",
+   "lat": 41.19,
+   "lon": -8.5,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1316",
+   "lat": 41.36,
+   "lon": -8.74,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1317",
+   "lat": 41.1285,
+   "lon": -8.6229,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1318",
+   "lat": 41.339,
+   "lon": -8.5602,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1401",
+   "lat": 39.4616,
+   "lon": -8.1995,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1402",
+   "lat": 39.46,
+   "lon": -8.67,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1403",
+   "lat": 39.21,
+   "lon": -8.63,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1404",
+   "lat": 39.26,
+   "lon": -8.59,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1405",
+   "lat": 38.97,
+   "lon": -8.81,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1406",
+   "lat": 39.1612,
+   "lon": -8.7923,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1407",
+   "lat": 39.36,
+   "lon": -8.48,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1408",
+   "lat": 39.4774,
+   "lon": -8.3379,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1409",
+   "lat": 38.9608,
+   "lon": -8.5274,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1410",
+   "lat": 39.47,
+   "lon": -8.47,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1411",
+   "lat": 39.7,
+   "lon": -8.28,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1412",
+   "lat": 39.4052,
+   "lon": -8.4847,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1413",
+   "lat": 39.5573,
+   "lon": -7.9954,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1414",
+   "lat": 39.3393,
+   "lon": -8.9359,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1415",
+   "lat": 39.025,
+   "lon": -8.7896,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1416",
+   "lat": 39.2,
+   "lon": -8.74,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1417",
+   "lat": 39.54,
+   "lon": -8.16,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1418",
+   "lat": 39.6042,
+   "lon": -8.4125,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1419",
+   "lat": 39.479,
+   "lon": -8.539,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1420",
+   "lat": 39.46,
+   "lon": -8.43,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1421",
+   "lat": 39.6568,
+   "lon": -8.5788,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1501",
+   "lat": 38.3731,
+   "lon": -8.5135,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1502",
+   "lat": 38.7529,
+   "lon": -8.9604,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1503",
+   "lat": 38.6604,
+   "lon": -9.1573,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1504",
+   "lat": 38.6561,
+   "lon": -9.061,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1505",
+   "lat": 38.1756,
+   "lon": -8.5651,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1506",
+   "lat": 38.651,
+   "lon": -8.9927,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1507",
+   "lat": 38.7043,
+   "lon": -8.9755,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1508",
+   "lat": 38.5817,
+   "lon": -8.8903,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1509",
+   "lat": 38.0212,
+   "lon": -8.7177,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1510",
+   "lat": 38.633,
+   "lon": -9.1085,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1511",
+   "lat": 38.4467,
+   "lon": -9.1062,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1512",
+   "lat": 38.5246,
+   "lon": -8.8856,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1513",
+   "lat": 37.956,
+   "lon": -8.8643,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1601",
+   "lat": 41.8458,
+   "lon": -8.4177,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1602",
+   "lat": 41.8718,
+   "lon": -8.8533,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1603",
+   "lat": 42.1127,
+   "lon": -8.2611,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1604",
+   "lat": 42.0709,
+   "lon": -8.4923,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1605",
+   "lat": 41.9119,
+   "lon": -8.5574,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1606",
+   "lat": 41.8044,
+   "lon": -8.415,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1607",
+   "lat": 41.7652,
+   "lon": -8.5786,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1608",
+   "lat": 42.027,
+   "lon": -8.6425,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1609",
+   "lat": 41.6952,
+   "lon": -8.8365,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1610",
+   "lat": 41.9418,
+   "lon": -8.7423,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1701",
+   "lat": 41.2762,
+   "lon": -7.4751,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1702",
+   "lat": 41.6877,
+   "lon": -7.6682,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1703",
+   "lat": 41.742,
+   "lon": -7.4721,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1704",
+   "lat": 41.1601,
+   "lon": -7.8907,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1705",
+   "lat": 41.4105,
+   "lon": -7.9526,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1706",
+   "lat": 41.8245,
+   "lon": -7.79,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1707",
+   "lat": 41.41,
+   "lon": -7.45,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1708",
+   "lat": 41.1637,
+   "lon": -7.7922,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1709",
+   "lat": 41.5194,
+   "lon": -7.7936,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1710",
+   "lat": 41.27,
+   "lon": -7.58,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1711",
+   "lat": 41.21,
+   "lon": -7.79,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1712",
+   "lat": 41.61,
+   "lon": -7.31,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1713",
+   "lat": 41.4986,
+   "lon": -7.6441,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1714",
+   "lat": 41.3053,
+   "lon": -7.744,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1801",
+   "lat": 41.1071,
+   "lon": -7.6908,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1802",
+   "lat": 40.44,
+   "lon": -8,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1803",
+   "lat": 40.9,
+   "lon": -7.94,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1804",
+   "lat": 41.0749,
+   "lon": -8.0958,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1805",
+   "lat": 41.1,
+   "lon": -7.81,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1806",
+   "lat": 40.61,
+   "lon": -7.76,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1807",
+   "lat": 40.9818,
+   "lon": -7.6154,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1808",
+   "lat": 40.4,
+   "lon": -8.23,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1809",
+   "lat": 40.5321,
+   "lon": -7.8522,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1810",
+   "lat": 40.7301,
+   "lon": -8.1738,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1811",
+   "lat": 40.68,
+   "lon": -7.7,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1812",
+   "lat": 40.99,
+   "lon": -7.4,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1813",
+   "lat": 41.1058,
+   "lon": -7.9627,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1814",
+   "lat": 40.4,
+   "lon": -8.13,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1815",
+   "lat": 41.15,
+   "lon": -7.41,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1816",
+   "lat": 40.76,
+   "lon": -8.0642,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1817",
+   "lat": 40.75,
+   "lon": -7.74,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1818",
+   "lat": 40.8982,
+   "lon": -7.4916,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1819",
+   "lat": 41.1154,
+   "lon": -7.5674,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1820",
+   "lat": 41.02,
+   "lon": -7.77,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1821",
+   "lat": 40.52,
+   "lon": -8.08,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1822",
+   "lat": 40.85,
+   "lon": -7.73,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1823",
+   "lat": 40.6585,
+   "lon": -7.912,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  },
+  {
+   "dico": "1824",
+   "lat": 40.7249,
+   "lon": -8.1135,
+   "days": [
+    {
+     "date": "2026-11-18",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-19",
+     "rcm": 1,
+     "level": "low"
+    },
+    {
+     "date": "2026-11-20",
+     "rcm": 1,
+     "level": "low"
+    }
+   ]
+  }
+ ]
+}

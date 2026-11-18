@@ -1,0 +1,160 @@
+// weather.promptugal.news: promptugal.news's sender (PrompTugal/PrompTugal__News__Website assets/obs/obs.js, Apache-2.0),
+// brought here by weather.b@PrompTugal.dinis on 18 Nov 2026 at Dinis's word ("add observability to all the other sites",
+// kept in the Website repo's board/guidance/2026-11-18-five-sites-on-account-b.md). Changes from the original:
+//   - it writes only to this site's own lane, named by the script tag's data-lane ("weather"): obs.json lanes.weather;
+//     while that lane has no append tokens (observability@ on account A issues them) nothing is sent and no place is
+//     looked up, and the footer says page views are not counted yet;
+//   - each event carries lane: "weather";
+//   - the footer note is placed in this site's footer and links to promptugal.news's report.
+// PrompTugal.news's page views and reads (observability@PrompTugal.dinis, 6 November 2026, at Dinis Cruz's word:
+// "replicate what we have on web-summit.sgit.ai"). The team site's sender (its assets/obs-dinis.js, by
+// observability@web-summit.dinis, after Jose's assets/telemetry.js and the observability pack), into this site's own
+// vault (assets/obs/obs.json). Two events per page load:
+//   view  when the page loads;
+//   read  the first time the tab is hidden or closed: seconds the page was visible and the deepest scroll (percent).
+// Each says: the page, the referring site (host only), the time to the minute, the site version, a random id that
+// ends with the tab, the screen size class, the browser's language and time zone, an automation class if a bot
+// declares itself, and the country, region and city from the browser's own lookup (the PHP newsroom's and
+// newsroom.sgit.ai's way, at Dinis's word of 6 November: obs.json `geo`, ipapi.co then ipwho.is, once per tab, 2.5 s
+// timeout; only those three fields are read, the IP in the answer never is). No IP address, no cookie, no user-agent
+// string, no browser fingerprint. Sealed here to the drain key (sgit hybrid
+// envelope v2: RSA-OAEP-SHA256 + AES-256-GCM) and written to a write-only append lane; on 507 (a lane full) the next.
+// Do Not Track, Global Privacy Control and the footer's Pause switch stop it. Never blocks, never shows an error.
+// The drain (newsroom/tools/obs/obs_drain.py) publishes counts only; the report is /newsroom/observability/.
+(() => {
+    'use strict'
+    try {
+        const nav = navigator
+        const dnt = nav.doNotTrack === '1' || window.doNotTrack === '1' || nav.globalPrivacyControl === true
+        const LS = { get: k => { try { return localStorage.getItem('pt.obs.' + k) } catch { return null } }, set: (k, v) => { try { v === null ? localStorage.removeItem('pt.obs.' + k) : localStorage.setItem('pt.obs.' + k, v) } catch { } } }
+        const SS = { get: k => { try { return sessionStorage.getItem('pt.obs.' + k) } catch { return null } }, set: (k, v) => { try { sessionStorage.setItem('pt.obs.' + k, v) } catch { } }, del: k => { try { sessionStorage.removeItem('pt.obs.' + k) } catch { } } }
+        const paused = () => LS.get('off') === '1'
+        const script = document.currentScript, base = script ? script.src.replace(/obs\.js(\?.*)?$/, '') : '/assets/obs/'
+        const LANE = (script && script.getAttribute('data-lane')) || 'weather'
+        let laneOpen = null   // null: not known yet; true: the lane has tokens; false: none yet
+
+        // the disclosure and the pause switch, in the footer of every page
+        const footer = () => {
+            const row = document.querySelector('footer p.small') || document.querySelector('footer'); if (!row || row.querySelector('.obs-note')) return
+            const s = document.createElement('span'); s.className = 'obs-note'
+            const a = document.createElement('a'); a.href = 'https://promptugal.news/newsroom/observability/index.html'; a.textContent = 'what is counted'
+            if (dnt) { s.append(' · Page views: off (Do Not Track or Global Privacy Control is on). ', a); row.appendChild(s); return }
+            const b = document.createElement('button'); b.type = 'button'; b.style.cssText = 'font:inherit;background:none;border:0;padding:0;text-decoration:underline;cursor:pointer;color:inherit'
+            const t = document.createTextNode('')
+            const draw = () => { if (laneOpen === false) { t.textContent = ' · Page views: not counted yet (this site\'s lane is not open). '; b.hidden = true; return } t.textContent = paused() ? ' · Page views: paused on this device. ' : ' · Page views, reading time and your town are counted, publicly. To find the town your browser asks ipapi.co or ipwho.is, which see your IP address; we keep no IP and set no cookie. '; b.textContent = paused() ? 'Resume' : 'Pause' }
+            b.onclick = () => { LS.set('off', paused() ? null : '1'); draw() }
+            s.append(t, b, ' · ', a); draw(); row.appendChild(s); window.__obsRedraw = draw
+        }
+        const safeFooter = () => { try { footer() } catch { } }
+        if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', safeFooter); else safeFooter()
+        if (dnt || paused()) return
+
+        let sid = SS.get('sid'); if (!sid) { sid = [...crypto.getRandomValues(new Uint8Array(4))].map(x => x.toString(16).padStart(2, '0')).join(''); SS.set('sid', sid) }
+        const path = location.pathname, done = new Set()
+
+        const b64 = bytes => { let s = ''; for (const x of new Uint8Array(bytes)) s += String.fromCharCode(x); return btoa(s) }
+        const unpem = pem => Uint8Array.from(atob(pem.replace(/-----[^-]+-----/g, '').replace(/\s/g, '')), c => c.charCodeAt(0))
+        async function seal(pem, text) {
+            const S = crypto.subtle
+            const pub = await S.importKey('spki', unpem(pem), { name: 'RSA-OAEP', hash: 'SHA-256' }, false, ['encrypt'])
+            const aes = await S.generateKey({ name: 'AES-GCM', length: 256 }, true, ['encrypt'])
+            const iv = crypto.getRandomValues(new Uint8Array(12))
+            const c = await S.encrypt({ name: 'AES-GCM', iv, tagLength: 128 }, aes, new TextEncoder().encode(text))
+            const w = await S.encrypt({ name: 'RSA-OAEP' }, pub, await S.exportKey('raw', aes))
+            return btoa(btoa(JSON.stringify({ v: 2, w: b64(w), i: b64(iv), c: b64(c) })))   // the lane takes base64 of the .enc text
+        }
+        // automation by class only, never the user-agent string itself
+        const ua = nav.userAgent || ''
+        const agent = nav.webdriver ? 'webdriver' : /HeadlessChrome|PhantomJS/.test(ua) ? 'headless'
+            : /Googlebot/i.test(ua) ? 'googlebot' : /bingbot/i.test(ua) ? 'bingbot' : /bot|crawl|spider|slurp/i.test(ua) ? 'bot' : ''
+        const w = window.innerWidth || 1024
+        let ref = ''; try { ref = document.referrer ? new URL(document.referrer).host : '' } catch { }
+        // the place, once per tab: country, region and city only (the IP field of the answer is never read)
+        const place = async c => {
+            // no lookup on the pages that take a person's details (security@'s S34, 9 November: /contribute/)
+            if (/\/contribute\//.test(location.pathname)) return { country: '', country_code: '', region: '', city: '' }
+            const had = SS.get('geo'); if (had) { try { return JSON.parse(had) } catch { } }
+            for (const url of (c.geo || [])) {
+                try {
+                    const ac = new AbortController(), t = setTimeout(() => ac.abort(), 2500)
+                    const r = await fetch(url, { signal: ac.signal, credentials: 'omit', referrerPolicy: 'no-referrer' }); clearTimeout(t)
+                    if (!r.ok) continue
+                    const j = await r.json(); if (j.success === false || j.error) continue
+                    const g = { country: String(j.country_name || j.country || '').slice(0, 60), country_code: String(j.country_code || '').slice(0, 2).toUpperCase(),
+                        region: String(j.region || '').slice(0, 60), city: String(j.city || '').slice(0, 60) }
+                    // the city's position for the world map, rounded to 0.1 degree (about 10 km): a town, never a street
+                    const la = +(j.latitude ?? j.lat), lo = +(j.longitude ?? j.lon)
+                    if (isFinite(la) && isFinite(lo) && (la || lo)) { g.lat = Math.round(la * 10) / 10; g.lon = Math.round(lo * 10) / 10 }
+                    SS.set('geo', JSON.stringify(g)); return g
+                } catch { }
+            }
+            const g = { country: '', country_code: '', region: '', city: '' }; SS.set('geo', JSON.stringify(g)); return g
+        }
+        // a link's tag (Dinis, 6 November: "I just sent a link to somebody ... I would like to see if they open it ... and
+        // forward it"): ?via=<tag> (or utm_source / utm_campaign) on the link you send. Kept for the tab, so the pages read
+        // after arriving count too; a tag names the link, never the person. Letters, digits, '.', '_' and '-', 40 at most.
+        const tagOf = () => { try { const q = new URLSearchParams(location.search); const t = q.get('via') || q.get('utm_campaign') || q.get('utm_source') || ''; return /^[A-Za-z0-9._-]{1,40}$/.test(t) ? t.toLowerCase() : '' } catch { return '' } }
+        let via = tagOf(); if (via) SS.set('via', via); else via = SS.get('via') || ''
+        const common = () => {
+            const e = { v: 1, src: 'promptugal', lane: LANE, site: location.host, ver: (((document.querySelector('.version-bar span') || {}).textContent || '').replace(/^Version\s*/, '')).trim(),
+                ts: new Date().toISOString().slice(0, 16) + 'Z', sid, path, ref, lang: nav.language || '',
+                screen: w < 600 ? 'phone' : w < 1000 ? 'tablet' : 'desktop', tz: (Intl.DateTimeFormat().resolvedOptions().timeZone || '') }
+            if (agent) e.agent = agent
+            if (via) e.via = via
+            // an A/B test (Dinis, 6 November 2026, 13:20: "A/B testing when needed ... on the website"): the variant this page
+            // was shown, from <html data-variant> or <meta name="variant">, set by whoever runs the test; no new identifier
+            const H = document.documentElement.dataset, vr = H.variant || (document.querySelector('meta[name="variant"]') || {}).content || (H.top ? 'top-' + H.top : '')   // dev@'s A/B of the top: <html data-top="c|a">
+            if (/^[A-Za-z0-9._-]{1,40}$/.test(vr)) e.variant = vr
+            return e
+        }
+
+        let visibleMs = 0, since = document.visibilityState === 'visible' ? performance.now() : null, maxScroll = 0
+        const scrolled = () => { const h = document.documentElement, top = window.scrollY || h.scrollTop, all = Math.max(1, h.scrollHeight - window.innerHeight); maxScroll = Math.max(maxScroll, Math.min(100, Math.round(100 * top / all))) }
+        window.addEventListener('scroll', scrolled, { passive: true })
+
+        let cfgP = null
+        const cfg = () => cfgP || (cfgP = fetch(base + 'obs.json', { cache: 'no-cache' }).then(r => r.json()))
+        let sharedP = null
+        const shared = c => sharedP || (sharedP = fetch(c.shared_from, { cache: 'no-cache', credentials: 'omit' }).then(r => r.json()).then(j => ({ endpoint: j.endpoint, vault_id: j.vault_id, recipient: j.recipient })))
+        const send = async ev => {
+            if (paused()) return false
+            const c0 = await cfg(); const L = (c0.enabled && c0.lanes && c0.lanes[LANE]) || []; if (!L.length) return false
+            // the drain key, the endpoint and the vault: this file's own, else promptugal.news's published obs.json (shared)
+            const c = c0.recipient && c0.endpoint && c0.vault_id ? c0 : Object.assign({}, await shared(c0), c0)
+            if (!('country' in ev)) Object.assign(ev, await place(c))
+            const payload = await seal(c.recipient.encrypt, JSON.stringify(ev))
+            const start = Math.floor(Math.random() * L.length)   // a random first lane spreads the load
+            for (const token of L.map((_, i) => L[(start + i) % L.length])) {
+                const r = await fetch(`${c.endpoint}/api/vault/append/write/${c.vault_id}`, { method: 'POST', keepalive: true,
+                    headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ append_token: token, payload }) })
+                if (r.status !== 507) return r.ok
+            }
+            return false
+        }
+        const resend = () => {                                            // reads an earlier page in this tab could not finish sending
+            try {
+                for (const k of Object.keys(sessionStorage).filter(k => k.startsWith('pt.obs.pending.'))) {
+                    const ev = JSON.parse(sessionStorage.getItem(k)); sessionStorage.removeItem(k)
+                    send(ev).catch(() => { })
+                }
+            } catch { }
+        }
+        // a yes or no on a page (assets/talk/talk.js, dev.places@PrompTugal.dinis, 15 Nov 2026): one more event on this
+        // lane, with no identity: the same fields as a view, plus the vote; absent under Do Not Track or the pause
+        window.PTObs = { vote: (v, path) => send(Object.assign(common(), { type: 'vote', vote: v > 0 ? 1 : -1 }, path ? { voted_on: String(path).slice(0, 200) } : {})).catch(() => false) }
+        const view = () => { resend(); if (done.has('view')) return; done.add('view'); send(Object.assign(common(), { type: 'view' })).catch(() => { }) }
+        const finish = () => {
+            if (since !== null) { visibleMs += performance.now() - since; since = null }
+            if (done.has('read')) return
+            scrolled(); done.add('read')
+            const ev = Object.assign(common(), { type: 'read', visible_s: Math.min(3600, Math.round(visibleMs / 1000)), scroll: maxScroll })
+            const key = 'pending.' + ev.path + '.' + Date.now()
+            SS.set(key, JSON.stringify(ev))                                   // kept until written: leaving can cut the send short
+            send(ev).then(ok => { if (ok) SS.del(key) }).catch(() => { })
+        }
+        document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') since = performance.now(); else finish() })
+        window.addEventListener('pagehide', finish)
+        cfg().then(c => { laneOpen = !!(c.enabled && c.lanes && c.lanes[LANE] && c.lanes[LANE].length); if (window.__obsRedraw) window.__obsRedraw() }).catch(() => { })
+        if (document.readyState === 'complete') setTimeout(view, 0); else window.addEventListener('load', view)
+    } catch { }
+})()

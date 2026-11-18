@@ -1,0 +1,14 @@
+{
+  "about": "weather.promptugal.news's observability lane (weather.b@PrompTugal.dinis, 18 November 2026, at Dinis's word, kept in PrompTugal__News__Website board/guidance/2026-11-18-five-sites-on-account-b.md). assets/obs/obs.js writes page views and reads only to lanes.weather. The lane's append tokens are issued by observability@PrompTugal.dinis on account A, which drains it; until they are here the list is empty and nothing is sent. The drain key, the endpoint and the vault are read from promptugal.news's published obs.json (shared_from) unless set here.",
+  "enabled": true,
+  "lane": "weather",
+  "lanes": {
+    "weather": []
+  },
+  "shared_from": "https://promptugal.news/assets/obs/obs.json",
+  "geo": [
+    "https://ipapi.co/json/",
+    "https://ipwho.is/"
+  ],
+  "what": "This site counts page views and reading time, publicly, to learn what is read: the page, the referring site (host only), the time to the minute, the site version, a random id that ends with the tab, the screen size class, the browser's language and time zone, the country, region and city (and the city's position, rounded to about 10 km), a link's tag (?via=) if there is one, and an automation class if a bot declares itself. To find the place, the browser asks ipapi.co (or ipwho.is), which see the reader's IP address; this site reads only the place from the answer and keeps no IP address, no cookie, no user-agent string and no fingerprint. Do Not Track, Global Privacy Control and Pause in the footer turn it all off. Not counted yet: the weather lane has no tokens."
+}

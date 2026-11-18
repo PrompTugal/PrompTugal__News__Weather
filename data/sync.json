@@ -1,100 +1,123 @@
 {
-  "about": "Where data/now/ and data/map/ came from. Copies of files published by the PrompTugal.news Website repository; each value inside keeps its own source and time read.",
-  "from": "https://github.com/PrompTugal/PrompTugal__News__Website",
-  "via": "local clone",
-  "commit": "dfa068e004e923f3c30b8abc0e9f4d43d97b6b0c",
-  "synced_at": "2026-11-17T19:17:26Z",
+  "about": "Where data/now/, data/api/ and data/map/ came from. data/now and data/api are copies of data.promptugal.news's API; data/map of files the PrompTugal.news Website repository publishes. Each value inside keeps its own source and time read.",
+  "from": "https://data.promptugal.news/api/v1/",
+  "api_version": "v0.1.5",
+  "api_built_at": "2026-11-18T02:28:29.861Z",
+  "maps_from": "https://github.com/PrompTugal/PrompTugal__News__Website",
+  "maps_via": "raw.githubusercontent.com",
+  "commit": "unknown",
+  "synced_at": "2026-11-18T09:31:59Z",
   "files": [
     {
-      "from": "data/by-place/now/algarve.json",
+      "from": "https://data.promptugal.news/api/v1/by-place/now/algarve.json",
       "to": "data/now/algarve.json"
     },
     {
-      "from": "data/by-place/now/albufeira.json",
+      "from": "https://data.promptugal.news/api/v1/by-place/now/albufeira.json",
       "to": "data/now/albufeira.json"
     },
     {
-      "from": "data/by-place/now/alcoutim.json",
+      "from": "https://data.promptugal.news/api/v1/by-place/now/alcoutim.json",
       "to": "data/now/alcoutim.json"
     },
     {
-      "from": "data/by-place/now/aljezur.json",
+      "from": "https://data.promptugal.news/api/v1/by-place/now/aljezur.json",
       "to": "data/now/aljezur.json"
     },
     {
-      "from": "data/by-place/now/castro-marim.json",
+      "from": "https://data.promptugal.news/api/v1/by-place/now/castro-marim.json",
       "to": "data/now/castro-marim.json"
     },
     {
-      "from": "data/by-place/now/faro.json",
+      "from": "https://data.promptugal.news/api/v1/by-place/now/faro.json",
       "to": "data/now/faro.json"
     },
     {
-      "from": "data/by-place/now/lagoa.json",
+      "from": "https://data.promptugal.news/api/v1/by-place/now/lagoa.json",
       "to": "data/now/lagoa.json"
     },
     {
-      "from": "data/by-place/now/lagos.json",
+      "from": "https://data.promptugal.news/api/v1/by-place/now/lagos.json",
       "to": "data/now/lagos.json"
     },
     {
-      "from": "data/by-place/now/loule.json",
+      "from": "https://data.promptugal.news/api/v1/by-place/now/loule.json",
       "to": "data/now/loule.json"
     },
     {
-      "from": "data/by-place/now/monchique.json",
+      "from": "https://data.promptugal.news/api/v1/by-place/now/monchique.json",
       "to": "data/now/monchique.json"
     },
     {
-      "from": "data/by-place/now/olhao.json",
+      "from": "https://data.promptugal.news/api/v1/by-place/now/olhao.json",
       "to": "data/now/olhao.json"
     },
     {
-      "from": "data/by-place/now/portimao.json",
+      "from": "https://data.promptugal.news/api/v1/by-place/now/portimao.json",
       "to": "data/now/portimao.json"
     },
     {
-      "from": "data/by-place/now/quarteira.json",
+      "from": "https://data.promptugal.news/api/v1/by-place/now/quarteira.json",
       "to": "data/now/quarteira.json"
     },
     {
-      "from": "data/by-place/now/sao-bras-de-alportel.json",
+      "from": "https://data.promptugal.news/api/v1/by-place/now/sao-bras-de-alportel.json",
       "to": "data/now/sao-bras-de-alportel.json"
     },
     {
-      "from": "data/by-place/now/silves.json",
+      "from": "https://data.promptugal.news/api/v1/by-place/now/silves.json",
       "to": "data/now/silves.json"
     },
     {
-      "from": "data/by-place/now/tavira.json",
+      "from": "https://data.promptugal.news/api/v1/by-place/now/tavira.json",
       "to": "data/now/tavira.json"
     },
     {
-      "from": "data/by-place/now/vila-do-bispo.json",
+      "from": "https://data.promptugal.news/api/v1/by-place/now/vila-do-bispo.json",
       "to": "data/now/vila-do-bispo.json"
     },
     {
-      "from": "data/by-place/now/vila-real-de-santo-antonio.json",
+      "from": "https://data.promptugal.news/api/v1/by-place/now/vila-real-de-santo-antonio.json",
       "to": "data/now/vila-real-de-santo-antonio.json"
     },
     {
-      "from": "data/by-place/places.json",
+      "from": "https://data.promptugal.news/api/v1/ipma-city-forecasts/latest.json",
+      "to": "data/api/ipma-city-forecasts.json"
+    },
+    {
+      "from": "https://data.promptugal.news/api/v1/ipma-warnings/latest.json",
+      "to": "data/api/ipma-warnings.json"
+    },
+    {
+      "from": "https://data.promptugal.news/api/v1/ipma-fire-risk/latest.json",
+      "to": "data/api/ipma-fire-risk.json"
+    },
+    {
+      "from": "https://data.promptugal.news/api/v1/ipma-uv/latest.json",
+      "to": "data/api/ipma-uv.json"
+    },
+    {
+      "from": "https://data.promptugal.news/api/v1/ipma-sea/latest.json",
+      "to": "data/api/ipma-sea.json"
+    },
+    {
+      "from": "https://github.com/PrompTugal/PrompTugal__News__Website/blob/dev/data/by-place/places.json",
       "to": "data/map/places-source.json"
     },
     {
-      "from": "assets/portugal/next-places.json",
+      "from": "https://github.com/PrompTugal/PrompTugal__News__Website/blob/dev/assets/portugal/next-places.json",
       "to": "data/map/next-places-source.json"
     },
     {
-      "from": "assets/portugal/portugal-outline.json",
+      "from": "https://github.com/PrompTugal/PrompTugal__News__Website/blob/dev/assets/portugal/portugal-outline.json",
       "to": "data/map/portugal-outline.json"
     },
     {
-      "from": "assets/portugal/algarve-outline.json",
+      "from": "https://github.com/PrompTugal/PrompTugal__News__Website/blob/dev/assets/portugal/algarve-outline.json",
       "to": "data/map/algarve-outline.json"
     },
     {
-      "from": "board/briefs/2026-11-16-storm-local-map.json",
+      "from": "https://github.com/PrompTugal/PrompTugal__News__Website/blob/dev/board/briefs/2026-11-16-storm-local-map.json",
       "to": "data/map/storm-local-map.json"
     }
   ]

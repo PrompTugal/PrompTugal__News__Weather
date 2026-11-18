@@ -27,7 +27,10 @@ const added = lines(git('rev-list', '--no-merges', ...range));
 const descendants = new Set([first, ...lines(git('rev-list', '--ancestry-path', `${first}..${after}`))]);
 
 // A role may be dotted, role.speciality (Dinis, 16 Nov 2026: "we definitely should allow dots because that's our terminology").
-const agentShape = /^[a-z0-9]+(?:[.-][a-z0-9]+)*@agenticcells\.[a-z0-9][a-z0-9.-]*$/i;
+// PrompTugal agents sign as role@PrompTugal.dinis (Dinis, 18 Nov 2026, kept by conductor.b@ in
+// PrompTugal__News__Website board/guidance/2026-11-18-five-sites-on-account-b.md: "In each of the five
+// repos, the commit check accepts @PrompTugal.dinis agents"). Only that one address is added.
+const agentShape = /^[a-z0-9]+(?:[.-][a-z0-9]+)*@(?:agenticcells\.[a-z0-9][a-z0-9.-]*|promptugal\.dinis)$/i;
 // Exemptions (specialist.code@, 2026-11-16). CI checks from the last release tag, so one failing commit
 // would block every later release, and history is never rewritten. A person may exempt that one commit in
 // scripts/commit-exemptions.json: [{ "commit": "<full 40-hex sha>", "reason": "...", "approved_by": "Dinis Cruz",
@@ -55,7 +58,7 @@ for (const c of added) {
   const agents = lines(git('log', '-1', '--format=%(trailers:key=Agent,valueonly)', c)).map((s) => s.trim());
   const subject = git('log', '-1', '--format=%s', c);
   if (!agents.length) errors.push(`${c.slice(0, 7)} ${subject}: no readable Agent: trailer (it must sit in the final trailer block)`);
-  else if (!agents.every((a) => agentShape.test(a))) errors.push(`${c.slice(0, 7)} ${subject}: Agent: trailer is not role@agenticcells.person (${agents.join(', ')})`);
+  else if (!agents.every((a) => agentShape.test(a))) errors.push(`${c.slice(0, 7)} ${subject}: Agent: trailer is not role@agenticcells.person or role@PrompTugal.dinis (${agents.join(', ')})`);
 }
 
 if (errors.length) {

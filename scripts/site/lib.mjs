@@ -20,11 +20,37 @@ export function loadData() {
     const m = (Array.isArray(local) ? local : local.places || []).find(x => x.place === p.id) || {};
     return { id: p.id, name: p.name, kind: p.kind, at: p.at, dico: m.dico, now: now[p.id] };
   }).sort((a, b) => a.name.localeCompare(b.name, 'pt'));
-  const capitals = next.map(p => ({ id: p.id, name: p.name, district: p.district, at: p.at }))
-    .concat([{ id: 'faro', name: 'Faro', district: 'Faro', at: [-7.935, 37.019], live: true }])
+  const api = {};
+  if (existsSync('data/api')) for (const f of readdirSync('data/api')) if (f.endsWith('.json')) api[f.replace(/\.json$/, '')] = readJSON(join('data/api', f));
+  const capitals = next.map(p => capital(p, api))
+    .concat([{ id: 'faro', name: 'Faro', district: 'Faro', at: [-7.935, 37.019], live: true, algarve: true, level: worstWarning(now.algarve) }])
     .sort((a, b) => a.name.localeCompare(b.name, 'pt'));
   const storms = existsSync('data/storms') ? readdirSync('data/storms').filter(f => f.endsWith('.json')).map(f => readJSON(join('data/storms', f))) : [];
-  return { now, region: now.algarve, towns, capitals, types, sync, storms };
+  return { now, region: now.algarve, towns, capitals, types, sync, storms, api };
+}
+
+// ---------------------------------------------------------------- a district capital, from data.promptugal.news's API
+// IPMA's place id holds the municipality's code (DICO): 1141600 is 1 + 1416 (Santarém) + 00. The warning area is the
+// city forecast's own area code (LSB, PTO ...). Sea only where IPMA has a coastal point of the same name.
+const plain = s => String(s || '').normalize('NFD').replace(/\p{M}/gu, '').toLowerCase().trim();
+function capital(p, api) {
+  const c = { id: p.id, name: p.name, district: p.district, at: p.at };
+  const cf = api['ipma-city-forecasts'], wa = api['ipma-warnings'], fr = api['ipma-fire-risk'], sea = api['ipma-sea'];
+  const city = cf?.cities?.find(x => plain(x.name) === plain(p.name));
+  if (!city) return c;
+  c.live = true;
+  c.area = city.area;
+  c.forecast = { place: city.name, id: city.id, source: city.source, page: cf.provenance?.page, read_at: city.read_at, updated: city.updated, days: city.days };
+  c.dico = String(city.id).slice(1, 5);
+  const m = fr?.municipalities?.find(x => x.dico === c.dico);
+  if (m) c.fire_risk = { municipality: m.dico, days: m.days, page: fr.provenance?.page, source: fr.provenance?.source, read_at: fr.read_at };
+  const active = (wa?.active || []).filter(a => a.area === city.area);
+  c.warnings = { area: `${city.area} (the ${p.district} district)`, active, page: wa?.provenance?.page, source: wa?.provenance?.source, read_at: wa?.read_at };
+  c.level = active.reduce((lv, a) => (LEVEL[a.level] ?? 0) > (LEVEL[lv] ?? 0) ? a.level : lv, 'green');
+  const coast = sea?.coasts?.find(x => plain(x.name).replace(/, costa$/, '') === plain(p.name));
+  if (coast) c.sea = { coast: coast.name, days: coast.days, page: sea.provenance?.page, source: sea.provenance?.source, read_at: sea.read_at };
+  c.read_at = cf.read_at;
+  return c;
 }
 
 // ---------------------------------------------------------------- words and numbers
@@ -55,7 +81,9 @@ export const host = u => { try { return new URL(u).host; } catch { return u; } }
 
 // ---------------------------------------------------------------- the frame
 const NAV = [['/', 'Now'], ['/map/', 'Map'], ['/places/', 'Places'], ['/storms/', 'Storms'], ['/what-to-do/', 'What to do'], ['/about/', 'About']];
-export const CSS_VERSION = '1';
+// The sites rail (promptugal.news's masthead, Website repo assets/top/top.tmpl, Dinis 17 Nov 2026)
+const SITES = [['https://weather.promptugal.news/', 'Weather'], ['https://civic.promptugal.news/', 'Civic'], ['https://startups.promptugal.news/', 'Startups'], ['https://travel.promptugal.news/', 'Travel'], ['https://data.promptugal.news/', 'Data']];
+export const CSS_VERSION = '2';
 
 export function page({ path, title, description, body, md, made, extraHead = '', bodyClass = '' }) {
   const canonical = SITE + path;
@@ -72,6 +100,9 @@ export function page({ path, title, description, body, md, made, extraHead = '',
 <link rel="alternate" type="text/markdown" href="${twin}">
 <link rel="icon" href="/brand/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/site.css?v=${CSS_VERSION}">
+<meta name="page-type" content="free">
+<script defer src="/assets/reading.js?v=${CSS_VERSION}"></script>
+<script defer src="/assets/obs/obs.js?v=${CSS_VERSION}" data-lane="weather"></script>
 ${extraHead}</head>
 <body class="${bodyClass}">
 <a class="skip" href="#main">Skip to the content</a>
@@ -79,18 +110,20 @@ ${extraHead}</head>
 <header class="masthead">
   <div class="masthead-row">
     <a class="brand" href="/" aria-label="PrompTugal.news Weather, home"><span class="wm">Promp<span class="t">T</span><span class="g">ugal</span>.<i>news</i></span><span class="sub">· Weather</span></a>
-    <p class="pay">Pay for what you read: <a href="https://promptugal.news/account/">your PrompTugal.news account</a></p>
+    <a class="tool meter free" id="nr-meter-chip" href="/account/" title="Pages built on IPMA's data are free and outside the reading meter: IPMA's terms allow no profit-making use, so nothing here is charged until Dinis decides. Your PrompTugal.news balance is kept on promptugal.news."><span class="meter-label">Pay for what you read · </span><b>free here</b></a>
   </div>
   <nav class="nav" aria-label="Sections">${nav}</nav>
 </header>
+<nav class="em-net" aria-label="The PrompTugal.news sites"><span>Also from PrompTugal.news</span>${SITES.map(([href, label]) => `<a href="${href}"${href === SITE + '/' ? ' aria-current="page"' : ''}>${label}</a>`).join('')}</nav>
 <p class="not-warning" role="note"><strong>Not a warning service.</strong> For warnings and what to do now, follow <a href="https://www.ipma.pt/">IPMA</a> and <a href="https://prociv.gov.pt/">ANEPC</a>. In an emergency call 112.</p>
 <main id="main">
 ${body}
 </main>
 ${madeBlock(made)}
 <footer class="footer">
-  <p>Part of <a href="https://promptugal.news/">PrompTugal.news</a>: Portugal, town by town. Independent: not an official or government site. Data from IPMA's open data, as published by the <a href="https://github.com/PrompTugal/PrompTugal__News__Website">PrompTugal.news Website repository</a>, until <a href="https://data.promptugal.news/">data.promptugal.news</a> publishes its APIs.</p>
-  <p>Version __VERSION__ · <a href="https://github.com/PrompTugal/PrompTugal__News__Weather">Source</a> · Code Apache-2.0, text CC BY 4.0 · <a href="/llms.txt">llms.txt</a></p>
+  <p>Part of <a href="https://promptugal.news/">PrompTugal.news</a>: Portugal, town by town. Independent: not an official or government site. Data from IPMA's open data, as collected and published by <a href="https://data.promptugal.news/">data.promptugal.news</a>. Free to read: IPMA's terms allow no profit-making use, so these pages are outside the reading meter.</p>
+  <p class="sites-row">Also from PrompTugal.news: ${SITES.map(([href, label]) => `<a href="${href}">${label}</a>`).join(' · ')}</p>
+  <p class="small">Version __VERSION__ · <a href="https://github.com/PrompTugal/PrompTugal__News__Weather">Source</a> · Code Apache-2.0, text CC BY 4.0 · <a href="/llms.txt">llms.txt</a></p>
 </footer>
 </body>
 </html>
@@ -99,7 +132,7 @@ ${madeBlock(made)}
   return { path, html, md: mdOut, title, description };
 }
 
-const DEFAULT_MADE = { code: 'scripts/site/*.mjs builds this page from data/ on every push; no model runs at build time.', agents: 'weather@PrompTugal.dinis (Claude, Opus) wrote the code and the words.', person: 'Not yet checked by a person.' };
+const DEFAULT_MADE = { code: 'scripts/site/*.mjs builds this page from data/ on every push; no model runs at build time.', agents: 'weather@PrompTugal.dinis (Claude, Opus) wrote the first version; weather.b@PrompTugal.dinis (Claude, Opus) carries it on.', person: 'Not yet checked by a person.' };
 function madeBlock(m = {}) {
   m = { ...DEFAULT_MADE, ...m };
   return `<aside class="made" aria-label="How this page was made"><h2>How this page was made</h2><dl><dt>Code</dt><dd>${m.code}</dd><dt>Agents</dt><dd>${m.agents}</dd><dt>A person</dt><dd>${m.person}</dd></dl><p><a href="/about/">More on how the site is made</a></p></aside>`;
@@ -170,11 +203,11 @@ export function portugalMap({ outline, capitals, towns, region, width = 360, lin
   const pr = projector([-9.6, 36.9, -6.1, 42.2], width);
   const pt = polys(outline.countries.Portugal, pr), es = outline.countries.Spain ? polys(outline.countries.Spain, pr) : '';
   const lvl = worstWarning(region);
-  const caps = capitals.map(c => { const [x, y] = pr.p(c.at); return `<g class="cap${c.live ? ' live' : ''}"><circle cx="${x}" cy="${y}" r="${c.live ? 4 : 3}"><title>${esc(c.name)}${c.live ? '' : ': data coming'}</title></circle>${c.live ? '' : `<text x="${x + 5}" y="${y + 3}">${esc(c.name)}</text>`}</g>`; }).join('');
+  const caps = capitals.map(c => { const [x, y] = pr.p(c.at); const lv = c.level || 'green'; const label = c.algarve ? '' : `<text x="${x + 6}" y="${y + 3}">${esc(c.name)}</text>`; const dot = `<circle cx="${x}" cy="${y}" r="${c.live ? 4.5 : 3}"><title>${esc(c.name)}${c.live ? `: highest IPMA warning ${lv}` : ': data coming'}</title></circle>`; return `<g class="cap${c.live ? ` live ${warnClass(lv)}` : ''}">${linkCapitals && c.live ? `<a href="/places/${c.id}/">${dot}${label}</a>` : dot + label}</g>`; }).join('');
   const dots = towns.map(t => { const [x, y] = pr.p(t.at); return `<circle class="town ${fireClass(t.now.fire_risk?.days?.[0]?.level)}" cx="${x}" cy="${y}" r="${width > 400 ? 3.5 : 2.6}"><title>${esc(t.name)}</title></circle>`; }).join('');
   const cut = pr.p([-9.7, 37.5])[1]; // the Faro district, drawn approximately as the mainland south of 37.5 N
   const id = 'fd' + width;
-  return `<svg class="map map-pt" viewBox="0 0 ${pr.w} ${pr.h}" role="img" aria-labelledby="${id}-t ${id}-d"><title id="${id}-t">Map of mainland Portugal</title><desc id="${id}-d">The Faro district (the Algarve) is shaded by its highest IPMA warning in force or announced (${lvl}); its 17 places are dots coloured by today's fire risk. The other district capitals are grey: their data is still to come.</desc><defs><clipPath id="${id}"><rect x="0" y="${cut}" width="${pr.w}" height="${pr.h - cut}"/></clipPath></defs><rect class="sea" width="${pr.w}" height="${pr.h}"/><path class="land-es" d="${es}"/><path class="land-pt" d="${pt}"/><path class="district ${warnClass(lvl)}" d="${pt}" clip-path="url(#${id})"/>${caps}${dots}<text class="label-faro" x="${pr.p([-8.2, 37.6])[0]}" y="${pr.p([-8.2, 37.6])[1]}" text-anchor="middle">Algarve</text></svg>`;
+  return `<svg class="map map-pt" viewBox="0 0 ${pr.w} ${pr.h}" role="img" aria-labelledby="${id}-t ${id}-d"><title id="${id}-t">Map of mainland Portugal</title><desc id="${id}-d">The Faro district (the Algarve) is shaded by its highest IPMA warning in force or announced (${lvl}); its 17 places are dots coloured by today's fire risk. Each district capital is a dot coloured by its district's highest IPMA warning; grey means no data yet.</desc><defs><clipPath id="${id}"><rect x="0" y="${cut}" width="${pr.w}" height="${pr.h - cut}"/></clipPath></defs><rect class="sea" width="${pr.w}" height="${pr.h}"/><path class="land-es" d="${es}"/><path class="land-pt" d="${pt}"/><path class="district ${warnClass(lvl)}" d="${pt}" clip-path="url(#${id})"/>${caps}${dots}<text class="label-faro" x="${pr.p([-8.2, 37.6])[0]}" y="${pr.p([-8.2, 37.6])[1]}" text-anchor="middle">Algarve</text></svg>`;
 }
 export function algarveMap({ outline, towns, colour = t => fireClass(t.now.fire_risk?.days?.[0]?.level), label = t => t.name, width = 720, caption }) {
   const pr = projector([-9.05, 36.92, -7.3, 37.58], width);
