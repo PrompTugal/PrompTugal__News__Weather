@@ -2,8 +2,8 @@
   "role": "weather.b@PrompTugal.dinis",
   "account": "B",
   "started_by": "conductor.b@PrompTugal.dinis at Dinis's word (PrompTugal__News__Website board/guidance/2026-11-18-five-sites-on-account-b.md)",
-  "state": "run 3 done (13:14 UTC wake); waits for the next wake",
-  "updated": "2026-11-18T17:00Z",
+  "state": "run 4 done (16:14 UTC wake, first with the inner passes); waits for the next wake",
+  "updated": "2026-11-18T16:45Z",
   "debrief": "board/team/weather/debriefs/2026-11-18-account-b-first-run.md",
   "observability_lane": "weather",
   "observability_note": "For conductor.b@ to relay to account A's observability@: assets/obs/obs.js is on every page and writes only to obs.json lanes.weather, which is empty, so nothing is sent yet. observability@ issues the lane's append tokens (in the vault of its choice; the drain key is read from promptugal.news/assets/obs/obs.json unless set in this site's obs.json).",
@@ -28,24 +28,28 @@
     "15:20 UTC: hourly scheduled rebuild at :41 in .github/workflows/pages.yml (Dinis ~14:55 UTC; confirmed by the user in this session ~15:15 UTC)",
     "15:55 UTC: the front pages to choose from, at the top of every page (the user's ask, as on hub.agenticcells.site's sites): a strip linking Now, A, B and C, a Designs chip opening a picker with screenshots, and the same cards on /design/. Screenshots by scripts/dev/shots.mjs, run by hand",
     "16:35 UTC: AppSec fix after conductor.b@'s heads-up (events.b@'s XSS finding): every href built from data goes through safeHref() (http(s), site-relative or # only; else '#'), markdown links too; validate.mjs now fails on javascript:, data:, vbscript: or file: URLs in href/src/action; reading.js keeps only site-relative paths. Review: no innerHTML anywhere; all data was already HTML-escaped; the gap was the URL scheme. No page changed in the build output",
-    "16:50 UTC: /security/ page (Dinis ~15:15 UTC, Website board/guidance/2026-11-18-security-findings-published.md): findings W-1 and W-2 (fixed, 47ef847), threat models listed as being written, linked from every footer and to promptugal.news/security/"
+    "16:50 UTC: /security/ page (Dinis ~15:15 UTC, Website board/guidance/2026-11-18-security-findings-published.md): findings W-1 and W-2 (fixed, 47ef847), threat models listed as being written, linked from every footer and to promptugal.news/security/",
+    "run 4: three threat models published (docs/threat-models/, rendered at /how/threat-models/), a /how/ page, /security/ now lists W-3 (fixed: sync-data.mjs timeout, byte cap, same-host and shape checks) and W-4 to W-7 (open or accepted: title, severity, state only). Inner passes ran: opening and pre-review (Sonnet): fits, no blocker, 5 low findings; post-review with AppSec (Sonnet): one fix before commit (byte cap counted characters), fixed and re-run"
   ],
   "next": [
-    "threat models at docs/threat-models/ for the scheduled rebuild, scripts/sync-data.mjs and obs.js, and a /how/ page linking them",
+    "W-4: pin the build actions by commit (needs a person's yes for the CI workflow edit)",
+    "W-5: pin the drain key in this site's obs.json when the lane opens",
+    "W-6: read the Website map files from a pinned commit",
     "load data in the browser from data.promptugal.news's API where a page can (Dinis ~14:55 UTC), built page as fallback: front page and capitals first",
     "Storm archive: a terms link for each outside source it cites (news, government, aviationweather.gov), from each site's own published terms",
     "Storm item 1: residents under each IPMA level, hour by hour, on /storms/charles/",
     "UV on the Algarve place pages for all five days (they show one day now)",
-    "the session key, when allowed",
-    "CI rebuild on a schedule so pages follow the hourly data (needs Dinis's yes)",
-    "Dinis's front page choice applied"
+    "register the key weather.b-promptugal on pki.sgit.ai (pki-agent operator/submit), when the permission allows",
+    "apply Dinis's front page choice to / once he chooses"
   ],
   "asks": [
+    "Dinis: go or no on making the weather observability lane here (vault and two append tokens on dev.send.sgraph.ai, credentials sealed to conductor.b-promptugal); the session's permission check refused it once at ~15:00 UTC, nothing was made",
     "Dinis: choose a front page at /design/ (A, B or C)",
     "Dinis: keep 'free here' on the masthead chip, or say what it should show",
-    "Dinis: signatures. The key now exists (sgit), but the leak scan flags a detached signature (.sig) as a high-entropy string, so none is committed. Say where signatures should live (an allowlisted path in the scan, or commit signing), and the team will sign its work"
+    "Dinis: signatures. The key now exists (sgit), but the leak scan flags a detached signature (.sig) as a high-entropy string, so none is committed. Say where signatures should live (an allowlisted path in the scan, or commit signing), and the team will sign its work",
+    "Dinis: yes or no on pinning the build's GitHub Actions by commit SHA in .github/workflows/pages.yml (finding W-4, low); a CI workflow edit needs your word in this session"
   ],
-  "live": "v0.1.8 (run 2) at 13:14 UTC; run 3 deploys as the next version",
+  "live": "v0.1.20 at 16:14 UTC (everything to cfeec4c); run 4 deploys as the next version",
   "storm_items": "board/team/weather/storm-items.md: the 14 Storm items data.b@ listed for this site (via conductor.b@, 14:00 UTC), with this team's order; residents by hour first",
   "key": {
     "id": "weather.b-promptugal",
@@ -56,5 +60,7 @@
   },
   "wake_procedure": "board/team/weather/wake.md (inner passes and AppSec review, Dinis ~15:05 to 15:10 UTC), from the next wake",
   "security_page": "content/security.md, at /security/; keep it true at each wake",
-  "library_requests": "read at every wake (wake.md); 15:55 UTC: none addressed to weather.b@"
+  "library_requests": "read at every wake (wake.md); 15:55 UTC: none addressed to weather.b@",
+  "security_review_requested": "security@PrompTugal.dinis: the three threat models and W-3 to W-7 (18 Nov, 16:45 UTC)",
+  "inner_passes": "run 4: opening + pre-review (Sonnet), post-review with AppSec (Sonnet; one fix made), closing (Sonnet; four stale lines fixed)"
 }

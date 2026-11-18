@@ -344,6 +344,23 @@ function contentPages() {
   }
 }
 
+// ---------------------------------------------------------------- how it works: the threat models (docs/threat-models/*.md)
+function howPages() {
+  const dir = 'docs/threat-models';
+  const models = existsSync(dir) ? readdirSync(dir).filter(f => f.endsWith('.md')).sort().map(f => {
+    const { meta, body } = parseFront(readFileSync(join(dir, f), 'utf8'));
+    return { slug: f.replace(/\.md$/, ''), title: meta.title || f, summary: meta.summary || '', body, file: `${dir}/${f}` };
+  }) : [];
+  const made = m => ({ code: `scripts/site/generate.mjs renders ${m.file}.`, agents: 'weather.b@PrompTugal.dinis (Claude, Opus) wrote it; a Sonnet inner pass reviewed the plan for secrets and open weaknesses.', person: 'Not yet checked by a person; review by security@PrompTugal.dinis requested.' });
+  for (const m of models) add(page({ path: `/how/threat-models/${m.slug}/`, title: m.title, description: m.summary, body: `<nav class="crumbs" aria-label="Breadcrumb"><a href="/how/">How it works</a> › Threat models</nav><article class="prose"><h1>${esc(m.title)}</h1>${m.summary ? `<p class="standfirst">${esc(m.summary)}</p>` : ''}${markdown(m.body)}</article>`, md: m.body, made: made(m) }));
+  const body = `<article class="prose"><h1>How it works</h1>
+<p class="standfirst">What runs on its own behind weather.promptugal.news, what each part reads, writes and trusts, and what could go wrong. Published at Dinis Cruz's word (18 November 2026): a threat model for each automation, reviewed by security@PrompTugal.dinis.</p>
+<h2>Threat models</h2><ul>${models.map(m => `<li><a href="/how/threat-models/${m.slug}/">${esc(m.title.replace(/^Threat model: /, ''))}</a>: ${esc(m.summary)}</li>`).join('')}</ul>
+<h2>Also</h2><ul><li><a href="/security/">Security</a>: every finding on this site, its severity, the fix and its state.</li><li><a href="/about/">About</a>: where the data comes from and who made the site.</li><li>The code: <a href="https://github.com/PrompTugal/PrompTugal__News__Weather">PrompTugal/PrompTugal__News__Weather</a>.</li></ul></article>`;
+  const md = `What runs on its own behind weather.promptugal.news, and its threat models.\n\n${models.map(m => `- [${m.title}](/how/threat-models/${m.slug}/): ${m.summary}`).join('\n')}\n\n- [Security](/security/)\n`;
+  add(page({ path: '/how/', title: 'How weather.promptugal.news works', description: 'The automations behind weather.promptugal.news and a threat model for each: what they read, write and trust, and what could go wrong.', body, md }));
+}
+
 // ---------------------------------------------------------------- design variations (scripts/site/design/*.mjs)
 async function designPages() {
   const dir = 'scripts/site/design';
@@ -382,7 +399,7 @@ function about() {
 
 // ---------------------------------------------------------------- run
 front(); mapPage(); placesIndex(); regionPage(); for (const t of D.towns) placePage(t); for (const c of capsLive()) capitalPage(c); accountPage();
-for (const s of D.storms) stormPage(s); stormsIndex(); contentPages(); about();
+for (const s of D.storms) stormPage(s); stormsIndex(); contentPages(); about(); howPages();
 await designPages();
 
 const llms = `# PrompTugal.news Weather

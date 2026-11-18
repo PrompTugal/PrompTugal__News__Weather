@@ -38,15 +38,33 @@ const local = existsSync(join(SIBLING, 'data/by-place/now/faro.json'));
 let commit = 'unknown';
 if (local) { try { commit = execFileSync('git', ['-C', SIBLING, 'rev-parse', 'HEAD'], { encoding: 'utf8' }).trim(); } catch {} }
 const sleep = ms => new Promise(r => setTimeout(r, ms));
+// Fetched data is untrusted (threat model docs/threat-models/data-pull.md): a 20 s timeout, a 5 MB cap per file,
+// no redirect to another host, JSON only, and a shape check per kind; a file that fails keeps the committed copy.
+const MAX_BYTES = 5 * 1024 * 1024;
 async function fetchText(url) {
   for (let i = 0; i < 3; i++) {
-    try { const r = await fetch(url, { headers: UA }); if (r.ok) return await r.text(); } catch {}
+    try {
+      const r = await fetch(url, { headers: UA, redirect: 'follow', signal: AbortSignal.timeout(20000) });
+      if (r.ok && new URL(r.url).host === new URL(url).host) {
+        const declared = Number(r.headers.get('content-length') || 0);
+        if (declared > MAX_BYTES) throw new Error(`${url}: larger than ${MAX_BYTES} bytes`);
+        const buf = Buffer.from(await r.arrayBuffer());
+        if (buf.byteLength > MAX_BYTES) throw new Error(`${url}: larger than ${MAX_BYTES} bytes`);
+        return buf.toString('utf8');
+      }
+    } catch (e) { if (/larger than/.test(e.message)) throw e; }
     await sleep(2000 * (i + 1));
   }
   throw new Error(`could not read ${url}`);
 }
+const SHAPES = [
+  [/^data\/now\//, j => typeof j.place === 'string' && typeof j.read_at === 'string'],
+  [/^data\/api\//, j => typeof j.source === 'string' && typeof j.read_at === 'string'],
+];
 const save = (to, text) => {
-  JSON.parse(text); // refuse anything that is not JSON
+  const j = JSON.parse(text); // refuse anything that is not JSON
+  const shape = SHAPES.find(([re]) => re.test(to));
+  if (!j || typeof j !== 'object' || (shape && (Array.isArray(j) || !shape[1](j)))) throw new Error(`${to}: not the expected shape; the committed copy is kept`);
   mkdirSync(join(to, '..'), { recursive: true });
   writeFileSync(to, text.endsWith('\n') ? text : text + '\n');
 };

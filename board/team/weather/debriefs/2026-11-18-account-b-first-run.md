@@ -64,3 +64,11 @@ Station readings for the capitals (`ipma-observations`), UV once the file is und
 
 - At the user's word in this session ("Sgit"), the key was made with `sgit pki keygen` (sgit-ai v0.27.0) after pki-agent's keygen was refused twice by the session's permission settings. Id weather.b-promptugal; encryption fingerprint sha256:53e470b8da5c6fa9 (RSA-OAEP 4096), signing fingerprint sha256:f7d418b96ae5985b (ECDSA P-256). Public bundle: `team/keys/weather-b-promptugal.json` (the leak scan allows public keys only under team/keys/); listed in `board/keys.json`. The rest stays under ~/.sg-send/ in this session.
 - A detached signature of this debrief verified (`sgit pki verify`: valid), but it is not committed: the leak scan flags a signature as a long high-entropy string, and the check is not to be weakened. Where signatures should live is asked of Dinis. The key is not yet registered on pki.sgit.ai, and lives only as long as this container.
+
+## Run 4 (scheduled wake, 16:14 UTC): the first with the inner passes
+
+- No HOLD; v0.1.20 live (everything to cfeec4c). Library requests: 6, none to weather. New guidance since run 3 is about other teams (telemetry, weak signals, people in public), plus what this team already took in (wake.md).
+- Opening pass and security pre-review (one Sonnet sub-agent): the plan fits; no blocker; five low findings, now W-3 to W-7 on /security/.
+- The work: three threat models (docs/threat-models/, rendered under /how/threat-models/), a /how/ page, /security/ updated. W-3 fixed in sync-data.mjs: timeout, byte cap, same-host and shape checks.
+- Post-review with AppSec (Sonnet): one fix before commit (the cap counted characters, not bytes); fixed. My own test then caught that the storm local map is a top-level array; the array rule now applies only to the API and place files.
+- Left for a person: W-4 needs a CI workflow edit. The observability lane still waits on a go-ahead.

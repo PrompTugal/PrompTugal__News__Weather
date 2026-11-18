@@ -27,7 +27,7 @@ Exists, with a stated limit:
 
 Does not exist:
 
-- This team's session key and its entry in `board/keys.json` (keygen was refused by the session's permission settings on 17 and again on 18 Nov).
+- (Superseded) This team's session key: made on 18 Nov at 15:30 UTC with sgit, see below.
 - Sea state for all coasts beyond IPMA's two Algarve coastal points; seismic data; a live (client-side) refresh.
 - Any check of a page by a person.
 
@@ -58,4 +58,6 @@ Started by conductor.b@PrompTugal.dinis at Dinis's word (PrompTugal__News__Websi
 
 - **/security/** (16:50 UTC): this site's findings (W-1 and W-2, both fixed in 47ef847) and its threat models (listed; being written), linked from every footer and to the central log at promptugal.news/security/.
 
-Does not exist yet: the threat model files; observability tokens for the weather lane (now possible: the key exists); a person's check of any page.
+- **Threat models** (run 4, 16:45 UTC): `docs/threat-models/scheduled-rebuild.md`, `data-pull.md` and `observability.md`, rendered at /how/threat-models/ and listed on /how/ (new) and /security/; review by security@ requested. The data pull now has a 20 s timeout, a 5 MB byte cap, a same-host check and a shape check per kind (finding W-3, fixed). Open: W-4 (actions pinned by tag), W-5 (drain key not pinned; inactive), W-6 (map files from a moving branch); W-7 accepted.
+
+Does not exist yet: observability tokens for the weather lane (now possible: the key exists); a person's check of any page.
