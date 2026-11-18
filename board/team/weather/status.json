@@ -3,7 +3,7 @@
   "account": "B",
   "started_by": "conductor.b@PrompTugal.dinis at Dinis's word (PrompTugal__News__Website board/guidance/2026-11-18-five-sites-on-account-b.md)",
   "state": "between wakes (22:20 UTC, conductor.b@'s relay of Dinis's London guidance): forecast archive and reader reports started; waits for the next wake",
-  "updated": "2026-11-18T23:05Z",
+  "updated": "2026-11-18T22:25Z",
   "debrief": "board/team/weather/debriefs/2026-11-18-account-b-first-run.md",
   "observability_lane": "weather",
   "observability_note": "For conductor.b@ to relay to account A's observability@: assets/obs/obs.js is on every page and writes only to obs.json lanes.weather, which is empty, so nothing is sent yet. observability@ issues the lane's append tokens (in the vault of its choice; the drain key is read from promptugal.news/assets/obs/obs.json unless set in this site's obs.json).",
@@ -37,8 +37,8 @@
     "23:05 UTC (Dinis ~22:20 UTC, Website board/guidance/2026-11-18-london.md, relayed by conductor.b@): forecast archive started, scripts/archive-forecasts.mjs keeps every IPMA city forecast (35 cities, one line per issue) and the readings of the 30 stations the pages use (data/history/*.jsonl, run at each wake, in wake.md); reader reports: a GitHub issue form .github/ISSUE_TEMPLATE/weather-seen.yml (area and time only, never an address; public, CC BY 4.0; not an emergency channel), linked from every place page as 'Say what you saw'. Post-review with AppSec (Sonnet): one medium (no cap on the input arrays) and three low (duplicates within a run, dates unchecked, privacy wording), fixed; display rules for reader reports recorded in the debrief"
   ],
   "next": [
-    "London (Dinis ~22:20 UTC): a 'Beyond Portugal: London' page once data.b@'s UK feeds are on data.promptugal.news (Open-Meteo and the Environment Agency's floods first; none yet at v0.1.50); pages must stop assuming a place is Portuguese (country per place; IPMA, ANEPC and 112 only where they apply; Met Office, Environment Agency and 999 for London)",
-    "forecast-accuracy page, Faro first, then London: compare each archived forecast (data/history/forecasts.jsonl) with the observed daily low and high once several days are kept. The station sample is only the hours this site synced, so ask data.b@ for a public daily low and high per station",
+    "London (Dinis ~22:20 UTC): a 'Beyond Portugal: London' page once data.b@'s UK feeds land: the Environment Agency's floods first (data.b@, 22:22 UTC); no Open-Meteo unless Dinis chooses a plan; the Met Office DataHub waits for Dinis's key. Pages must stop assuming a place is Portuguese (country per place; IPMA, ANEPC and 112 only where they apply)",
+    "forecast-accuracy page, Faro first (station 1200554), then London: compare each archived forecast (data/history/forecasts.jsonl) with data.b@'s daily figures in ipma-observations/latest.json 'daily' (per UTC day and station: low_c, high_c, rain_mm, hours; 14 days kept; a day counts only when hours is 24; told by data.b@ at 22:22 UTC, live after the data site's next Pages run). Note: IPMA's forecast days are Portugal local days, the daily figures UTC days (the same in winter, one hour apart in summer)",
     "reader reports on the accuracy page: only the form's fields, the area matched to a known place, the conditions from the form's list, the time rounded to the hour, escaped text, the free-text box left out until a person reviews it, labelled 'observed by a reader on the ground (unverified)'; dropped when the issue is closed or edited away",
     "scheduled runs: still none at 19:13 UTC (GitHub lists 0). Ask below; pages stay fresh through live.js meanwhile",
     "sites bar: install it when dev@ and designer@ publish it (conductor.b@ will say): vendor its code pinned by version and sha256, render promptugal.news/api/v1/sites.json escaped with only https links to *.promptugal.news, replace the sites rail",
