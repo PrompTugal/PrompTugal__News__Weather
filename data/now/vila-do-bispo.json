@@ -20,7 +20,7 @@
   }
  },
  "place": "vila-do-bispo",
- "read_at": "2026-11-18T19:12:54Z",
+ "read_at": "2026-11-18T21:16:29Z",
  "by": "collect/by-place-now.mjs (code, no model; data@PrompTugal.dinis), from this site's collected sources",
  "about": "Now in this place, from IPMA's open data and (for Faro) adsb.lol, as collected by data.promptugal.news: each value with its source and the time read. Not a warning service: follow IPMA (https://www.ipma.pt/) and ANEPC.",
  "station": {
@@ -28,14 +28,14 @@
   "id": 1200533,
   "km": 8,
   "reading": {
-   "at": "2026-11-18T18:00:00Z",
-   "temp_c": 19.7,
+   "at": "2026-11-18T20:00:00Z",
+   "temp_c": 19.5,
    "humidity_pct": 100,
-   "wind_kmh": 20.9,
+   "wind_kmh": 25.6,
    "wind_dir_id": 6,
    "rain_mm": 0,
-   "pressure_hpa": 1015.7,
-   "radiation_kj_m2": 30.7
+   "pressure_hpa": 1016.4,
+   "radiation_kj_m2": 0
   },
   "page": "https://www.ipma.pt/en/otempo/obs.superficie/",
   "source": "https://api.ipma.pt/open-data/observation/meteorology/stations/observations.json"
@@ -55,29 +55,29 @@
    },
    {
     "date": "2026-11-19",
-    "t_min_c": 11.9,
-    "t_max_c": 19.8,
+    "t_min_c": 11.5,
+    "t_max_c": 19.9,
     "rain_prob_pct": 0,
     "weather_type": 2
    },
    {
     "date": "2026-11-20",
-    "t_min_c": 11.1,
-    "t_max_c": 18.5,
+    "t_min_c": 10.5,
+    "t_max_c": 18.1,
     "rain_prob_pct": 0,
     "weather_type": 2
    },
    {
     "date": "2026-11-21",
-    "t_min_c": 13,
-    "t_max_c": 21.2,
-    "rain_prob_pct": 88,
+    "t_min_c": 13.5,
+    "t_max_c": 20.7,
+    "rain_prob_pct": 98,
     "weather_type": 9
    },
    {
     "date": "2026-11-22",
-    "t_min_c": 10,
-    "t_max_c": 18.6,
+    "t_min_c": 10.5,
+    "t_max_c": 18.2,
     "rain_prob_pct": 0,
     "weather_type": 2
    }
@@ -138,37 +138,37 @@
  "reads": {
   "observations": {
    "url": "https://data.promptugal.news/api/v1/ipma-observations/latest.json",
-   "at": "2026-11-18T19:12:06Z",
+   "at": "2026-11-18T21:15:18Z",
    "status": 200
   },
   "warnings": {
    "url": "https://data.promptugal.news/api/v1/ipma-warnings/latest.json",
-   "at": "2026-11-18T19:12:24Z",
+   "at": "2026-11-18T21:15:35Z",
    "status": 200
   },
   "forecasts": {
    "url": "https://data.promptugal.news/api/v1/ipma-city-forecasts/latest.json",
-   "at": "2026-11-18T19:10:31Z",
+   "at": "2026-11-18T21:13:40Z",
    "status": 200
   },
   "fire-risk": {
    "url": "https://data.promptugal.news/api/v1/ipma-fire-risk/latest.json",
-   "at": "2026-11-18T19:11:59Z",
+   "at": "2026-11-18T21:15:10Z",
    "status": 200
   },
   "uv": {
    "url": "https://data.promptugal.news/api/v1/ipma-uv/latest.json",
-   "at": "2026-11-18T19:12:21Z",
+   "at": "2026-11-18T21:15:33Z",
    "status": 200
   },
   "sea": {
    "url": "https://data.promptugal.news/api/v1/ipma-sea/latest.json",
-   "at": "2026-11-18T19:12:11Z",
+   "at": "2026-11-18T21:15:23Z",
    "status": 200
   },
   "adsb": {
    "url": "https://data.promptugal.news/api/v1/adsb-faro/latest.json",
-   "at": "2026-11-18T19:09:59Z",
+   "at": "2026-11-18T21:12:11Z",
    "status": 200
   }
  }

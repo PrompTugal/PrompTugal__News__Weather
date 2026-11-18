@@ -20,7 +20,7 @@
   }
  },
  "place": "olhao",
- "read_at": "2026-11-18T19:12:54Z",
+ "read_at": "2026-11-18T21:16:29Z",
  "by": "collect/by-place-now.mjs (code, no model; data@PrompTugal.dinis), from this site's collected sources",
  "about": "Now in this place, from IPMA's open data and (for Faro) adsb.lol, as collected by data.promptugal.news: each value with its source and the time read. Not a warning service: follow IPMA (https://www.ipma.pt/) and ANEPC.",
  "station": {
@@ -28,13 +28,13 @@
   "id": 1210881,
   "km": 2,
   "reading": {
-   "at": "2026-11-18T18:00:00Z",
-   "temp_c": 20.5,
-   "humidity_pct": 95,
-   "wind_kmh": 17.3,
+   "at": "2026-11-18T20:00:00Z",
+   "temp_c": 20.3,
+   "humidity_pct": 92,
+   "wind_kmh": 18.7,
    "wind_dir_id": 6,
    "rain_mm": 0,
-   "pressure_hpa": 1015.7,
+   "pressure_hpa": 1016.5,
    "radiation_kj_m2": null
   },
   "page": "https://www.ipma.pt/en/otempo/obs.superficie/",
@@ -55,31 +55,31 @@
    },
    {
     "date": "2026-11-19",
-    "t_min_c": 12.4,
-    "t_max_c": 20.7,
-    "rain_prob_pct": 6,
+    "t_min_c": 12.1,
+    "t_max_c": 20.8,
+    "rain_prob_pct": 0,
     "weather_type": 2
    },
    {
     "date": "2026-11-20",
-    "t_min_c": 10.1,
-    "t_max_c": 18.7,
+    "t_min_c": 9.9,
+    "t_max_c": 18.6,
     "rain_prob_pct": 0,
-    "weather_type": 5
+    "weather_type": 2
    },
    {
     "date": "2026-11-21",
-    "t_min_c": 11.2,
-    "t_max_c": 20.1,
-    "rain_prob_pct": 75,
+    "t_min_c": 11.4,
+    "t_max_c": 19.8,
+    "rain_prob_pct": 88,
     "weather_type": 6
    },
    {
     "date": "2026-11-22",
     "t_min_c": 11,
-    "t_max_c": 19.2,
-    "rain_prob_pct": 2,
-    "weather_type": 5
+    "t_max_c": 19.5,
+    "rain_prob_pct": 0,
+    "weather_type": 2
    }
   ],
   "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1080500.json"
@@ -138,15 +138,15 @@
   "icao": "LPFR",
   "name": "Faro airport",
   "within_nm": 40,
-  "at": "2026-11-18T19:09:59Z",
+  "at": "2026-11-18T21:12:11Z",
   "airline": [
    {
-    "callsign": "EJU42NK",
-    "airline": "EJU",
-    "type": "A320",
-    "alt_ft": 35975,
+    "callsign": "RYR19SK",
+    "airline": "RYR",
+    "type": "B738",
+    "alt_ft": 33000,
     "on_ground": false,
-    "ground_speed_kt": 496.1
+    "ground_speed_kt": 437.1
    }
   ],
   "other_aircraft": 0,
@@ -157,37 +157,37 @@
  "reads": {
   "observations": {
    "url": "https://data.promptugal.news/api/v1/ipma-observations/latest.json",
-   "at": "2026-11-18T19:12:06Z",
+   "at": "2026-11-18T21:15:18Z",
    "status": 200
   },
   "warnings": {
    "url": "https://data.promptugal.news/api/v1/ipma-warnings/latest.json",
-   "at": "2026-11-18T19:12:24Z",
+   "at": "2026-11-18T21:15:35Z",
    "status": 200
   },
   "forecasts": {
    "url": "https://data.promptugal.news/api/v1/ipma-city-forecasts/latest.json",
-   "at": "2026-11-18T19:10:31Z",
+   "at": "2026-11-18T21:13:40Z",
    "status": 200
   },
   "fire-risk": {
    "url": "https://data.promptugal.news/api/v1/ipma-fire-risk/latest.json",
-   "at": "2026-11-18T19:11:59Z",
+   "at": "2026-11-18T21:15:10Z",
    "status": 200
   },
   "uv": {
    "url": "https://data.promptugal.news/api/v1/ipma-uv/latest.json",
-   "at": "2026-11-18T19:12:21Z",
+   "at": "2026-11-18T21:15:33Z",
    "status": 200
   },
   "sea": {
    "url": "https://data.promptugal.news/api/v1/ipma-sea/latest.json",
-   "at": "2026-11-18T19:12:11Z",
+   "at": "2026-11-18T21:15:23Z",
    "status": 200
   },
   "adsb": {
    "url": "https://data.promptugal.news/api/v1/adsb-faro/latest.json",
-   "at": "2026-11-18T19:09:59Z",
+   "at": "2026-11-18T21:12:11Z",
    "status": 200
   }
  }

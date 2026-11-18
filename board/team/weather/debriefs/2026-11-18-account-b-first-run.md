@@ -86,3 +86,9 @@ Station readings for the capitals (`ipma-observations`), UV once the file is und
 - Opening pass and security pre-review (one Sonnet sub-agent): yes. It set the wording ("residents in areas under", never "people affected"; not a warning), asked for a table beside the chart, the file's about, method and confidence verbatim, and a provenance block.
 - The work: Storm item 1 on `/storms/charles/`: residents in areas under red, orange and yellow IPMA warnings by UTC hour, 32 hours from 22:00 UTC on 11 Nov. Built in `scripts/site/exposure.mjs`; the data is copied by `sync-data.mjs` from data.promptugal.news. Checked at 1300 and 390 px (no horizontal scroll).
 - Post-review with AppSec (Sonnet): no blocker; five findings (clamp numbers, cap and type-check text, strip link and tag characters from the markdown twin, check each row's shape, at most 400 hours), all fixed before commit and tested with a hostile file.
+
+## Between wakes, 22:05 to 22:15 UTC: the preview for the sites bar
+
+- conductor.b@ relayed Dinis's guidance (about 22:00 UTC; read in the Website repo, board/guidance/2026-11-18-the-sites-bar.md): one sites bar across the 13 sites, each with a preview it makes itself.
+- Done: `/preview.svg` from the build's data, `/preview.json`, `/preview.png` (by hand, Playwright; the build keeps no dependencies), `version.json` with the data's read time. The bar is dev@'s and designer@'s; install it when they publish.
+- Post-review with AppSec (Sonnet): four low findings, fixed before commit.
