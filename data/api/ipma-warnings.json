@@ -7,19 +7,19 @@
  },
  "source": "ipma-warnings",
  "title": "IPMA weather warnings",
- "read_at": "2026-11-18T21:15:35Z",
+ "read_at": "2026-11-18T22:14:45Z",
  "provenance": {
   "source": "https://api.ipma.pt/open-data/forecast/warnings/warnings_www.json",
   "page": "https://www.ipma.pt/en/otempo/prev-sam/",
-  "read_at": "2026-11-18T21:15:35Z",
+  "read_at": "2026-11-18T22:14:45Z",
   "by": "sources/ipma-warnings/collect.mjs (code, no model; run by data@PrompTugal.dinis)",
   "terms": "IPMA: free to copy and use for personal or public use if the use has no profit-making or offensive purpose; always name IPMA as the source."
  },
  "about": "IPMA's weather warnings, every area: the active ones (yellow, orange, red) in full, and a count of the rest. Times as IPMA gives them (Portugal local time). Not a warning service: follow IPMA and ANEPC.",
  "counts": {
-  "active": 27,
+  "active": 19,
   "by_level": {
-   "yellow": 20,
+   "yellow": 12,
    "orange": 7
   },
   "green": 200,
@@ -79,32 +79,12 @@
   {
    "area": "BRG",
    "area_name": "Braga",
-   "type": "rain",
-   "type_pt": "Precipitação",
-   "level": "yellow",
-   "start": "2026-11-18T17:19:00",
-   "end": "2026-11-18T21:00:00",
-   "text": "Períodos de chuva ou aguaceiros, persistente e por vezes forte."
-  },
-  {
-   "area": "BRG",
-   "area_name": "Braga",
    "type": "rough sea",
    "type_pt": "Agitação Marítima",
    "level": "yellow",
    "start": "2026-11-20T00:00:00",
    "end": "2026-11-20T12:00:00",
    "text": "Ondas de noroeste com 4 a 5 metros."
-  },
-  {
-   "area": "CBO",
-   "area_name": "Castelo Branco",
-   "type": "rain",
-   "type_pt": "Precipitação",
-   "level": "yellow",
-   "start": "2026-11-18T17:19:00",
-   "end": "2026-11-18T21:00:00",
-   "text": "Períodos de chuva persistente, e por vezes forte."
   },
   {
    "area": "CBR",
@@ -119,32 +99,12 @@
   {
    "area": "CBR",
    "area_name": "Coimbra",
-   "type": "rain",
-   "type_pt": "Precipitação",
-   "level": "yellow",
-   "start": "2026-11-18T17:19:00",
-   "end": "2026-11-18T21:00:00",
-   "text": "Períodos de chuva persistente, e por vezes forte."
-  },
-  {
-   "area": "CBR",
-   "area_name": "Coimbra",
    "type": "rough sea",
    "type_pt": "Agitação Marítima",
    "level": "yellow",
    "start": "2026-11-20T00:00:00",
    "end": "2026-11-20T12:00:00",
    "text": "Ondas de noroeste com 4 a 5 metros."
-  },
-  {
-   "area": "EVR",
-   "area_name": "Évora",
-   "type": "rain",
-   "type_pt": "Precipitação",
-   "level": "yellow",
-   "start": "2026-11-18T17:19:00",
-   "end": "2026-11-18T21:00:00",
-   "text": "Períodos de chuva, por vezes fortes."
   },
   {
    "area": "FAR",
@@ -207,16 +167,6 @@
    "text": "Ondas de noroeste com 4 a 5 metros."
   },
   {
-   "area": "PTG",
-   "area_name": "Portalegre",
-   "type": "rain",
-   "type_pt": "Precipitação",
-   "level": "yellow",
-   "start": "2026-11-18T17:19:00",
-   "end": "2026-11-18T21:00:00",
-   "text": "Períodos de chuva, por vezes fortes."
-  },
-  {
    "area": "PTO",
    "area_name": "Porto",
    "type": "rough sea",
@@ -247,26 +197,6 @@
    "text": "Ondas de noroeste com 4 a 5 metros."
   },
   {
-   "area": "STB",
-   "area_name": "Setúbal",
-   "type": "rain",
-   "type_pt": "Precipitação",
-   "level": "yellow",
-   "start": "2026-11-18T17:19:00",
-   "end": "2026-11-18T21:00:00",
-   "text": "Períodos de chuva, por vezes fortes."
-  },
-  {
-   "area": "STM",
-   "area_name": "Santarém",
-   "type": "rain",
-   "type_pt": "Precipitação",
-   "level": "yellow",
-   "start": "2026-11-18T17:19:00",
-   "end": "2026-11-18T21:00:00",
-   "text": "Períodos de chuva persistente, e por vezes forte."
-  },
-  {
    "area": "VCT",
    "area_name": "Viana do Castelo",
    "type": "rough sea",
@@ -275,16 +205,6 @@
    "start": "2026-11-18T17:19:00",
    "end": "2026-11-20T00:00:00",
    "text": "Ondas de noroeste com 5 a 6 metros, com altura máxima até 10 metros."
-  },
-  {
-   "area": "VCT",
-   "area_name": "Viana do Castelo",
-   "type": "rain",
-   "type_pt": "Precipitação",
-   "level": "yellow",
-   "start": "2026-11-18T17:19:00",
-   "end": "2026-11-18T21:00:00",
-   "text": "Períodos de chuva ou aguaceiros, persistente e por vezes forte."
   },
   {
    "area": "VCT",

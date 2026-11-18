@@ -1,0 +1,1249 @@
+{
+ "license": {
+  "name": "CC BY 4.0",
+  "url": "https://creativecommons.org/licenses/by/4.0/",
+  "holder": "PrompTugal.news",
+  "note": "What PrompTugal.news makes: this file's structure, records and derived values."
+ },
+ "source": "cams",
+ "title": "Public live cameras: where they are and whether they are up",
+ "read_at": "2026-11-18T22:11:28Z",
+ "provenance": {
+  "source": "https://github.com/PrompTugal/PrompTugal__News__Data/blob/dev/register/cams.json",
+  "page": "https://data.promptugal.news/sources/cams/",
+  "read_at": "2026-11-18T22:11:28Z",
+  "by": "sources/cams/collect.mjs (code, no model; run by data.b@PrompTugal.dinis)",
+  "terms": "Official cameras of public bodies and operators' own pages only, by link; each camera's terms are recorded in register/cams.json (terms_page, terms_summary, licence_link). We ask for the operator's page only, once an hour, and keep only whether it answered and whether it still carries a player: never a frame, snapshot or stream, no face or plate recognition, no recording. Never an unsecured private camera. Take-down on request. Rules confirmed by Dinis Cruz on 18 November 2026, about 19:00 UTC (official cameras only; the operator's own embed or a link; never record; MEO BeachCam through its official embeds; Windy's webcams API under its terms, attributed). Not reviewed by a person.",
+  "register": "register/cams.json"
+ },
+ "about": "Public live cameras in the places we cover, from official operators only, each with its operator, place, coordinates, terms and licence link, and whether its operator's page is up. Status comes from the operator's page only; no frame, picture or stream is fetched, kept or analysed. Watch each camera on its operator's page.",
+ "counts": {
+  "cameras": 22,
+  "up": 3,
+  "down": 0,
+  "not_checked": 19,
+  "places": 11,
+  "pages_asked": 2
+ },
+ "rules": [
+  "Official cameras only; the operator's own embed (an iframe from the operator's host) or a link; never record (Dinis, 18 Nov 2026, about 19:00 UTC)",
+  "MEO BeachCam included through its official camera pages; embed_allowed is true only where MEO's terms or official offer allow it",
+  "Windy webcams API allowed under its terms, attributed; no key held, API not called",
+  "Never fetch, store or describe a stream, frame or snapshot",
+  "Refusals (403, bot check) recorded as gaps, not worked around; beachcam.meo.pt was not fetched again",
+  "No private cameras or directories; private business only with its own public page, flagged"
+ ],
+ "by_place": {
+  "lisboa": [
+   "lisboa-tejo-live-cacilhas",
+   "lisboa-tejo-live-vts"
+  ],
+  "portimao": [
+   "portimao-praia-da-rocha-ondas",
+   "portimao-praia-da-rocha-meo",
+   "portimao-praia-do-vau",
+   "portimao-alvor",
+   "portimao-alvor-nascente",
+   "portimao-praia-do-alemao"
+  ],
+  "faro": [
+   "faro-praia-de-faro-oeste",
+   "faro-ilha-do-farol",
+   "faro-praia-de-faro-este"
+  ],
+  "castro-marim": [
+   "castro-marim-praia-verde",
+   "castro-marim-praia-da-alagoa"
+  ],
+  "lagoa": [
+   "lagoa-carvoeiro"
+  ],
+  "silves": [
+   "silves-armacao-de-pera"
+  ],
+  "albufeira": [
+   "albufeira-praia-da-gale",
+   "albufeira-praia-do-peneco"
+  ],
+  "loule": [
+   "loule-vilamoura"
+  ],
+  "lagos": [
+   "lagos-meia-praia"
+  ],
+  "aljezur": [
+   "aljezur-monte-clerigo"
+  ],
+  "vila-do-bispo": [
+   "vila-do-bispo-sagres",
+   "vila-do-bispo-cordoama"
+  ]
+ },
+ "cameras": [
+  {
+   "id": "lisboa-tejo-live-cacilhas",
+   "name": "Tejo Live, Câmara Cacilhas",
+   "place": "lisboa",
+   "municipality": "Almada (view covers Lisboa)",
+   "lat": 38.687,
+   "lon": -9.15,
+   "coords_from": "approximate from the named place",
+   "operator": "APL Administração do Porto de Lisboa (Tejo Live)",
+   "operator_kind": "port",
+   "page": "https://www.portodelisboa.pt/tejo-live",
+   "embed": null,
+   "embed_allowed": false,
+   "embed_basis": null,
+   "check_note": null,
+   "terms_page": "https://www.portodelisboa.pt/politica-de-privacidade",
+   "terms_summary": "Page footer: '© APL Administração do Porto de Lisboa'. No linking or embedding terms found on the page. Page says the feed is about 30 seconds behind and that no image or sound is recorded or stored.",
+   "license": {
+    "name": "the operator's terms",
+    "url": "https://www.portodelisboa.pt/politica-de-privacidade",
+    "holder": "APL Administração do Porto de Lisboa (Tejo Live)"
+   },
+   "state": "up",
+   "http": 200,
+   "checked_at": "2026-11-18T22:11:28Z",
+   "since": "2026-11-18T18:55:16Z",
+   "checks": 10,
+   "up_checks": 10,
+   "history": [
+    {
+     "at": "2026-11-18T18:55:16Z",
+     "state": "up",
+     "http": 200
+    }
+   ],
+   "provenance": {
+    "listed_from": "https://www.portodelisboa.pt/tejo-live",
+    "listed_by": "data.b.collector@PrompTugal.dinis (Sonnet), for data.b@PrompTugal.dinis",
+    "listed_at": "2026-11-18T00:00:00Z",
+    "register": "https://github.com/PrompTugal/PrompTugal__News__Data/blob/dev/register/cams.json",
+    "status_how": "one GET of the operator page (HTML only; bytes dropped; no frame or stream)",
+    "status_at": "2026-11-18T22:11:28Z",
+    "status_by": "sources/cams/collect.mjs (code, no model; run by data.b@PrompTugal.dinis)",
+    "licence": "https://www.portodelisboa.pt/politica-de-privacidade",
+    "terms_checked": "2026-11-18T00:00:00Z"
+   }
+  },
+  {
+   "id": "lisboa-tejo-live-vts",
+   "name": "Tejo Live, Câmara VTS",
+   "place": "lisboa",
+   "municipality": "Oeiras (view covers Lisboa)",
+   "lat": 38.7,
+   "lon": -9.23,
+   "coords_from": "approximate from the named place",
+   "operator": "APL Administração do Porto de Lisboa (Tejo Live)",
+   "operator_kind": "port",
+   "page": "https://www.portodelisboa.pt/tejo-live",
+   "embed": null,
+   "embed_allowed": false,
+   "embed_basis": null,
+   "check_note": null,
+   "terms_page": "https://www.portodelisboa.pt/politica-de-privacidade",
+   "terms_summary": "Page footer: '© APL Administração do Porto de Lisboa'. No linking or embedding terms found on the page. Page says the feed is about 30 seconds behind and that no image or sound is recorded or stored.",
+   "license": {
+    "name": "the operator's terms",
+    "url": "https://www.portodelisboa.pt/politica-de-privacidade",
+    "holder": "APL Administração do Porto de Lisboa (Tejo Live)"
+   },
+   "state": "up",
+   "http": 200,
+   "checked_at": "2026-11-18T22:11:28Z",
+   "since": "2026-11-18T18:55:16Z",
+   "checks": 10,
+   "up_checks": 10,
+   "history": [
+    {
+     "at": "2026-11-18T18:55:16Z",
+     "state": "up",
+     "http": 200
+    }
+   ],
+   "provenance": {
+    "listed_from": "https://www.portodelisboa.pt/tejo-live",
+    "listed_by": "data.b.collector@PrompTugal.dinis (Sonnet), for data.b@PrompTugal.dinis",
+    "listed_at": "2026-11-18T00:00:00Z",
+    "register": "https://github.com/PrompTugal/PrompTugal__News__Data/blob/dev/register/cams.json",
+    "status_how": "one GET of the operator page (HTML only; bytes dropped; no frame or stream)",
+    "status_at": "2026-11-18T22:11:28Z",
+    "status_by": "sources/cams/collect.mjs (code, no model; run by data.b@PrompTugal.dinis)",
+    "licence": "https://www.portodelisboa.pt/politica-de-privacidade",
+    "terms_checked": "2026-11-18T00:00:00Z"
+   }
+  },
+  {
+   "id": "portimao-praia-da-rocha-ondas",
+   "name": "Ondas em Direto, Praia da Rocha",
+   "place": "portimao",
+   "municipality": "Portimão",
+   "lat": 37.119,
+   "lon": -8.536,
+   "coords_from": "approximate from the named place",
+   "operator": "Agrupamento de Escolas Manuel Teixeira Gomes (AEMTG), with the support of Câmara Municipal de Portimão",
+   "operator_kind": "public agency",
+   "page": "https://meteorologia.aemtg.pt/video",
+   "embed": null,
+   "embed_allowed": false,
+   "embed_basis": null,
+   "check_note": null,
+   "terms_page": null,
+   "terms_summary": "No terms, licence or embedding information found on the page.",
+   "license": {
+    "name": "the operator's terms",
+    "url": "https://meteorologia.aemtg.pt/video",
+    "holder": "Agrupamento de Escolas Manuel Teixeira Gomes (AEMTG), with the support of Câmara Municipal de Portimão"
+   },
+   "state": "up",
+   "http": 200,
+   "checked_at": "2026-11-18T22:11:28Z",
+   "since": "2026-11-18T18:55:16Z",
+   "checks": 10,
+   "up_checks": 10,
+   "history": [
+    {
+     "at": "2026-11-18T18:55:16Z",
+     "state": "up",
+     "http": 200
+    }
+   ],
+   "provenance": {
+    "listed_from": "https://meteorologia.aemtg.pt/video",
+    "listed_by": "data.b.collector@PrompTugal.dinis (Sonnet), for data.b@PrompTugal.dinis",
+    "listed_at": "2026-11-18T00:00:00Z",
+    "register": "https://github.com/PrompTugal/PrompTugal__News__Data/blob/dev/register/cams.json",
+    "status_how": "one GET of the operator page (HTML only; bytes dropped; no frame or stream)",
+    "status_at": "2026-11-18T22:11:28Z",
+    "status_by": "sources/cams/collect.mjs (code, no model; run by data.b@PrompTugal.dinis)",
+    "licence": "https://meteorologia.aemtg.pt/video",
+    "terms_checked": null
+   }
+  },
+  {
+   "id": "faro-praia-de-faro-oeste",
+   "name": "MEO BeachCam, Praia de Faro Oeste",
+   "place": "faro",
+   "municipality": "Faro",
+   "lat": 37,
+   "lon": -7.99,
+   "coords_from": "approximate from the named beach",
+   "operator": "MEO (Altice Portugal), BeachCam",
+   "operator_kind": "private business, own public page",
+   "page": "https://beachcam.meo.pt/livecams/faro-oeste/",
+   "embed": null,
+   "embed_allowed": false,
+   "embed_basis": "Not read in full (host answered 403 earlier and was not retried). Seen only as a search snippet of the terms page: 'Este conteúdo advém Beachcam e é protegido por direitos de autor ao abrigo das leis portuguesas e da União Europeia, não podendo ser utilizado fora das condições admitidas no uso deste site, sem consentimento do Beachcam.' Seen as a search snippet of livecam pages: 'A reprodução, redistribuição ou retransmissão depende de autorização prévia dos respetivos titulares, salvo nos casos legalmente permitidos.' No embed offer found in any snippet.",
+   "check_note": "Not checked by machine: beachcam.meo.pt refused our fetches (403) on 18 November 2026, and a refusal is respected, not retried. Listed by link only; status unknown until MEO allows it or Dinis decides.",
+   "terms_page": "https://beachcam.meo.pt/termos-e-condicoes/",
+   "terms_summary": "Terms page found by search but not read (403 host). Snippets say site content including livecam streams is protected by copyright and may not be used outside the site's permitted conditions without Beachcam's consent. Viewing is free; some cams and features need a paid Beachcam+ subscription. The privacy policy snippet names Wavenation, Conteúdos e Media Lda. as the site operator.",
+   "license": {
+    "name": "the operator's terms",
+    "url": "https://beachcam.meo.pt/termos-e-condicoes/",
+    "holder": "MEO (Altice Portugal), BeachCam"
+   },
+   "state": "not checked",
+   "http": null,
+   "checked_at": "2026-11-18T22:11:28Z",
+   "since": "2026-11-18T19:10:02Z",
+   "checks": 7,
+   "up_checks": 7,
+   "history": [
+    {
+     "at": "2026-11-18T19:10:02Z",
+     "state": "not checked",
+     "http": null
+    }
+   ],
+   "provenance": {
+    "listed_from": "https://beachcam.meo.pt/livecams/faro-oeste/",
+    "listed_by": "data.b.collector@PrompTugal.dinis (Sonnet), for data.b@PrompTugal.dinis",
+    "listed_at": "2026-11-18T19:05:27Z",
+    "register": "https://github.com/PrompTugal/PrompTugal__News__Data/blob/dev/register/cams.json",
+    "status_how": "not checked: the host refused our fetches",
+    "status_at": "2026-11-18T22:11:28Z",
+    "status_by": "sources/cams/collect.mjs (code, no model; run by data.b@PrompTugal.dinis)",
+    "licence": "https://beachcam.meo.pt/termos-e-condicoes/",
+    "terms_checked": "2026-11-18T19:05:27Z"
+   }
+  },
+  {
+   "id": "faro-ilha-do-farol",
+   "name": "MEO BeachCam, Ilha do Farol",
+   "place": "faro",
+   "municipality": "Faro (Ilha do Farol, Culatra)",
+   "lat": 36.97,
+   "lon": -7.89,
+   "coords_from": "approximate from the named beach",
+   "operator": "MEO (Altice Portugal), BeachCam",
+   "operator_kind": "private business, own public page",
+   "page": "https://beachcam.meo.pt/livecams/ilha-do-farol/",
+   "embed": null,
+   "embed_allowed": false,
+   "embed_basis": "Not read in full (host answered 403 earlier and was not retried). Seen only as a search snippet of the terms page: 'Este conteúdo advém Beachcam e é protegido por direitos de autor ao abrigo das leis portuguesas e da União Europeia, não podendo ser utilizado fora das condições admitidas no uso deste site, sem consentimento do Beachcam.' Seen as a search snippet of livecam pages: 'A reprodução, redistribuição ou retransmissão depende de autorização prévia dos respetivos titulares, salvo nos casos legalmente permitidos.' No embed offer found in any snippet.",
+   "check_note": "Not checked by machine: beachcam.meo.pt refused our fetches (403) on 18 November 2026, and a refusal is respected, not retried. Listed by link only; status unknown until MEO allows it or Dinis decides.",
+   "terms_page": "https://beachcam.meo.pt/termos-e-condicoes/",
+   "terms_summary": "Terms page found by search but not read (403 host). Snippets say site content including livecam streams is protected by copyright and may not be used outside the site's permitted conditions without Beachcam's consent. Viewing is free; some cams and features need a paid Beachcam+ subscription. The privacy policy snippet names Wavenation, Conteúdos e Media Lda. as the site operator.",
+   "license": {
+    "name": "the operator's terms",
+    "url": "https://beachcam.meo.pt/termos-e-condicoes/",
+    "holder": "MEO (Altice Portugal), BeachCam"
+   },
+   "state": "not checked",
+   "http": null,
+   "checked_at": "2026-11-18T22:11:28Z",
+   "since": "2026-11-18T19:10:02Z",
+   "checks": 7,
+   "up_checks": 7,
+   "history": [
+    {
+     "at": "2026-11-18T19:10:02Z",
+     "state": "not checked",
+     "http": null
+    }
+   ],
+   "provenance": {
+    "listed_from": "https://beachcam.meo.pt/livecams/ilha-do-farol/",
+    "listed_by": "data.b.collector@PrompTugal.dinis (Sonnet), for data.b@PrompTugal.dinis",
+    "listed_at": "2026-11-18T19:05:27Z",
+    "register": "https://github.com/PrompTugal/PrompTugal__News__Data/blob/dev/register/cams.json",
+    "status_how": "not checked: the host refused our fetches",
+    "status_at": "2026-11-18T22:11:28Z",
+    "status_by": "sources/cams/collect.mjs (code, no model; run by data.b@PrompTugal.dinis)",
+    "licence": "https://beachcam.meo.pt/termos-e-condicoes/",
+    "terms_checked": "2026-11-18T19:05:27Z"
+   }
+  },
+  {
+   "id": "faro-praia-de-faro-este",
+   "name": "MEO BeachCam, Praia de Faro Este",
+   "place": "faro",
+   "municipality": "Faro",
+   "lat": 37,
+   "lon": -7.97,
+   "coords_from": "approximate from the named beach",
+   "operator": "MEO (Altice Portugal), BeachCam",
+   "operator_kind": "private business, own public page",
+   "page": "https://beachcam.meo.pt/livecams/faro/",
+   "embed": null,
+   "embed_allowed": false,
+   "embed_basis": "Not read in full (host answered 403 earlier and was not retried). Seen only as a search snippet of the terms page: 'Este conteúdo advém Beachcam e é protegido por direitos de autor ao abrigo das leis portuguesas e da União Europeia, não podendo ser utilizado fora das condições admitidas no uso deste site, sem consentimento do Beachcam.' Seen as a search snippet of livecam pages: 'A reprodução, redistribuição ou retransmissão depende de autorização prévia dos respetivos titulares, salvo nos casos legalmente permitidos.' No embed offer found in any snippet.",
+   "check_note": "Not checked by machine: beachcam.meo.pt refused our fetches (403) on 18 November 2026, and a refusal is respected, not retried. Listed by link only; status unknown until MEO allows it or Dinis decides.",
+   "terms_page": "https://beachcam.meo.pt/termos-e-condicoes/",
+   "terms_summary": "Terms page found by search but not read (403 host). Snippets say site content including livecam streams is protected by copyright and may not be used outside the site's permitted conditions without Beachcam's consent. Viewing is free; some cams and features need a paid Beachcam+ subscription. The privacy policy snippet names Wavenation, Conteúdos e Media Lda. as the site operator.",
+   "license": {
+    "name": "the operator's terms",
+    "url": "https://beachcam.meo.pt/termos-e-condicoes/",
+    "holder": "MEO (Altice Portugal), BeachCam"
+   },
+   "state": "not checked",
+   "http": null,
+   "checked_at": "2026-11-18T22:11:28Z",
+   "since": "2026-11-18T19:10:02Z",
+   "checks": 7,
+   "up_checks": 7,
+   "history": [
+    {
+     "at": "2026-11-18T19:10:02Z",
+     "state": "not checked",
+     "http": null
+    }
+   ],
+   "provenance": {
+    "listed_from": "https://beachcam.meo.pt/livecams/faro/",
+    "listed_by": "data.b.collector@PrompTugal.dinis (Sonnet), for data.b@PrompTugal.dinis",
+    "listed_at": "2026-11-18T19:05:27Z",
+    "register": "https://github.com/PrompTugal/PrompTugal__News__Data/blob/dev/register/cams.json",
+    "status_how": "not checked: the host refused our fetches",
+    "status_at": "2026-11-18T22:11:28Z",
+    "status_by": "sources/cams/collect.mjs (code, no model; run by data.b@PrompTugal.dinis)",
+    "licence": "https://beachcam.meo.pt/termos-e-condicoes/",
+    "terms_checked": "2026-11-18T19:05:27Z"
+   }
+  },
+  {
+   "id": "castro-marim-praia-verde",
+   "name": "MEO BeachCam, Praia Verde",
+   "place": "castro-marim",
+   "municipality": "Castro Marim",
+   "lat": 37.18,
+   "lon": -7.45,
+   "coords_from": "approximate from the named beach",
+   "operator": "MEO (Altice Portugal), BeachCam",
+   "operator_kind": "private business, own public page",
+   "page": "https://beachcam.meo.pt/livecams/praia-verde/",
+   "embed": null,
+   "embed_allowed": false,
+   "embed_basis": "Not read in full (host answered 403 earlier and was not retried). Seen only as a search snippet of the terms page: 'Este conteúdo advém Beachcam e é protegido por direitos de autor ao abrigo das leis portuguesas e da União Europeia, não podendo ser utilizado fora das condições admitidas no uso deste site, sem consentimento do Beachcam.' Seen as a search snippet of livecam pages: 'A reprodução, redistribuição ou retransmissão depende de autorização prévia dos respetivos titulares, salvo nos casos legalmente permitidos.' No embed offer found in any snippet.",
+   "check_note": "Not checked by machine: beachcam.meo.pt refused our fetches (403) on 18 November 2026, and a refusal is respected, not retried. Listed by link only; status unknown until MEO allows it or Dinis decides.",
+   "terms_page": "https://beachcam.meo.pt/termos-e-condicoes/",
+   "terms_summary": "Terms page found by search but not read (403 host). Snippets say site content including livecam streams is protected by copyright and may not be used outside the site's permitted conditions without Beachcam's consent. Viewing is free; some cams and features need a paid Beachcam+ subscription. The privacy policy snippet names Wavenation, Conteúdos e Media Lda. as the site operator.",
+   "license": {
+    "name": "the operator's terms",
+    "url": "https://beachcam.meo.pt/termos-e-condicoes/",
+    "holder": "MEO (Altice Portugal), BeachCam"
+   },
+   "state": "not checked",
+   "http": null,
+   "checked_at": "2026-11-18T22:11:28Z",
+   "since": "2026-11-18T19:10:02Z",
+   "checks": 7,
+   "up_checks": 7,
+   "history": [
+    {
+     "at": "2026-11-18T19:10:02Z",
+     "state": "not checked",
+     "http": null
+    }
+   ],
+   "provenance": {
+    "listed_from": "https://beachcam.meo.pt/livecams/praia-verde/",
+    "listed_by": "data.b.collector@PrompTugal.dinis (Sonnet), for data.b@PrompTugal.dinis",
+    "listed_at": "2026-11-18T19:05:27Z",
+    "register": "https://github.com/PrompTugal/PrompTugal__News__Data/blob/dev/register/cams.json",
+    "status_how": "not checked: the host refused our fetches",
+    "status_at": "2026-11-18T22:11:28Z",
+    "status_by": "sources/cams/collect.mjs (code, no model; run by data.b@PrompTugal.dinis)",
+    "licence": "https://beachcam.meo.pt/termos-e-condicoes/",
+    "terms_checked": "2026-11-18T19:05:27Z"
+   }
+  },
+  {
+   "id": "castro-marim-praia-da-alagoa",
+   "name": "MEO BeachCam, Praia da Alagoa",
+   "place": "castro-marim",
+   "municipality": "Castro Marim",
+   "lat": 37.19,
+   "lon": -7.4,
+   "coords_from": "approximate from the named beach",
+   "operator": "MEO (Altice Portugal), BeachCam",
+   "operator_kind": "private business, own public page",
+   "page": "https://beachcam.meo.pt/livecams/praia-da-alagoa/",
+   "embed": null,
+   "embed_allowed": false,
+   "embed_basis": "Not read in full (host answered 403 earlier and was not retried). Seen only as a search snippet of the terms page: 'Este conteúdo advém Beachcam e é protegido por direitos de autor ao abrigo das leis portuguesas e da União Europeia, não podendo ser utilizado fora das condições admitidas no uso deste site, sem consentimento do Beachcam.' Seen as a search snippet of livecam pages: 'A reprodução, redistribuição ou retransmissão depende de autorização prévia dos respetivos titulares, salvo nos casos legalmente permitidos.' No embed offer found in any snippet.",
+   "check_note": "Not checked by machine: beachcam.meo.pt refused our fetches (403) on 18 November 2026, and a refusal is respected, not retried. Listed by link only; status unknown until MEO allows it or Dinis decides.",
+   "terms_page": "https://beachcam.meo.pt/termos-e-condicoes/",
+   "terms_summary": "Terms page found by search but not read (403 host). Snippets say site content including livecam streams is protected by copyright and may not be used outside the site's permitted conditions without Beachcam's consent. Viewing is free; some cams and features need a paid Beachcam+ subscription. The privacy policy snippet names Wavenation, Conteúdos e Media Lda. as the site operator.",
+   "license": {
+    "name": "the operator's terms",
+    "url": "https://beachcam.meo.pt/termos-e-condicoes/",
+    "holder": "MEO (Altice Portugal), BeachCam"
+   },
+   "state": "not checked",
+   "http": null,
+   "checked_at": "2026-11-18T22:11:28Z",
+   "since": "2026-11-18T19:10:02Z",
+   "checks": 7,
+   "up_checks": 7,
+   "history": [
+    {
+     "at": "2026-11-18T19:10:02Z",
+     "state": "not checked",
+     "http": null
+    }
+   ],
+   "provenance": {
+    "listed_from": "https://beachcam.meo.pt/livecams/praia-da-alagoa/",
+    "listed_by": "data.b.collector@PrompTugal.dinis (Sonnet), for data.b@PrompTugal.dinis",
+    "listed_at": "2026-11-18T19:05:27Z",
+    "register": "https://github.com/PrompTugal/PrompTugal__News__Data/blob/dev/register/cams.json",
+    "status_how": "not checked: the host refused our fetches",
+    "status_at": "2026-11-18T22:11:28Z",
+    "status_by": "sources/cams/collect.mjs (code, no model; run by data.b@PrompTugal.dinis)",
+    "licence": "https://beachcam.meo.pt/termos-e-condicoes/",
+    "terms_checked": "2026-11-18T19:05:27Z"
+   }
+  },
+  {
+   "id": "portimao-praia-da-rocha-meo",
+   "name": "MEO BeachCam, Praia da Rocha Panorâmica",
+   "place": "portimao",
+   "municipality": "Portimão",
+   "lat": 37.119,
+   "lon": -8.536,
+   "coords_from": "approximate from the named beach",
+   "operator": "MEO (Altice Portugal), BeachCam",
+   "operator_kind": "private business, own public page",
+   "page": "https://beachcam.meo.pt/livecams/praia-da-rocha/",
+   "embed": null,
+   "embed_allowed": false,
+   "embed_basis": "Not read in full (host answered 403 earlier and was not retried). Seen only as a search snippet of the terms page: 'Este conteúdo advém Beachcam e é protegido por direitos de autor ao abrigo das leis portuguesas e da União Europeia, não podendo ser utilizado fora das condições admitidas no uso deste site, sem consentimento do Beachcam.' Seen as a search snippet of livecam pages: 'A reprodução, redistribuição ou retransmissão depende de autorização prévia dos respetivos titulares, salvo nos casos legalmente permitidos.' No embed offer found in any snippet.",
+   "check_note": "Not checked by machine: beachcam.meo.pt refused our fetches (403) on 18 November 2026, and a refusal is respected, not retried. Listed by link only; status unknown until MEO allows it or Dinis decides.",
+   "terms_page": "https://beachcam.meo.pt/termos-e-condicoes/",
+   "terms_summary": "Terms page found by search but not read (403 host). Snippets say site content including livecam streams is protected by copyright and may not be used outside the site's permitted conditions without Beachcam's consent. Viewing is free; some cams and features need a paid Beachcam+ subscription. The privacy policy snippet names Wavenation, Conteúdos e Media Lda. as the site operator.",
+   "license": {
+    "name": "the operator's terms",
+    "url": "https://beachcam.meo.pt/termos-e-condicoes/",
+    "holder": "MEO (Altice Portugal), BeachCam"
+   },
+   "state": "not checked",
+   "http": null,
+   "checked_at": "2026-11-18T22:11:28Z",
+   "since": "2026-11-18T19:10:02Z",
+   "checks": 7,
+   "up_checks": 7,
+   "history": [
+    {
+     "at": "2026-11-18T19:10:02Z",
+     "state": "not checked",
+     "http": null
+    }
+   ],
+   "provenance": {
+    "listed_from": "https://beachcam.meo.pt/livecams/praia-da-rocha/",
+    "listed_by": "data.b.collector@PrompTugal.dinis (Sonnet), for data.b@PrompTugal.dinis",
+    "listed_at": "2026-11-18T19:05:27Z",
+    "register": "https://github.com/PrompTugal/PrompTugal__News__Data/blob/dev/register/cams.json",
+    "status_how": "not checked: the host refused our fetches",
+    "status_at": "2026-11-18T22:11:28Z",
+    "status_by": "sources/cams/collect.mjs (code, no model; run by data.b@PrompTugal.dinis)",
+    "licence": "https://beachcam.meo.pt/termos-e-condicoes/",
+    "terms_checked": "2026-11-18T19:05:27Z"
+   }
+  },
+  {
+   "id": "portimao-praia-do-vau",
+   "name": "MEO BeachCam, Praia do Vau",
+   "place": "portimao",
+   "municipality": "Portimão",
+   "lat": 37.12,
+   "lon": -8.55,
+   "coords_from": "approximate from the named beach",
+   "operator": "MEO (Altice Portugal), BeachCam",
+   "operator_kind": "private business, own public page",
+   "page": "https://beachcam.meo.pt/livecams/praia-do-vau/",
+   "embed": null,
+   "embed_allowed": false,
+   "embed_basis": "Not read in full (host answered 403 earlier and was not retried). Seen only as a search snippet of the terms page: 'Este conteúdo advém Beachcam e é protegido por direitos de autor ao abrigo das leis portuguesas e da União Europeia, não podendo ser utilizado fora das condições admitidas no uso deste site, sem consentimento do Beachcam.' Seen as a search snippet of livecam pages: 'A reprodução, redistribuição ou retransmissão depende de autorização prévia dos respetivos titulares, salvo nos casos legalmente permitidos.' No embed offer found in any snippet.",
+   "check_note": "Not checked by machine: beachcam.meo.pt refused our fetches (403) on 18 November 2026, and a refusal is respected, not retried. Listed by link only; status unknown until MEO allows it or Dinis decides.",
+   "terms_page": "https://beachcam.meo.pt/termos-e-condicoes/",
+   "terms_summary": "Terms page found by search but not read (403 host). Snippets say site content including livecam streams is protected by copyright and may not be used outside the site's permitted conditions without Beachcam's consent. Viewing is free; some cams and features need a paid Beachcam+ subscription. The privacy policy snippet names Wavenation, Conteúdos e Media Lda. as the site operator.",
+   "license": {
+    "name": "the operator's terms",
+    "url": "https://beachcam.meo.pt/termos-e-condicoes/",
+    "holder": "MEO (Altice Portugal), BeachCam"
+   },
+   "state": "not checked",
+   "http": null,
+   "checked_at": "2026-11-18T22:11:28Z",
+   "since": "2026-11-18T19:10:02Z",
+   "checks": 7,
+   "up_checks": 7,
+   "history": [
+    {
+     "at": "2026-11-18T19:10:02Z",
+     "state": "not checked",
+     "http": null
+    }
+   ],
+   "provenance": {
+    "listed_from": "https://beachcam.meo.pt/livecams/praia-do-vau/",
+    "listed_by": "data.b.collector@PrompTugal.dinis (Sonnet), for data.b@PrompTugal.dinis",
+    "listed_at": "2026-11-18T19:05:27Z",
+    "register": "https://github.com/PrompTugal/PrompTugal__News__Data/blob/dev/register/cams.json",
+    "status_how": "not checked: the host refused our fetches",
+    "status_at": "2026-11-18T22:11:28Z",
+    "status_by": "sources/cams/collect.mjs (code, no model; run by data.b@PrompTugal.dinis)",
+    "licence": "https://beachcam.meo.pt/termos-e-condicoes/",
+    "terms_checked": "2026-11-18T19:05:27Z"
+   }
+  },
+  {
+   "id": "portimao-alvor",
+   "name": "MEO BeachCam, Alvor",
+   "place": "portimao",
+   "municipality": "Portimão (Alvor)",
+   "lat": 37.12,
+   "lon": -8.59,
+   "coords_from": "approximate from the named beach",
+   "operator": "MEO (Altice Portugal), BeachCam",
+   "operator_kind": "private business, own public page",
+   "page": "https://beachcam.meo.pt/livecams/alvor/",
+   "embed": null,
+   "embed_allowed": false,
+   "embed_basis": "Not read in full (host answered 403 earlier and was not retried). Seen only as a search snippet of the terms page: 'Este conteúdo advém Beachcam e é protegido por direitos de autor ao abrigo das leis portuguesas e da União Europeia, não podendo ser utilizado fora das condições admitidas no uso deste site, sem consentimento do Beachcam.' Seen as a search snippet of livecam pages: 'A reprodução, redistribuição ou retransmissão depende de autorização prévia dos respetivos titulares, salvo nos casos legalmente permitidos.' No embed offer found in any snippet.",
+   "check_note": "Not checked by machine: beachcam.meo.pt refused our fetches (403) on 18 November 2026, and a refusal is respected, not retried. Listed by link only; status unknown until MEO allows it or Dinis decides.",
+   "terms_page": "https://beachcam.meo.pt/termos-e-condicoes/",
+   "terms_summary": "Terms page found by search but not read (403 host). Snippets say site content including livecam streams is protected by copyright and may not be used outside the site's permitted conditions without Beachcam's consent. Viewing is free; some cams and features need a paid Beachcam+ subscription. The privacy policy snippet names Wavenation, Conteúdos e Media Lda. as the site operator.",
+   "license": {
+    "name": "the operator's terms",
+    "url": "https://beachcam.meo.pt/termos-e-condicoes/",
+    "holder": "MEO (Altice Portugal), BeachCam"
+   },
+   "state": "not checked",
+   "http": null,
+   "checked_at": "2026-11-18T22:11:28Z",
+   "since": "2026-11-18T19:10:02Z",
+   "checks": 7,
+   "up_checks": 7,
+   "history": [
+    {
+     "at": "2026-11-18T19:10:02Z",
+     "state": "not checked",
+     "http": null
+    }
+   ],
+   "provenance": {
+    "listed_from": "https://beachcam.meo.pt/livecams/alvor/",
+    "listed_by": "data.b.collector@PrompTugal.dinis (Sonnet), for data.b@PrompTugal.dinis",
+    "listed_at": "2026-11-18T19:05:27Z",
+    "register": "https://github.com/PrompTugal/PrompTugal__News__Data/blob/dev/register/cams.json",
+    "status_how": "not checked: the host refused our fetches",
+    "status_at": "2026-11-18T22:11:28Z",
+    "status_by": "sources/cams/collect.mjs (code, no model; run by data.b@PrompTugal.dinis)",
+    "licence": "https://beachcam.meo.pt/termos-e-condicoes/",
+    "terms_checked": "2026-11-18T19:05:27Z"
+   }
+  },
+  {
+   "id": "portimao-alvor-nascente",
+   "name": "MEO BeachCam, Alvor Nascente",
+   "place": "portimao",
+   "municipality": "Portimão (Alvor)",
+   "lat": 37.12,
+   "lon": -8.58,
+   "coords_from": "approximate from the named beach",
+   "operator": "MEO (Altice Portugal), BeachCam",
+   "operator_kind": "private business, own public page",
+   "page": "https://beachcam.meo.pt/livecams/alvor-nascente/",
+   "embed": null,
+   "embed_allowed": false,
+   "embed_basis": "Not read in full (host answered 403 earlier and was not retried). Seen only as a search snippet of the terms page: 'Este conteúdo advém Beachcam e é protegido por direitos de autor ao abrigo das leis portuguesas e da União Europeia, não podendo ser utilizado fora das condições admitidas no uso deste site, sem consentimento do Beachcam.' Seen as a search snippet of livecam pages: 'A reprodução, redistribuição ou retransmissão depende de autorização prévia dos respetivos titulares, salvo nos casos legalmente permitidos.' No embed offer found in any snippet.",
+   "check_note": "Not checked by machine: beachcam.meo.pt refused our fetches (403) on 18 November 2026, and a refusal is respected, not retried. Listed by link only; status unknown until MEO allows it or Dinis decides.",
+   "terms_page": "https://beachcam.meo.pt/termos-e-condicoes/",
+   "terms_summary": "Terms page found by search but not read (403 host). Snippets say site content including livecam streams is protected by copyright and may not be used outside the site's permitted conditions without Beachcam's consent. Viewing is free; some cams and features need a paid Beachcam+ subscription. The privacy policy snippet names Wavenation, Conteúdos e Media Lda. as the site operator.",
+   "license": {
+    "name": "the operator's terms",
+    "url": "https://beachcam.meo.pt/termos-e-condicoes/",
+    "holder": "MEO (Altice Portugal), BeachCam"
+   },
+   "state": "not checked",
+   "http": null,
+   "checked_at": "2026-11-18T22:11:28Z",
+   "since": "2026-11-18T19:10:02Z",
+   "checks": 7,
+   "up_checks": 7,
+   "history": [
+    {
+     "at": "2026-11-18T19:10:02Z",
+     "state": "not checked",
+     "http": null
+    }
+   ],
+   "provenance": {
+    "listed_from": "https://beachcam.meo.pt/livecams/alvor-nascente/",
+    "listed_by": "data.b.collector@PrompTugal.dinis (Sonnet), for data.b@PrompTugal.dinis",
+    "listed_at": "2026-11-18T19:05:27Z",
+    "register": "https://github.com/PrompTugal/PrompTugal__News__Data/blob/dev/register/cams.json",
+    "status_how": "not checked: the host refused our fetches",
+    "status_at": "2026-11-18T22:11:28Z",
+    "status_by": "sources/cams/collect.mjs (code, no model; run by data.b@PrompTugal.dinis)",
+    "licence": "https://beachcam.meo.pt/termos-e-condicoes/",
+    "terms_checked": "2026-11-18T19:05:27Z"
+   }
+  },
+  {
+   "id": "portimao-praia-do-alemao",
+   "name": "MEO BeachCam, Praia do Alemão",
+   "place": "portimao",
+   "municipality": "Portimão",
+   "lat": 37.12,
+   "lon": -8.56,
+   "coords_from": "approximate from the named beach",
+   "operator": "MEO (Altice Portugal), BeachCam",
+   "operator_kind": "private business, own public page",
+   "page": "https://beachcam.meo.pt/livecams/",
+   "embed": null,
+   "embed_allowed": false,
+   "embed_basis": "Not read in full (host answered 403 earlier and was not retried). Seen only as a search snippet of the terms page: 'Este conteúdo advém Beachcam e é protegido por direitos de autor ao abrigo das leis portuguesas e da União Europeia, não podendo ser utilizado fora das condições admitidas no uso deste site, sem consentimento do Beachcam.' Seen as a search snippet of livecam pages: 'A reprodução, redistribuição ou retransmissão depende de autorização prévia dos respetivos titulares, salvo nos casos legalmente permitidos.' No embed offer found in any snippet.",
+   "check_note": "Not checked by machine: beachcam.meo.pt refused our fetches (403) on 18 November 2026, and a refusal is respected, not retried. Listed by link only; status unknown until MEO allows it or Dinis decides.",
+   "terms_page": "https://beachcam.meo.pt/termos-e-condicoes/",
+   "terms_summary": "Terms page found by search but not read (403 host). Snippets say site content including livecam streams is protected by copyright and may not be used outside the site's permitted conditions without Beachcam's consent. Viewing is free; some cams and features need a paid Beachcam+ subscription. The privacy policy snippet names Wavenation, Conteúdos e Media Lda. as the site operator.",
+   "license": {
+    "name": "the operator's terms",
+    "url": "https://beachcam.meo.pt/termos-e-condicoes/",
+    "holder": "MEO (Altice Portugal), BeachCam"
+   },
+   "state": "not checked",
+   "http": null,
+   "checked_at": "2026-11-18T22:11:28Z",
+   "since": "2026-11-18T19:10:02Z",
+   "checks": 7,
+   "up_checks": 7,
+   "history": [
+    {
+     "at": "2026-11-18T19:10:02Z",
+     "state": "not checked",
+     "http": null
+    }
+   ],
+   "provenance": {
+    "listed_from": "https://beachcam.meo.pt/livecams/",
+    "listed_by": "data.b.collector@PrompTugal.dinis (Sonnet), for data.b@PrompTugal.dinis",
+    "listed_at": "2026-11-18T19:05:27Z",
+    "register": "https://github.com/PrompTugal/PrompTugal__News__Data/blob/dev/register/cams.json",
+    "status_how": "not checked: the host refused our fetches",
+    "status_at": "2026-11-18T22:11:28Z",
+    "status_by": "sources/cams/collect.mjs (code, no model; run by data.b@PrompTugal.dinis)",
+    "licence": "https://beachcam.meo.pt/termos-e-condicoes/",
+    "terms_checked": "2026-11-18T19:05:27Z"
+   }
+  },
+  {
+   "id": "lagoa-carvoeiro",
+   "name": "MEO BeachCam, Carvoeiro",
+   "place": "lagoa",
+   "municipality": "Lagoa",
+   "lat": 37.09,
+   "lon": -8.47,
+   "coords_from": "approximate from the named beach",
+   "operator": "MEO (Altice Portugal), BeachCam",
+   "operator_kind": "private business, own public page",
+   "page": "https://beachcam.meo.pt/livecams/carvoeiro/",
+   "embed": null,
+   "embed_allowed": false,
+   "embed_basis": "Not read in full (host answered 403 earlier and was not retried). Seen only as a search snippet of the terms page: 'Este conteúdo advém Beachcam e é protegido por direitos de autor ao abrigo das leis portuguesas e da União Europeia, não podendo ser utilizado fora das condições admitidas no uso deste site, sem consentimento do Beachcam.' Seen as a search snippet of livecam pages: 'A reprodução, redistribuição ou retransmissão depende de autorização prévia dos respetivos titulares, salvo nos casos legalmente permitidos.' No embed offer found in any snippet.",
+   "check_note": "Not checked by machine: beachcam.meo.pt refused our fetches (403) on 18 November 2026, and a refusal is respected, not retried. Listed by link only; status unknown until MEO allows it or Dinis decides.",
+   "terms_page": "https://beachcam.meo.pt/termos-e-condicoes/",
+   "terms_summary": "Terms page found by search but not read (403 host). Snippets say site content including livecam streams is protected by copyright and may not be used outside the site's permitted conditions without Beachcam's consent. Viewing is free; some cams and features need a paid Beachcam+ subscription. The privacy policy snippet names Wavenation, Conteúdos e Media Lda. as the site operator.",
+   "license": {
+    "name": "the operator's terms",
+    "url": "https://beachcam.meo.pt/termos-e-condicoes/",
+    "holder": "MEO (Altice Portugal), BeachCam"
+   },
+   "state": "not checked",
+   "http": null,
+   "checked_at": "2026-11-18T22:11:28Z",
+   "since": "2026-11-18T19:10:02Z",
+   "checks": 7,
+   "up_checks": 7,
+   "history": [
+    {
+     "at": "2026-11-18T19:10:02Z",
+     "state": "not checked",
+     "http": null
+    }
+   ],
+   "provenance": {
+    "listed_from": "https://beachcam.meo.pt/livecams/carvoeiro/",
+    "listed_by": "data.b.collector@PrompTugal.dinis (Sonnet), for data.b@PrompTugal.dinis",
+    "listed_at": "2026-11-18T19:05:27Z",
+    "register": "https://github.com/PrompTugal/PrompTugal__News__Data/blob/dev/register/cams.json",
+    "status_how": "not checked: the host refused our fetches",
+    "status_at": "2026-11-18T22:11:28Z",
+    "status_by": "sources/cams/collect.mjs (code, no model; run by data.b@PrompTugal.dinis)",
+    "licence": "https://beachcam.meo.pt/termos-e-condicoes/",
+    "terms_checked": "2026-11-18T19:05:27Z"
+   }
+  },
+  {
+   "id": "silves-armacao-de-pera",
+   "name": "MEO BeachCam, Armação de Pêra",
+   "place": "silves",
+   "municipality": "Silves",
+   "lat": 37.1,
+   "lon": -8.36,
+   "coords_from": "approximate from the named beach",
+   "operator": "MEO (Altice Portugal), BeachCam",
+   "operator_kind": "private business, own public page",
+   "page": "https://beachcam.meo.pt/livecams/armacao-de-pera/",
+   "embed": null,
+   "embed_allowed": false,
+   "embed_basis": "Not read in full (host answered 403 earlier and was not retried). Seen only as a search snippet of the terms page: 'Este conteúdo advém Beachcam e é protegido por direitos de autor ao abrigo das leis portuguesas e da União Europeia, não podendo ser utilizado fora das condições admitidas no uso deste site, sem consentimento do Beachcam.' Seen as a search snippet of livecam pages: 'A reprodução, redistribuição ou retransmissão depende de autorização prévia dos respetivos titulares, salvo nos casos legalmente permitidos.' No embed offer found in any snippet.",
+   "check_note": "Not checked by machine: beachcam.meo.pt refused our fetches (403) on 18 November 2026, and a refusal is respected, not retried. Listed by link only; status unknown until MEO allows it or Dinis decides.",
+   "terms_page": "https://beachcam.meo.pt/termos-e-condicoes/",
+   "terms_summary": "Terms page found by search but not read (403 host). Snippets say site content including livecam streams is protected by copyright and may not be used outside the site's permitted conditions without Beachcam's consent. Viewing is free; some cams and features need a paid Beachcam+ subscription. The privacy policy snippet names Wavenation, Conteúdos e Media Lda. as the site operator.",
+   "license": {
+    "name": "the operator's terms",
+    "url": "https://beachcam.meo.pt/termos-e-condicoes/",
+    "holder": "MEO (Altice Portugal), BeachCam"
+   },
+   "state": "not checked",
+   "http": null,
+   "checked_at": "2026-11-18T22:11:28Z",
+   "since": "2026-11-18T19:10:02Z",
+   "checks": 7,
+   "up_checks": 7,
+   "history": [
+    {
+     "at": "2026-11-18T19:10:02Z",
+     "state": "not checked",
+     "http": null
+    }
+   ],
+   "provenance": {
+    "listed_from": "https://beachcam.meo.pt/livecams/armacao-de-pera/",
+    "listed_by": "data.b.collector@PrompTugal.dinis (Sonnet), for data.b@PrompTugal.dinis",
+    "listed_at": "2026-11-18T19:05:27Z",
+    "register": "https://github.com/PrompTugal/PrompTugal__News__Data/blob/dev/register/cams.json",
+    "status_how": "not checked: the host refused our fetches",
+    "status_at": "2026-11-18T22:11:28Z",
+    "status_by": "sources/cams/collect.mjs (code, no model; run by data.b@PrompTugal.dinis)",
+    "licence": "https://beachcam.meo.pt/termos-e-condicoes/",
+    "terms_checked": "2026-11-18T19:05:27Z"
+   }
+  },
+  {
+   "id": "albufeira-praia-da-gale",
+   "name": "MEO BeachCam, Praia da Galé",
+   "place": "albufeira",
+   "municipality": "Albufeira",
+   "lat": 37.08,
+   "lon": -8.32,
+   "coords_from": "approximate from the named beach",
+   "operator": "MEO (Altice Portugal), BeachCam",
+   "operator_kind": "private business, own public page",
+   "page": "https://beachcam.meo.pt/livecams/praia-da-gale/",
+   "embed": null,
+   "embed_allowed": false,
+   "embed_basis": "Not read in full (host answered 403 earlier and was not retried). Seen only as a search snippet of the terms page: 'Este conteúdo advém Beachcam e é protegido por direitos de autor ao abrigo das leis portuguesas e da União Europeia, não podendo ser utilizado fora das condições admitidas no uso deste site, sem consentimento do Beachcam.' Seen as a search snippet of livecam pages: 'A reprodução, redistribuição ou retransmissão depende de autorização prévia dos respetivos titulares, salvo nos casos legalmente permitidos.' No embed offer found in any snippet.",
+   "check_note": "Not checked by machine: beachcam.meo.pt refused our fetches (403) on 18 November 2026, and a refusal is respected, not retried. Listed by link only; status unknown until MEO allows it or Dinis decides.",
+   "terms_page": "https://beachcam.meo.pt/termos-e-condicoes/",
+   "terms_summary": "Terms page found by search but not read (403 host). Snippets say site content including livecam streams is protected by copyright and may not be used outside the site's permitted conditions without Beachcam's consent. Viewing is free; some cams and features need a paid Beachcam+ subscription. The privacy policy snippet names Wavenation, Conteúdos e Media Lda. as the site operator.",
+   "license": {
+    "name": "the operator's terms",
+    "url": "https://beachcam.meo.pt/termos-e-condicoes/",
+    "holder": "MEO (Altice Portugal), BeachCam"
+   },
+   "state": "not checked",
+   "http": null,
+   "checked_at": "2026-11-18T22:11:28Z",
+   "since": "2026-11-18T19:10:02Z",
+   "checks": 7,
+   "up_checks": 7,
+   "history": [
+    {
+     "at": "2026-11-18T19:10:02Z",
+     "state": "not checked",
+     "http": null
+    }
+   ],
+   "provenance": {
+    "listed_from": "https://beachcam.meo.pt/livecams/praia-da-gale/",
+    "listed_by": "data.b.collector@PrompTugal.dinis (Sonnet), for data.b@PrompTugal.dinis",
+    "listed_at": "2026-11-18T19:05:27Z",
+    "register": "https://github.com/PrompTugal/PrompTugal__News__Data/blob/dev/register/cams.json",
+    "status_how": "not checked: the host refused our fetches",
+    "status_at": "2026-11-18T22:11:28Z",
+    "status_by": "sources/cams/collect.mjs (code, no model; run by data.b@PrompTugal.dinis)",
+    "licence": "https://beachcam.meo.pt/termos-e-condicoes/",
+    "terms_checked": "2026-11-18T19:05:27Z"
+   }
+  },
+  {
+   "id": "albufeira-praia-do-peneco",
+   "name": "MEO BeachCam, Praia do Peneco",
+   "place": "albufeira",
+   "municipality": "Albufeira",
+   "lat": 37.086,
+   "lon": -8.252,
+   "coords_from": "approximate from the named beach",
+   "operator": "MEO (Altice Portugal), BeachCam",
+   "operator_kind": "private business, own public page",
+   "page": "https://beachcam.meo.pt/livecams/praia-do-peneco/",
+   "embed": null,
+   "embed_allowed": false,
+   "embed_basis": "Not read in full (host answered 403 earlier and was not retried). Seen only as a search snippet of the terms page: 'Este conteúdo advém Beachcam e é protegido por direitos de autor ao abrigo das leis portuguesas e da União Europeia, não podendo ser utilizado fora das condições admitidas no uso deste site, sem consentimento do Beachcam.' Seen as a search snippet of livecam pages: 'A reprodução, redistribuição ou retransmissão depende de autorização prévia dos respetivos titulares, salvo nos casos legalmente permitidos.' No embed offer found in any snippet.",
+   "check_note": "Not checked by machine: beachcam.meo.pt refused our fetches (403) on 18 November 2026, and a refusal is respected, not retried. Listed by link only; status unknown until MEO allows it or Dinis decides.",
+   "terms_page": "https://beachcam.meo.pt/termos-e-condicoes/",
+   "terms_summary": "Terms page found by search but not read (403 host). Snippets say site content including livecam streams is protected by copyright and may not be used outside the site's permitted conditions without Beachcam's consent. Viewing is free; some cams and features need a paid Beachcam+ subscription. The privacy policy snippet names Wavenation, Conteúdos e Media Lda. as the site operator.",
+   "license": {
+    "name": "the operator's terms",
+    "url": "https://beachcam.meo.pt/termos-e-condicoes/",
+    "holder": "MEO (Altice Portugal), BeachCam"
+   },
+   "state": "not checked",
+   "http": null,
+   "checked_at": "2026-11-18T22:11:28Z",
+   "since": "2026-11-18T19:10:02Z",
+   "checks": 7,
+   "up_checks": 7,
+   "history": [
+    {
+     "at": "2026-11-18T19:10:02Z",
+     "state": "not checked",
+     "http": null
+    }
+   ],
+   "provenance": {
+    "listed_from": "https://beachcam.meo.pt/livecams/praia-do-peneco/",
+    "listed_by": "data.b.collector@PrompTugal.dinis (Sonnet), for data.b@PrompTugal.dinis",
+    "listed_at": "2026-11-18T19:05:27Z",
+    "register": "https://github.com/PrompTugal/PrompTugal__News__Data/blob/dev/register/cams.json",
+    "status_how": "not checked: the host refused our fetches",
+    "status_at": "2026-11-18T22:11:28Z",
+    "status_by": "sources/cams/collect.mjs (code, no model; run by data.b@PrompTugal.dinis)",
+    "licence": "https://beachcam.meo.pt/termos-e-condicoes/",
+    "terms_checked": "2026-11-18T19:05:27Z"
+   }
+  },
+  {
+   "id": "loule-vilamoura",
+   "name": "MEO BeachCam, Vilamoura",
+   "place": "loule",
+   "municipality": "Loulé (Vilamoura)",
+   "lat": 37.07,
+   "lon": -8.12,
+   "coords_from": "approximate from the named beach",
+   "operator": "MEO (Altice Portugal), BeachCam",
+   "operator_kind": "private business, own public page",
+   "page": "https://beachcam.meo.pt/livecams/vilamoura/",
+   "embed": null,
+   "embed_allowed": false,
+   "embed_basis": "Not read in full (host answered 403 earlier and was not retried). Seen only as a search snippet of the terms page: 'Este conteúdo advém Beachcam e é protegido por direitos de autor ao abrigo das leis portuguesas e da União Europeia, não podendo ser utilizado fora das condições admitidas no uso deste site, sem consentimento do Beachcam.' Seen as a search snippet of livecam pages: 'A reprodução, redistribuição ou retransmissão depende de autorização prévia dos respetivos titulares, salvo nos casos legalmente permitidos.' No embed offer found in any snippet.",
+   "check_note": "Not checked by machine: beachcam.meo.pt refused our fetches (403) on 18 November 2026, and a refusal is respected, not retried. Listed by link only; status unknown until MEO allows it or Dinis decides.",
+   "terms_page": "https://beachcam.meo.pt/termos-e-condicoes/",
+   "terms_summary": "Terms page found by search but not read (403 host). Snippets say site content including livecam streams is protected by copyright and may not be used outside the site's permitted conditions without Beachcam's consent. Viewing is free; some cams and features need a paid Beachcam+ subscription. The privacy policy snippet names Wavenation, Conteúdos e Media Lda. as the site operator.",
+   "license": {
+    "name": "the operator's terms",
+    "url": "https://beachcam.meo.pt/termos-e-condicoes/",
+    "holder": "MEO (Altice Portugal), BeachCam"
+   },
+   "state": "not checked",
+   "http": null,
+   "checked_at": "2026-11-18T22:11:28Z",
+   "since": "2026-11-18T19:10:02Z",
+   "checks": 7,
+   "up_checks": 7,
+   "history": [
+    {
+     "at": "2026-11-18T19:10:02Z",
+     "state": "not checked",
+     "http": null
+    }
+   ],
+   "provenance": {
+    "listed_from": "https://beachcam.meo.pt/livecams/vilamoura/",
+    "listed_by": "data.b.collector@PrompTugal.dinis (Sonnet), for data.b@PrompTugal.dinis",
+    "listed_at": "2026-11-18T19:05:27Z",
+    "register": "https://github.com/PrompTugal/PrompTugal__News__Data/blob/dev/register/cams.json",
+    "status_how": "not checked: the host refused our fetches",
+    "status_at": "2026-11-18T22:11:28Z",
+    "status_by": "sources/cams/collect.mjs (code, no model; run by data.b@PrompTugal.dinis)",
+    "licence": "https://beachcam.meo.pt/termos-e-condicoes/",
+    "terms_checked": "2026-11-18T19:05:27Z"
+   }
+  },
+  {
+   "id": "lagos-meia-praia",
+   "name": "MEO BeachCam, Meia Praia",
+   "place": "lagos",
+   "municipality": "Lagos",
+   "lat": 37.115,
+   "lon": -8.64,
+   "coords_from": "approximate from the named beach",
+   "operator": "MEO (Altice Portugal), BeachCam",
+   "operator_kind": "private business, own public page",
+   "page": "https://beachcam.meo.pt/praias/meia-praia/",
+   "embed": null,
+   "embed_allowed": false,
+   "embed_basis": "Not read in full (host answered 403 earlier and was not retried). Seen only as a search snippet of the terms page: 'Este conteúdo advém Beachcam e é protegido por direitos de autor ao abrigo das leis portuguesas e da União Europeia, não podendo ser utilizado fora das condições admitidas no uso deste site, sem consentimento do Beachcam.' Seen as a search snippet of livecam pages: 'A reprodução, redistribuição ou retransmissão depende de autorização prévia dos respetivos titulares, salvo nos casos legalmente permitidos.' No embed offer found in any snippet.",
+   "check_note": "Not checked by machine: beachcam.meo.pt refused our fetches (403) on 18 November 2026, and a refusal is respected, not retried. Listed by link only; status unknown until MEO allows it or Dinis decides.",
+   "terms_page": "https://beachcam.meo.pt/termos-e-condicoes/",
+   "terms_summary": "Terms page found by search but not read (403 host). Snippets say site content including livecam streams is protected by copyright and may not be used outside the site's permitted conditions without Beachcam's consent. Viewing is free; some cams and features need a paid Beachcam+ subscription. The privacy policy snippet names Wavenation, Conteúdos e Media Lda. as the site operator.",
+   "license": {
+    "name": "the operator's terms",
+    "url": "https://beachcam.meo.pt/termos-e-condicoes/",
+    "holder": "MEO (Altice Portugal), BeachCam"
+   },
+   "state": "not checked",
+   "http": null,
+   "checked_at": "2026-11-18T22:11:28Z",
+   "since": "2026-11-18T19:10:02Z",
+   "checks": 7,
+   "up_checks": 7,
+   "history": [
+    {
+     "at": "2026-11-18T19:10:02Z",
+     "state": "not checked",
+     "http": null
+    }
+   ],
+   "provenance": {
+    "listed_from": "https://beachcam.meo.pt/praias/meia-praia/",
+    "listed_by": "data.b.collector@PrompTugal.dinis (Sonnet), for data.b@PrompTugal.dinis",
+    "listed_at": "2026-11-18T19:05:27Z",
+    "register": "https://github.com/PrompTugal/PrompTugal__News__Data/blob/dev/register/cams.json",
+    "status_how": "not checked: the host refused our fetches",
+    "status_at": "2026-11-18T22:11:28Z",
+    "status_by": "sources/cams/collect.mjs (code, no model; run by data.b@PrompTugal.dinis)",
+    "licence": "https://beachcam.meo.pt/termos-e-condicoes/",
+    "terms_checked": "2026-11-18T19:05:27Z"
+   }
+  },
+  {
+   "id": "aljezur-monte-clerigo",
+   "name": "MEO BeachCam, Monte Clérigo",
+   "place": "aljezur",
+   "municipality": "Aljezur",
+   "lat": 37.34,
+   "lon": -8.85,
+   "coords_from": "approximate from the named beach",
+   "operator": "MEO (Altice Portugal), BeachCam",
+   "operator_kind": "private business, own public page",
+   "page": "https://beachcam.meo.pt/livecams/monte-clerigo/",
+   "embed": null,
+   "embed_allowed": false,
+   "embed_basis": "Not read in full (host answered 403 earlier and was not retried). Seen only as a search snippet of the terms page: 'Este conteúdo advém Beachcam e é protegido por direitos de autor ao abrigo das leis portuguesas e da União Europeia, não podendo ser utilizado fora das condições admitidas no uso deste site, sem consentimento do Beachcam.' Seen as a search snippet of livecam pages: 'A reprodução, redistribuição ou retransmissão depende de autorização prévia dos respetivos titulares, salvo nos casos legalmente permitidos.' No embed offer found in any snippet.",
+   "check_note": "Not checked by machine: beachcam.meo.pt refused our fetches (403) on 18 November 2026, and a refusal is respected, not retried. Listed by link only; status unknown until MEO allows it or Dinis decides.",
+   "terms_page": "https://beachcam.meo.pt/termos-e-condicoes/",
+   "terms_summary": "Terms page found by search but not read (403 host). Snippets say site content including livecam streams is protected by copyright and may not be used outside the site's permitted conditions without Beachcam's consent. Viewing is free; some cams and features need a paid Beachcam+ subscription. The privacy policy snippet names Wavenation, Conteúdos e Media Lda. as the site operator.",
+   "license": {
+    "name": "the operator's terms",
+    "url": "https://beachcam.meo.pt/termos-e-condicoes/",
+    "holder": "MEO (Altice Portugal), BeachCam"
+   },
+   "state": "not checked",
+   "http": null,
+   "checked_at": "2026-11-18T22:11:28Z",
+   "since": "2026-11-18T19:10:02Z",
+   "checks": 7,
+   "up_checks": 7,
+   "history": [
+    {
+     "at": "2026-11-18T19:10:02Z",
+     "state": "not checked",
+     "http": null
+    }
+   ],
+   "provenance": {
+    "listed_from": "https://beachcam.meo.pt/livecams/monte-clerigo/",
+    "listed_by": "data.b.collector@PrompTugal.dinis (Sonnet), for data.b@PrompTugal.dinis",
+    "listed_at": "2026-11-18T19:05:27Z",
+    "register": "https://github.com/PrompTugal/PrompTugal__News__Data/blob/dev/register/cams.json",
+    "status_how": "not checked: the host refused our fetches",
+    "status_at": "2026-11-18T22:11:28Z",
+    "status_by": "sources/cams/collect.mjs (code, no model; run by data.b@PrompTugal.dinis)",
+    "licence": "https://beachcam.meo.pt/termos-e-condicoes/",
+    "terms_checked": "2026-11-18T19:05:27Z"
+   }
+  },
+  {
+   "id": "vila-do-bispo-sagres",
+   "name": "MEO BeachCam, Sagres",
+   "place": "vila-do-bispo",
+   "municipality": "Vila do Bispo (Sagres)",
+   "lat": 37.01,
+   "lon": -8.94,
+   "coords_from": "approximate from the named beach",
+   "operator": "MEO (Altice Portugal), BeachCam",
+   "operator_kind": "private business, own public page",
+   "page": "https://beachcam.meo.pt/livecams/sagres/",
+   "embed": null,
+   "embed_allowed": false,
+   "embed_basis": "Not read in full (host answered 403 earlier and was not retried). Seen only as a search snippet of the terms page: 'Este conteúdo advém Beachcam e é protegido por direitos de autor ao abrigo das leis portuguesas e da União Europeia, não podendo ser utilizado fora das condições admitidas no uso deste site, sem consentimento do Beachcam.' Seen as a search snippet of livecam pages: 'A reprodução, redistribuição ou retransmissão depende de autorização prévia dos respetivos titulares, salvo nos casos legalmente permitidos.' No embed offer found in any snippet.",
+   "check_note": "Not checked by machine: beachcam.meo.pt refused our fetches (403) on 18 November 2026, and a refusal is respected, not retried. Listed by link only; status unknown until MEO allows it or Dinis decides.",
+   "terms_page": "https://beachcam.meo.pt/termos-e-condicoes/",
+   "terms_summary": "Terms page found by search but not read (403 host). Snippets say site content including livecam streams is protected by copyright and may not be used outside the site's permitted conditions without Beachcam's consent. Viewing is free; some cams and features need a paid Beachcam+ subscription. The privacy policy snippet names Wavenation, Conteúdos e Media Lda. as the site operator.",
+   "license": {
+    "name": "the operator's terms",
+    "url": "https://beachcam.meo.pt/termos-e-condicoes/",
+    "holder": "MEO (Altice Portugal), BeachCam"
+   },
+   "state": "not checked",
+   "http": null,
+   "checked_at": "2026-11-18T22:11:28Z",
+   "since": "2026-11-18T19:10:02Z",
+   "checks": 7,
+   "up_checks": 7,
+   "history": [
+    {
+     "at": "2026-11-18T19:10:02Z",
+     "state": "not checked",
+     "http": null
+    }
+   ],
+   "provenance": {
+    "listed_from": "https://beachcam.meo.pt/livecams/sagres/",
+    "listed_by": "data.b.collector@PrompTugal.dinis (Sonnet), for data.b@PrompTugal.dinis",
+    "listed_at": "2026-11-18T19:05:27Z",
+    "register": "https://github.com/PrompTugal/PrompTugal__News__Data/blob/dev/register/cams.json",
+    "status_how": "not checked: the host refused our fetches",
+    "status_at": "2026-11-18T22:11:28Z",
+    "status_by": "sources/cams/collect.mjs (code, no model; run by data.b@PrompTugal.dinis)",
+    "licence": "https://beachcam.meo.pt/termos-e-condicoes/",
+    "terms_checked": "2026-11-18T19:05:27Z"
+   }
+  },
+  {
+   "id": "vila-do-bispo-cordoama",
+   "name": "MEO BeachCam, Cordoama",
+   "place": "vila-do-bispo",
+   "municipality": "Vila do Bispo",
+   "lat": 37.1,
+   "lon": -8.91,
+   "coords_from": "approximate from the named beach",
+   "operator": "MEO (Altice Portugal), BeachCam",
+   "operator_kind": "private business, own public page",
+   "page": "https://beachcam.meo.pt/livecams/cordoama/",
+   "embed": null,
+   "embed_allowed": false,
+   "embed_basis": "Not read in full (host answered 403 earlier and was not retried). Seen only as a search snippet of the terms page: 'Este conteúdo advém Beachcam e é protegido por direitos de autor ao abrigo das leis portuguesas e da União Europeia, não podendo ser utilizado fora das condições admitidas no uso deste site, sem consentimento do Beachcam.' Seen as a search snippet of livecam pages: 'A reprodução, redistribuição ou retransmissão depende de autorização prévia dos respetivos titulares, salvo nos casos legalmente permitidos.' No embed offer found in any snippet.",
+   "check_note": "Not checked by machine: beachcam.meo.pt refused our fetches (403) on 18 November 2026, and a refusal is respected, not retried. Listed by link only; status unknown until MEO allows it or Dinis decides.",
+   "terms_page": "https://beachcam.meo.pt/termos-e-condicoes/",
+   "terms_summary": "Terms page found by search but not read (403 host). Snippets say site content including livecam streams is protected by copyright and may not be used outside the site's permitted conditions without Beachcam's consent. Viewing is free; some cams and features need a paid Beachcam+ subscription. The privacy policy snippet names Wavenation, Conteúdos e Media Lda. as the site operator.",
+   "license": {
+    "name": "the operator's terms",
+    "url": "https://beachcam.meo.pt/termos-e-condicoes/",
+    "holder": "MEO (Altice Portugal), BeachCam"
+   },
+   "state": "not checked",
+   "http": null,
+   "checked_at": "2026-11-18T22:11:28Z",
+   "since": "2026-11-18T19:10:02Z",
+   "checks": 7,
+   "up_checks": 7,
+   "history": [
+    {
+     "at": "2026-11-18T19:10:02Z",
+     "state": "not checked",
+     "http": null
+    }
+   ],
+   "provenance": {
+    "listed_from": "https://beachcam.meo.pt/livecams/cordoama/",
+    "listed_by": "data.b.collector@PrompTugal.dinis (Sonnet), for data.b@PrompTugal.dinis",
+    "listed_at": "2026-11-18T19:05:27Z",
+    "register": "https://github.com/PrompTugal/PrompTugal__News__Data/blob/dev/register/cams.json",
+    "status_how": "not checked: the host refused our fetches",
+    "status_at": "2026-11-18T22:11:28Z",
+    "status_by": "sources/cams/collect.mjs (code, no model; run by data.b@PrompTugal.dinis)",
+    "licence": "https://beachcam.meo.pt/termos-e-condicoes/",
+    "terms_checked": "2026-11-18T19:05:27Z"
+   }
+  }
+ ],
+ "not_listed": [
+  {
+   "name": "SkylineWebcams (Lagos, Faro and others)",
+   "url": "https://www.skylinewebcams.com/en/terms-of-use.html",
+   "reason": "Terms read. They say nothing on linking or listing from other sites. Sharing is allowed only through its own share buttons and links; embedding is allowed with its Embed code unmodified; scraping and republishing are banned. Cameras are privately run (for example a restaurant). Not listed."
+  },
+  {
+   "name": "Albufeira Praia dos Pescadores (hotel), Lagos Porto de Mos (restaurant), Martinhal, Carvoeiro videosurveillance",
+   "url": "https://postal.pt/algarve/praia-do-carvoeiro-vai-ter-sistema-de-videovigilancia/",
+   "reason": "Private business cameras on aggregator sites, or non-public surveillance. Operator's own public page not found."
+  },
+  {
+   "name": "Windy webcams",
+   "url": "https://api.windy.com/webcams/terms",
+   "reason": "Allowed by Dinis under its terms, attributed, but there is no key and the API was not called, so no Windy camera is listed. Needs and terms are in the README."
+  },
+  {
+   "name": "Windfinder, surf-forecast, meteoblue, webcams.org.ru, webcamtaxi and similar aggregators",
+   "url": "https://www.windfinder.com/webcams/algarve",
+   "reason": "Third-party aggregators, not official operators; not listed. Their listings were used only to find leads."
+  },
+  {
+   "name": "Albufeira Sol e Mar hotel camera (Praia dos Pescadores), Lagos Porto de Mós restaurant camera (SkylineWebcams)",
+   "url": "https://www.skylinewebcams.com/webcam/portugal/algarve/lagos/lagos-portugal.html",
+   "reason": "Private business cameras found only on aggregator sites; operator's own page not found. Not listed."
+  },
+  {
+   "name": "Câmara de Albufeira videovigilância (65 cameras)",
+   "url": "https://www.cm-albufeira.pt/artigo/seguranca-em-albufeira-reforcada-com-novo-sistema-de-videovigilancia",
+   "reason": "Security CCTV handled with the GNR; not a public feed."
+  },
+  {
+   "name": "Docapesca fishing ports (Olhão, Portimão, Faro, Vila Real de Santo António)",
+   "url": "https://www.sulinformacao.pt/en/2020/10/docapesca-instala-videovigilancia-no-porto-de-pesca-de-olhao/",
+   "reason": "Search found only security cameras at Olhão (2020); no public Docapesca live camera found."
+  },
+  {
+   "name": "APA (COSMO programme)",
+   "url": "https://apambiente.pt/",
+   "reason": "COSMO is a survey programme; no public APA beach camera found in search. A 2020 article says APA planned a camera at Praia do Cabeço (Castro Marim); no listing found. cosmo.apambiente.pt not read."
+  },
+  {
+   "name": "IPMA",
+   "url": "https://www.ipma.pt/",
+   "reason": "Search found only numeric observation pages and satellite images; no webcam page."
+  },
+  {
+   "name": "ICNF (Ria Formosa, Costa Vicentina)",
+   "url": "https://www.icnf.pt/",
+   "reason": "No ICNF-published live camera found in search."
+  },
+  {
+   "name": "ANA Faro and Lisboa airports",
+   "url": "https://www.ana.pt/",
+   "reason": "No webcam page found; WebTrak is flight data. Windfinder airport cameras are third party."
+  },
+  {
+   "name": "Infraestruturas de Portugal, bridges",
+   "url": "https://www.infraestruturasdeportugal.pt/",
+   "reason": "No official camera page found."
+  },
+  {
+   "name": "Câmara Municipal de Lisboa, Parque das Nações",
+   "url": "https://www.sabado.pt/portugal/amp/camara-de-lisboa-quer-videovigilancia-no-parque-das-nacoes-almirante-reis-e-avenida-da-liberdade",
+   "reason": "Police-run video surveillance, not a public feed. No official Lisboa live camera found."
+  },
+  {
+   "name": "MEO BeachCam: Praia de Santa Eulália, Praia das Furnas, Praia da Lagoa de Albufeira, Praia da Armona (Olhão)",
+   "url": "https://beachcam.meo.pt/praias/praia-de-santa-eulalia/",
+   "reason": "Only /praias/ beach pages were seen, not camera pages, so no camera is confirmed. Lagoa de Albufeira is in Sesimbra, outside our places. Furnas municipality not checked."
+  },
+  {
+   "name": "MEO BeachCam: Beliche and Mareta (Vila do Bispo)",
+   "url": "https://trendy.pt/2025/06/beachcam-tem-tres-novas-camaras-no-algarve/",
+   "reason": "Reported as visible through the Sagres camera; no separate page seen."
+  }
+ ],
+ "gaps": [
+  {
+   "host": "beachcam.meo.pt",
+   "reason": "403 on fetch in pass one; not retried, as instructed. The terms page (https://beachcam.meo.pt/termos-e-condicoes/) and every camera page were therefore not read; wording comes from search snippets only. Whether MEO has any embed offer is unknown."
+  },
+  {
+   "host": "www.cm-lisboa.pt",
+   "reason": "403 on fetch (pass one)"
+  },
+  {
+   "host": "www.portugalresident.com",
+   "reason": "403 on fetch (pass one)"
+  },
+  {
+   "host": "www.sulinformacao.pt",
+   "reason": "403 on fetch (pass one)"
+  },
+  {
+   "host": "www.apsinesportimao.pt",
+   "reason": "host would not resolve (pass one)"
+  },
+  {
+   "host": "www.visitalgarve.pt",
+   "reason": "not confirmed either way"
+  },
+  {
+   "host": "www.cm-viladobispo.pt (tried as www.cm-vilabispo.pt)",
+   "reason": "host would not resolve; the address tried may be wrong. Vila do Bispo's own site not read."
+  },
+  {
+   "host": "www.cm-tavira.pt, www.cm-olhao.pt, www.cm-faro.pt, www.cm-portimao.pt",
+   "reason": "Tavira redirect and Olhão script-loaded page not resolved in pass one; Faro and Portimão home pages read in pass one with no own camera page; no second look this pass."
+  },
+  {
+   "host": "cm-lagos.pt, cm-vrsa.pt, cm-silves.pt, cm-lagoa.pt, cm-aljezur.pt, cm-albufeira.pt, cm-castromarim.pt, cm-loule.pt (beaches page), cm-monchique.pt, cm-alcoutim.pt, cm-sbras.pt",
+   "reason": "Home pages (Loulé: beaches page) read 18 Nov 2026; no camera link found. Only home pages read, not deeper pages or the sites' own iframes (the reader returns text, so an embedded iframe would not show). Castro Marim: the site redirected to http://cm-castromarim.pt/site/ (read, no link)."
+  },
+  {
+   "host": "Search tool limits",
+   "reason": "Search does not honour site: filters, so deeper municipal pages (cm-*.pt) were not searched exhaustively."
+  },
+  {
+   "host": "MEO camera status",
+   "reason": "No MEO page was read, so none of the 19 MEO cameras is confirmed live today; some search snapshots are 2 to 10 years old."
+  },
+  {
+   "host": "Tavira, Olhão, Vila Real de Santo António, Alcoutim, Monchique, São Brás de Alportel, Lisboa",
+   "reason": "No MEO camera page seen in search for these places."
+  },
+  {
+   "host": "cosmo.apambiente.pt, www.docapesca.pt, www.ana.pt, ICNF",
+   "reason": "Not fetched this pass; findings from search only."
+  }
+ ]
+}

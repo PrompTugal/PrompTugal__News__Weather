@@ -20,22 +20,37 @@
   }
  },
  "place": "aljezur",
- "read_at": "2026-11-18T21:16:29Z",
+ "read_at": "2026-11-18T22:15:36Z",
  "by": "collect/by-place-now.mjs (code, no model; data@PrompTugal.dinis), from this site's collected sources",
- "about": "Now in this place, from IPMA's open data and (for Faro) adsb.lol, as collected by data.promptugal.news: each value with its source and the time read. Not a warning service: follow IPMA (https://www.ipma.pt/) and ANEPC.",
+ "coords": {
+  "lat": 37.31778,
+  "lon": -8.8,
+  "name": "Aljezur",
+  "wikidata": "https://www.wikidata.org/wiki/Q986095",
+  "source": "https://www.wikidata.org/wiki/Special:EntityData/Q986095.json",
+  "property": "P625 (coordinate location)",
+  "license": {
+   "name": "CC0 1.0",
+   "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "holder": "Wikidata contributors"
+  },
+  "read_at": "2026-11-18T22:05:24Z",
+  "note": "The municipality's point on Wikidata (the parish's for Quarteira): for maps, not a boundary."
+ },
+ "about": "Now in this place, from IPMA's open data and (for Faro) adsb.lol, as collected by data.promptugal.news: each value with its source and the time read; coords from Wikidata. Not a warning service: follow IPMA (https://www.ipma.pt/) and ANEPC.",
  "station": {
   "name": "Aljezur",
   "id": 1210789,
   "km": 0,
   "reading": {
-   "at": "2026-11-18T20:00:00Z",
-   "temp_c": 20.1,
-   "humidity_pct": 98,
+   "at": "2026-11-18T21:00:00Z",
+   "temp_c": 20,
+   "humidity_pct": 95,
    "wind_kmh": 12.2,
    "wind_dir_id": 6,
    "rain_mm": 0,
    "pressure_hpa": null,
-   "radiation_kj_m2": 16.4
+   "radiation_kj_m2": 19.3
   },
   "page": "https://www.ipma.pt/en/otempo/obs.superficie/",
   "source": "https://api.ipma.pt/open-data/observation/meteorology/stations/observations.json"
@@ -138,37 +153,37 @@
  "reads": {
   "observations": {
    "url": "https://data.promptugal.news/api/v1/ipma-observations/latest.json",
-   "at": "2026-11-18T21:15:18Z",
+   "at": "2026-11-18T22:14:27Z",
    "status": 200
   },
   "warnings": {
    "url": "https://data.promptugal.news/api/v1/ipma-warnings/latest.json",
-   "at": "2026-11-18T21:15:35Z",
+   "at": "2026-11-18T22:14:45Z",
    "status": 200
   },
   "forecasts": {
    "url": "https://data.promptugal.news/api/v1/ipma-city-forecasts/latest.json",
-   "at": "2026-11-18T21:13:40Z",
+   "at": "2026-11-18T22:12:50Z",
    "status": 200
   },
   "fire-risk": {
    "url": "https://data.promptugal.news/api/v1/ipma-fire-risk/latest.json",
-   "at": "2026-11-18T21:15:10Z",
+   "at": "2026-11-18T22:14:20Z",
    "status": 200
   },
   "uv": {
    "url": "https://data.promptugal.news/api/v1/ipma-uv/latest.json",
-   "at": "2026-11-18T21:15:33Z",
+   "at": "2026-11-18T22:14:42Z",
    "status": 200
   },
   "sea": {
    "url": "https://data.promptugal.news/api/v1/ipma-sea/latest.json",
-   "at": "2026-11-18T21:15:23Z",
+   "at": "2026-11-18T22:14:33Z",
    "status": 200
   },
   "adsb": {
    "url": "https://data.promptugal.news/api/v1/adsb-faro/latest.json",
-   "at": "2026-11-18T21:12:11Z",
+   "at": "2026-11-18T22:11:25Z",
    "status": 200
   }
  }

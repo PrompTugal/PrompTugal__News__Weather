@@ -1,12 +1,12 @@
 {
   "about": "Where data/now/, data/api/ and data/map/ came from. data/now and data/api are copies of data.promptugal.news's API; data/map of files the PrompTugal.news Website repository publishes. Each value inside keeps its own source and time read.",
   "from": "https://data.promptugal.news/api/v1/",
-  "api_version": "v0.1.49",
-  "api_built_at": "2026-11-18T21:16:29.241Z",
+  "api_version": "v0.1.50",
+  "api_built_at": "2026-11-18T22:15:36.293Z",
   "maps_from": "https://github.com/PrompTugal/PrompTugal__News__Website",
   "maps_via": "raw.githubusercontent.com",
   "commit": "unknown",
-  "synced_at": "2026-11-18T22:07:15Z",
+  "synced_at": "2026-11-18T22:16:29Z",
   "files": [
     {
       "from": "https://data.promptugal.news/api/v1/by-place/now/algarve.json",
@@ -103,6 +103,10 @@
     {
       "from": "https://data.promptugal.news/api/v1/ipma-observations/latest.json",
       "to": "data/api/ipma-observations.json"
+    },
+    {
+      "from": "https://data.promptugal.news/api/v1/cams/latest.json",
+      "to": "data/api/cams.json"
     },
     {
       "from": "https://data.promptugal.news/api/v1/storm/charles/exposure/people-by-hour.json",

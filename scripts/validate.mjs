@@ -25,6 +25,13 @@ for (const f of [...files, 'hub.json', 'README.md']) {
     if (!/<html lang="/.test(s)) fail(`${f}: no lang on <html>`);
     // no link or source may carry a script or data scheme (AppSec review, 18 Nov 2026: values from fetched data reach hrefs)
     for (const m of s.matchAll(/(?:href|src|action)\s*=\s*"\s*([a-z][a-z0-9+.-]*):/gi)) if (/^(javascript|data|vbscript|file)$/i.test(m[1])) fail(`${f}: ${m[1]}: URL in an attribute`);
+    // a frame is allowed only from this site: every attribute double-quoted, no srcdoc, and src (or data) site-relative
+    for (const m of s.matchAll(/<(iframe|video|embed|object)\b[^>]*>/gi)) {
+      const attrs = /^<[a-z]+((?:\s+[a-z-]+="[^"]*")*)\s*\/?>$/i.exec(m[0]);
+      const list = attrs ? [...attrs[1].matchAll(/([a-z-]+)="([^"]*)"/gi)].map(a => [a[1].toLowerCase(), a[2]]) : null;
+      const src = list && list.filter(([k]) => k === 'src' || k === 'data');
+      if (!list || list.some(([k]) => k === 'srcdoc') || !src.length || !src.every(([, v]) => /^\/(?!\/)/.test(v))) fail(`${f}: ${m[1]} from outside this site (cameras are links only; Dinis, 18 Nov 2026)`);
+    }
     for (const m of s.matchAll(/<script[^>]+src="([^"]+)"/g)) if (/^(https?:)?\/\//.test(m[1])) fail(`${f}: third-party script ${m[1]}`);
     for (const m of s.matchAll(/<link[^>]+rel="stylesheet"[^>]+href="([^"]+)"/g)) if (/^(https?:)?\/\//.test(m[1])) fail(`${f}: third-party stylesheet ${m[1]}`);
     for (const m of s.matchAll(/(?:href|src)="([^"#?]+)/g)) {

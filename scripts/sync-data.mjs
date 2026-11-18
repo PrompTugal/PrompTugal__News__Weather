@@ -21,7 +21,7 @@ const SIBLING = process.env.WEBSITE_CLONE || '../PrompTugal__News__Website';
 const UA = { 'user-agent': 'weather.promptugal.news sync (PrompTugal/PrompTugal__News__Weather)' };
 const PLACES = ['algarve', 'albufeira', 'alcoutim', 'aljezur', 'castro-marim', 'faro', 'lagoa', 'lagos', 'loule', 'monchique',
   'olhao', 'portimao', 'quarteira', 'sao-bras-de-alportel', 'silves', 'tavira', 'vila-do-bispo', 'vila-real-de-santo-antonio'];
-const SOURCES = ['ipma-city-forecasts', 'ipma-warnings', 'ipma-fire-risk', 'ipma-uv', 'ipma-sea', 'ipma-observations'];
+const SOURCES = ['ipma-city-forecasts', 'ipma-warnings', 'ipma-fire-risk', 'ipma-uv', 'ipma-sea', 'ipma-observations', 'cams'];
 const API_FILES = [
   ...PLACES.map(p => [`by-place/now/${p}.json`, `data/now/${p}.json`]),
   ...SOURCES.map(s => [`${s}/latest.json`, `data/api/${s}.json`]),
@@ -60,6 +60,8 @@ async function fetchText(url) {
 }
 const SHAPES = [
   [/^data\/now\//, j => typeof j.place === 'string' && typeof j.read_at === 'string'],
+  [/^data\/api\/cams\.json$/, j => typeof j.source === 'string' && typeof j.read_at === 'string' && Array.isArray(j.cameras) && j.cameras.length <= 100 &&
+    j.cameras.every(c => c && ['id', 'name', 'place', 'state'].every(k => typeof c[k] === 'string'))],
   [/^data\/api\//, j => typeof j.source === 'string' && typeof j.read_at === 'string'],
   [/^data\/storm\//, j => Array.isArray(j.hours) && j.hours.length <= 400 && typeof j.about === 'string' &&
     j.hours.every(h => h && typeof h.hour_utc === 'string' && ['red', 'orange', 'yellow'].every(k => Number.isFinite(h[k]) && h[k] >= 0))],
