@@ -30,6 +30,12 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const DASHES = '-'.repeat(5);
 const PRIVATE_BLOCK = new RegExp(`${DASHES}BEGIN [A-Z0-9 ]*PRIVATE KEY( BLOCK)?${DASHES}`);
 const PUBLIC_BLOCK = new RegExp(`${DASHES}BEGIN (?:RSA |EC )?PUBLIC KEY${DASHES}[\\s\\S]*?${DASHES}END (?:RSA |EC )?PUBLIC KEY${DASHES}`, 'g');
+// An OpenSSH public-key line, of every type (security@'s ruling of 05:14 UTC, 19 Nov 2026; library.b@'s LIB-2026-060:
+// ecdsa-sha2-* and the sk- forms do not begin "ssh-"). Allowed only as the exact value of a keys[].ssh_signing.public_key
+// field in team/keys.json; flagged everywhere else, including any other field of that file.
+const SSH_KEY_TYPES = 'ssh-ed25519|ssh-rsa|ssh-dss|ecdsa-sha2-nistp(?:256|384|521)|sk-ecdsa-sha2-nistp256@openssh\\.com|sk-ssh-ed25519@openssh\\.com';
+const SSH_PUBLIC_LINE = new RegExp(`(?:^|[^A-Za-z0-9@.-])(?:${SSH_KEY_TYPES})\\s+AAAA[A-Za-z0-9+/]{16,}`);
+const SSH_PUBLIC_VALUE = new RegExp(`^(?:${SSH_KEY_TYPES}) AAAA[A-Za-z0-9+/]{16,}={0,3}$`);
 const PUBLIC_BEGIN = new RegExp(`${DASHES}BEGIN (?:RSA |EC |PGP )?PUBLIC KEY( BLOCK)?${DASHES}`);
 
 // Exact shapes: [kind, regex]. Order matters only for the report.
@@ -106,11 +112,18 @@ export function scanText(path, text) {
     if (/private|passphrase|secret|seed/i.test(text)) add(0, 'public key file mentions a private part');
     // Blank the allowed public key blocks, keeping line numbers.
     body = text.replace(PUBLIC_BLOCK, (b) => b.replace(/[^\n]/g, ' '));
+    // Blank the exact values of keys[].ssh_signing.public_key (team/keys.json only), and nothing else.
+    if (path === 'team/keys.json') {
+      let vals = [];
+      try { const j = JSON.parse(text); vals = (Array.isArray(j.keys) ? j.keys : []).map((k) => k && k.ssh_signing && k.ssh_signing.public_key).filter((v) => typeof v === 'string' && SSH_PUBLIC_VALUE.test(v)); } catch { }
+      for (const v of vals) body = body.split('"public_key": ' + JSON.stringify(v)).join('"public_key": ' + JSON.stringify(v.replace(/./g, ' ')));
+    }
   }
   body.split('\n').forEach((line, i) => {
     const n = i + 1;
     for (const [kind, re] of SHAPES) if (re.test(line)) add(n, kind);
     if (PUBLIC_BEGIN.test(line)) add(n, 'public key outside team/keys');
+    if (SSH_PUBLIC_LINE.test(line)) add(n, 'ssh public key outside its published field');
     if (vaultPair(line)) add(n, 'sgit vault key shape (passphrase:vault_id)');
     for (const m of line.matchAll(ASSIGN)) {
       const v = m[1];
@@ -188,6 +201,9 @@ function scanHistory() {
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
+  // The key rules' tests run first, so the scan that CI runs cannot pass with a broken rule (security@, 19 Nov 2026).
+  try { execFileSync(process.execPath, [join(root, 'scripts/test-leak-scan.mjs')], { stdio: ['ignore', 'ignore', 'inherit'] }); }
+  catch { console.error('leak-scan: its own rule tests failed (node scripts/test-leak-scan.mjs)'); process.exit(1); }
   const history = process.argv.includes('--history');
   const { errors, count, skipped } = history ? scanHistory() : scanTree();
   if (errors.length) {
