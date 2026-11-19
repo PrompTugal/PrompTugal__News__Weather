@@ -105,14 +105,14 @@ export const host = u => { try { return new URL(u).host; } catch { return u; } }
 const NAV = [['/', 'Now'], ['/map/', 'Map'], ['/places/', 'Places'], ['/storms/', 'Storms'], ['/cameras/', 'Cameras'], ['/what-to-do/', 'What to do'], ['/about/', 'About']];
 // The sites bar 1.2.0 (Dinis, 18 Nov 2026 and 03:18 UTC 19 Nov: one way to move between the sites; vendored,
 // scripts/vendor/sites-bar/README.md): rendered once at build from the registry copied to data/sites.json, only while
-// scripts/vendor-check.mjs finds its version listed and its files matching the registry's pins. '' (the bar off, or a
+// scripts/vendor-check.mjs finds its version listed in the live registry and its files matching the pins. '' (the bar off, or a
 // registry the renderer refuses, or none) means no bar, never a hand-made one.
-import { vendoredState } from '../vendor-check.mjs';
+import { vendorState } from '../vendor-check.mjs';
 import { render as renderSitesBar, check as checkSites } from '../vendor/sites-bar/1.2.0/sites-bar-render.mjs';
 // When the data was read and the page built, on every page (conductor.b@, 19 Nov 2026, about 01:20 UTC: GitHub runs the
 // scheduled rebuild far less often than asked, so a page must not look fresher than its data). __BUILT__ is set by build.mjs.
 const DATA_READ = (() => { try { const t = JSON.parse(readFileSync('data/api/ipma-warnings.json', 'utf8')).read_at; const d = new Date(t); if (isNaN(+d)) return ''; return `${d.getUTCDate()} ${['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][d.getUTCMonth()]}, ${String(d.getUTCHours()).padStart(2, '0')}:${String(d.getUTCMinutes()).padStart(2, '0')} UTC`; } catch { return ''; } })();
-const SITES_BAR = (() => { try { if (!vendoredState()['sites bar'].on) return ''; return existsSync('data/sites.json') ? renderSitesBar(JSON.parse(readFileSync('data/sites.json', 'utf8')), { here: 'weather.promptugal.news' }) : ''; } catch { return ''; } })();
+const SITES_BAR = (() => { try { if (!vendorState()['sites bar']?.on) return ''; return existsSync('data/sites.json') ? renderSitesBar(JSON.parse(readFileSync('data/sites.json', 'utf8')), { here: 'weather.promptugal.news' }) : ''; } catch { return ''; } })();
 // The Content Security Policy (Dinis, 19 Nov 2026, Website board/guidance/2026-11-19-load-the-data-in-the-browser.md: "the
 // CSP's connect-src lists the exact hosts read, and script-src stays 'self'"). Hosts read by this site's scripts:
 // data.promptugal.news (live.js), every site in the registry (the sites bar's version.json and preview.svg, hosts checked

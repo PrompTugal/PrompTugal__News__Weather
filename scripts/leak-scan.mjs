@@ -96,19 +96,6 @@ const ALLOW = [
 ];
 const allowed = (path, kind) => ALLOW.some(([p, k]) => p === path && k === kind);
 
-// The registry copy's pins (security@'s ruling, 19 Nov 2026): in data/sites.json only, only the fields
-// bar.versions.<v>.{js,css,render} and obs_tz.versions.<v>.integrity, only a whole value of exactly this shape.
-const PIN_VALUE = /^sha(256|384|512)-[A-Za-z0-9+/]{43,86}={0,2}$/;
-function registryPins(text) {
-  const out = [];
-  try {
-    const j = JSON.parse(text);
-    const take = (block, fields) => { const vs = block && block.versions; if (vs && typeof vs === 'object') for (const v of Object.values(vs)) if (v && typeof v === 'object') for (const f of fields) if (typeof v[f] === 'string' && PIN_VALUE.test(v[f])) out.push([f, v[f]]); };
-    take(j && j.bar, ['js', 'css', 'render']); take(j && j.obs_tz, ['integrity']);
-  } catch { }
-  return out;
-}
-
 const PUBLIC_KEY_FILES = (p) => p === 'team/keys.json' || /^team\/keys\/[a-z0-9-]+\.json$/.test(p);
 
 // Returns a list of {line, kind} for one file's text. Never returns the match.
@@ -127,7 +114,6 @@ export function scanText(path, text) {
       for (const v of vals) body = body.split('"public_key": ' + JSON.stringify(v)).join('"public_key": ' + JSON.stringify(v.replace(/./g, ' ')));
     }
   }
-  if (path === 'data/sites.json') for (const [f, v] of registryPins(text)) body = body.split(`"${f}": ${JSON.stringify(v)}`).join(`"${f}": ${JSON.stringify(v.replace(/./g, ' '))}`);
   body.split('\n').forEach((line, i) => {
     const n = i + 1;
     for (const [kind, re] of SHAPES) if (re.test(line)) add(n, kind);

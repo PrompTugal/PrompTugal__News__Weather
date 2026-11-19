@@ -8,10 +8,10 @@ Version 1.2.0, from the PrompTugal__News__Website repository's `assets/sites-bar
 | sites-bar.css | src/assets/sites-bar/1.2.0/ |
 | sites-bar.js | src/assets/sites-bar/1.2.0/ |
 
-No pin is kept in this repository's code (security@'s ruling, 19 Nov 2026). `scripts/sync-data.mjs` copies the registry (https://promptugal.news/api/v1/sites.json) to `data/sites.json`, keeping every version's pins (`bar.versions`, `obs_tz.versions`, append-only). At each build `scripts/vendor-check.mjs` compares each file's sha256 with the full SRI string the registry gives for this version:
+No pin is kept in this repository (security@'s rulings, 19 Nov 2026). At each build `scripts/build.mjs` reads the live registry (https://promptugal.news/api/v1/sites.json; `bar.versions` and `obs_tz.versions`, append-only, in today's shape or the `versions["<v>"].integrity.<file>` shape dev@ is moving both to) and `scripts/vendor-check.mjs` compares each file's sha256 with the full SRI string it gives for this version:
 
 - listed and matching: the bar is on;
-- no longer listed: the bar is left out and the build logs "sites bar 1.2.0 off: the registry names <newer>" (also in /version.json);
+- no longer listed, or the registry cannot be read: the bar is left out and the build logs "sites bar 1.2.0 off: the registry names <newer>" (also in /version.json);
 - listed but the bytes differ: the build stops.
 
-The shared time-zone table (`src/assets/obs/tz-country.json`, obs_tz 1.1.0) is checked the same way; when off, it is not published and the page-view script sends no country. If `render` returns '', the pages are published without a bar. The leak scan allows SRI strings only in those fields of `data/sites.json` (tests in `scripts/test-leak-scan.mjs`).
+The shared time-zone table (`src/assets/obs/tz-country.json`, obs_tz 1.1.0) is checked the same way; when off, it is not published and the page-view script sends no country. If `render` returns '', the pages are published without a bar. `data/sites.json`, the registry copy the bar is rendered from, keeps no pins, and the leak scan has no exemption for them (tests in `scripts/test-leak-scan.mjs`).
