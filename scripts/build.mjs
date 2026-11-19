@@ -4,6 +4,12 @@
 import { cpSync, rmSync, readdirSync, readFileSync, writeFileSync, statSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 const version = process.env.SITE_VERSION || 'dev';
+// the vendored sites bar must be exactly the reviewed files (scripts/vendor/sites-bar/README.md). Pinned by git blob id
+// (sha1 of "blob <size>\0<bytes>", the id `git hash-object` prints): their sha256 matched the registry's when copied.
+const { createHash } = await import('node:crypto');
+const blobId = (b) => createHash('sha1').update(Buffer.concat([Buffer.from(`blob ${b.length}\0`), b])).digest('hex');
+for (const [f, h] of [['scripts/vendor/sites-bar/1.1.0/sites-bar-render.mjs', '5f021b7ad3de48ce0418245b47cf058555a38004'], ['src/assets/sites-bar/1.1.0/sites-bar.css', 'b1b0772e139a4e51ea6e71768552aee62e8bf24c'], ['src/assets/sites-bar/1.1.0/sites-bar.js', '0cdcc5cc84b19afb9fa5941e2f3b62b77d979a10']])
+  if (blobId(readFileSync(f)) !== h) { console.error(`${f}: differs from the reviewed file; not building`); process.exit(1); }
 rmSync('_site', { recursive: true, force: true });
 cpSync('src', '_site', { recursive: true });
 await import('./site/generate.mjs');
@@ -29,6 +35,6 @@ for (const f of walk('_site')) {
   const s = readFileSync(f, 'utf8');
   if (s.includes('__VERSION__')) writeFileSync(f, s.replaceAll('__VERSION__', version));
 }
-writeFileSync('_site/version.json', JSON.stringify({ license: { name: 'CC BY 4.0', url: 'https://creativecommons.org/licenses/by/4.0/' }, version, commit: process.env.GITHUB_SHA || 'local', built: new Date().toISOString(), data_read_at: JSON.parse(readFileSync('_site/preview.json', 'utf8')).read_at, preview: { svg: '/preview.svg', png: '/preview.png', figures: '/preview.json' } }, null, 2) + '\n');
+writeFileSync('_site/version.json', JSON.stringify({ license: { name: 'CC BY 4.0', url: 'https://creativecommons.org/licenses/by/4.0/' }, version, commit: process.env.GITHUB_SHA || 'local', built: new Date().toISOString(), data_read_at: JSON.parse(readFileSync('_site/preview.json', 'utf8')).read_at, preview: { svg: '/preview.svg', card_svg: '/preview-card.svg', png: '/preview.png', figures: '/preview.json' }, sites_bar: '1.1.0' }, null, 2) + '\n');
 writeFileSync('_site/.nojekyll', '');
 console.log(`built _site/ (${version})`);

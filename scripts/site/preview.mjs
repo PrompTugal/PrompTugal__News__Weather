@@ -58,3 +58,33 @@ ${fig(860, String(f.places), 'places with their own page')}
 </svg>
 `;
 }
+
+// The sites bar's pop-up preview, 320 by 180, from designer@'s template (Website repo
+// design/sites-bar/preview-template.svg.txt, 19 Nov 2026): no script, no link, no external reference, system fonts.
+const TEMPLATE = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" width="320" height="180" role="img" aria-label="{{site}}: {{line}}">
+  <rect width="320" height="180" rx="6" fill="#f6f3ec"/>
+  <rect x="0" y="0" width="320" height="4" fill="{{accent}}"/>
+  <text x="16" y="30" font-family="IBM Plex Mono, monospace" font-size="10.5" letter-spacing="1.2" fill="#666860">{{SITE}} · NOW</text>
+  <text x="16" y="84" font-family="Newsreader, Georgia, serif" font-size="46" fill="#121317">{{n1}}</text>
+  <text x="16" y="104" font-family="IBM Plex Sans, Arial, sans-serif" font-size="12" fill="#3a3b40">{{label1}}</text>
+  <text x="176" y="72" font-family="Newsreader, Georgia, serif" font-size="26" fill="#121317">{{n2}}</text>
+  <text x="176" y="88" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" fill="#3a3b40">{{label2}}</text>
+  <text x="176" y="120" font-family="Newsreader, Georgia, serif" font-size="26" fill="#121317">{{n3}}</text>
+  <text x="176" y="136" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" fill="#3a3b40">{{label3}}</text>
+  <line x1="16" y1="150" x2="304" y2="150" stroke="#d8d4cb"/>
+  <text x="16" y="168" font-family="IBM Plex Mono, monospace" font-size="10" fill="#666860">read {{read_at}} · {{licence}}</text>
+</svg>
+`;
+export function previewBarSvg(D) {
+  const f = previewFigures(D);
+  const d = new Date(f.read_at || NaN);
+  const read = isNaN(+d) ? 'unknown' : `${d.getUTCDate()} ${MON[d.getUTCMonth()]} ${String(d.getUTCHours()).padStart(2, '0')}:${String(d.getUTCMinutes()).padStart(2, '0')} UTC`;
+  const v = {
+    site: 'PrompTugal.news Weather', line: 'warnings, fire risk, sea, place by place', accent: '#0e8a9c', SITE: 'WEATHER',
+    n1: `${f.red + f.orange + f.yellow}/${f.districts}`, label1: 'districts with a warning',
+    n2: f.faro_temp_c == null ? 'n/a' : `${f.faro_temp_c}°C`, label2: 'Faro now (IPMA station)',
+    n3: f.fire_max_algarve || 'n/a', label3: 'Algarve fire risk today',
+    read_at: read, licence: "IPMA's terms · CC BY 4.0",
+  };
+  return TEMPLATE.replace(/\{\{(\w+)\}\}/g, (_, k) => esc(v[k] ?? ''));
+}

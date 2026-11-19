@@ -1,0 +1,135 @@
+{
+ "about": "The registry of every *.promptugal.news site (Dinis, 18 November 2026, about 22:00 UTC: board/guidance/2026-11-18-the-sites-bar.md), published at promptugal.news/api/v1/sites.json and read by the sites bar on every site. Data, not code. Each site's version and last change are read from its own /version.json; its preview is its own /preview.svg. dev@PrompTugal.dinis keeps the list; a site lead asks to change its line or mark. The one lines are designer@'s (design/sites-bar/sites-bar.html.txt).",
+ "version": "v0.1.1835",
+ "sites": [
+  {
+   "id": "news",
+   "name": "News",
+   "url": "https://promptugal.news/",
+   "line": "Portugal's news, town by town",
+   "accent": "#006600",
+   "version_url": "https://promptugal.news/api/v1/version.json",
+   "preview": "https://promptugal.news/api/v1/preview.svg"
+  },
+  {
+   "id": "data",
+   "name": "Data",
+   "url": "https://data.promptugal.news/",
+   "line": "the open data behind every site, with APIs",
+   "accent": "#1f6feb",
+   "version_url": "https://data.promptugal.news/version.json",
+   "preview": "https://data.promptugal.news/preview.svg"
+  },
+  {
+   "id": "weather",
+   "name": "Weather",
+   "url": "https://weather.promptugal.news/",
+   "line": "warnings, fire risk, sea, place by place",
+   "accent": "#0e8a9c",
+   "version_url": "https://weather.promptugal.news/version.json",
+   "preview": "https://weather.promptugal.news/preview.svg"
+  },
+  {
+   "id": "civic",
+   "name": "Civic",
+   "url": "https://civic.promptugal.news/",
+   "line": "public money and public services, explained",
+   "accent": "#6f42c1",
+   "version_url": "https://civic.promptugal.news/version.json",
+   "preview": "https://civic.promptugal.news/preview.svg"
+  },
+  {
+   "id": "startups",
+   "name": "Startups",
+   "url": "https://startups.promptugal.news/",
+   "line": "startups and their funding, by place",
+   "accent": "#d4761a",
+   "version_url": "https://startups.promptugal.news/version.json",
+   "preview": "https://startups.promptugal.news/preview.svg"
+  },
+  {
+   "id": "travel",
+   "name": "Travel",
+   "url": "https://travel.promptugal.news/",
+   "line": "flights, transport, strikes, events",
+   "accent": "#2e8b57",
+   "version_url": "https://travel.promptugal.news/version.json",
+   "preview": "https://travel.promptugal.news/preview.svg"
+  },
+  {
+   "id": "events",
+   "name": "Events",
+   "url": "https://events.promptugal.news/",
+   "line": "what is on, and where we found it",
+   "accent": "#b5179e",
+   "version_url": "https://events.promptugal.news/version.json",
+   "preview": "https://events.promptugal.news/preview.svg"
+  },
+  {
+   "id": "signals",
+   "name": "Signals",
+   "url": "https://signals.promptugal.news/",
+   "line": "weak signals from public sources",
+   "accent": "#8a6d00",
+   "version_url": "https://signals.promptugal.news/version.json",
+   "preview": "https://signals.promptugal.news/preview.svg"
+  },
+  {
+   "id": "library",
+   "name": "Library",
+   "url": "https://library.promptugal.news/",
+   "line": "the catalogue at the heart of everything",
+   "accent": "#5a5a5a",
+   "version_url": "https://library.promptugal.news/version.json",
+   "preview": "https://library.promptugal.news/preview.svg"
+  },
+  {
+   "id": "videos",
+   "name": "Videos",
+   "url": "https://videos.promptugal.news/",
+   "line": "talks and replays, by link",
+   "accent": "#e5484d",
+   "version_url": "https://videos.promptugal.news/version.json",
+   "preview": "https://videos.promptugal.news/preview.svg"
+  },
+  {
+   "id": "live",
+   "name": "Live",
+   "url": "https://live.promptugal.news/",
+   "line": "what is happening now",
+   "accent": "#0a7d4f",
+   "version_url": "https://live.promptugal.news/version.json",
+   "preview": "https://live.promptugal.news/preview.svg"
+  },
+  {
+   "id": "cyber",
+   "name": "Cyber",
+   "url": "https://cyber.promptugal.news/",
+   "line": "security news and advisories",
+   "accent": "#3d3d9e",
+   "version_url": "https://cyber.promptugal.news/version.json",
+   "preview": "https://cyber.promptugal.news/preview.svg"
+  },
+  {
+   "id": "bulletins",
+   "name": "Bulletins",
+   "url": "https://bulletins.promptugal.news/",
+   "line": "the daily bulletins",
+   "accent": "#a0522d",
+   "version_url": "https://bulletins.promptugal.news/version.json",
+   "preview": "https://bulletins.promptugal.news/preview.svg"
+  }
+ ],
+ "preview_spec": [
+  "Each site makes its own preview at every build, from its own numbers: /preview.svg, 1200 by 630, an infographic of what is live there now (events this week, cameras up, contracts in 90 days, the pulse), with the site's name and mark, the version and the time built.",
+  "It carries its provenance and licence inside: an SVG <title> and <desc> naming the files the numbers come from and the licence (CC BY 4.0 for what we make).",
+  "No script, no external reference, no font file in the SVG: system fonts only, so any site can show it as an <img>.",
+  "/preview.png, the same picture for social cards (og:image), when the site's build can render one; until then the SVG alone."
+ ],
+ "license": {
+  "name": "CC BY 4.0",
+  "url": "https://creativecommons.org/licenses/by/4.0/",
+  "by": "PrompTugal.news",
+  "scope": "what PrompTugal.news made in this file; an item taken from someone else carries its own license"
+ }
+}

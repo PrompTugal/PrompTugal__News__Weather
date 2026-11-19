@@ -9,7 +9,7 @@ import {
 } from './lib.mjs';
 import { warningsTimeline, TIMELINE_CSS } from './timeline.mjs';
 import { exposureSection, EXPOSURE_CSS } from './exposure.mjs';
-import { previewSvg, previewFigures } from './preview.mjs';
+import { previewSvg, previewFigures, previewBarSvg } from './preview.mjs';
 import { camsSection, camerasPage, CAMS_CSS } from './cams.mjs';
 import { DESIGNS } from './lib.mjs';
 const SHOTS_AT = existsSync('src/assets/designs/shots.json') ? JSON.parse(readFileSync('src/assets/designs/shots.json', 'utf8')).taken : 'not yet';
@@ -441,7 +441,8 @@ ${pages.filter(p => !p.path.startsWith('/design/')).map(p => `- [${p.title}](${S
 writeFileSync(join(OUT, 'llms.txt'), llms);
 writeFileSync(join(OUT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${pages.map(p => `  <url><loc>${SITE}${p.path}</loc></url>`).join('\n')}\n</urlset>\n`);
 // the preview for the sites bar and social cards (Dinis ~22:00 UTC 18 Nov; scripts/site/preview.mjs)
-writeFileSync(join(OUT, 'preview.svg'), previewSvg(D, '__VERSION__'));
+writeFileSync(join(OUT, 'preview.svg'), previewBarSvg(D)); // 320 x 180, the sites bar's pop-up
+writeFileSync(join(OUT, 'preview-card.svg'), previewSvg(D, '__VERSION__')); // 1200 x 630, the source of /preview.png
 const { levels: _l, ...figures } = previewFigures(D);
 writeFileSync(join(OUT, 'preview.json'), JSON.stringify({ license: { compilation: { name: 'CC BY 4.0', url: 'https://creativecommons.org/licenses/by/4.0/' }, data: [{ name: "the source's terms", url: 'https://api.ipma.pt/', of: 'IPMA' }] }, about: 'The figures in /preview.svg, from the data the pages were built from.', source: 'IPMA via https://data.promptugal.news/api/v1/', ...figures }, null, 2) + '\n');
 writeFileSync(join(OUT, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${SITE}/sitemap.xml\n`);

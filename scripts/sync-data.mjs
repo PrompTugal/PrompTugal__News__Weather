@@ -63,6 +63,7 @@ const SHAPES = [
   [/^data\/api\/cams\.json$/, j => typeof j.source === 'string' && typeof j.read_at === 'string' && Array.isArray(j.cameras) && j.cameras.length <= 100 &&
     j.cameras.every(c => c && ['id', 'name', 'place', 'state'].every(k => typeof c[k] === 'string'))],
   [/^data\/api\//, j => typeof j.source === 'string' && typeof j.read_at === 'string'],
+  [/^data\/sites\.json$/, j => Array.isArray(j.sites) && j.sites.length <= 32],
   [/^data\/storm\//, j => Array.isArray(j.hours) && j.hours.length <= 400 && typeof j.about === 'string' &&
     j.hours.every(h => h && typeof h.hour_utc === 'string' && ['red', 'orange', 'yellow'].every(k => Number.isFinite(h[k]) && h[k] >= 0))],
 ];
@@ -76,6 +77,9 @@ const save = (to, text) => {
 const got = [];
 for (const [from, to] of API_FILES) { save(to, await fetchText(API + from)); got.push({ from: API + from, to }); await sleep(200); }
 const catalogue = JSON.parse(await fetchText(API + 'index.json'));
+// the sites bar's registry (Dinis, 18 Nov 2026, Website board/guidance/2026-11-18-the-sites-bar.md): data, not code; the
+// vendored renderer checks every entry again. If it cannot be read, the committed copy (the last build's) is kept.
+try { const reg = JSON.parse(await fetchText('https://promptugal.news/api/v1/sites.json')); delete reg.bar; /* install notes and hashes: not used at build, and long hex the leak scan flags */ save('data/sites.json', JSON.stringify(reg, null, 1)); got.push({ from: 'https://promptugal.news/api/v1/sites.json', to: 'data/sites.json' }); } catch (e) { console.log('sites registry not read; the committed copy is kept: ' + e.message); }
 for (const [from, to] of WEB_FILES) {
   save(to, local ? readFileSync(join(SIBLING, from), 'utf8') : await fetchText(RAW + from));
   got.push({ from: `https://github.com/${REPO}/blob/dev/${from}`, to });

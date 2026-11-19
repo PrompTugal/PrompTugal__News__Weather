@@ -103,9 +103,12 @@ export const host = u => { try { return new URL(u).host; } catch { return u; } }
 
 // ---------------------------------------------------------------- the frame
 const NAV = [['/', 'Now'], ['/map/', 'Map'], ['/places/', 'Places'], ['/storms/', 'Storms'], ['/cameras/', 'Cameras'], ['/what-to-do/', 'What to do'], ['/about/', 'About']];
-// The sites rail (promptugal.news's masthead, Website repo assets/top/top.tmpl, Dinis 17 Nov 2026)
-const SITES = [['https://weather.promptugal.news/', 'Weather'], ['https://civic.promptugal.news/', 'Civic'], ['https://startups.promptugal.news/', 'Startups'], ['https://travel.promptugal.news/', 'Travel'], ['https://data.promptugal.news/', 'Data']];
-export const CSS_VERSION = '5';
+// The sites bar 1.1.0 (Dinis, 18 Nov 2026; vendored, scripts/vendor/sites-bar/README.md): rendered once at build from the
+// registry copied to data/sites.json; '' (a registry the renderer refuses, or none) means no bar, never a hand-made one.
+import { render as renderSitesBar } from '../vendor/sites-bar/1.1.0/sites-bar-render.mjs';
+const SITES_BAR = (() => { try { return existsSync('data/sites.json') ? renderSitesBar(JSON.parse(readFileSync('data/sites.json', 'utf8')), { here: 'weather.promptugal.news' }) : ''; } catch { return ''; } })();
+if (!SITES_BAR) console.warn('sites bar: data/sites.json missing or refused by the renderer; pages built without the bar');
+export const CSS_VERSION = '6';
 
 // ---------------------------------------------------------------- the front pages to choose from (as on hub.agenticcells.site's sites:
 // a strip at the very top, a Designs chip that opens a picker of screenshots; the user, 18 Nov 2026, about 15:20 UTC)
@@ -155,12 +158,14 @@ export function page({ path, title, description, body: rawBody, md, made, extraH
 <link rel="alternate" type="text/markdown" href="${twin}">
 <link rel="icon" href="/brand/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/site.css?v=${CSS_VERSION}">
+${SITES_BAR ? '<link rel="stylesheet" href="/assets/sites-bar/1.1.0/sites-bar.css">\n<script defer src="/assets/sites-bar/1.1.0/sites-bar.js"></script>\n' : ''}
 <meta name="page-type" content="free">
 <script defer src="/assets/reading.js?v=${CSS_VERSION}"></script>
 <script defer src="/assets/live.js?v=${CSS_VERSION}"></script>
 <script defer src="/assets/obs/obs.js?v=${CSS_VERSION}" data-lane="weather"></script>
 ${extraHead}</head>
 <body class="${bodyClass}">
+${SITES_BAR}
 <a class="skip" href="#main">Skip to the content</a>
 <nav class="designs" aria-label="Front page designs"><a href="/design/">Same data, ${DESIGNS.length} front pages, for Dinis to choose:</a>${DESIGNS.map(d => `<a href="${d.href}"${(d.href === '/' ? path === '/' : path.startsWith(d.href)) ? ' aria-current="page"' : ''}>${esc(d.name)}</a>`).join('')}</nav>
 <div class="version-bar"><span>Version __VERSION__</span><span><a href="${twin}">This page as markdown</a></span></div>
@@ -172,7 +177,6 @@ ${extraHead}</head>
   </div>
   <nav class="nav" aria-label="Sections">${nav}</nav>
 </header>
-<nav class="em-net" aria-label="The PrompTugal.news sites"><span>Also from PrompTugal.news</span>${SITES.map(([href, label]) => `<a href="${href}"${href === SITE + '/' ? ' aria-current="page"' : ''}>${label}</a>`).join('')}</nav>
 <p class="not-warning" role="note"><strong>Not a warning service.</strong> For warnings and what to do now, follow <a href="https://www.ipma.pt/">IPMA</a> and <a href="https://prociv.gov.pt/">ANEPC</a>. In an emergency call 112.</p>
 <main id="main">
 ${body}
@@ -182,7 +186,6 @@ ${madeBlock(made)}
   <p>Part of <a href="https://promptugal.news/">PrompTugal.news</a>: Portugal, town by town. Independent: not an official or government site. Data from IPMA's open data, as collected and published by <a href="https://data.promptugal.news/">data.promptugal.news</a>. Free to read: this site carries no billing; only promptugal.news bills. Each value keeps its source's licence.</p>
   <p class="licences">Licences: ${used.map(k => k === 'ours' ? `our pages, words and charts ${licLink('ours')}` : `data from ${licLink(k)}`).join('; ')}. Every JSON file here carries a <code>license</code> field.</p>
   <p class="takedown"><strong>Is something here yours, and should it not be?</strong> <a href="https://github.com/PrompTugal/PrompTugal__News__Weather/issues/new?title=Take%20down%3A%20">Open an issue</a> saying what and why: we take it down while we talk.</p>
-  <p class="sites-row">Also from PrompTugal.news: ${SITES.map(([href, label]) => `<a href="${href}">${label}</a>`).join(' · ')}</p>
   <p class="small">Version __VERSION__ · <a href="https://github.com/PrompTugal/PrompTugal__News__Weather">Source</a> · Code Apache-2.0, text CC BY 4.0 · <a href="/llms.txt">llms.txt</a> · <a href="/how/">How it works</a> · <a href="/security/">Security</a> (<a href="https://promptugal.news/security/">all sites</a>)</p>
 </footer>
 <dialog id="designs" class="picker" aria-labelledby="designs-t">

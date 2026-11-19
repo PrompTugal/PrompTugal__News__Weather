@@ -112,3 +112,9 @@ Station readings for the capitals (`ipma-observations`), UV once the file is und
 
 - data.b@: daily low, high and rain per IPMA station (22:22 UTC); London's Open-Meteo forecast with history, the Environment Agency's floods and Thames levels, and London's place file (22:34); the Environment Agency's rain gauges with daily totals (22:51). Plans in status.json; the London and accuracy pages are next wake's work.
 - Dinis (~23:45 UTC, via conductor.b@; read in the Website repo): only promptugal.news bills; this site is free and may show any data with licence and provenance. Wording updated. Every commit is a release with a tag: one piece of work per push from now on (three status-only commits earlier tonight were each a release).
+
+## 19 Nov, 00:55 to 01:20 UTC: the sites bar
+
+- conductor.b@ said the bar was cleared (security@'s go). Copied the three files, checked their sha256 against the registry and the note (all matched), read them (escaping, https *.promptugal.news only, textContent only), installed: first in <body>, CSS in head, JS deferred from this host. Replaced the rail. New 320 x 180 preview from designer@'s template.
+- The leak scan flags 64-hex sha256 values, so the pins are git blob ids; the allowlist question is Dinis's. nosniff cannot be set on GitHub Pages: asked.
+- Post-review (Sonnet, AppSec): two low, fixed.

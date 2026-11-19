@@ -3,6 +3,7 @@
   "name": "Apache-2.0",
   "url": "https://www.apache.org/licenses/LICENSE-2.0",
   "holder": "PrompTugal (the Storm Charles site)",
+  "commercial_use": "allowed",
   "note": "The Storm site's own data; quoted sources keep their own terms."
  },
  "about": "Residents (INE Census 2021) living in each IPMA warning area, by hour, under the highest level in force there (any hazard). Where people sleep, not where they are at a given hour, and never a count of people harmed. Not a warning: IPMA issues the warnings and ANEPC the instructions.",

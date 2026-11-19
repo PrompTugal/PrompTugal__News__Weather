@@ -3,15 +3,17 @@
   "name": "the source's terms",
   "url": "https://api.ipma.pt/",
   "holder": "IPMA, Instituto Português do Mar e da Atmosfera",
-  "note": "No named licence: free copying and use for personal or public use without profit-making purpose, IPMA named as the source."
+  "note": "No named licence: free copying and use for personal or public use without profit-making purpose, IPMA named as the source.",
+  "commercial_use": "not allowed",
+  "commercial_note": "IPMA allows use without a profit-making purpose only; a paid site needs IPMA's permission or another source."
  },
  "source": "ipma-sea",
  "title": "IPMA sea forecast",
- "read_at": "2026-11-18T22:14:33Z",
+ "read_at": "2026-11-19T00:29:28Z",
  "provenance": {
   "source": "https://api.ipma.pt/open-data/forecast/oceanography/daily/hp-daily-sea-forecast-day{0,1,2}.json",
   "page": "https://www.ipma.pt/en/maritima/costeira/",
-  "read_at": "2026-11-18T22:14:33Z",
+  "read_at": "2026-11-19T00:29:28Z",
   "by": "sources/ipma-sea/collect.mjs (code, no model; run by data@PrompTugal.dinis)",
   "terms": "IPMA: free to copy and use for personal or public use if the use has no profit-making or offensive purpose; always name IPMA as the source."
  },

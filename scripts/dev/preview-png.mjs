@@ -1,4 +1,4 @@
-// /preview.png for social cards: renders _site/preview.svg to src/preview.png (1200 x 630). Run by hand after a
+// /preview.png for social cards: renders _site/preview-card.svg to src/preview.png (1200 x 630). Run by hand after a
 // build, with Playwright's Chromium (a dev tool only; the build itself has no dependencies):
 //   node scripts/build.mjs && node scripts/dev/preview-png.mjs
 // The PNG is committed, so it shows the numbers as at the time it was made (printed in the image); /preview.svg is
@@ -6,7 +6,7 @@
 import { readFileSync } from 'node:fs';
 import { createRequire } from 'node:module';
 const { chromium } = createRequire(import.meta.url)('playwright');
-const svg = readFileSync('_site/preview.svg', 'utf8');
+const svg = readFileSync('_site/preview-card.svg', 'utf8');
 const b = await chromium.launch();
 const p = await b.newPage({ viewport: { width: 1200, height: 630 }, deviceScaleFactor: 1 });
 await p.route('**/*', r => r.abort()); // nothing from the network

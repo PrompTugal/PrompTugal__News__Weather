@@ -3,15 +3,17 @@
   "name": "the source's terms",
   "url": "https://api.ipma.pt/",
   "holder": "IPMA, Instituto Português do Mar e da Atmosfera",
-  "note": "No named licence: free copying and use for personal or public use without profit-making purpose, IPMA named as the source."
+  "note": "No named licence: free copying and use for personal or public use without profit-making purpose, IPMA named as the source.",
+  "commercial_use": "not allowed",
+  "commercial_note": "IPMA allows use without a profit-making purpose only; a paid site needs IPMA's permission or another source."
  },
  "source": "ipma-uv",
  "title": "IPMA UV index",
- "read_at": "2026-11-18T22:14:42Z",
+ "read_at": "2026-11-19T00:29:37Z",
  "provenance": {
   "source": "https://api.ipma.pt/open-data/forecast/meteorology/uv/uv.json",
   "page": "https://www.ipma.pt/en/otempo/prev.uv/",
-  "read_at": "2026-11-18T22:14:42Z",
+  "read_at": "2026-11-19T00:29:37Z",
   "by": "sources/ipma-uv/collect.mjs (code, no model; run by data@PrompTugal.dinis)",
   "terms": "IPMA: free to copy and use for personal or public use if the use has no profit-making or offensive purpose; always name IPMA as the source."
  },
