@@ -15,11 +15,11 @@ Two events per page load, sealed in the browser (RSA-OAEP and AES-GCM) so only t
 ## What it reads, and who sees what
 
 - `obs.json` on this site, and the drain's public key, endpoint and vault from promptugal.news's published `obs.json`.
-- To find the town, the browser asks ipapi.co (or ipwho.is) once per tab. Those services see the reader's IP address and the time, as any site a browser calls would; this site reads only the place from the answer. The footer says so.
+- The country only, worked out in the browser from its own time zone through a fixed table in `obs.js`; no service is asked where the reader is (Dinis, 19 Nov 2026, about 03:15 UTC: no IP-based location; until then ipapi.co or ipwho.is were asked for the town). The footer says so.
 
 ## What it trusts
 
-- promptugal.news's `obs.json` for where events go and the key they are sealed to; the append endpoint at dev.send.sgraph.ai; ipapi.co and ipwho.is for the place.
+- promptugal.news's `obs.json` for where events go and the key they are sealed to; the append endpoint at dev.send.sgraph.ai. No third party for the place.
 
 ## What could go wrong, and what limits it
 

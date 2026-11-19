@@ -114,10 +114,10 @@ const SITES_BAR = (() => { try { return existsSync('data/sites.json') ? renderSi
 // CSP's connect-src lists the exact hosts read, and script-src stays 'self'"). Hosts read by this site's scripts:
 // data.promptugal.news (live.js), every site in the registry (the sites bar's version.json and preview.svg, hosts checked
 // by the vendored renderer), promptugal.news's obs.json, and, only once the observability lane opens, its drain
-// (dev.send.sgraph.ai) and the place lookup Dinis chose on 6 Nov (ipapi.co, ipwho.is; asked of Dinis whether that stays).
+// (dev.send.sgraph.ai). No place lookup (Dinis, 19 Nov 2026, about 03:15 UTC: no IP-based location; ipapi.co and ipwho.is removed).
 const SITE_HOSTS = (() => { try { return (checkSites(JSON.parse(readFileSync('data/sites.json', 'utf8'))) || []).map(e => new URL(e.url).origin); } catch { return []; } })();
 const OUR = [...new Set(['https://promptugal.news', 'https://data.promptugal.news', ...SITE_HOSTS])].filter(o => o !== SITE);
-export const CSP = [`default-src 'self'`, `script-src 'self'`, `style-src 'self' 'unsafe-inline'`, `img-src 'self' ${OUR.join(' ')}`, `connect-src 'self' ${OUR.join(' ')} https://dev.send.sgraph.ai https://ipapi.co https://ipwho.is`, `frame-src 'self'`, `font-src 'self'`, `object-src 'none'`, `base-uri 'self'`, `form-action 'self'`].join('; ');
+export const CSP = [`default-src 'self'`, `script-src 'self'`, `style-src 'self' 'unsafe-inline'`, `img-src 'self' ${OUR.join(' ')}`, `connect-src 'self' ${OUR.join(' ')} https://dev.send.sgraph.ai`, `frame-src 'self'`, `font-src 'self'`, `object-src 'none'`, `base-uri 'self'`, `form-action 'self'`].join('; ');
 if (!SITES_BAR) console.warn('sites bar: data/sites.json missing or refused by the renderer; pages built without the bar');
 export const CSS_VERSION = '6';
 
