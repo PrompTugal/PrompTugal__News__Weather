@@ -106,6 +106,9 @@ const NAV = [['/', 'Now'], ['/map/', 'Map'], ['/places/', 'Places'], ['/storms/'
 // The sites bar 1.1.0 (Dinis, 18 Nov 2026; vendored, scripts/vendor/sites-bar/README.md): rendered once at build from the
 // registry copied to data/sites.json; '' (a registry the renderer refuses, or none) means no bar, never a hand-made one.
 import { render as renderSitesBar } from '../vendor/sites-bar/1.1.0/sites-bar-render.mjs';
+// When the data was read and the page built, on every page (conductor.b@, 19 Nov 2026, about 01:20 UTC: GitHub runs the
+// scheduled rebuild far less often than asked, so a page must not look fresher than its data). __BUILT__ is set by build.mjs.
+const DATA_READ = (() => { try { const t = JSON.parse(readFileSync('data/api/ipma-warnings.json', 'utf8')).read_at; const d = new Date(t); if (isNaN(+d)) return ''; return `${d.getUTCDate()} ${['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][d.getUTCMonth()]}, ${String(d.getUTCHours()).padStart(2, '0')}:${String(d.getUTCMinutes()).padStart(2, '0')} UTC`; } catch { return ''; } })();
 const SITES_BAR = (() => { try { return existsSync('data/sites.json') ? renderSitesBar(JSON.parse(readFileSync('data/sites.json', 'utf8')), { here: 'weather.promptugal.news' }) : ''; } catch { return ''; } })();
 if (!SITES_BAR) console.warn('sites bar: data/sites.json missing or refused by the renderer; pages built without the bar');
 export const CSS_VERSION = '6';
@@ -186,6 +189,7 @@ ${madeBlock(made)}
   <p>Part of <a href="https://promptugal.news/">PrompTugal.news</a>: Portugal, town by town. Independent: not an official or government site. Data from IPMA's open data, as collected and published by <a href="https://data.promptugal.news/">data.promptugal.news</a>. Free to read: this site carries no billing; only promptugal.news bills. Each value keeps its source's licence.</p>
   <p class="licences">Licences: ${used.map(k => k === 'ours' ? `our pages, words and charts ${licLink('ours')}` : `data from ${licLink(k)}`).join('; ')}. Every JSON file here carries a <code>license</code> field.</p>
   <p class="takedown"><strong>Is something here yours, and should it not be?</strong> <a href="https://github.com/PrompTugal/PrompTugal__News__Weather/issues/new?title=Take%20down%3A%20">Open an issue</a> saying what and why: we take it down while we talk.</p>
+  <p class="small fresh-line">Data on this page read from IPMA (via data.promptugal.news) ${DATA_READ || 'at an unknown time'}; page built __BUILT__. Pages that can also refresh in your browser say so where they do.</p>
   <p class="small">Version __VERSION__ · <a href="https://github.com/PrompTugal/PrompTugal__News__Weather">Source</a> · Code Apache-2.0, text CC BY 4.0 · <a href="/llms.txt">llms.txt</a> · <a href="/how/">How it works</a> · <a href="/security/">Security</a> (<a href="https://promptugal.news/security/">all sites</a>)</p>
 </footer>
 <dialog id="designs" class="picker" aria-labelledby="designs-t">

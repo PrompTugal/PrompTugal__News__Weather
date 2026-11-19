@@ -4,6 +4,7 @@
 import { cpSync, rmSync, readdirSync, readFileSync, writeFileSync, statSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 const version = process.env.SITE_VERSION || 'dev';
+const BUILT = (d => `${d.getUTCDate()} ${['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][d.getUTCMonth()]}, ${String(d.getUTCHours()).padStart(2, '0')}:${String(d.getUTCMinutes()).padStart(2, '0')} UTC`)(new Date());
 // the vendored sites bar must be exactly the reviewed files (scripts/vendor/sites-bar/README.md): each one's sha256 is
 // pinned in SHA256SUMS (the values the registry and conductor.b@'s install note gave). The pin file itself must hold
 // exactly the three lines below and nothing else (the leak scan allows high-entropy text in it for that reason only).
@@ -35,7 +36,7 @@ const walk = d => readdirSync(d).flatMap(f => { const p = join(d, f); return sta
 for (const f of walk('_site')) {
   if (!/\.(html|js|css|json|md|txt|svg)$/.test(f)) continue;
   const s = readFileSync(f, 'utf8');
-  if (s.includes('__VERSION__')) writeFileSync(f, s.replaceAll('__VERSION__', version));
+  if (s.includes('__VERSION__') || s.includes('__BUILT__')) writeFileSync(f, s.replaceAll('__VERSION__', version).replaceAll('__BUILT__', BUILT));
 }
 writeFileSync('_site/version.json', JSON.stringify({ license: { name: 'CC BY 4.0', url: 'https://creativecommons.org/licenses/by/4.0/' }, version, commit: process.env.GITHUB_SHA || 'local', built: new Date().toISOString(), data_read_at: JSON.parse(readFileSync('_site/preview.json', 'utf8')).read_at, preview: { svg: '/preview.svg', card_svg: '/preview-card.svg', png: '/preview.png', figures: '/preview.json' }, sites_bar: '1.1.0' }, null, 2) + '\n');
 writeFileSync('_site/.nojekyll', '');

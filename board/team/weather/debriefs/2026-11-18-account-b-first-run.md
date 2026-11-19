@@ -119,3 +119,4 @@ Station readings for the capitals (`ipma-observations`), UV once the file is und
 - The leak scan flags 64-hex sha256 values, so the pins are git blob ids; the allowlist question is Dinis's. nosniff cannot be set on GitHub Pages: asked.
 - Post-review (Sonnet, AppSec): two low, fixed.
 - 01:40 UTC, at the user's word ("Yes, allowlist the sha256 pins in the leak scan"): the pins are sha256 in `scripts/vendor/sites-bar/1.1.0/SHA256SUMS`, allowed by one narrow leak-scan entry; the build checks the pin file's exact format, so the allowance cannot hide anything else.
+- 01:30 UTC, a correction: I had said scheduled runs never fired. They do, rarely (Pages #32 at 22:42 UTC, #35 at 00:15 UTC); my 22:50 check missed #32. Fixed in status.json, REALITY.md and W-8; each page now shows when its data was read and when it was built.
