@@ -9,7 +9,7 @@ const BUILT = (d => `${d.getUTCDate()} ${['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Ju
 // (scripts/vendor-check.mjs, its tests first). A version the registry no longer lists, or a registry that cannot be read,
 // leaves the piece out, never shipped unchecked; different bytes stop the build.
 const { execFileSync } = await import('node:child_process');
-try { execFileSync(process.execPath, ['scripts/test-vendor-check.mjs'], { stdio: ['ignore', 'ignore', 'inherit'] }); } catch { console.error('vendor-check: its tests failed; not building'); process.exit(1); }
+for (const t of ['scripts/test-vendor-check.mjs', 'scripts/test-past.mjs']) { try { execFileSync(process.execPath, [t], { stdio: ['ignore', 'ignore', 'inherit'] }); } catch { console.error(`${t}: tests failed; not building`); process.exit(1); } }
 const { checkVendored, readRegistry } = await import('./vendor-check.mjs');
 let VENDOR; try { VENDOR = checkVendored(await readRegistry()); } catch (e) { console.error(e.message); process.exit(1); }
 process.env.VENDOR_STATE = JSON.stringify(VENDOR);

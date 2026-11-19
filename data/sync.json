@@ -1,12 +1,12 @@
 {
-  "about": "Where data/now/, data/api/ and data/map/ came from. data/now and data/api are copies of data.promptugal.news's API; data/map of files the PrompTugal.news Website repository publishes. Each value inside keeps its own source and time read.",
+  "about": "Where data/now/, data/api/, data/past/ and data/map/ came from. data/now, data/api and data/past are copies of data.promptugal.news's API; data/map of files the PrompTugal.news Website repository publishes. Each value inside keeps its own source and time read.",
   "from": "https://data.promptugal.news/api/v1/",
-  "api_version": "v0.1.83",
-  "api_built_at": "2026-11-19T04:10:42.443Z",
+  "api_version": "v0.1.97",
+  "api_built_at": "2026-11-19T10:10:03.489Z",
   "maps_from": "https://github.com/PrompTugal/PrompTugal__News__Website",
   "maps_via": "raw.githubusercontent.com",
   "commit": "unknown",
-  "synced_at": "2026-11-19T04:50:15Z",
+  "synced_at": "2026-11-19T10:17:11Z",
   "files": [
     {
       "from": "https://data.promptugal.news/api/v1/by-place/now/algarve.json",
@@ -111,6 +111,82 @@
     {
       "from": "https://data.promptugal.news/api/v1/storm/charles/exposure/people-by-hour.json",
       "to": "data/storm/charles-people-by-hour.json"
+    },
+    {
+      "from": "https://data.promptugal.news/api/v1/history/weather/faro.json",
+      "to": "data/past/faro.json"
+    },
+    {
+      "from": "https://data.promptugal.news/api/v1/history/weather/loule.json",
+      "to": "data/past/loule.json"
+    },
+    {
+      "from": "https://data.promptugal.news/api/v1/history/weather/quarteira.json",
+      "to": "data/past/quarteira.json"
+    },
+    {
+      "from": "https://data.promptugal.news/api/v1/history/weather/silves.json",
+      "to": "data/past/silves.json"
+    },
+    {
+      "from": "https://data.promptugal.news/api/v1/history/weather/tavira.json",
+      "to": "data/past/tavira.json"
+    },
+    {
+      "from": "https://data.promptugal.news/api/v1/history/weather/vila-real-de-santo-antonio.json",
+      "to": "data/past/vila-real-de-santo-antonio.json"
+    },
+    {
+      "from": "https://data.promptugal.news/api/v1/history/weather/portimao.json",
+      "to": "data/past/portimao.json"
+    },
+    {
+      "from": "https://data.promptugal.news/api/v1/history/weather/lagos.json",
+      "to": "data/past/lagos.json"
+    },
+    {
+      "from": "https://data.promptugal.news/api/v1/history/weather/olhao.json",
+      "to": "data/past/olhao.json"
+    },
+    {
+      "from": "https://data.promptugal.news/api/v1/history/weather/albufeira.json",
+      "to": "data/past/albufeira.json"
+    },
+    {
+      "from": "https://data.promptugal.news/api/v1/history/weather/lagoa.json",
+      "to": "data/past/lagoa.json"
+    },
+    {
+      "from": "https://data.promptugal.news/api/v1/history/weather/monchique.json",
+      "to": "data/past/monchique.json"
+    },
+    {
+      "from": "https://data.promptugal.news/api/v1/history/weather/aljezur.json",
+      "to": "data/past/aljezur.json"
+    },
+    {
+      "from": "https://data.promptugal.news/api/v1/history/weather/vila-do-bispo.json",
+      "to": "data/past/vila-do-bispo.json"
+    },
+    {
+      "from": "https://data.promptugal.news/api/v1/history/weather/castro-marim.json",
+      "to": "data/past/castro-marim.json"
+    },
+    {
+      "from": "https://data.promptugal.news/api/v1/history/weather/alcoutim.json",
+      "to": "data/past/alcoutim.json"
+    },
+    {
+      "from": "https://data.promptugal.news/api/v1/history/weather/sao-bras-de-alportel.json",
+      "to": "data/past/sao-bras-de-alportel.json"
+    },
+    {
+      "from": "https://data.promptugal.news/api/v1/history/weather/lisboa.json",
+      "to": "data/past/lisboa.json"
+    },
+    {
+      "from": "https://data.promptugal.news/api/v1/history/weather/london.json",
+      "to": "data/past/london.json"
     },
     {
       "from": "https://promptugal.news/api/v1/sites.json",

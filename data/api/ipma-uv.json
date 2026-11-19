@@ -1,5 +1,5 @@
 {
- "data_read_at": "2026-11-19T04:10:07Z",
+ "data_read_at": "2026-11-19T10:09:25Z",
  "expected_cadence": {
   "name": "hourly",
   "seconds": 3600
@@ -19,11 +19,11 @@
  },
  "source": "ipma-uv",
  "title": "IPMA UV index",
- "read_at": "2026-11-19T04:10:07Z",
+ "read_at": "2026-11-19T10:09:25Z",
  "provenance": {
   "source": "https://api.ipma.pt/open-data/forecast/meteorology/uv/uv.json",
   "page": "https://www.ipma.pt/en/otempo/prev.uv/",
-  "read_at": "2026-11-19T04:10:07Z",
+  "read_at": "2026-11-19T10:09:25Z",
   "by": "sources/ipma-uv/collect.mjs (code, no model; run by data@PrompTugal.dinis)",
   "terms": "IPMA: free to copy and use for personal or public use if the use has no profit-making or offensive purpose; always name IPMA as the source."
  },

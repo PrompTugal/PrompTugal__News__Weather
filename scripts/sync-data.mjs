@@ -63,6 +63,8 @@ const SHAPES = [
   [/^data\/api\/cams\.json$/, j => typeof j.source === 'string' && typeof j.read_at === 'string' && Array.isArray(j.cameras) && j.cameras.length <= 100 &&
     j.cameras.every(c => c && ['id', 'name', 'place', 'state'].every(k => typeof c[k] === 'string'))],
   [/^data\/api\//, j => typeof j.source === 'string' && typeof j.read_at === 'string'],
+  [/^data\/past\/[a-z0-9-]{1,60}\.json$/, j => typeof j.place === 'string' && typeof j.first_day === 'string' && Array.isArray(j.rows) && j.rows.length <= 400 &&
+    j.rows.every(r => r && typeof r.date === 'string')],
   [/^data\/sites\.json$/, j => Array.isArray(j.sites) && j.sites.length <= 32],
   [/^data\/storm\//, j => Array.isArray(j.hours) && j.hours.length <= 400 && typeof j.about === 'string' &&
     j.hours.every(h => h && typeof h.hour_utc === 'string' && ['red', 'orange', 'yellow'].every(k => Number.isFinite(h[k]) && h[k] >= 0))],
@@ -77,6 +79,17 @@ const save = (to, text) => {
 const got = [];
 for (const [from, to] of API_FILES) { save(to, await fetchText(API + from)); got.push({ from: API + from, to }); await sleep(200); }
 const catalogue = JSON.parse(await fetchText(API + 'index.json'));
+// the past, per place (data.b@'s history files; Dinis, 19 Nov 2026: show the past): only places named in the index,
+// with the URL the index gives matching the one expected, and each file naming its own place
+try {
+  const hx = JSON.parse(await fetchText(API + 'history/index.json'));
+  for (const w of (Array.isArray(hx.weather) ? hx.weather.slice(0, 60) : [])) {
+    if (!w || typeof w.place !== 'string' || !/^[a-z0-9-]{1,60}$/.test(w.place) || w.url !== `${API}history/weather/${w.place}.json`) continue;
+    const to = `data/past/${w.place}.json`;
+    try { const t = await fetchText(w.url); if (JSON.parse(t).place !== w.place) throw new Error('names another place'); save(to, t); got.push({ from: w.url, to }); } catch (e) { console.log(`${to} not read; the committed copy is kept: ${e.message}`); }
+    await sleep(150);
+  }
+} catch (e) { console.log('history index not read; the committed copies are kept: ' + e.message); }
 // the sites bar's registry (Dinis, 18 Nov 2026, Website board/guidance/2026-11-18-the-sites-bar.md): data, not code; the
 // vendored renderer checks every entry again. If it cannot be read, the committed copy (the last build's) is kept.
 try { const reg = JSON.parse(await fetchText('https://promptugal.news/api/v1/sites.json')); delete reg.bar; delete reg.obs_tz; /* their pins are read live by scripts/build.mjs (security@, 19 Nov 2026: compare against the live registry, no exemption), so none is committed */ save('data/sites.json', JSON.stringify(reg, null, 1)); got.push({ from: 'https://promptugal.news/api/v1/sites.json', to: 'data/sites.json' }); } catch (e) { console.log('sites registry not read; the committed copy is kept: ' + e.message); }
@@ -86,7 +99,7 @@ for (const [from, to] of WEB_FILES) {
   if (!local) await sleep(300);
 }
 writeFileSync('data/sync.json', JSON.stringify({
-  about: 'Where data/now/, data/api/ and data/map/ came from. data/now and data/api are copies of data.promptugal.news\'s API; data/map of files the PrompTugal.news Website repository publishes. Each value inside keeps its own source and time read.',
+  about: 'Where data/now/, data/api/, data/past/ and data/map/ came from. data/now, data/api and data/past are copies of data.promptugal.news\'s API; data/map of files the PrompTugal.news Website repository publishes. Each value inside keeps its own source and time read.',
   from: 'https://data.promptugal.news/api/v1/', api_version: catalogue.version || 'unknown', api_built_at: catalogue.built_at || null,
   maps_from: `https://github.com/${REPO}`, maps_via: local ? 'local clone' : 'raw.githubusercontent.com', commit,
   synced_at: new Date().toISOString().replace(/\.\d+Z$/, 'Z'), files: got,

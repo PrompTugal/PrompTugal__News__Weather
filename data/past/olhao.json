@@ -1,0 +1,85 @@
+{
+ "license": {
+  "name": "the source's terms",
+  "url": "https://api.ipma.pt/",
+  "holder": "IPMA, Instituto Português do Mar e da Atmosfera",
+  "note": "IPMA's past observations and forecasts as published, kept by us; mention IPMA as the source.",
+  "commercial_use": "not allowed",
+  "commercial_note": "IPMA: \"for personal or public use, provided that for no purposes of profit or offence\". Free sites only; promptugal.news may link to it, but must show none of its values (rights@ R8)."
+ },
+ "place": "olhao",
+ "country": "PT",
+ "first_day": "2026-11-17",
+ "data_read_at": "2026-11-19T10:09:10Z",
+ "about": "The past in olhao, day by day since 2026-11-17: what IPMA's station Olhão, EPPO (1210881) measured (low, high, rain; complete only when all 24 hours were seen) and what IPMA forecast for that day one, two and three days before (d1, d2, d3), as published. A null is a day or forecast we do not have: never filled in. Collections before 18 November 2026 were not kept.",
+ "sources": {
+  "observed": {
+   "url": "https://data.promptugal.news/api/v1/ipma-observations/latest.json",
+   "field": "daily[date][\"1210881\"]",
+   "license": {
+    "name": "the source's terms",
+    "url": "https://api.ipma.pt/",
+    "holder": "IPMA",
+    "commercial_use": "not allowed"
+   }
+  },
+  "forecast": {
+   "url": "https://data.promptugal.news/api/v1/ipma-city-forecasts/latest.json",
+   "field": "forecast_history[\"1080500\"]",
+   "license": {
+    "name": "the source's terms",
+    "url": "https://api.ipma.pt/",
+    "holder": "IPMA",
+    "commercial_use": "not allowed"
+   }
+  }
+ },
+ "commit": "1460f87e59532acd781b90ca10f34d7f5f1f6e79",
+ "rows": [
+  {
+   "date": "2026-11-17",
+   "observed": {
+    "low_c": 19.7,
+    "high_c": 19.7,
+    "rain_mm": 0,
+    "hours": 2,
+    "complete": false
+   },
+   "forecast": {
+    "d1": null,
+    "d2": null,
+    "d3": null
+   }
+  },
+  {
+   "date": "2026-11-18",
+   "observed": {
+    "low_c": 19.6,
+    "high_c": 21.4,
+    "rain_mm": 1.1,
+    "hours": 22,
+    "complete": false
+   },
+   "forecast": {
+    "d1": null,
+    "d2": null,
+    "d3": null
+   }
+  },
+  {
+   "date": "2026-11-19",
+   "observed": {
+    "low_c": 16.4,
+    "high_c": 19.9,
+    "rain_mm": 0.5,
+    "hours": 10,
+    "complete": false
+   },
+   "forecast": {
+    "d1": null,
+    "d2": null,
+    "d3": null
+   }
+  }
+ ]
+}

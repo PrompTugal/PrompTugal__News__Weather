@@ -11,6 +11,7 @@ import { warningsTimeline, TIMELINE_CSS } from './timeline.mjs';
 import { exposureSection, EXPOSURE_CSS } from './exposure.mjs';
 import { previewSvg, previewFigures, previewBarSvg } from './preview.mjs';
 import { camsSection, camerasPage, CAMS_CSS } from './cams.mjs';
+import { pastSection, historyStation, PAST_CSS } from './past.mjs';
 import { DESIGNS } from './lib.mjs';
 const SHOTS_AT = existsSync('src/assets/designs/shots.json') ? JSON.parse(readFileSync('src/assets/designs/shots.json', 'utf8')).taken : 'not yet';
 
@@ -109,8 +110,20 @@ function portugalMd() {
   const caps = capsLive(); if (!caps.length) return '';
   return `## Portugal: the district capitals today\n\n| Capital | Now | District warning | Today high / low | Rain | Weather | Fire risk |\n|---|---|---|---|---|---|---|\n${caps.map(capMd).join('\n')}\n\nWarnings, forecasts and fire risk: IPMA, as collected by data.promptugal.news. Warnings read ${when(D.api['ipma-warnings']?.read_at)}.\n`;
 }
+// the past beside the forecast (scripts/site/past.mjs): data.promptugal.news's history file and this site's own archive
+const ARCHIVE = (() => { try { return readFileSync('data/history/forecasts.jsonl', 'utf8').split('\n').filter(Boolean).slice(-20000).map(l => { try { return JSON.parse(l); } catch { return null; } }).filter(Boolean); } catch { return []; } })();
+const TODAY = new Date().toISOString().slice(0, 10);
+function pastFor(id, name, fc) {
+  if (!/^[a-z0-9-]{1,60}$/.test(id)) return null;
+  let h = null; try { h = JSON.parse(readFileSync(`data/past/${id}.json`, 'utf8')); } catch { return null; }
+  if (!h || h.place !== id) return null;
+  const sid = historyStation(h), st = sid && (D.api['ipma-observations']?.stations || []).find(x => String(x?.id) === sid);
+  return pastSection({ placeId: id, name, history: h, archive: ARCHIVE, cityId: fc?.id, forecastDays: fc?.days, today: TODAY, stationName: st?.name ? `${st.name} (${sid})` : sid, forecastPlace: fc?.place });
+}
+const headFor = (...parts) => parts.filter(Boolean).map(css => `<style>${css}</style>\n`).join('');
+
 function capitalPage(c) {
-  const camC = camsSection(D.api, c.id);
+  const camC = camsSection(D.api, c.id), pastC = pastFor(c.id, c.name, c.forecast);
   const fc = c.forecast, fr = c.fire_risk, sea = c.sea, s0 = sea?.days?.[0];
   const w = c.warnings;
   const wHtml = warningsHtml({ ...w, area: w.area });
@@ -136,6 +149,7 @@ ${c.station ? `<section class="panel"><h2>Now</h2>
 <p class="src">IPMA forecast for ${esc(fc.place)}. <a href="${safeHref(fc.page)}">IPMA forecast page</a>, <a href="${safeHref(fc.source)}">open data</a>, read ${when(fc.read_at)}.</p></section>
 ${c.uv ? `<section class="panel"><h2>UV</h2><p>${c.uv.days.map(d => `<span class="chip ${uvClass(d.index)}"><span class="d">${dayName(d.date)}</span> ${num(d.index, '', 1)} ${uvBand(d.index)}</span>`).join(' ')}</p><p class="src">IPMA's UV index forecast for ${esc(c.name)}${c.uv.multi ? '; where IPMA gives more than one value for a day, the highest is shown' : ''}. Bands as the WHO's Global Solar UV Index. <a href="${safeHref(c.uv.page)}">IPMA UV</a>.</p></section>` : ''}
 ${s0 ? `<section class="panel"><h2>Sea</h2><dl class="kv"><dt>Waves</dt><dd>${show(s0.waves_min_m, ' m')} to ${show(s0.waves_max_m, ' m')}${s0.wave_dir ? ` from ${esc(s0.wave_dir)}` : ''}</dd><dt>Total sea, up to</dt><dd>${show(s0.sea_max_m, ' m')}</dd><dt>Sea temperature</dt><dd>${show(s0.sea_temp_max_c, '°C')}</dd></dl><p class="src">IPMA's coastal forecast for ${esc(sea.coast)}, ${dayName(s0.date)}. <a href="${safeHref(sea.page)}">IPMA sea forecast</a>.</p></section>` : ''}
+${pastC ? pastC.html : ''}
 ${camC ? camC.html : ''}
 <section class="panel follow"><h2>What to do, and who to follow</h2><ul><li>Warnings and forecasts: <a href="https://www.ipma.pt/">IPMA</a>, the national weather service.</li><li>Civil protection: <a href="https://prociv.gov.pt/">ANEPC</a>, and the municipality's civil protection service.</li><li>In an emergency: call <strong>112</strong>.</li></ul><p><a href="/what-to-do/">What IPMA's warning levels and fire risk classes mean, and what to do</a>.</p><p class="src">Seen different weather? <a href="https://github.com/PrompTugal/PrompTugal__News__Weather/issues/new?template=weather-seen.yml">Say what you saw</a> (a public GitHub issue: an area and a time, never an address), so forecasts can be checked against it.</p></section>
 <section><h2>Sources, as read</h2><div class="table-wrap"><table class="reads"><thead><tr><th scope="col">Data set</th><th scope="col">Address</th><th scope="col">Read</th></tr></thead><tbody>
@@ -164,13 +178,13 @@ ${fc.days.map(d => `| ${dayName(d.date)} | ${typeOf(d.weather_type)} | ${showMd(
 
 Source: ${fc.source}
 ${c.uv ? `\n## UV (IPMA, highest value each day)\n\n${c.uv.days.map(d => `- ${dayName(d.date)}: ${num(d.index, '', 1)} (${uvBand(d.index)})`).join('\n')}\n\nSource: ${c.uv.source}\n` : ''}${s0 ? `\n## Sea\n\n${sea.coast}, ${dayName(s0.date)}: waves ${showMd(s0.waves_min_m, ' m')} to ${showMd(s0.waves_max_m, ' m')}, total sea up to ${showMd(s0.sea_max_m, ' m')}, sea temperature ${showMd(s0.sea_temp_max_c, '°C')}. Source: ${sea.source}\n` : ''}
-${camC ? camC.md : ''}## Who to follow
+${pastC ? pastC.md : ''}${camC ? camC.md : ''}## Who to follow
 
 - IPMA: https://www.ipma.pt/
 - ANEPC: https://prociv.gov.pt/
 - Emergency: 112
 `;
-  add(page({ path: `/places/${c.id}/`, extraHead: camC ? `<style>${CAMS_CSS}</style>\n` : '', title: `${c.name}: weather, warnings and fire risk`, description: `IPMA warnings for the ${c.district} district, a five-day forecast and fire risk for ${c.name}, with sources and times read.`, body, md }));
+  add(page({ path: `/places/${c.id}/`, extraHead: headFor(camC && CAMS_CSS, pastC && PAST_CSS), title: `${c.name}: weather, warnings and fire risk`, description: `IPMA warnings for the ${c.district} district, a five-day forecast and fire risk for ${c.name}, with sources and times read.`, body, md }));
 }
 
 // ---------------------------------------------------------------- your reading (free here: no billing on this site)
@@ -223,7 +237,7 @@ ${t.html}
 
 // ---------------------------------------------------------------- a page per place
 function placePage(t) {
-  const camT = camsSection(D.api, t.id);
+  const camT = camsSection(D.api, t.id), pastT = pastFor(t.id, t.name, t.now?.forecast);
   const n = t.now, st = n.station, rd = st?.reading || {}, fc = n.forecast, fr = n.fire_risk, uv = n.uv, sea = n.sea, ap = n.airport;
   const coast = !!sea;
   const far = fc && fc.km > 15 ? `<p class="note">IPMA has no forecast place in ${esc(t.name)}: this is its forecast for <strong>${esc(fc.place)}</strong>, ${fc.km} km away. The station reading above is ${st?.km <= 5 ? 'the town\'s own' : `from ${esc(st?.name)}, ${st?.km} km away`}.</p>` : '';
@@ -249,6 +263,7 @@ ${far}<p class="src">IPMA forecast for ${esc(fc?.place)} (${fc?.km} km). <a href
   <div class="panel"><h2>UV</h2>${uv ? `<p class="big">${show(uv.index, '', 1)}</p><p class="src">IPMA UV index forecast for ${esc(uv.place)}, ${dayName(uv.date)}. <a href="${safeHref(uv.page)}">IPMA UV</a>.</p>` : '<p class="na">No UV forecast in the data.</p>'}</div>
 </section>
 ${ap ? `<section class="panel"><h2>Faro airport</h2><p>${ap.airline.length} airline flight${ap.airline.length === 1 ? '' : 's'} and ${ap.other_aircraft} other aircraft seen within ${ap.within_nm} nautical miles at ${when(ap.at)}.</p><p class="src">${esc(ap.note)} <a href="${safeHref(ap.page)}">adsb.lol</a>. For flight status, ask your airline or <a href="https://www.aeroportofaro.pt/">the airport</a>.</p></section>` : ''}
+${pastT ? pastT.html : ''}
 ${camT ? camT.html : ''}
 <section class="panel follow"><h2>What to do, and who to follow</h2><ul><li>Warnings and forecasts: <a href="https://www.ipma.pt/">IPMA</a>, the national weather service.</li><li>Civil protection: <a href="https://prociv.gov.pt/">ANEPC</a>, and your municipality's civil protection service.</li><li>In an emergency: call <strong>112</strong>.</li></ul><p><a href="/what-to-do/">What IPMA's warning levels and fire risk classes mean, and what to do</a>.</p><p class="src">Seen different weather? <a href="https://github.com/PrompTugal/PrompTugal__News__Weather/issues/new?template=weather-seen.yml">Say what you saw</a> (a public GitHub issue: an area and a time, never an address), so forecasts can be checked against it.</p></section>
 <section><h2>Sources, as read</h2><div class="table-wrap"><table class="reads"><thead><tr><th scope="col">Data set</th><th scope="col">Address</th><th scope="col">Read</th><th scope="col">HTTP</th></tr></thead><tbody>${reads}</tbody></table></div><p class="src">Read by ${esc(n.by)}; copied here from <a href="https://data.promptugal.news/api/v1/by-place/now/${t.id}.json">data.promptugal.news's API</a> (${esc(D.sync.api_version || '')}, copied ${when(D.sync.synced_at)}).</p></section>`;
@@ -280,7 +295,7 @@ ${coast ? `\n## Sea\n\n${sea.coast}, ${dayName(sea.date)}: waves up to ${showMd(
 
 ${uv ? `${uv.place}, ${dayName(uv.date)}: ${showMd(uv.index, '', 1)}. Source: ${uv.source}` : 'No UV forecast in the data.'}
 
-${camT ? camT.md : ''}## Who to follow
+${pastT ? pastT.md : ''}${camT ? camT.md : ''}## Who to follow
 
 - IPMA: https://www.ipma.pt/
 - ANEPC: https://prociv.gov.pt/
@@ -290,7 +305,7 @@ ${camT ? camT.md : ''}## Who to follow
 
 ${Object.entries(n.reads || {}).map(([k, v]) => `- ${k}: ${v.url}, read ${when(v.at)}, HTTP ${v.status}`).join('\n')}
 `;
-  add(page({ path: `/places/${t.id}/`, extraHead: camT ? `<style>${CAMS_CSS}</style>\n` : '', title: `${t.name}: weather, warnings and fire risk`, description: `IPMA warnings, the nearest station, a five-day forecast, fire risk, sea and UV for ${t.name} (Algarve), with sources and times read.`, body, md }));
+  add(page({ path: `/places/${t.id}/`, extraHead: headFor(camT && CAMS_CSS, pastT && PAST_CSS), title: `${t.name}: weather, warnings and fire risk`, description: `IPMA warnings, the nearest station, a five-day forecast, fire risk, sea and UV for ${t.name} (Algarve), with sources and times read.`, body, md }));
 }
 
 function regionPage() {

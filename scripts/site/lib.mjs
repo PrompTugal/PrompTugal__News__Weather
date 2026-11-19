@@ -121,7 +121,7 @@ const SITES_BAR = (() => { try { if (!vendorState()['sites bar']?.on) return '';
 const SITE_HOSTS = (() => { try { return (checkSites(JSON.parse(readFileSync('data/sites.json', 'utf8'))) || []).map(e => new URL(e.url).origin); } catch { return []; } })();
 const OUR = [...new Set(['https://promptugal.news', 'https://data.promptugal.news', ...SITE_HOSTS])].filter(o => o !== SITE);
 export const CSP = [`default-src 'self'`, `script-src 'self'`, `style-src 'self' 'unsafe-inline'`, `img-src 'self' ${OUR.join(' ')}`, `connect-src 'self' ${OUR.join(' ')} https://dev.send.sgraph.ai`, `frame-src 'self'`, `font-src 'self'`, `object-src 'none'`, `base-uri 'self'`, `form-action 'self'`].join('; ');
-if (!SITES_BAR) console.warn('sites bar: off (see the vendor check above), or data/sites.json missing or refused by the renderer; pages built without the bar');
+if (!SITES_BAR && process.env.VENDOR_STATE) console.warn('sites bar: off (see the vendor check above), or data/sites.json missing or refused by the renderer; pages built without the bar');
 export const CSS_VERSION = '6';
 
 // ---------------------------------------------------------------- the front pages that were offered (Dinis chose "Now", the live

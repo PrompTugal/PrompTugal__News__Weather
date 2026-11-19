@@ -1,0 +1,104 @@
+{
+ "license": {
+  "name": "CC BY 4.0",
+  "url": "https://creativecommons.org/licenses/by/4.0/",
+  "holder": "PrompTugal.news",
+  "note": "Our record; the Environment Agency's rain under the Open Government Licence v3.0 (commercial use allowed), Open-Meteo's forecasts under CC BY 4.0 on its free, non-commercial tier.",
+  "commercial_use": "not allowed",
+  "commercial_note": "The file holds Open-Meteo forecasts (non-commercial); free sites only. promptugal.news may link to it, but must show none of its values.",
+  "sources": {
+   "environment-agency": {
+    "name": "Open Government Licence v3.0",
+    "url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+    "holder": "Environment Agency",
+    "commercial_use": "allowed"
+   },
+   "open-meteo": {
+    "name": "CC BY 4.0 (free API, non-commercial use)",
+    "url": "https://open-meteo.com/en/terms",
+    "holder": "Open-Meteo",
+    "commercial_use": "not allowed",
+    "note": "Used on this free site under the free tier; a site with subscriptions or adverts needs an Open-Meteo plan or another source. Credit: \"Weather data by Open-Meteo.com\"."
+   }
+  }
+ },
+ "place": "london",
+ "country": "GB",
+ "first_day": "2026-11-17",
+ "data_read_at": "2026-11-19T10:04:25Z",
+ "about": "The past in London, day by day since 2026-11-17: rain measured by the Environment Agency's gauges near central London (the mean across the gauges that reported that day; complete only when each had all 96 quarter-hour readings) and what Open-Meteo forecast one, two and three days before. Temperature is not observed here yet (the Met Office needs a key). Nulls are days we do not have.",
+ "sources": {
+  "observed": {
+   "url": "https://data.promptugal.news/api/v1/ea-flood/latest.json",
+   "field": "daily_rain",
+   "license": {
+    "name": "Open Government Licence v3.0",
+    "url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+    "holder": "Environment Agency",
+    "commercial_use": "allowed"
+   }
+  },
+  "forecast": {
+   "url": "https://data.promptugal.news/api/v1/open-meteo-london/latest.json",
+   "field": "history",
+   "license": {
+    "name": "CC BY 4.0 (free API, non-commercial use)",
+    "url": "https://open-meteo.com/en/terms",
+    "holder": "Open-Meteo",
+    "commercial_use": "not allowed"
+   }
+  }
+ },
+ "commit": "1460f87e59532acd781b90ca10f34d7f5f1f6e79",
+ "rows": [
+  {
+   "date": "2026-11-17",
+   "observed": {
+    "rain_mm_mean": 13.2,
+    "gauges": 7,
+    "readings_min": 95,
+    "complete": false
+   },
+   "forecast": {
+    "d1": null,
+    "d2": null,
+    "d3": null
+   }
+  },
+  {
+   "date": "2026-11-18",
+   "observed": {
+    "rain_mm_mean": 7,
+    "gauges": 7,
+    "readings_min": 96,
+    "complete": true
+   },
+   "forecast": {
+    "d1": null,
+    "d2": null,
+    "d3": null
+   }
+  },
+  {
+   "date": "2026-11-19",
+   "observed": {
+    "rain_mm_mean": 2.8,
+    "gauges": 7,
+    "readings_min": 36,
+    "complete": false
+   },
+   "forecast": {
+    "d1": {
+     "issued": "2026-11-18T23:49:04Z",
+     "read_at": "2026-11-18T23:49:04Z",
+     "t_min_c": 7.2,
+     "t_max_c": 10.7,
+     "rain_prob_pct": null,
+     "rain_mm": 5.3
+    },
+    "d2": null,
+    "d3": null
+   }
+  }
+ ]
+}
