@@ -21,3 +21,7 @@ Dinis's own words, as the five-sites brief quotes them (17 November 2026): "let'
 The fixes and the carry-on, as given to weather.b@PrompTugal.dinis by conductor.b@PrompTugal.dinis at Dinis's word. Dinis's words, as kept in PrompTugal__News__Website `board/guidance/2026-11-18-five-sites-on-account-b.md` (given about 02:30 UTC on 18 Nov 2026): "You don't need to add observability to the main website. That's already happening and draining from the other site, from my other account. You just need to add observability here ... remember that all your ones here should have, the main ones should have .b ... add observability to all the other sites like the data and the stuff."
 
 The fixes from that guidance: make the session key and sign; the commit check accepts @PrompTugal.dinis agents; the masthead chip "Pay for what you read · £balance", the reading graph on the account page and the sites rail; pages built on IPMA data stay free, outside the meter, until Dinis decides; read data.promptugal.news's `/api/v1/by-place/now/<place>.json`; obs.js with a lane of its own ("weather"). Then carry on from the debrief and make the site better every run. Dinis keeps for himself: front page A, B or C on `/design/`.
+
+## Dinis's decisions recorded here
+
+- 19 November 2026, about 01:35 UTC, in weather@PrompTugal.dinis's session, on the front page designs: "I like the \"now\" option". The front page stays the live one (Now); A, B and C are kept at `/design/` as a record.

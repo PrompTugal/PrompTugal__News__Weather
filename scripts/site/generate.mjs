@@ -391,15 +391,15 @@ async function designPages() {
     const m = await import(new URL(`./design/${f}`, import.meta.url));
     const v = m.render({ D, BUILT, lib: await import('./lib.mjs'), outline, algOutline });
     const id = f.replace('.mjs', '');
-    add(page({ path: `/design/${id}/`, title: `Design ${id.toUpperCase()}: ${v.name}`, description: v.description, body: `<div class="design-note"><p>Front page variation ${id.toUpperCase()}, <strong>${esc(v.name)}</strong>, for Dinis to choose. <a href="/design/">All three</a></p></div><div class="design design-${id}">${v.body}</div>`, md: v.md || v.description, extraHead: v.css ? `<style>${v.css}</style>` : '', made: { agents: `${esc(v.by || 'weather.design@PrompTugal.dinis')} (Claude, Sonnet) designed it; weather@PrompTugal.dinis (Claude, Opus) reviewed it.` } }));
+    add(page({ path: `/design/${id}/`, title: `Design ${id.toUpperCase()}: ${v.name}`, description: v.description, body: `<div class="design-note"><p>Front page variation ${id.toUpperCase()}, <strong>${esc(v.name)}</strong>, offered to Dinis, who chose the live front page, "Now" (19 Nov 2026). <a href="/design/">All the options</a></p></div><div class="design design-${id}">${v.body}</div>`, md: v.md || v.description, extraHead: v.css ? `<style>${v.css}</style>` : '', made: { agents: `${esc(v.by || 'weather.design@PrompTugal.dinis')} (Claude, Sonnet) designed it; weather@PrompTugal.dinis (Claude, Opus) reviewed it.` } }));
     shown.push({ id, ...v });
   }
   if (!shown.length) return;
-  const body = `<h1>Three front pages, for Dinis to choose</h1><p class="standfirst">The same data, three ways, beside the live front page. Each is a full page; open them side by side.</p>
+  const body = `<h1>Front page designs: Dinis chose "Now"</h1><p class="standfirst">Four front pages with the same data were offered: the live front page and three variations. On 19 November 2026 Dinis chose the live one, "Now" (his words: 'I like the "now" option'). The three others stay here as a record.</p>
 <ul class="pick pick-page">${DESIGNS.map(d => `<li><a href="${d.href}"><img src="/assets/designs/${d.id}.jpg" width="1280" height="800" alt="Screenshot of ${esc(d.name)}" loading="lazy"><b>${esc(d.name)}</b><span>${esc(d.tag)}</span></a></li>`).join('')}</ul>
-<p class="src">Screenshots at 1280 by 800 pixels, taken ${esc(SHOTS_AT)}. The live pages below.</p><div class="design-grid">${shown.map(v => `<figure><a href="/design/${v.id}/"><iframe src="/design/${v.id}/" title="Design ${v.id.toUpperCase()}" loading="lazy" tabindex="-1"></iframe></a><figcaption><a href="/design/${v.id}/"><strong>${v.id.toUpperCase()}: ${esc(v.name)}</strong></a><br>${esc(v.description)}</figcaption></figure>`).join('')}</div><p>The live front page is <a href="/">the current one</a>; the choice replaces it.</p>`;
-  const md = shown.map(v => `- [${v.id.toUpperCase()}: ${v.name}](/design/${v.id}/): ${v.description}`).join('\n');
-  add(page({ path: '/design/', title: 'Design: three front pages', description: 'Three variations of the weather.promptugal.news front page, side by side, for Dinis to choose.', body, md }));
+<p class="src">Screenshots at 1280 by 800 pixels, taken ${esc(SHOTS_AT)}. The live pages below.</p><div class="design-grid">${shown.map(v => `<figure><a href="/design/${v.id}/"><iframe src="/design/${v.id}/" title="Design ${v.id.toUpperCase()}" loading="lazy" tabindex="-1"></iframe></a><figcaption><a href="/design/${v.id}/"><strong>${v.id.toUpperCase()}: ${esc(v.name)}</strong></a><br>${esc(v.description)}</figcaption></figure>`).join('')}</div><p>The front page is <a href="/">Now</a>.</p>`;
+  const md = `Dinis chose the live front page, "Now" (/), on 19 Nov 2026. The other options, kept as a record:\n\n` + shown.map(v => `- [${v.id.toUpperCase()}: ${v.name}](/design/${v.id}/): ${v.description}`).join('\n');
+  add(page({ path: '/design/', title: 'Design: the front page Dinis chose', description: 'The four front pages offered for weather.promptugal.news; Dinis chose the live one, Now, on 19 Nov 2026.', body, md }));
 }
 
 // ---------------------------------------------------------------- about

@@ -121,9 +121,9 @@ export const CSP = [`default-src 'self'`, `script-src 'self'`, `style-src 'self'
 if (!SITES_BAR) console.warn('sites bar: data/sites.json missing or refused by the renderer; pages built without the bar');
 export const CSS_VERSION = '6';
 
-// ---------------------------------------------------------------- the front pages to choose from (as on hub.agenticcells.site's sites:
-// a strip at the very top, a Designs chip that opens a picker of screenshots; the user, 18 Nov 2026, about 15:20 UTC)
-// Screenshots: src/assets/designs/<id>.jpg, taken by scripts/shots.mjs (run by hand after a design changes).
+// ---------------------------------------------------------------- the front pages that were offered (Dinis chose "Now", the live
+// front page, on 19 Nov 2026, in his words: 'I like the "now" option'). The strip and the Designs picker are gone; /design/ keeps the record.
+// Screenshots: src/assets/designs/<id>.jpg, taken by scripts/dev/shots.mjs (run by hand).
 export const DESIGNS = [
   { id: 'now', href: '/', name: 'Now', tag: 'the live front page' },
   { id: 'a', href: '/design/a/', name: 'A: Warnings first', tag: 'the worst warning, then the towns' },
@@ -180,12 +180,10 @@ ${extraHead}</head>
 <body class="${bodyClass}">
 ${SITES_BAR}
 <a class="skip" href="#main">Skip to the content</a>
-<nav class="designs" aria-label="Front page designs"><a href="/design/">Same data, ${DESIGNS.length} front pages, for Dinis to choose:</a>${DESIGNS.map(d => `<a href="${d.href}"${(d.href === '/' ? path === '/' : path.startsWith(d.href)) ? ' aria-current="page"' : ''}>${esc(d.name)}</a>`).join('')}</nav>
 <div class="version-bar"><span>Version __VERSION__</span><span><a href="${twin}">This page as markdown</a></span></div>
 <header class="masthead">
   <div class="masthead-row">
     <a class="brand" href="/" aria-label="PrompTugal.news Weather, home"><span class="wm">Promp<span class="t">T</span><span class="g">ugal</span>.<i>news</i></span><span class="sub">· Weather</span></a>
-    <a class="chip designs-chip" href="/design/" data-designs>Designs</a>
     <a class="tool meter free" id="nr-meter-chip" href="/account/" title="This site is free: it carries no billing, and only promptugal.news bills (Dinis, 18 Nov 2026). Your PrompTugal.news balance is kept on promptugal.news."><span class="meter-label">Pay for what you read · </span><b>free here</b></a>
   </div>
   <nav class="nav" aria-label="Sections">${nav}</nav>
@@ -202,12 +200,6 @@ ${madeBlock(made)}
   <p class="small fresh-line">Data on this page read from IPMA (via data.promptugal.news) ${DATA_READ || 'at an unknown time'}; page built __BUILT__. Pages that can also refresh in your browser say so where they do.</p>
   <p class="small">Version __VERSION__ · <a href="https://github.com/PrompTugal/PrompTugal__News__Weather">Source</a> · Code Apache-2.0, text CC BY 4.0 · <a href="/llms.txt">llms.txt</a> · <a href="/how/">How it works</a> · <a href="/security/">Security</a> (<a href="https://promptugal.news/security/">all sites</a>)</p>
 </footer>
-<dialog id="designs" class="picker" aria-labelledby="designs-t">
-  <div class="phead"><p class="pt" id="designs-t">${DESIGNS.length} front pages, the same data: which should lead?</p><button type="button" class="pclose" aria-label="Close">×</button></div>
-  <ul class="pick">${DESIGNS.map(d => `<li><a href="${d.href}"><img src="/assets/designs/${d.id}.jpg" width="1280" height="800" alt="" loading="lazy"><b>${esc(d.name)}</b><span>${esc(d.tag)}</span></a></li>`).join('')}</ul>
-  <p class="pnote">Dinis chooses; the others stay at <a href="/design/">/design/</a>.</p>
-</dialog>
-<script defer src="/assets/designs.js?v=${CSS_VERSION}"></script>
 </body>
 </html>
 `;
