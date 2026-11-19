@@ -75,6 +75,7 @@ function front() {
 ${portugalSection()}
 <section>
   <h2>The 17 places</h2>
+  <p class="src" data-live-front="places" data-built-read="${esc(D.region.read_at || '')}">The Now column: the built copy, read ${esc(when(D.region.read_at))}.</p>
   <div class="table-wrap"><table class="towns"><thead><tr><th scope="col">Place</th><th scope="col">Now</th><th scope="col">Today high / low</th><th scope="col">Rain</th><th scope="col">Fire risk</th><th scope="col">Waves</th></tr></thead><tbody>${rows.map(x => x.html).join('')}</tbody></table></div>
   <p class="src">"Now" is the nearest IPMA weather station's last hourly reading; "not reported" means the station sent no value. Forecasts are IPMA's for the nearest of its four Algarve forecast places. Sources and times on each place's page.</p>
 </section>
@@ -97,6 +98,7 @@ function portugalSection() {
   const n = l => caps.filter(c => c.level === l).length;
   return `<section>
   <h2>Portugal: the district capitals today</h2>
+  <p class="src" data-live-front="capitals" data-built-obs="${esc(D.api['ipma-observations']?.read_at || '')}" data-built-warn="${esc(D.api['ipma-warnings']?.read_at || '')}">The Now column: the built copy, read ${esc(when(D.api['ipma-observations']?.read_at))}. The warnings: the built copy, read ${esc(when(D.api['ipma-warnings']?.read_at))}.</p>
   <p>${n('red') ? `<strong>${n('red')} districts at red.</strong> ` : ''}${n('orange') ? `<strong>${n('orange')} at orange</strong>, ` : ''}${n('yellow')} at yellow, ${n('green')} at green, by each district's highest IPMA warning in force or announced. ${worst[0] && worst[0].level !== 'green' ? `Highest: ${worst.filter(c => c.level === worst[0].level).map(c => `<a href="/places/${c.id}/">${esc(c.district)}</a>`).join(', ')}.` : ''}</p>
   ${freshness(D.api['ipma-warnings']?.read_at)}
   <div class="table-wrap"><table class="capitals"><thead><tr><th scope="col">Capital</th><th scope="col">Now</th><th scope="col">District warning</th><th scope="col">Today high / low</th><th scope="col">Rain</th><th scope="col">Weather</th><th scope="col">Fire risk</th></tr></thead><tbody>${caps.map(capRow).join('')}</tbody></table></div>

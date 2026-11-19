@@ -105,11 +105,19 @@ export const host = u => { try { return new URL(u).host; } catch { return u; } }
 const NAV = [['/', 'Now'], ['/map/', 'Map'], ['/places/', 'Places'], ['/storms/', 'Storms'], ['/cameras/', 'Cameras'], ['/what-to-do/', 'What to do'], ['/about/', 'About']];
 // The sites bar 1.1.0 (Dinis, 18 Nov 2026; vendored, scripts/vendor/sites-bar/README.md): rendered once at build from the
 // registry copied to data/sites.json; '' (a registry the renderer refuses, or none) means no bar, never a hand-made one.
-import { render as renderSitesBar } from '../vendor/sites-bar/1.1.0/sites-bar-render.mjs';
+import { render as renderSitesBar, check as checkSites } from '../vendor/sites-bar/1.1.0/sites-bar-render.mjs';
 // When the data was read and the page built, on every page (conductor.b@, 19 Nov 2026, about 01:20 UTC: GitHub runs the
 // scheduled rebuild far less often than asked, so a page must not look fresher than its data). __BUILT__ is set by build.mjs.
 const DATA_READ = (() => { try { const t = JSON.parse(readFileSync('data/api/ipma-warnings.json', 'utf8')).read_at; const d = new Date(t); if (isNaN(+d)) return ''; return `${d.getUTCDate()} ${['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][d.getUTCMonth()]}, ${String(d.getUTCHours()).padStart(2, '0')}:${String(d.getUTCMinutes()).padStart(2, '0')} UTC`; } catch { return ''; } })();
 const SITES_BAR = (() => { try { return existsSync('data/sites.json') ? renderSitesBar(JSON.parse(readFileSync('data/sites.json', 'utf8')), { here: 'weather.promptugal.news' }) : ''; } catch { return ''; } })();
+// The Content Security Policy (Dinis, 19 Nov 2026, Website board/guidance/2026-11-19-load-the-data-in-the-browser.md: "the
+// CSP's connect-src lists the exact hosts read, and script-src stays 'self'"). Hosts read by this site's scripts:
+// data.promptugal.news (live.js), every site in the registry (the sites bar's version.json and preview.svg, hosts checked
+// by the vendored renderer), promptugal.news's obs.json, and, only once the observability lane opens, its drain
+// (dev.send.sgraph.ai) and the place lookup Dinis chose on 6 Nov (ipapi.co, ipwho.is; asked of Dinis whether that stays).
+const SITE_HOSTS = (() => { try { return (checkSites(JSON.parse(readFileSync('data/sites.json', 'utf8'))) || []).map(e => new URL(e.url).origin); } catch { return []; } })();
+const OUR = [...new Set(['https://promptugal.news', 'https://data.promptugal.news', ...SITE_HOSTS])].filter(o => o !== SITE);
+export const CSP = [`default-src 'self'`, `script-src 'self'`, `style-src 'self' 'unsafe-inline'`, `img-src 'self' ${OUR.join(' ')}`, `connect-src 'self' ${OUR.join(' ')} https://dev.send.sgraph.ai https://ipapi.co https://ipwho.is`, `frame-src 'self'`, `font-src 'self'`, `object-src 'none'`, `base-uri 'self'`, `form-action 'self'`].join('; ');
 if (!SITES_BAR) console.warn('sites bar: data/sites.json missing or refused by the renderer; pages built without the bar');
 export const CSS_VERSION = '6';
 
@@ -155,6 +163,8 @@ export function page({ path, title, description, body: rawBody, md, made, extraH
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="${CSP}">
+<meta name="referrer" content="no-referrer">
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(description)}">
 <link rel="canonical" href="${canonical}">

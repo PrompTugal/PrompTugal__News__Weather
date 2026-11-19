@@ -6,7 +6,12 @@
  * place pages (the station reading, the warnings, the "read" line), capital pages (the same, from the Portugal-wide
  * files), the front page's "Now" cells and district warning chips. Fetched values are untrusted: each is checked for
  * type, numbers must be finite, a warning level must be one of four words, and everything is set with textContent.
- * No link is built from fetched data. Licence of the data: IPMA's terms (https://api.ipma.pt/), as on every page. */
+ * No link is built from fetched data. Licence of the data: IPMA's terms (https://api.ipma.pt/), as on every page.
+ *
+ * Data in the browser (Dinis, 19 Nov 2026, about 01:13 UTC, Website repo board/guidance/2026-11-19-load-the-data-in-the-
+ * browser.md): our own host only, no cookie, no referrer; re-read every five minutes while the page is in view; the page
+ * always says whether it shows the live file or the built copy, when that was read, and marks it stale after two hours
+ * (the collection is hourly). */
 (function () {
     'use strict'
     var API = 'https://data.promptugal.news/api/v1/'
@@ -18,7 +23,7 @@
     var DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 
     function get(path) {
-        return fetch(API + path, { credentials: 'omit', referrerPolicy: 'no-referrer' })
+        return fetch(API + path, { credentials: 'omit', referrerPolicy: 'no-referrer', signal: AbortSignal.timeout ? AbortSignal.timeout(20000) : undefined })
             .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json() })
             .then(function (j) { if (!j || typeof j !== 'object' || Array.isArray(j)) throw new Error('shape'); return j })
     }
@@ -42,12 +47,15 @@
     }
     function h(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e }
 
-    function fresh(box, readAt) {
-        if (!box) return
-        var hours = (Date.now() - new Date(readAt)) / 36e5
-        var p = h('p', hours <= 2 ? 'fresh' : 'stale')
-        if (hours > 2) p.setAttribute('role', 'status')
-        p.textContent = (hours <= 2 ? 'Read ' : 'This data is ' + Math.round(hours) + ' hours old (read ') + whenUtc(readAt) + (hours <= 2 ? '' : ')') + '. Updated in your browser from data.promptugal.news.'
+    // live: true when the figures above were just replaced from the live file; false when the built copy stays
+    function fresh(box, readAt, live, unread) {
+        if (!box || !sane(readAt)) return
+        var hours = (Date.now() - new Date(readAt)) / 36e5, stale = hours > 2
+        var p = h('p', stale ? 'stale' : 'fresh')
+        if (stale) p.setAttribute('role', 'status')
+        p.textContent = (stale ? 'Stale: this data is ' + Math.round(hours) + ' hours old (read ' + whenUtc(readAt) + ')' : 'Read ' + whenUtc(readAt)) + '. ' +
+            (unread ? (wasLive ? 'Shown: the live file loaded earlier; the latest check of data.promptugal.news failed.' : 'Built copy: the live file on data.promptugal.news could not be read just now.') : live ? 'Live file, loaded in your browser from data.promptugal.news.' : 'Built copy: the live file on data.promptugal.news is not newer.') +
+            " IPMA's data, under IPMA's terms (api.ipma.pt)."
         box.replaceChildren(p)
     }
     function station(reading, at) {
@@ -80,44 +88,87 @@
         if (src) div.append(src)
         box.replaceChildren(div)
     }
-    function newer(readAt, pageRead) { return typeof readAt === 'string' && !isNaN(Date.parse(readAt)) && (!pageRead || readAt > pageRead) }
+    function sane(readAt) { var t = Date.parse(str(readAt)); return !isNaN(t) && t <= Date.now() + 10 * 60 * 1000 }
+    function newer(readAt, pageRead) { return typeof readAt === 'string' && sane(readAt) && (!pageRead || Date.parse(readAt) > Date.parse(pageRead)) }
 
-    var cfg = document.getElementById('live')
+    var cfg = document.getElementById('live'), shownRead = cfg && cfg.dataset.read, wasLive = false
+    function run() {
+    var box = document.querySelector('[data-live="fresh"]')
     if (cfg && cfg.dataset.kind === 'place') {
         get(cfg.dataset.src.replace(API, '')).then(function (j) {
-            if (!newer(j.read_at, cfg.dataset.read)) return
+            if (!newer(j.read_at, shownRead)) { fresh(box, shownRead, wasLive); return }
+            shownRead = j.read_at; wasLive = true
             station(j.station && j.station.reading, j.station && j.station.reading && j.station.reading.at)
             if (j.warnings) warnings(document.querySelector('[data-live="warnings"]'), j.warnings.active, str(j.warnings.area))
-            fresh(document.querySelector('[data-live="fresh"]'), j.read_at)
-        }).catch(function () { })
+            fresh(box, j.read_at, true)
+        }).catch(function () { fresh(box, shownRead, false, true) })
     }
     if (cfg && cfg.dataset.kind === 'capital') {
         var area = cfg.dataset.area, sid = cfg.dataset.station
         Promise.all([get('ipma-warnings/latest.json'), sid ? get('ipma-observations/latest.json') : null]).then(function (r) {
             var w = r[0], o = r[1]
-            if (!newer(w.read_at, cfg.dataset.read)) return
+            if (!newer(w.read_at, shownRead)) { fresh(box, shownRead, wasLive); return }
+            shownRead = w.read_at; wasLive = true
             warnings(document.querySelector('[data-live="warnings"]'), (w.active || []).filter(function (a) { return a && a.area === area }), area + ' (the ' + cfg.dataset.district + ' district)')
             if (o && Array.isArray(o.stations)) { var s = o.stations.filter(function (x) { return x && String(x.id) === sid })[0]; if (s && s.reading) station(s.reading, o.hour_utc) }
-            fresh(document.querySelector('[data-live="fresh"]'), w.read_at)
-        }).catch(function () { })
+            fresh(box, w.read_at, true)
+        }).catch(function () { fresh(box, shownRead, false, true) })
     }
-    // the front page: the Algarve's "Now" cells (one file per place) and the capitals' cells and warning chips
-    document.querySelectorAll('[data-live-place]').forEach(function (td) {
-        var id = td.getAttribute('data-live-place'); if (!/^[a-z-]+$/.test(id)) return
-        get('by-place/now/' + id + '.json').then(function (j) { var r = j.station && j.station.reading; if (r && 'temp_c' in r) setNum(td, r.temp_c, '°') }).catch(function () { })
-    })
-    var capCells = document.querySelectorAll('[data-live-station]'), chips = document.querySelectorAll('[data-live-area]')
-    if (capCells.length) get('ipma-observations/latest.json').then(function (o) {
-        if (!Array.isArray(o.stations)) return
-        capCells.forEach(function (td) { var id = td.getAttribute('data-live-station'); if (!id) return; var s = o.stations.filter(function (x) { return x && String(x.id) === id })[0]; if (s && s.reading) setNum(td, s.reading.temp_c, '°') })
-    }).catch(function () { })
-    if (chips.length) get('ipma-warnings/latest.json').then(function (w) {
-        if (!Array.isArray(w.active)) return
-        var rank = { green: 0, yellow: 1, orange: 2, red: 3 }
-        chips.forEach(function (c) {
-            var lv = 'green'
-            w.active.forEach(function (a) { if (a && a.area === c.getAttribute('data-live-area') && level(a.level) && rank[a.level] > rank[lv]) lv = a.level })
-            c.className = 'chip warn-' + lv; c.textContent = lv
+    // the front page: the Algarve's "Now" cells (one file per place) and the capitals' cells and warning chips. A live
+    // value replaces a built one only when its file is newer than the build's; each line under a table names the oldest
+    // read time shown, live or built, and says which.
+    var placeCells = document.querySelectorAll('[data-live-place]')
+    var pLine = document.querySelector('[data-live-front="places"]'), cLine = document.querySelector('[data-live-front="capitals"]')
+    function lineText(what, readAt, live, failed) {
+        if (!sane(readAt)) return what + ': ' + (failed ? 'the live file could not be read; the built copy is shown.' : 'the built copy.')
+        var hours = (Date.now() - Date.parse(readAt)) / 36e5
+        return what + ': ' + (live ? 'live file from data.promptugal.news' : failed ? 'the built copy (the live file could not be read)' : 'the built copy (the live file is not newer)') + ', read ' + whenUtc(readAt) + (hours > 2 ? ' (stale: ' + Math.round(hours) + ' hours old)' : '')
+    }
+    if (placeCells.length && pLine) {
+        var builtP = pLine.getAttribute('data-built-read') || ''
+        Promise.all([].map.call(placeCells, function (td) {
+            var id = td.getAttribute('data-live-place'); if (!/^[a-z-]+$/.test(id)) return Promise.resolve(null)
+            return get('by-place/now/' + id + '.json').then(function (j) {
+                if (!newer(j.read_at, builtP)) return { at: builtP, live: false }
+                var r = j.station && j.station.reading; if (r && 'temp_c' in r) setNum(td, r.temp_c, '°')
+                return { at: j.read_at, live: true }
+            }).catch(function () { return { at: builtP, live: false, failed: true } })
+        })).then(function (res) {
+            res = res.filter(Boolean); if (!res.length) return
+            var oldest = res.reduce(function (a, b) { return Date.parse(b.at) < Date.parse(a.at) ? b : a })
+            pLine.textContent = lineText('The Now column', oldest.at, res.every(function (x) { return x.live }), res.some(function (x) { return x.failed })) + ". IPMA's data, under IPMA's terms (api.ipma.pt)."
+            pLine.classList.toggle('stale', (Date.now() - Date.parse(oldest.at)) / 36e5 > 2)
         })
-    }).catch(function () { })
+    }
+    var capCells = document.querySelectorAll('[data-live-station]'), chips = document.querySelectorAll('[data-live-area]')
+    if (cLine && (capCells.length || chips.length)) {
+        var builtO = cLine.getAttribute('data-built-obs') || '', builtW = cLine.getAttribute('data-built-warn') || ''
+        var obsP = get('ipma-observations/latest.json').then(function (o) {
+            if (!Array.isArray(o.stations) || !newer(o.read_at, builtO)) return { at: builtO, live: false }
+            capCells.forEach(function (td) { var id = td.getAttribute('data-live-station'); if (!id) return; var s = o.stations.filter(function (x) { return x && String(x.id) === id })[0]; if (s && s.reading) setNum(td, s.reading.temp_c, '°') })
+            return { at: o.read_at, live: true }
+        }).catch(function () { return { at: builtO, live: false, failed: true } })
+        var warnP = get('ipma-warnings/latest.json').then(function (w) {
+            if (!Array.isArray(w.active) || !newer(w.read_at, builtW)) return { at: builtW, live: false }
+            var rank = { green: 0, yellow: 1, orange: 2, red: 3 }
+            chips.forEach(function (c) {
+                var lv = 'green'
+                w.active.forEach(function (a) { if (a && a.area === c.getAttribute('data-live-area') && level(a.level) && rank[a.level] > rank[lv]) lv = a.level })
+                c.className = 'chip warn-' + lv; c.textContent = lv
+            })
+            return { at: w.read_at, live: true }
+        }).catch(function () { return { at: builtW, live: false, failed: true } })
+        Promise.all([obsP, warnP]).then(function (r) {
+            cLine.textContent = lineText('The Now column', r[0].at, r[0].live, r[0].failed) + '. ' + lineText('The warnings', r[1].at, r[1].live, r[1].failed) + ". IPMA's data, under IPMA's terms (api.ipma.pt)."
+            cLine.classList.toggle('stale', [r[0].at, r[1].at].some(function (t) { return sane(t) && (Date.now() - Date.parse(t)) / 36e5 > 2 }))
+        })
+    }
+    }
+    var last = 0
+    function tick() { if (document.visibilityState !== 'visible' || Date.now() - last < 5 * 60 * 1000) return; last = Date.now(); run() }
+    last = Date.now(); run()
+    // every five minutes while the page is in view (the guidance's floor), and on return to the tab; never in a hidden tab,
+    // never more often (each run's fetches time out after 20 s, so runs cannot pile up)
+    setInterval(tick, 60 * 1000)
+    document.addEventListener('visibilitychange', tick)
 })()
