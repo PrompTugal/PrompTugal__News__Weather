@@ -10,7 +10,7 @@
  "place": "olhao",
  "country": "PT",
  "first_day": "2026-11-17",
- "data_read_at": "2026-11-19T13:08:18Z",
+ "data_read_at": "2026-11-19T16:07:13Z",
  "about": "The past in olhao, day by day since 2026-11-17: what IPMA's station Olhão, EPPO (1210881) measured (low, high, rain; complete only when all 24 hours were seen) and what IPMA forecast for that day one, two and three days before (d1, d2, d3), as published. A null is a day or forecast we do not have: never filled in. Collections before 18 November 2026 were not kept.",
  "sources": {
   "observed": {
@@ -34,7 +34,7 @@
    }
   }
  },
- "commit": "4a4d13005725f1c24d6cd12ebee2d66ee2f2df91",
+ "commit": "11e096221d96c4c87d5c943ef91b534dd547f19c",
  "rows": [
   {
    "date": "2026-11-17",
@@ -70,9 +70,9 @@
    "date": "2026-11-19",
    "observed": {
     "low_c": 16.4,
-    "high_c": 20.5,
+    "high_c": 21.9,
     "rain_mm": 0.5,
-    "hours": 13,
+    "hours": 16,
     "complete": false
    },
    "forecast": {

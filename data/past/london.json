@@ -25,7 +25,7 @@
  "place": "london",
  "country": "GB",
  "first_day": "2026-11-17",
- "data_read_at": "2026-11-19T13:04:17Z",
+ "data_read_at": "2026-11-19T16:04:01Z",
  "about": "The past in London, day by day since 2026-11-17: rain measured by the Environment Agency's gauges near central London (the mean across the gauges that reported that day; complete only when each had all 96 quarter-hour readings) and what Open-Meteo forecast one, two and three days before. Temperature is not observed here yet (the Met Office needs a key). Nulls are days we do not have.",
  "sources": {
   "observed": {
@@ -49,7 +49,7 @@
    }
   }
  },
- "commit": "4a4d13005725f1c24d6cd12ebee2d66ee2f2df91",
+ "commit": "11e096221d96c4c87d5c943ef91b534dd547f19c",
  "rows": [
   {
    "date": "2026-11-17",
@@ -84,7 +84,7 @@
    "observed": {
     "rain_mm_mean": 2.8,
     "gauges": 7,
-    "readings_min": 48,
+    "readings_min": 58,
     "complete": false
    },
    "forecast": {

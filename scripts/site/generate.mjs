@@ -12,6 +12,7 @@ import { exposureSection, EXPOSURE_CSS } from './exposure.mjs';
 import { previewSvg, previewFigures, previewBarSvg } from './preview.mjs';
 import { camsSection, camerasPage, CAMS_CSS } from './cams.mjs';
 import { pastSection, historyStation, PAST_CSS } from './past.mjs';
+import { recordPage } from './record.mjs';
 import { DESIGNS } from './lib.mjs';
 const SHOTS_AT = existsSync('src/assets/designs/shots.json') ? JSON.parse(readFileSync('src/assets/designs/shots.json', 'utf8')).taken : 'not yet';
 
@@ -324,6 +325,7 @@ ${warningsHtml(r.warnings)}
 function placesIndex() {
   const body = `<h1>Places</h1>
 <p class="standfirst">The Algarve's 17 places first, then the capitals of mainland Portugal's 18 districts.</p>
+<p>How the forecasts shown on these pages turned out: <a href="/track-record/">the track record</a>.</p>
 <h2><a href="/places/algarve/">The Algarve</a></h2>
 <ul class="place-list">${D.towns.map(t => `<li><a href="/places/${t.id}/">${esc(t.name)}</a> <span class="chip ${fireClass(t.now.fire_risk?.days?.[0]?.level)}">${esc(t.now.fire_risk?.days?.[0]?.level || '?')}</span></li>`).join('')}</ul>
 <h2>District capitals</h2>
@@ -360,6 +362,13 @@ function camerasPageMake() {
   const r = camerasPage(D.api, name);
   if (!r.count) return;
   add(page({ path: '/cameras/', extraHead: `<style>${CAMS_CSS}</style>\n`, title: 'Live cameras: official, by link', description: 'Official live cameras in the Algarve and Lisboa, each a link to its operator\'s own page, with its terms and whether the page answered.', body: r.body, md: r.md }));
+}
+function recordPageMake() {
+  let lines = [];
+  try { lines = readFileSync('data/predictions/predictions.jsonl', 'utf8').split('\n').filter(Boolean).map(l => { try { return JSON.parse(l); } catch { return null; } }).filter(Boolean); } catch { }
+  const name = id => (D.towns.find(t => t.id === id) || D.capitals.find(c => c.id === id && c.live))?.name || null;
+  const r = recordPage(lines, name);
+  add(page({ path: '/track-record/', title: 'Track record: what we said and what happened', description: 'Every next-day high this site showed on a place page, beside the high IPMA measured that day: held within 2 °C, or missed, place by place.', body: r.body, md: r.md }));
 }
 function stormsIndex() {
   const body = `<h1>Storms</h1><p class="standfirst">Past events, archived with their sources. A storm's own site is kept as it was; this archive summarises it and links to it.</p>
@@ -435,7 +444,7 @@ function about() {
 
 // ---------------------------------------------------------------- run
 front(); mapPage(); placesIndex(); regionPage(); for (const t of D.towns) placePage(t); for (const c of capsLive()) capitalPage(c); accountPage();
-camerasPageMake();
+camerasPageMake(); recordPageMake();
 for (const s of D.storms) stormPage(s); stormsIndex(); contentPages(); about(); howPages();
 await designPages();
 

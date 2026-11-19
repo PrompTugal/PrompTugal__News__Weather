@@ -1,5 +1,5 @@
 {
- "data_read_at": "2026-11-19T13:08:53Z",
+ "data_read_at": "2026-11-19T16:07:38Z",
  "expected_cadence": {
   "name": "hourly",
   "seconds": 3600
@@ -35,7 +35,7 @@
   }
  },
  "place": "vila-do-bispo",
- "read_at": "2026-11-19T13:08:53Z",
+ "read_at": "2026-11-19T16:07:38Z",
  "by": "collect/by-place-now.mjs (code, no model; data@PrompTugal.dinis), from this site's collected sources",
  "coords": {
   "lat": 37.0825,
@@ -58,14 +58,14 @@
   "id": 1200533,
   "km": 8,
   "reading": {
-   "at": "2026-11-19T12:00:00Z",
+   "at": "2026-11-19T15:00:00Z",
    "temp_c": 19.7,
-   "humidity_pct": 47,
-   "wind_kmh": 19.1,
+   "humidity_pct": 52,
+   "wind_kmh": 19.4,
    "wind_dir_id": 8,
    "rain_mm": 0,
-   "pressure_hpa": 1022.4,
-   "radiation_kj_m2": 1911
+   "pressure_hpa": 1021.5,
+   "radiation_kj_m2": 1502.6
   },
   "page": "https://www.ipma.pt/en/otempo/obs.superficie/",
   "source": "https://api.ipma.pt/open-data/observation/meteorology/stations/observations.json"
@@ -121,7 +121,7 @@
     "type": "rough sea",
     "type_pt": "Agitação Marítima",
     "level": "yellow",
-    "start": "2026-11-19T07:54:00",
+    "start": "2026-11-19T12:25:00",
     "end": "2026-11-20T09:00:00",
     "text": "Na costa Ocidental, ondas de noroeste com 4 a 5 metros."
    }
@@ -168,37 +168,37 @@
  "reads": {
   "observations": {
    "url": "https://data.promptugal.news/api/v1/ipma-observations/latest.json",
-   "at": "2026-11-19T13:08:18Z",
+   "at": "2026-11-19T16:07:13Z",
    "status": 200
   },
   "warnings": {
    "url": "https://data.promptugal.news/api/v1/ipma-warnings/latest.json",
-   "at": "2026-11-19T13:08:35Z",
+   "at": "2026-11-19T16:07:30Z",
    "status": 200
   },
   "forecasts": {
    "url": "https://data.promptugal.news/api/v1/ipma-city-forecasts/latest.json",
-   "at": "2026-11-19T13:06:40Z",
+   "at": "2026-11-19T16:05:38Z",
    "status": 200
   },
   "fire-risk": {
    "url": "https://data.promptugal.news/api/v1/ipma-fire-risk/latest.json",
-   "at": "2026-11-19T13:08:10Z",
+   "at": "2026-11-19T16:07:05Z",
    "status": 200
   },
   "uv": {
    "url": "https://data.promptugal.news/api/v1/ipma-uv/latest.json",
-   "at": "2026-11-19T13:08:33Z",
+   "at": "2026-11-19T16:07:28Z",
    "status": 200
   },
   "sea": {
    "url": "https://data.promptugal.news/api/v1/ipma-sea/latest.json",
-   "at": "2026-11-19T13:08:23Z",
+   "at": "2026-11-19T16:07:18Z",
    "status": 200
   },
   "adsb": {
    "url": "https://data.promptugal.news/api/v1/adsb-faro/latest.json",
-   "at": "2026-11-19T11:04:46Z",
+   "at": "2026-11-19T15:03:38Z",
    "status": 200
   }
  }

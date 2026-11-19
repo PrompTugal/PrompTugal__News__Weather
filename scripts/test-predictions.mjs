@@ -5,6 +5,7 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { predictionLines, outcomeLines, FILE, SITE } from './predictions.mjs';
+import { recordRows, recordPage } from './site/record.mjs';
 const KINDS = ['forecast', 'warning', 'countdown', 'score', 'expected-date', 'statement'];
 
 const results = [];
@@ -31,6 +32,15 @@ t('a gap only when the history file itself is two days past the due day', () => 
 t('no outcome when what was said is not a number', () => outcomeLines([{ ...P[0], value: {} }], new Set(), hist(20), NOW).length === 0);
 t('a hostile read time is not written', () => !/evil/.test(outcomeLines(P, new Set(), { faro: { ...hist(20).faro, data_read_at: 'evil<x>' } }, NOW)[0].happened));
 t('one outcome per prediction', () => { const seen = new Set(); outcomeLines(P, seen, hist(20), NOW); return outcomeLines(P, seen, hist(20), NOW).length === 0; });
+
+// the /track-record/ page
+{ const a = predictionLines(live(), BUILT, new Set())[0], b = { ...a, id: a.id.replace(/\d{12}$/, '202611191331'), value: { ...a.value, value: 19.9 } };
+  t('the record shows the latest issue shown before the day, and counts the issues', () => { const r = recordRows([a, b]); return r.length === 1 && r[0].said === 19.9 && r[0].count === 2; });
+  t('the record shows an outcome beside its prediction', () => { const o = outcomeLines([b], new Set(), hist(20.1), NOW); const r = recordRows([a, b, ...o]); return r[0].outcome?.result === 'held'; });
+  t('the record ignores a prediction shown on or after its day', () => recordRows([{ ...a, shown_at: '2026-11-20T08:00Z' }]).length === 0);
+  t('the record ignores a due day that is not real or not the id\'s', () => recordRows([{ ...a, due: ['2026-11-20'] }, { ...a, due: '2026-02-31' }, { ...a, due: '2026-11-21' }]).length === 0);
+  t('an unknown result is ignored, and the counts match the rows', () => { const p = recordPage([b, { type: 'outcome', of: b.id, checked_at: '2026-11-21T10:00Z', result: 'x|\n# H' }], () => 'Faro'); return p.counts.open === 1 && !/# H/.test(p.md); });
+  t('the record page escapes names and holds no markdown link from them', () => { const p = recordPage([a], () => '<b>[x](https://evil.example)</b>'); return !/<b>|href="https:\/\/evil/.test(p.body) && /&lt;b&gt;/.test(p.body) && !/\]\(https:\/\/evil/.test(p.md); }); }
 
 // the real file, against the library's form
 const REQ_P = ['type', 'id', 'site', 'page', 'shown_at', 'said_by', 'source', 'licence', 'kind', 'subject', 'due', 'said'];
