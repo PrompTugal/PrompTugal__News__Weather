@@ -17,6 +17,7 @@ for (const v of Object.values(VENDOR)) console.log(v.note);
 rmSync('_site', { recursive: true, force: true });
 cpSync('src', '_site', { recursive: true });
 if (!VENDOR['time-zone table'].on) rmSync('_site/assets/obs/tz-country.json'); // obs.js then sends no country
+if (!VENDOR['shared map'].on) { rmSync('_site/assets/ptmap', { recursive: true, force: true }); rmSync('_site/assets/ptmap-init.js', { force: true }); } // never shipped unchecked
 await import('./site/generate.mjs');
 cpSync('data/now', '_site/data/now', { recursive: true });
 cpSync('data/api', '_site/data/api', { recursive: true });

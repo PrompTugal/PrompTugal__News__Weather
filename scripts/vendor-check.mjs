@@ -14,6 +14,8 @@ import { createHash } from 'node:crypto';
 export const REGISTRY = 'https://promptugal.news/api/v1/sites.json';
 export const VENDORED = {
   'sites bar': { key: 'bar', version: '1.2.1', files: { render: 'scripts/vendor/sites-bar/1.2.1/sites-bar-render.mjs', css: 'src/assets/sites-bar/1.2.1/sites-bar.css', js: 'src/assets/sites-bar/1.2.1/sites-bar.js' } },
+  // the shared map (designer@'s ptmap; Dinis, 19 Nov 2026, about 17:40 UTC; security@'s go, b5fc4fdef): pinned sha384
+  'shared map': { key: 'map', version: '1.0.0', files: { 'ptmap.js': 'src/assets/ptmap/1.0.0/ptmap.js', 'ptmap.css': 'src/assets/ptmap/1.0.0/ptmap.css' } },
   'time-zone table': { key: 'obs_tz', version: '1.1.0', files: { 'tz-country.json': 'src/assets/obs/tz-country.json' }, single: true },
 };
 export const SRI = /^sha(256|384|512)-[A-Za-z0-9+/]{43,86}={0,2}$/;

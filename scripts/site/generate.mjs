@@ -13,6 +13,7 @@ import { previewSvg, previewFigures, previewBarSvg } from './preview.mjs';
 import { camsSection, camerasPage, CAMS_CSS } from './cams.mjs';
 import { pastSection, historyStation, PAST_CSS } from './past.mjs';
 import { recordPage } from './record.mjs';
+import { vendorState } from '../vendor-check.mjs';
 import { DESIGNS } from './lib.mjs';
 const SHOTS_AT = existsSync('src/assets/designs/shots.json') ? JSON.parse(readFileSync('src/assets/designs/shots.json', 'utf8')).taken : 'not yet';
 
@@ -199,8 +200,43 @@ function accountPage() {
 }
 
 // ---------------------------------------------------------------- the map page
+// the shared map (ptmap 1.0.0, vendored; Dinis, 19 Nov 2026, about 17:40 UTC: Portugal big, London and the EU small,
+// where the site has the data): this site's places, and London (Open-Meteo's forecast, /london/); no EU data, so no Brussels
+const ORIGIN = 'https://weather.promptugal.news';
+const LONDON_DAY = /^\d{4}-\d\d-\d\d$/;
+// the London page is written only when its data has a read time and at least one dated day (the map links to it then)
+const londonDays = () => { const j = D.api['open-meteo-london']; return j && typeof j.read_at === 'string' && !isNaN(Date.parse(j.read_at)) && Array.isArray(j.daily) ? j.daily.slice(0, 7).filter(d => d && LONDON_DAY.test(d.date)) : []; };
+function sharedMap() {
+  if (!vendorState()['shared map']?.on) return null;
+  const at = (a) => (Array.isArray(a) && a.length === 2 && a.every(Number.isFinite) ? a : null);
+  const places = [...D.towns.map(t => ({ id: t.id, name: t.name, at: at(t.at), href: `${ORIGIN}/places/${t.id}/` })),
+    ...D.capitals.filter(c => c.live && !c.algarve).map(c => ({ id: c.id, name: c.name, at: at(c.at), href: `${ORIGIN}/places/${c.id}/` }))].filter(p => p.at);
+  const data = { places, london: londonDays().length ? { href: `${ORIGIN}/london/` } : null, eu: null, label: 'The places this site reports on, with London' };
+  // JSON in a non-executed script element; '<' escaped so the text cannot close the element
+  const json = JSON.stringify(data).replace(/</g, '\\u003c');
+  return { html: `<section class="shared-map"><h2>${data.london ? 'Portugal, and London' : 'Portugal'}</h2><div id="ptmap" hidden></div><script type="application/json" id="ptmap-data">${json}</script><p class="src">Each dot is a place with its own page${data.london ? '; London has a forecast page of its own' : ''}. Map: the PrompTugal.news shared map (ptmap 1.0.0, designer@); outline from Natural Earth (public domain) via world-atlas (<a href="https://opensource.org/license/isc-license-txt">ISC licence</a>, its notice in the file).</p></section>`,
+    head: '<link rel="stylesheet" href="/assets/ptmap/1.0.0/ptmap.css">\n<script defer src="/assets/ptmap/1.0.0/ptmap.js"></script>\n<script defer src="/assets/ptmap-init.js"></script>\n' };
+}
+
+// /london/: the first place beyond Portugal (Dinis, 18 Nov 2026, about 22:20 UTC, Website board/guidance/2026-11-18-london.md)
+function londonPage() {
+  const j = D.api['open-meteo-london'];
+  const days = londonDays();
+  if (!days.length) return;
+  const num = (v) => (typeof v === 'number' && isFinite(v) && Math.abs(v) < 100 ? v : null);
+  const rows = days.map(d => `<tr><td>${esc(dayName(d.date))}</td><td class="n">${num(d.temperature_min_c) ?? 'n/a'} °C</td><td class="n">${num(d.temperature_max_c) ?? 'n/a'} °C</td><td class="n">${num(d.precipitation_sum_mm) ?? 'n/a'} mm</td></tr>`).join('');
+  const lic = j.license || {};
+  const body = `<h1>London: the forecast</h1>
+<p class="standfirst">The first place this site covers beyond Portugal. A model forecast for a point in London, not a warning: for warnings, follow the <a href="https://www.metoffice.gov.uk/weather/warnings-and-advice/uk-warnings">Met Office</a>; for floods, the <a href="https://check-for-flooding.service.gov.uk/">Environment Agency</a>.</p>
+${freshness(j.read_at)}
+<div class="table-wrap"><table><thead><tr><th scope="col">Day</th><th scope="col">Low</th><th scope="col">High</th><th scope="col">Rain</th></tr></thead><tbody>${rows}</tbody></table></div>
+<p class="src">Weather data by <a href="https://open-meteo.com/">Open-Meteo.com</a>, as collected by <a href="https://data.promptugal.news/sources/open-meteo-london/">data.promptugal.news</a>, read ${esc(when(j.read_at))}. Licence: <a href="https://open-meteo.com/en/terms">Open-Meteo's terms</a> (${esc(String(lic.name || 'CC BY 4.0').slice(0, 120))}): data.promptugal.news uses the free, non-commercial tier, and this site is free.</p>`;
+  const md = `A model forecast for London, not a warning: follow the Met Office.\n\n| Day | Low | High | Rain |\n|---|---|---|---|\n${days.map(d => `| ${dayName(d.date)} | ${num(d.temperature_min_c) ?? 'n/a'} °C | ${num(d.temperature_max_c) ?? 'n/a'} °C | ${num(d.precipitation_sum_mm) ?? 'n/a'} mm |`).join('\n')}\n\nWeather data by Open-Meteo.com (Open-Meteo's terms, https://open-meteo.com/en/terms: the free, non-commercial tier; this site is free), via https://data.promptugal.news/sources/open-meteo-london/, read ${when(j.read_at)}.\n`;
+  add(page({ path: '/london/', title: 'London: the forecast', description: 'The forecast for London, by day, from Open-Meteo, with its source and the time it was read; for warnings follow the Met Office.', body, md }));
+}
+
 function mapPage() {
-  const r = D.region;
+  const r = D.region, smap = sharedMap();
   const days = D.now.faro.fire_risk?.days || [];
   const maps = days.map((d, i) => `<figure class="map-day"><figcaption><strong>${dayName(d.date)}</strong>: rural fire risk</figcaption>${algarveMap({ outline: algOutline, towns: D.towns, colour: t => fireClass(t.now.fire_risk?.days?.[i]?.level), label: t => t.name, caption: `Fire risk on ${dayName(d.date)} for the 17 Algarve places` })}</figure>`).join('');
   const legend = `<p class="legend">${Object.keys(FIRE).map(k => `<span class="chip ${fireClass(k)}">${k} <span lang="pt">(${FIRE_PT[k]})</span></span>`).join(' ')}</p>`;
@@ -209,10 +245,11 @@ function mapPage() {
 <p class="standfirst">IPMA issues weather warnings by district: the whole Algarve is the Faro district. It gives rural fire risk by municipality, for today and the next two days.</p>
 ${freshness(r.read_at)}
 <section class="map-split"><div>${portugalMap({ outline, capitals: D.capitals, towns: D.towns, region: r, width: 420, linkCapitals: true })}<p class="legend"><span class="chip warn-green">green</span> <span class="chip warn-yellow">yellow</span> <span class="chip warn-orange">orange</span> <span class="chip warn-red">red</span> each capital by its district's highest IPMA warning; select one for its page.</p></div><div>${warningsHtml(r.warnings)}<p>Every district's warnings are on its capital's page, and in the table on <a href="/">the front page</a>. For the map IPMA keeps itself, see <a href="https://www.ipma.pt/en/otempo/prev-sam/">IPMA's warnings map</a>.</p></div></section>
+${smap ? smap.html : ''}
 ${timelineSection()}
 <section><h2>Fire risk, by place and day</h2>${legend}<div class="map-days">${maps}</div>${table}<p class="src">Source: <a href="${safeHref(D.now.faro.fire_risk?.page)}">IPMA rural fire risk (RCM)</a>, open data <a href="https://api.ipma.pt/open-data/forecast/meteorology/rcm/rcm-d0.json">d0</a>, d1, d2. Quarteira shares Loulé's municipal value.</p></section>`;
-  const md = `IPMA issues weather warnings by district (the Algarve is the Faro district) and rural fire risk by municipality.\n\n${timeline() ? `## Warnings by district, over time\n\n${timeline().md}\n\nSource: IPMA, as collected by data.promptugal.news.\n\n` : ''}\n\nRead ${when(r.read_at)}.\n\n## Warnings, Faro district\n\n${warningsMd(r.warnings)}\n\n## Fire risk, by place and day\n\n| Place | ${days.map(d => dayName(d.date)).join(' | ')} |\n|---|${days.map(() => '---').join('|')}|\n${D.towns.map(t => `| ${t.name} | ${(t.now.fire_risk?.days || []).map(d => d.level).join(' | ')} |`).join('\n')}\n\nSource: IPMA rural fire risk, ${D.now.faro.fire_risk?.page}\n\n${portugalMd()}`;
-  add(page({ path: '/map/', extraHead: `<style>${TIMELINE_CSS}</style>\n`, title: 'Map: warnings and fire risk', description: 'IPMA warnings for every district of mainland Portugal on a map, and rural fire risk for each of the Algarve\'s 17 places for three days.', body, md }));
+  const md = `IPMA issues weather warnings by district (the Algarve is the Faro district) and rural fire risk by municipality.\n\n${smap ? `## Portugal, and London\n\nThe shared map of the places this site reports on${londonDays().length ? ', with London (its forecast: https://weather.promptugal.news/london/)' : ''}: each place's page is at https://weather.promptugal.news/places/<place>/ (list: https://weather.promptugal.news/places/). Map: the PrompTugal.news shared map (ptmap 1.0.0); outline from Natural Earth (public domain) via world-atlas (ISC licence).\n\n` : ''}${timeline() ? `## Warnings by district, over time\n\n${timeline().md}\n\nSource: IPMA, as collected by data.promptugal.news.\n\n` : ''}\n\nRead ${when(r.read_at)}.\n\n## Warnings, Faro district\n\n${warningsMd(r.warnings)}\n\n## Fire risk, by place and day\n\n| Place | ${days.map(d => dayName(d.date)).join(' | ')} |\n|---|${days.map(() => '---').join('|')}|\n${D.towns.map(t => `| ${t.name} | ${(t.now.fire_risk?.days || []).map(d => d.level).join(' | ')} |`).join('\n')}\n\nSource: IPMA rural fire risk, ${D.now.faro.fire_risk?.page}\n\n${portugalMd()}`;
+  add(page({ path: '/map/', extraHead: `<style>${TIMELINE_CSS}</style>\n${smap ? smap.head : ''}`, title: 'Map: warnings and fire risk', description: 'IPMA warnings for every district of mainland Portugal on a map, and rural fire risk for each of the Algarve\'s 17 places for three days.', body, md }));
 }
 
 // ---------------------------------------------------------------- the warnings timeline (scripts/site/timeline.mjs, weather.b.dev@)
@@ -444,7 +481,7 @@ function about() {
 
 // ---------------------------------------------------------------- run
 front(); mapPage(); placesIndex(); regionPage(); for (const t of D.towns) placePage(t); for (const c of capsLive()) capitalPage(c); accountPage();
-camerasPageMake(); recordPageMake();
+camerasPageMake(); recordPageMake(); londonPage();
 for (const s of D.storms) stormPage(s); stormsIndex(); contentPages(); about(); howPages();
 await designPages();
 

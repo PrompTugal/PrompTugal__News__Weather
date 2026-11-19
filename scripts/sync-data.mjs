@@ -21,7 +21,7 @@ const SIBLING = process.env.WEBSITE_CLONE || '../PrompTugal__News__Website';
 const UA = { 'user-agent': 'weather.promptugal.news sync (PrompTugal/PrompTugal__News__Weather)' };
 const PLACES = ['algarve', 'albufeira', 'alcoutim', 'aljezur', 'castro-marim', 'faro', 'lagoa', 'lagos', 'loule', 'monchique',
   'olhao', 'portimao', 'quarteira', 'sao-bras-de-alportel', 'silves', 'tavira', 'vila-do-bispo', 'vila-real-de-santo-antonio'];
-const SOURCES = ['ipma-city-forecasts', 'ipma-warnings', 'ipma-fire-risk', 'ipma-uv', 'ipma-sea', 'ipma-observations', 'cams'];
+const SOURCES = ['ipma-city-forecasts', 'ipma-warnings', 'ipma-fire-risk', 'ipma-uv', 'ipma-sea', 'ipma-observations', 'cams', 'open-meteo-london'];
 const API_FILES = [
   ...PLACES.map(p => [`by-place/now/${p}.json`, `data/now/${p}.json`]),
   ...SOURCES.map(s => [`${s}/latest.json`, `data/api/${s}.json`]),
