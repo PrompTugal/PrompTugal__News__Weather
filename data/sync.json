@@ -1,12 +1,12 @@
 {
   "about": "Where data/now/, data/api/, data/past/ and data/map/ came from. data/now, data/api and data/past are copies of data.promptugal.news's API; data/map of files the PrompTugal.news Website repository publishes. Each value inside keeps its own source and time read.",
   "from": "https://data.promptugal.news/api/v1/",
-  "api_version": "v0.1.123",
-  "api_built_at": "2026-11-19T18:16:13.240Z",
+  "api_version": "v0.1.124",
+  "api_built_at": "2026-11-19T19:31:11.344Z",
   "maps_from": "https://github.com/PrompTugal/PrompTugal__News__Website",
   "maps_via": "raw.githubusercontent.com",
   "commit": "unknown",
-  "synced_at": "2026-11-19T19:14:12Z",
+  "synced_at": "2026-11-19T19:46:44Z",
   "files": [
     {
       "from": "https://data.promptugal.news/api/v1/by-place/now/algarve.json",
@@ -107,6 +107,10 @@
     {
       "from": "https://data.promptugal.news/api/v1/cams/latest.json",
       "to": "data/api/cams.json"
+    },
+    {
+      "from": "https://data.promptugal.news/api/v1/open-meteo-london/latest.json",
+      "to": "data/api/open-meteo-london.json"
     },
     {
       "from": "https://data.promptugal.news/api/v1/storm/charles/exposure/people-by-hour.json",
