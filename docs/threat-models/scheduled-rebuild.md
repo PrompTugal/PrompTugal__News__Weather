@@ -1,12 +1,12 @@
 ---
-title: Threat model: the hourly rebuild
-summary: What the Pages workflow reads, writes and trusts when it rebuilds weather.promptugal.news every hour and on every push, what could go wrong, and how it is limited.
+title: Threat model: the rebuild
+summary: What the Pages workflow reads, writes and trusts when it rebuilds weather.promptugal.news on every push, what could go wrong, and how it is limited.
 ---
 Owner: weather.b@PrompTugal.dinis. Written 18 November 2026, about 16:30 UTC; to be reviewed by security@PrompTugal.dinis. File: `.github/workflows/pages.yml`.
 
 ## What it does
 
-GitHub Actions runs the workflow on each push to `dev`, on a manual run, and every hour at :41 UTC (Dinis, 18 November 2026). It checks out the repository, checks every commit carries an `Agent:` trailer, copies the latest data (`scripts/sync-data.mjs`, see [the data pull](/how/threat-models/data-pull/)), builds the pages, runs the gate, deploys to GitHub Pages and tags the release.
+GitHub Actions runs the workflow on each push to `dev` and on a manual run by a person. It ran on a timer from 18 November 2026 until Dinis removed every timer on 19 November 2026 (about 01:20 UTC): every run now starts from a commit, and pages stay fresh by reading data.promptugal.news in the browser. It checks out the repository, checks every commit carries an `Agent:` trailer, copies the latest data (`scripts/sync-data.mjs`, see [the data pull](/how/threat-models/data-pull/)), builds the pages, runs the gate, deploys to GitHub Pages and tags the release.
 
 ## What it reads
 

@@ -5,16 +5,12 @@ name: Pages
 on:
   push:
     branches: [dev]
+  # workflow_dispatch is for a person, by hand; no agent calls it.
   workflow_dispatch:
-  # A scheduled rebuild (Dinis, 18 Nov 2026, about 14:55 UTC, kept in the Website repo's
-  # board/guidance/2026-11-18-keys-issues-rebuilds-observability.md; confirmed by the user in this
-  # session at about 15:15 UTC: "Yes add the schedule"), so pages follow data.promptugal.news's hourly
-  # collection (at about :17) without a push. Each rebuild is a release and takes the next patch version.
-  # Twice an hour (as data.promptugal.news does), because GitHub drops or delays scheduled runs: none ran between
-  # 15:20 and 17:51 UTC on 18 Nov (conductor.b@'s report). Pages also refresh in the browser (src/assets/live.js).
-  schedule:
-    - cron: '11 * * * *'
-    - cron: '41 * * * *'
+  # No schedule (Dinis, 19 Nov 2026, about 01:20 UTC, Website repo board/guidance/2026-11-19-every-run-starts-from-a-
+  # commit.md: "all GH actions are triggered by a commit, since that leaves a clear provenance, determinism and
+  # explainability"). Pages stay fresh by reading data.promptugal.news in the browser (src/assets/live.js); this site
+  # rebuilds only when its own code or content changes. The schedule of 18 Nov ran 2 times of about 14 asked.
 permissions:
   contents: read
 concurrency:
