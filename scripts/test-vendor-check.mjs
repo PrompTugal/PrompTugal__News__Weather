@@ -39,12 +39,12 @@ t('the new table shape under another single key: on', () => checkVendored(treg({
 t('the table, different bytes: stops', () => throws(() => checkVendored(treg({ integrity: pin(Buffer.from('x')) }), read, T), /differs/));
 t('the table with two unnamed pins: stops (which one is not known)', () => throws(() => checkVendored(treg({ integrity: { a: pin(files.t), b: pin(files.t) } }), read, T), /missing or not an SRI/));
 
-// the shared map (ptmap 1.0.0): the piece's paths read the vendored files, in the registry's integrity shape. No pins
+// the shared map (ptmap 1.0.2): the piece's paths read the vendored files, in the registry's integrity shape. No pins
 // are written here (security@'s ruling): they are computed from the files; the real check is the live registry at build
 import { VENDORED } from './vendor-check.mjs';
 import { readFileSync } from 'node:fs';
 const M = { 'shared map': VENDORED['shared map'] };
-const mreg = (integrity) => ({ map: { version: '1.0.0', versions: { '1.0.0': { integrity } } } });
+const mreg = (integrity) => ({ map: { version: '1.0.2', versions: { '1.0.2': { integrity } } } });
 const p384 = (f) => 'sha384-' + createHash('sha384').update(readFileSync(f)).digest('base64');
 const MPINS = Object.fromEntries(Object.entries(M['shared map'].files).map(([k, f]) => [k, p384(f)]));
 t('the shared map: the vendored files, pinned: on', () => checkVendored(mreg(MPINS), (f) => readFileSync(f), M)['shared map'].on === true);

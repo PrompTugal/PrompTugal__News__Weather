@@ -200,7 +200,7 @@ function accountPage() {
 }
 
 // ---------------------------------------------------------------- the map page
-// the shared map (ptmap 1.0.0, vendored; Dinis, 19 Nov 2026, about 17:40 UTC: Portugal big, London and the EU small,
+// the shared map (ptmap 1.0.2, vendored; Dinis, 19 Nov 2026, about 17:40 UTC: Portugal big, London and the EU small,
 // where the site has the data): this site's places, and London (Open-Meteo's forecast, /london/); no EU data, so no Brussels
 const ORIGIN = 'https://weather.promptugal.news';
 const LONDON_DAY = /^\d{4}-\d\d-\d\d$/;
@@ -214,8 +214,8 @@ function sharedMap() {
   const data = { places, london: londonDays().length ? { href: `${ORIGIN}/london/` } : null, eu: null, label: 'The places this site reports on, with London' };
   // JSON in a non-executed script element; '<' escaped so the text cannot close the element
   const json = JSON.stringify(data).replace(/</g, '\\u003c');
-  return { html: `<section class="shared-map"><h2>${data.london ? 'Portugal, and London' : 'Portugal'}</h2><div id="ptmap" hidden></div><script type="application/json" id="ptmap-data">${json}</script><p class="src">Each dot is a place with its own page${data.london ? '; London has a forecast page of its own' : ''}. Map: the PrompTugal.news shared map (ptmap 1.0.0, designer@); outline from Natural Earth (public domain) via world-atlas (<a href="https://opensource.org/license/isc-license-txt">ISC licence</a>, its notice in the file).</p></section>`,
-    head: '<link rel="stylesheet" href="/assets/ptmap/1.0.0/ptmap.css">\n<script defer src="/assets/ptmap/1.0.0/ptmap.js"></script>\n<script defer src="/assets/ptmap-init.js"></script>\n' };
+  return { html: `<section class="shared-map"><h2>${data.london ? 'Portugal, and London' : 'Portugal'}</h2><div id="ptmap" hidden></div><script type="application/json" id="ptmap-data">${json}</script><p class="src">Each dot is a place with its own page${data.london ? '; London has a forecast page of its own' : ''}. Map: the PrompTugal.news shared map (ptmap 1.0.2, designer@); outline from Natural Earth (public domain) via world-atlas (<a href="https://opensource.org/license/isc-license-txt">ISC licence</a>, its notice in the file).</p></section>`,
+    head: '<link rel="stylesheet" href="/assets/ptmap/1.0.2/ptmap.css">\n<script defer src="/assets/ptmap/1.0.2/ptmap.js"></script>\n<script defer src="/assets/ptmap-init.js"></script>\n' };
 }
 
 // /london/: the first place beyond Portugal (Dinis, 18 Nov 2026, about 22:20 UTC, Website board/guidance/2026-11-18-london.md)
@@ -248,7 +248,7 @@ ${freshness(r.read_at)}
 ${smap ? smap.html : ''}
 ${timelineSection()}
 <section><h2>Fire risk, by place and day</h2>${legend}<div class="map-days">${maps}</div>${table}<p class="src">Source: <a href="${safeHref(D.now.faro.fire_risk?.page)}">IPMA rural fire risk (RCM)</a>, open data <a href="https://api.ipma.pt/open-data/forecast/meteorology/rcm/rcm-d0.json">d0</a>, d1, d2. Quarteira shares Loulé's municipal value.</p></section>`;
-  const md = `IPMA issues weather warnings by district (the Algarve is the Faro district) and rural fire risk by municipality.\n\n${smap ? `## Portugal, and London\n\nThe shared map of the places this site reports on${londonDays().length ? ', with London (its forecast: https://weather.promptugal.news/london/)' : ''}: each place's page is at https://weather.promptugal.news/places/<place>/ (list: https://weather.promptugal.news/places/). Map: the PrompTugal.news shared map (ptmap 1.0.0); outline from Natural Earth (public domain) via world-atlas (ISC licence).\n\n` : ''}${timeline() ? `## Warnings by district, over time\n\n${timeline().md}\n\nSource: IPMA, as collected by data.promptugal.news.\n\n` : ''}\n\nRead ${when(r.read_at)}.\n\n## Warnings, Faro district\n\n${warningsMd(r.warnings)}\n\n## Fire risk, by place and day\n\n| Place | ${days.map(d => dayName(d.date)).join(' | ')} |\n|---|${days.map(() => '---').join('|')}|\n${D.towns.map(t => `| ${t.name} | ${(t.now.fire_risk?.days || []).map(d => d.level).join(' | ')} |`).join('\n')}\n\nSource: IPMA rural fire risk, ${D.now.faro.fire_risk?.page}\n\n${portugalMd()}`;
+  const md = `IPMA issues weather warnings by district (the Algarve is the Faro district) and rural fire risk by municipality.\n\n${smap ? `## Portugal, and London\n\nThe shared map of the places this site reports on${londonDays().length ? ', with London (its forecast: https://weather.promptugal.news/london/)' : ''}: each place's page is at https://weather.promptugal.news/places/<place>/ (list: https://weather.promptugal.news/places/). Map: the PrompTugal.news shared map (ptmap 1.0.2); outline from Natural Earth (public domain) via world-atlas (ISC licence).\n\n` : ''}${timeline() ? `## Warnings by district, over time\n\n${timeline().md}\n\nSource: IPMA, as collected by data.promptugal.news.\n\n` : ''}\n\nRead ${when(r.read_at)}.\n\n## Warnings, Faro district\n\n${warningsMd(r.warnings)}\n\n## Fire risk, by place and day\n\n| Place | ${days.map(d => dayName(d.date)).join(' | ')} |\n|---|${days.map(() => '---').join('|')}|\n${D.towns.map(t => `| ${t.name} | ${(t.now.fire_risk?.days || []).map(d => d.level).join(' | ')} |`).join('\n')}\n\nSource: IPMA rural fire risk, ${D.now.faro.fire_risk?.page}\n\n${portugalMd()}`;
   add(page({ path: '/map/', extraHead: `<style>${TIMELINE_CSS}</style>\n${smap ? smap.head : ''}`, title: 'Map: warnings and fire risk', description: 'IPMA warnings for every district of mainland Portugal on a map, and rural fire risk for each of the Algarve\'s 17 places for three days.', body, md }));
 }
 
