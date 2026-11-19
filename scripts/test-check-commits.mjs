@@ -40,6 +40,14 @@ t('control 6: an orphan merged in from an unrelated history fails, even with a t
   execFileSync('git', ['-c', 'commit.gpgsign=false', '-c', 'user.name=t', '-c', 'user.email=t@example.invalid', 'merge', '-q', '--allow-unrelated-histories', '-m', OK_MSG, 'other'], { cwd: r.d });
   const x = r.run(); rmSync(r.d, { recursive: true }); return fails(x, /no parent \(an orphan\)/);
 });
+t('control 8: a backdated orphan merged in fails, whatever its date', () => {
+  const r = repo();
+  r.g('checkout', '-q', '--orphan', 'old'); r.g('rm', '-rq', '--cached', '.');
+  r.commit('o.txt', OK_MSG, { GIT_COMMITTER_DATE: '2001-01-01T00:00:00Z', GIT_AUTHOR_DATE: '2001-01-01T00:00:00Z' });
+  r.g('checkout', '-q', '-f', 'dev');
+  execFileSync('git', ['-c', 'commit.gpgsign=false', '-c', 'user.name=t', '-c', 'user.email=t@example.invalid', 'merge', '-q', '--allow-unrelated-histories', '-m', OK_MSG, 'old'], { cwd: r.d });
+  const x = r.run(); rmSync(r.d, { recursive: true }); return fails(x, /no parent \(an orphan\)/);
+});
 t('a merge commit with no trailer fails (merges are checked)', () => {
   const r = repo();
   r.g('checkout', '-q', '-b', 'side'); r.commit('s.txt', OK_MSG); r.g('checkout', '-q', 'dev'); r.commit('m.txt', OK_MSG);
