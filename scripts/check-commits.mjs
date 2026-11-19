@@ -1,30 +1,30 @@
-// ACC-015: every non-merge commit a push adds to dev must carry a readable Agent: trailer,
+// ACC-015: every commit a push adds to dev, merges included, must carry a readable Agent: trailer,
 // read the way git reads it: git log --format=%(trailers:key=Agent,valueonly).
 // Usage: node scripts/check-commits.mjs <before> <after>   (the pushed range, before..after)
-// Commits older than this check are skipped: those that neither descend from the commit
-// that added this file nor were committed after it. History is not rewritten (ACC-015).
-// Prints OK or lists each commit that fails and exits 1.
+// Skips (security@'s rulings of 19 Nov 2026, relayed by conductor.b@ at 14:07 and 14:08 UTC, controls 6 and 8):
+// a commit is skipped only when it is an ancestor of the trusted base below (git merge-base --is-ancestor),
+// never by what a tree holds or by a commit's date (a date can be set to anything). Every commit with no parent
+// (an orphan, including one brought in by merging an unrelated history) fails, except the trusted base itself.
+// A shallow checkout fails, since ancestry cannot be decided in one. The base is pinned here by its full id and
+// is not read from the environment. History is not rewritten (ACC-015). Prints OK or lists each failure, exits 1.
+export const TRUSTED_BASE = 'd20148e9cf87cf239498b86c971c2e44db2e9102'; // v0.1.48, released 19 Nov 2026 13:21 UTC; every commit up to it passed this check in CI
 import { execFileSync } from 'node:child_process';
-import { existsSync, readFileSync } from 'node:fs';
 
-const git = (...args) => execFileSync('git', args, { encoding: 'utf8' }).trim();
+const git = (...args) => execFileSync('git', args, { encoding: 'utf8', maxBuffer: 256 * 1024 * 1024, stdio: ['ignore', 'pipe', 'pipe'] }).trim();
 const tryGit = (...args) => { try { return git(...args); } catch { return null; } };
 const lines = (s) => (s ? s.split('\n').filter(Boolean) : []);
 
-const [beforeArg, afterArg] = process.argv.slice(2);
-const after = afterArg || 'HEAD';
-if (!tryGit('rev-parse', '--verify', '--quiet', `${after}^{commit}`)) { console.error(`check-commits: unknown commit ${after}`); process.exit(1); }
+// <before> is accepted for the workflow's sake and ignored: the range is always from the trusted base, so no tag,
+// "before" or forced push can hide a commit (Sonnet security post-review, 19 Nov 2026, finding 1).
+const [, afterArg] = process.argv.slice(2);
+const after = /^[0-9A-Za-z._\/~^-]{1,200}$/.test(afterArg || 'HEAD') && !String(afterArg || '').startsWith('-') ? tryGit('rev-parse', '--verify', '--quiet', '--end-of-options', `${afterArg || 'HEAD'}^{commit}`) : null;
+if (!after) { console.error(`check-commits: unknown commit ${String(afterArg).slice(0, 80)}`); process.exit(1); }
 
-const first = lines(git('log', '--format=%H', '--diff-filter=A', '--reverse', after, '--', 'scripts/check-commits.mjs'))[0];
-if (!first) { console.error('check-commits: cannot find the commit that added scripts/check-commits.mjs'); process.exit(1); }
-const firstTime = Number(git('log', '-1', '--format=%ct', first));
+if (tryGit('rev-parse', '--is-shallow-repository') !== 'false') { console.error('check-commits: a shallow (or unreadable) checkout; ancestry cannot be decided, so nothing is checked: FAILED'); process.exit(1); }
+if (!tryGit('rev-parse', '--verify', '--quiet', `${TRUSTED_BASE}^{commit}`)) { console.error(`check-commits: the trusted base ${TRUSTED_BASE} is not in this repository: FAILED`); process.exit(1); }
+const isAncestorOfBase = (c) => { try { execFileSync('git', ['merge-base', '--is-ancestor', c, TRUSTED_BASE], { stdio: 'ignore' }); return true; } catch { return false; } };
 
-// A new branch, a forced push or a manual run has no usable "before": check everything since the check began.
-const zero = /^0+$/;
-const before = beforeArg && !zero.test(beforeArg) && tryGit('rev-parse', '--verify', '--quiet', `${beforeArg}^{commit}`);
-const range = before ? [`${before}..${after}`] : [after];
-const added = lines(git('rev-list', '--no-merges', ...range));
-const descendants = new Set([first, ...lines(git('rev-list', '--ancestry-path', `${first}..${after}`))]);
+const added = lines(git('rev-list', after, '--not', TRUSTED_BASE));
 
 // A role may be dotted, role.speciality (Dinis, 16 Nov 2026: "we definitely should allow dots because that's our terminology").
 // PrompTugal agents sign as role@PrompTugal.dinis (Dinis, 18 Nov 2026, kept by conductor.b@ in
@@ -36,10 +36,12 @@ const agentShape = /^[a-z0-9]+(?:[.-][a-z0-9]+)*@(?:agenticcells\.[a-z0-9][a-z0-
 // scripts/commit-exemptions.json: [{ "commit": "<full 40-hex sha>", "reason": "...", "approved_by": "Dinis Cruz",
 // "date": "YYYY-MM-DD" }]. Each entry names exactly one commit; malformed entries fail the check.
 const exempt = new Map();
+// read from the trusted base's tree only, never the pushed one: a push cannot exempt its own commits (finding 2)
 const EX = 'scripts/commit-exemptions.json';
-if (existsSync(EX)) {
+const exText = tryGit('show', `${TRUSTED_BASE}:${EX}`);
+if (exText) {
   let list;
-  try { list = JSON.parse(readFileSync(EX, 'utf8')); } catch (e) { console.error(`${EX}: not JSON (${e.message})`); process.exit(1); }
+  try { list = JSON.parse(exText); } catch (e) { console.error(`${EX}: not JSON (${e.message})`); process.exit(1); }
   if (!Array.isArray(list)) { console.error(`${EX}: must be a list`); process.exit(1); }
   for (const x of list) {
     if (!x || !/^[0-9a-f]{40}$/.test(x.commit || '') || !(x.reason || '').trim() || !(x.approved_by || '').trim() || !/^\d{4}-\d{2}-\d{2}$/.test(x.date || '')) {
@@ -51,10 +53,10 @@ if (existsSync(EX)) {
 const errors = [];
 let checked = 0, exempted = 0;
 for (const c of added) {
-  const ct = Number(git('log', '-1', '--format=%ct', c));
-  if (!descendants.has(c) && ct < firstTime) continue;
-  if (exempt.has(c)) { exempted++; continue; }
+  if (c === TRUSTED_BASE || isAncestorOfBase(c)) continue;
   checked++;
+  if (!lines(git('log', '-1', '--format=%P', c)).join(' ').trim()) { errors.push(`${c.slice(0, 7)}: a commit with no parent (an orphan) after the trusted base: refused`); continue; }
+  if (exempt.has(c)) { exempted++; checked--; continue; }
   const agents = lines(git('log', '-1', '--format=%(trailers:key=Agent,valueonly)', c)).map((s) => s.trim());
   const subject = git('log', '-1', '--format=%s', c);
   if (!agents.length) errors.push(`${c.slice(0, 7)} ${subject}: no readable Agent: trailer (it must sit in the final trailer block)`);
@@ -66,4 +68,4 @@ if (errors.length) {
   console.error(`FAILED (${errors.length} of ${checked} commits checked)`);
   process.exit(1);
 }
-console.log(`OK (${checked} commits checked, ${exempted} exempted, ${added.length - checked - exempted} older than the check skipped)`);
+console.log(`OK (${checked} commits checked, ${exempted} exempted, ${added.length - checked - exempted} at or before the trusted base skipped)`);

@@ -16,7 +16,7 @@ Exists and is served at https://weather.promptugal.news from `dev` (the version 
 - **About** `/about/`: data path, who made what, licences.
 - **Design** `/design/`: three front-page variations (A warnings first, B the map is the page, C your town) for Dinis to choose.
 - On every page: the "not a warning service" note, the "pay for what you read" statement linking https://promptugal.news/account/, the version, a "how this page was made" block (code, agents and models, "not yet checked by a person"), a markdown twin (`index.md`). Also `/llms.txt`, `/sitemap.xml`, `/robots.txt`, and the data the pages were built from at `/data/now/<place>.json` and `/data/sync.json`.
-- **Build**: `scripts/sync-data.mjs` (copies the Website repository's `data/by-place/now/*.json` and map files; CI runs it before each build), `scripts/build.mjs` + `scripts/site/` (generator), `scripts/validate.mjs` (gate), `scripts/leak-scan.mjs` (runs its own key-rule tests, `scripts/test-leak-scan.mjs`, before scanning). Node 18+, no dependencies.
+- **Build**: `scripts/sync-data.mjs` (copies the Website repository's `data/by-place/now/*.json` and map files; CI runs it before each build), `scripts/build.mjs` + `scripts/site/` (generator), `scripts/validate.mjs` (gate), `scripts/leak-scan.mjs` (runs its own key-rule tests, `scripts/test-leak-scan.mjs`, before scanning), `scripts/check-commits.mjs` (an Agent: trailer on every commit after a pinned trusted base; orphans and shallow checkouts refused; tests in `scripts/test-check-commits.mjs`). CI still runs these from the pushed tree (control 7 awaits a workflow edit). Node 18+, no dependencies.
 
 Exists, with a stated limit:
 
