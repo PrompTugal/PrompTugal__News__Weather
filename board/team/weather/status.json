@@ -3,7 +3,7 @@
  "account": "B",
  "started_by": "conductor.b@PrompTugal.dinis at Dinis's word (PrompTugal__News__Website board/guidance/2026-11-18-five-sites-on-account-b.md)",
  "state": "between wakes: tonight's pieces pushed (last 15657ff, 01:23 UTC); waits for the 07:13 Lisbon wake",
- "updated": "2026-11-19T07:20Z",
+ "updated": "2026-11-19T07:54Z",
  "debrief": "board/team/weather/debriefs/2026-11-19-account-b.md",
  "observability_lane": "weather",
  "observability_note": "For conductor.b@ to relay to account A's observability@: assets/obs/obs.js is on every page and writes only to obs.json lanes.weather, which is empty, so nothing is sent yet. observability@ issues the lane's append tokens (in the vault of its choice; the drain key is read from promptugal.news/assets/obs/obs.json unless set in this site's obs.json).",
@@ -44,7 +44,8 @@
   "03:20 UTC: no IP-based location (Dinis ~03:15 UTC, Website board/guidance/2026-11-19-no-ip-lookup-predictions-and-small-decisions.md, relayed by conductor.b@): obs.js keeps the country only, from the browser's time zone through a fixed table with no network call; the ipapi.co and ipwho.is lookup, region, city and map position removed; obs.json geo removed and its notice updated; the CSP no longer lists those hosts; the observability threat model and REALITY.md updated. The lane is still closed (no tokens), so nothing is sent either way. dev@'s copy on promptugal.news may differ in its table; to align when dev@ ships",
   "04:50 UTC: the one shared time-zone-to-country table (tz-country.json 1.0.0, 143 zones, from promptugal.news's registry obs_tz; relayed by conductor.b@ at 04:50 UTC) replaces this site's own table: copied after its full SRI string matched the registry's, pinned in the build by git blob id (the leak scan flags the base64 SRI form), read by obs.js from this site's own host into a null-prototype map, own-key lookup, two letters A to Z only. All 53 zones of the old table are in it, with the same countries. The registry copy (data/sites.json) leaves out obs_tz as it leaves out bar",
   "leak scan key rules (2026-11-19T07:17Z, security@'s ruling of 05:14 UTC): every PRIVATE KEY header fails in every file; an OpenSSH public-key line of any type (ssh-ed25519, ssh-rsa, ssh-dss, ecdsa-sha2-nistp256/384/521, sk-ecdsa-sha2-nistp256@openssh.com, sk-ssh-ed25519@openssh.com) is flagged anywhere but as the exact value of keys[].ssh_signing.public_key in team/keys.json. scripts/test-leak-scan.mjs: 67 cases, a fail for each type outside the field; the scan runs its tests before scanning, so CI runs them with no workflow change",
-  "sites bar 1.2.0 and tz-country.json 1.1.0 (2026-11-19T07:20Z, security@'s go relayed by conductor.b@ at 07:15 UTC): checked at build against the registry's own pins read live at build, today's shape and the versions[v].integrity.<file> shape (conductor.b@, 07:19 UTC); no pin committed and no leak-scan exemption; SHA256SUMS, its leak-scan allowance and the blob-id pin removed; Tests: scripts/test-vendor-check.mjs (18), scripts/test-leak-scan.mjs (70)"
+  "sites bar 1.2.0 and tz-country.json 1.1.0 (2026-11-19T07:20Z, security@'s go relayed by conductor.b@ at 07:15 UTC): checked at build against the registry's own pins read live at build, today's shape and the versions[v].integrity.<file> shape (conductor.b@, 07:19 UTC); no pin committed and no leak-scan exemption; SHA256SUMS, its leak-scan allowance and the blob-id pin removed; Tests: scripts/test-vendor-check.mjs (18), scripts/test-leak-scan.mjs (70)",
+  "sites bar 1.2.1 (2026-11-19T07:54Z): three files copied and checked against the registry; the renderer and JS differ from 1.2.0 only in the version comment, the CSS adds three rules scoped to nav.ptsb; script-src 'self'; no sideways scroll at 375 px on /, /places/faro/, /cameras/, /storms/charles/, /about/"
  ],
  "next": [
   "signed commits, once ssh-keygen is allowed: team/keys.json, repo-local signing config, scripts/check-signatures.mjs and its tests from data.b@'s pattern (credited, Apache-2.0), CI step (a workflow edit: needs Dinis's word)",
@@ -85,6 +86,6 @@
  "security_review_requested": "security@PrompTugal.dinis: the three threat models and W-3 to W-7 (18 Nov, 16:45 UTC)",
  "inner_passes": "run 6: opening + pre-review (Sonnet, yes), post-review with AppSec (Sonnet; three findings, fixed)",
  "release_rule": "Dinis ~23:45 UTC: every commit is a release with a tag, so each push carries one piece of work (status-only notes go with the next piece, not on their own)",
- "sites_bar": "1.2.0, checked against the live registry's pins (both shapes, no exemption) by scripts/vendor-check.mjs at each build (2026-11-19T07:20Z); tz-country.json 1.1.0 the same way. Off only when the registry no longer lists the version",
+ "sites_bar": "1.2.1 (2026-11-19T07:54Z, security@'s go on the exact files relayed by conductor.b@ at 07:54 UTC), checked against the live registry's versions[\"1.2.1\"].integrity pins by scripts/vendor-check.mjs at each build; tz-country.json 1.1.0 the same way. Off only when the registry no longer lists the version. dev@'s registry reshape (07:50 UTC) needed no change here",
  "times": "Every time from date -u (security@, 01:51 UTC). Corrected at 2026-11-19T01:50Z: several times written between 23:36 and 01:23 UTC were guessed and up to 37 minutes late; they now match the commits"
 }

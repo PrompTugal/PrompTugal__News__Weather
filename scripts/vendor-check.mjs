@@ -13,7 +13,7 @@ import { createHash } from 'node:crypto';
 
 export const REGISTRY = 'https://promptugal.news/api/v1/sites.json';
 export const VENDORED = {
-  'sites bar': { key: 'bar', version: '1.2.0', files: { render: 'scripts/vendor/sites-bar/1.2.0/sites-bar-render.mjs', css: 'src/assets/sites-bar/1.2.0/sites-bar.css', js: 'src/assets/sites-bar/1.2.0/sites-bar.js' } },
+  'sites bar': { key: 'bar', version: '1.2.1', files: { render: 'scripts/vendor/sites-bar/1.2.1/sites-bar-render.mjs', css: 'src/assets/sites-bar/1.2.1/sites-bar.css', js: 'src/assets/sites-bar/1.2.1/sites-bar.js' } },
   'time-zone table': { key: 'obs_tz', version: '1.1.0', files: { 'tz-country.json': 'src/assets/obs/tz-country.json' }, single: true },
 };
 export const SRI = /^sha(256|384|512)-[A-Za-z0-9+/]{43,86}={0,2}$/;

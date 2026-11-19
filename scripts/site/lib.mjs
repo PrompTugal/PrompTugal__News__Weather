@@ -103,12 +103,12 @@ export const host = u => { try { return new URL(u).host; } catch { return u; } }
 
 // ---------------------------------------------------------------- the frame
 const NAV = [['/', 'Now'], ['/map/', 'Map'], ['/places/', 'Places'], ['/storms/', 'Storms'], ['/cameras/', 'Cameras'], ['/what-to-do/', 'What to do'], ['/about/', 'About']];
-// The sites bar 1.2.0 (Dinis, 18 Nov 2026 and 03:18 UTC 19 Nov: one way to move between the sites; vendored,
+// The sites bar 1.2.1 (Dinis, 18 Nov 2026 and 03:18 UTC 19 Nov: one way to move between the sites; vendored,
 // scripts/vendor/sites-bar/README.md): rendered once at build from the registry copied to data/sites.json, only while
 // scripts/vendor-check.mjs finds its version listed in the live registry and its files matching the pins. '' (the bar off, or a
 // registry the renderer refuses, or none) means no bar, never a hand-made one.
 import { vendorState } from '../vendor-check.mjs';
-import { render as renderSitesBar, check as checkSites } from '../vendor/sites-bar/1.2.0/sites-bar-render.mjs';
+import { render as renderSitesBar, check as checkSites } from '../vendor/sites-bar/1.2.1/sites-bar-render.mjs';
 // When the data was read and the page built, on every page (conductor.b@, 19 Nov 2026, about 01:20 UTC: GitHub runs the
 // scheduled rebuild far less often than asked, so a page must not look fresher than its data). __BUILT__ is set by build.mjs.
 const DATA_READ = (() => { try { const t = JSON.parse(readFileSync('data/api/ipma-warnings.json', 'utf8')).read_at; const d = new Date(t); if (isNaN(+d)) return ''; return `${d.getUTCDate()} ${['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][d.getUTCMonth()]}, ${String(d.getUTCHours()).padStart(2, '0')}:${String(d.getUTCMinutes()).padStart(2, '0')} UTC`; } catch { return ''; } })();
@@ -174,7 +174,7 @@ export function page({ path, title, description, body: rawBody, md, made, extraH
 <link rel="alternate" type="text/markdown" href="${twin}">
 <link rel="icon" href="/brand/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/site.css?v=${CSS_VERSION}">
-${SITES_BAR ? '<link rel="stylesheet" href="/assets/sites-bar/1.2.0/sites-bar.css">\n<script defer src="/assets/sites-bar/1.2.0/sites-bar.js"></script>\n' : ''}
+${SITES_BAR ? '<link rel="stylesheet" href="/assets/sites-bar/1.2.1/sites-bar.css">\n<script defer src="/assets/sites-bar/1.2.1/sites-bar.js"></script>\n' : ''}
 <meta name="page-type" content="free">
 <script defer src="/assets/reading.js?v=${CSS_VERSION}"></script>
 <script defer src="/assets/live.js?v=${CSS_VERSION}"></script>
