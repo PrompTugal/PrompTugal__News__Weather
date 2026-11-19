@@ -53,33 +53,44 @@ if (exText) {
 // Control 10 (security@ ed70bd996, relayed by conductor.b@ at 16:50 UTC): no commit after the base may add or change a
 // symbolic link (mode 120000), checked per commit with git diff-tree, not only in the final tree. The only exceptions
 // are paths listed, each with a reason, in scripts/symlink-exceptions.json in the trusted base's own tree.
-const SYMLINK_EX = (() => { const t = tryGit('show', `${TRUSTED_BASE}:scripts/symlink-exceptions.json`); if (!t) return new Set(); try { const l = JSON.parse(t); return new Set((Array.isArray(l) ? l : []).filter((x) => x && typeof x.path === 'string' && typeof x.reason === 'string' && x.reason.trim()).map((x) => x.path)); } catch { console.error('scripts/symlink-exceptions.json in the trusted base: not JSON: FAILED'); process.exit(1); } })();
+// library.b@'s review of its own control 10 (LIB-2026-069, relayed by conductor.b@ at 19:46 UTC): paths are compared as
+// raw bytes (read as latin1, one character per byte, so two names never decode to the same text), each exception pins
+// the link's own blob id (a re-pointed link is a new blob and is refused), and AFTER's own tree is checked as well as
+// each commit. An exception is { path, reason, blob } with blob the 40-hex id of the link (git hash-object of its target).
+const raw = (s) => Buffer.from(s, 'utf8').toString('latin1');
+const shown = (r) => JSON.stringify(Buffer.from(r, 'latin1').toString('utf8')).slice(0, 120);
+const SYMLINK_EX = (() => { const t = tryGit('show', `${TRUSTED_BASE}:scripts/symlink-exceptions.json`); if (!t) return new Map(); try { const l = JSON.parse(t); return new Map((Array.isArray(l) ? l : []).filter((x) => x && typeof x.path === 'string' && typeof x.reason === 'string' && x.reason.trim() && typeof x.blob === 'string' && /^([0-9a-f]{40}|[0-9a-f]{64})$/.test(x.blob)).map((x) => [raw(x.path), x.blob])); } catch { console.error('scripts/symlink-exceptions.json in the trusted base: not JSON: FAILED'); process.exit(1); } })();
+const excepted = (l) => SYMLINK_EX.get(l.path) === l.blob;
 // read diff-tree -z output as NUL-separated fields and compare whole paths, never line by line (events.b@'s finding,
-// relayed 16:57 UTC: a name containing a newline must not be cut short)
+// relayed 16:57 UTC: a name containing a newline must not be cut short); -m shows what a merge brings in
 const symlinksIn = (c) => {
-  const f = execFileSync('git', ['diff-tree', '-r', '--raw', '--no-commit-id', '--root', '-m', '-z', c], { maxBuffer: 256 * 1024 * 1024, stdio: ['ignore', 'pipe', 'pipe'] }).toString('utf8').split('\0');
+  const f = execFileSync('git', ['diff-tree', '-r', '--raw', '--no-commit-id', '--no-abbrev', '--root', '-m', '-z', c], { maxBuffer: 256 * 1024 * 1024, stdio: ['ignore', 'pipe', 'pipe'] }).toString('latin1').split('\0');
   const out = [];
   for (let k = 0; k < f.length; k++) {
-    const m = /^:(\d{6}) (\d{6}) [0-9a-f]+ [0-9a-f]+ ([A-Z])\d*$/.exec(f[k]); if (!m) continue;
-    const paths = m[3] === 'R' || m[3] === 'C' ? [f[k + 1], f[k + 2]] : [f[k + 1]];
+    const m = /^:(\d{6}) (\d{6}) [0-9a-f]+ ([0-9a-f]+) ([A-Z])\d*$/.exec(f[k]); if (!m) continue;
+    const paths = m[4] === 'R' || m[4] === 'C' ? [f[k + 1], f[k + 2]] : [f[k + 1]];
     k += paths.length;
-    if (m[2] === '120000') out.push(paths[paths.length - 1]);
+    if (m[2] === '120000') out.push({ path: paths[paths.length - 1], blob: m[3] });
   }
   return out;
 };
+const symlinksInTree = (c) => execFileSync('git', ['ls-tree', '-r', '-z', '--full-tree', c], { maxBuffer: 256 * 1024 * 1024, stdio: ['ignore', 'pipe', 'pipe'] }).toString('latin1').split('\0')
+  .filter((e) => e.startsWith('120000 ')).map((e) => { const m = /^120000 blob ([0-9a-f]+)\t([\s\S]+)$/.exec(e); return m ? { path: m[2], blob: m[1] } : { path: e, blob: '' }; }); // an entry not read is refused, never skipped
 const errors = [];
 let checked = 0, exempted = 0;
 for (const c of added) {
   if (c === TRUSTED_BASE || isAncestorOfBase(c)) continue;
   checked++;
   if (!lines(git('log', '-1', '--format=%P', c)).join(' ').trim()) { errors.push(`${c.slice(0, 7)}: a commit with no parent (an orphan) after the trusted base: refused`); continue; }
-  for (const l of symlinksIn(c)) if (!SYMLINK_EX.has(l)) errors.push(`${c.slice(0, 7)}: adds or changes a symbolic link (${l.slice(0, 120)}): refused (control 10)`);
+  for (const l of symlinksIn(c)) if (!excepted(l)) errors.push(`${c.slice(0, 7)}: adds or changes a symbolic link (${shown(l.path)}): refused (control 10)`);
   if (exempt.has(c)) { exempted++; checked--; continue; }
   const agents = lines(git('log', '-1', '--format=%(trailers:key=Agent,valueonly)', c)).map((s) => s.trim());
   const subject = git('log', '-1', '--format=%s', c);
   if (!agents.length) errors.push(`${c.slice(0, 7)} ${subject}: no readable Agent: trailer (it must sit in the final trailer block)`);
   else if (!agents.every((a) => agentShape.test(a))) errors.push(`${c.slice(0, 7)} ${subject}: Agent: trailer is not role@agenticcells.person or role@PrompTugal.dinis (${agents.join(', ')})`);
 }
+// AFTER's own tree, whatever the commits show (library.b@'s point 4): no link in it unless excepted, blob and all
+if (after) for (const l of symlinksInTree(after)) if (!excepted(l)) errors.push(`${after.slice(0, 7)}: its tree holds a symbolic link (${shown(l.path)}): refused (control 10)`);
 
 if (errors.length) {
   console.error(errors.join('\n'));

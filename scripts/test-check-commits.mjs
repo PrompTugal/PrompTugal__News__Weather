@@ -7,6 +7,8 @@ import { execFileSync, spawnSync } from 'node:child_process';
 import { mkdtempSync, writeFileSync, readFileSync, rmSync, mkdirSync, symlinkSync } from 'node:fs';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
+import { createHash } from 'node:crypto';
+const linkBlob = (target) => createHash('sha1').update(`blob ${Buffer.byteLength(target)}\0${target}`).digest('hex');
 
 const SRC = readFileSync(new URL('./check-commits.mjs', import.meta.url), 'utf8');
 const results = [];
@@ -68,11 +70,11 @@ t('a commit from a dropped run (between the anchor and BEFORE) fails', () => { c
 t('a tag on the pushed head itself does not empty the range', () => { const r = repo(); r.commit('a.txt', 'no trailer'); r.g('tag', 'v0.1.99'); const x = r.run('v0.1.99', 'v0.1.99'); rmSync(r.d, { recursive: true }); return fails(x, /no readable Agent/); });
 t('a push cannot exempt its own commit', () => { const r = repo(); const bad = r.commit('a.txt', 'no trailer'); writeFileSync(join(r.d, 'scripts/commit-exemptions.json'), JSON.stringify([{ commit: bad, reason: 'x', approved_by: 'Dinis Cruz', date: '2026-11-19' }])); r.commit('c.txt', OK_MSG); const ex = JSON.parse(r.g('show', 'HEAD:scripts/commit-exemptions.json'))[0].commit === bad; const x = r.run(); rmSync(r.d, { recursive: true }); return ex && fails(x, /no readable Agent/); });
 t('an option-looking commit argument is refused', () => { const r = repo(); const x = r.run('', '--all'); rmSync(r.d, { recursive: true }); return fails(x, /unknown commit/); });
-t('control 10: a pushed symbolic link fails', () => { const r = repo(); symlinkSync('../etc/passwd', join(r.d, 'evil')); r.commit('a.txt', OK_MSG); const x = r.run(); rmSync(r.d, { recursive: true }); return fails(x, /symbolic link \(evil\)/); });
-t('control 10: a link listed only in the pushed tree\'s exceptions fails', () => { const r = repo(); writeFileSync(join(r.d, 'scripts/symlink-exceptions.json'), JSON.stringify([{ path: 'evil', reason: 'x' }])); symlinkSync('x', join(r.d, 'evil')); r.commit('a.txt', OK_MSG); const x = r.run(); rmSync(r.d, { recursive: true }); return fails(x, /symbolic link \(evil\)/); });
+t('control 10: a pushed symbolic link fails', () => { const r = repo(); symlinkSync('../etc/passwd', join(r.d, 'evil')); r.commit('a.txt', OK_MSG); const x = r.run(); rmSync(r.d, { recursive: true }); return fails(x, /symbolic link \("evil"\)/); });
+t('control 10: a link listed only in the pushed tree\'s exceptions fails', () => { const r = repo(); writeFileSync(join(r.d, 'scripts/symlink-exceptions.json'), JSON.stringify([{ path: 'evil', reason: 'x' }])); symlinkSync('x', join(r.d, 'evil')); r.commit('a.txt', OK_MSG); const x = r.run(); rmSync(r.d, { recursive: true }); return fails(x, /symbolic link \("evil"\)/); });
 t('control 10: a link listed in the trusted base\'s exceptions passes', () => {
   const d = mkdtempSync(join(tmpdir(), 'cc-test-')); const g = (...a) => execFileSync('git', ['-c', 'commit.gpgsign=false', '-c', 'user.name=t', '-c', 'user.email=t@example.invalid', ...a], { cwd: d, encoding: 'utf8' }).trim();
-  g('init', '-q', '-b', 'dev'); mkdirSync(join(d, 'scripts')); writeFileSync(join(d, 'scripts/check-commits.mjs'), SRC); writeFileSync(join(d, 'scripts/symlink-exceptions.json'), JSON.stringify([{ path: 'docs-link', reason: 'test' }])); writeFileSync(join(d, 'seed.txt'), String(Math.random()));
+  g('init', '-q', '-b', 'dev'); mkdirSync(join(d, 'scripts')); writeFileSync(join(d, 'scripts/check-commits.mjs'), SRC); writeFileSync(join(d, 'scripts/symlink-exceptions.json'), JSON.stringify([{ path: 'docs-link', reason: 'test', blob: linkBlob('seed.txt') }])); writeFileSync(join(d, 'seed.txt'), String(Math.random()));
   g('add', '.'); g('commit', '-q', '-m', OK_MSG); const base = g('rev-parse', 'HEAD');
   writeFileSync(join(d, 'checker.mjs'), SRC.replace(/export const TRUSTED_BASE = '[0-9a-f]{40}'/, `export const TRUSTED_BASE = '${base}'`));
   symlinkSync('seed.txt', join(d, 'docs-link')); g('add', 'docs-link'); g('commit', '-q', '-m', OK_MSG);
@@ -85,6 +87,30 @@ t('control 10: a link whose name has a newline is matched whole, not by its firs
   writeFileSync(join(d, 'checker.mjs'), SRC.replace(/export const TRUSTED_BASE = '[0-9a-f]{40}'/, `export const TRUSTED_BASE = '${base}'`));
   symlinkSync('seed.txt', join(d, 'ok\nevil')); g('add', '-A'); g('commit', '-q', '-m', OK_MSG);
   const x = spawnSync(process.execPath, [join(d, 'checker.mjs'), '', 'HEAD'], { cwd: d, encoding: 'utf8' }); rmSync(d, { recursive: true }); return fails(x, /symbolic link/);
+});
+function linkRepo(exceptions, step, baseStep = () => {}) {
+  const d = mkdtempSync(join(tmpdir(), 'cc-test-')); const g = (...a) => execFileSync('git', ['-c', 'commit.gpgsign=false', '-c', 'user.name=t', '-c', 'user.email=t@example.invalid', ...a], { cwd: d, encoding: 'utf8' }).trim();
+  g('init', '-q', '-b', 'dev'); mkdirSync(join(d, 'scripts')); writeFileSync(join(d, 'scripts/check-commits.mjs'), SRC); writeFileSync(join(d, 'scripts/symlink-exceptions.json'), JSON.stringify(exceptions)); writeFileSync(join(d, 'seed.txt'), String(Math.random()));
+  baseStep(d); g('add', '.'); g('commit', '-q', '-m', OK_MSG); const base = g('rev-parse', 'HEAD');
+  writeFileSync(join(d, 'checker.mjs'), SRC.replace(/export const TRUSTED_BASE = '[0-9a-f]{40}'/, `export const TRUSTED_BASE = '${base}'`));
+  step(d); g('add', '-A'); g('commit', '-q', '--allow-empty', '-m', OK_MSG);
+  const x = spawnSync(process.execPath, [join(d, 'checker.mjs'), '', 'HEAD'], { cwd: d, encoding: 'utf8' }); rmSync(d, { recursive: true }); return x;
+}
+// library.b@'s review (LIB-2026-069, relayed 19:46 UTC)
+t('control 10: an excepted path re-pointed to another target fails (the blob is pinned)', () => fails(linkRepo([{ path: 'docs-link', reason: 'test', blob: linkBlob('seed.txt') }], (d) => symlinkSync('/etc/passwd', join(d, 'docs-link'))), /symbolic link/));
+t('control 10: an exception with no blob covers nothing', () => fails(linkRepo([{ path: 'docs-link', reason: 'test' }], (d) => symlinkSync('seed.txt', join(d, 'docs-link'))), /symbolic link/));
+t('control 10: a name with a non-UTF-8 byte is not matched by its decoded text', () => fails(linkRepo([{ path: 'ok\ufffd', reason: 'test', blob: linkBlob('seed.txt') }], (d) => symlinkSync('seed.txt', Buffer.concat([Buffer.from(join(d, 'ok')), Buffer.from([0xff])]))), /symbolic link/));
+t('control 10: a link already in the tree (here, the base\'s) fails, though no commit in the range adds it', () => fails(linkRepo([], () => {}, (d) => symlinkSync('seed.txt', join(d, 'old-link'))), /its tree holds a symbolic link/));
+t('control 10: an excepted non-ASCII name with its blob passes', () => linkRepo([{ path: 'café-link', reason: 'test', blob: linkBlob('seed.txt') }], (d) => symlinkSync('seed.txt', join(d, 'café-link'))).status === 0);
+t('control 10: a file changed into a link fails', () => fails(linkRepo([], (d) => { rmSync(join(d, 'seed.txt')); symlinkSync('/etc/passwd', join(d, 'seed.txt')); }), /symbolic link \("seed\.txt"\)/));
+t('control 10: a link brought in by a merge fails', () => {
+  const d = mkdtempSync(join(tmpdir(), 'cc-test-')); const g = (...a) => execFileSync('git', ['-c', 'commit.gpgsign=false', '-c', 'user.name=t', '-c', 'user.email=t@example.invalid', ...a], { cwd: d, encoding: 'utf8' }).trim();
+  g('init', '-q', '-b', 'dev'); mkdirSync(join(d, 'scripts')); writeFileSync(join(d, 'scripts/check-commits.mjs'), SRC); writeFileSync(join(d, 'seed.txt'), String(Math.random()));
+  g('add', '.'); g('commit', '-q', '-m', OK_MSG); const base = g('rev-parse', 'HEAD');
+  writeFileSync(join(d, 'checker.mjs'), SRC.replace(/export const TRUSTED_BASE = '[0-9a-f]{40}'/, `export const TRUSTED_BASE = '${base}'`));
+  g('checkout', '-q', '-b', 'side'); symlinkSync('/etc/passwd', join(d, 'm-link')); g('add', 'm-link'); g('commit', '-q', '-m', OK_MSG);
+  g('checkout', '-q', 'dev'); writeFileSync(join(d, 'b.txt'), 'b'); g('add', 'b.txt'); g('commit', '-q', '-m', OK_MSG); g('merge', '-q', '--no-ff', '-m', OK_MSG, 'side');
+  const x = spawnSync(process.execPath, [join(d, 'checker.mjs'), '', 'HEAD'], { cwd: d, encoding: 'utf8' }); rmSync(d, { recursive: true }); return fails(x, /adds or changes a symbolic link \("m-link"\)/);
 });
 t('the checker reads no override of the base from the environment', () => !/process\.env/.test(SRC));
 
