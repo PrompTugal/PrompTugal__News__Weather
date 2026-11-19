@@ -14,7 +14,7 @@ const MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct
 const utc = (iso) => { const d = new Date(typeof iso === 'string' ? iso : NaN); return isNaN(+d) ? 'unknown time' : `${d.getUTCDate()} ${MON[d.getUTCMonth()]}, ${String(d.getUTCHours()).padStart(2, '0')}:${String(d.getUTCMinutes()).padStart(2, '0')} UTC`; };
 
 // The hosts a camera link may go to. A camera whose page is on any other host is left out (and counted).
-const HOSTS = ['www.portodelisboa.pt', 'portodelisboa.pt', 'meteorologia.aemtg.pt', 'beachcam.meo.pt', 'github.com', 'data.promptugal.news'];
+const HOSTS = ['www.portodelisboa.pt', 'portodelisboa.pt', 'meteorologia.aemtg.pt', 'beachcam.meo.pt', 'www.skylinewebcams.com', 'github.com', 'data.promptugal.news'];
 export function camUrl(u) {
   if (typeof u !== 'string' || u.length > 500) return null;
   let p; try { p = new URL(u); } catch { return null; }
@@ -44,15 +44,15 @@ function item(c, withPlace) {
   const s = state(c), p = c.provenance || {};
   return `<li class="cam"><p><strong>${link(c.page, txt(c.name))}</strong>${withPlace ? ` <span class="src">(${esc(txt(c.municipality, 80))})</span>` : ''}<br><span class="src">${esc(txt(c.operator, 120))}</span></p>
 <p class="cam-state ${s.cls}">${esc(s.text)}</p>
-<p class="src">Terms: ${link(c.terms_page, "the operator's terms")}. Listed from ${link(p.listed_from, "the operator's page")} by ${esc(txt(p.listed_by, 120))}, ${esc(utc(p.listed_at))}; in ${link(p.register, 'the camera register')}.</p></li>`;
+<p class="src">Terms: ${link(c.terms_page, "the operator's terms")}${txt(c.terms_summary) ? ` (${esc(txt(c.terms_summary, 240))})` : ''}. Listed from ${link(p.listed_from, "the operator's page")} by ${esc(txt(p.listed_by, 120))}, ${esc(utc(p.listed_at))}; in ${link(p.register, 'the camera register')}.</p></li>`;
 }
 // in markdown, a URL keeps no character that could open a link, tag or table cell
 const mdUrl = (u) => { const v = camUrl(u); return v && v.replace(/[\[\]()<>|`*_]/g, (ch) => '%' + ch.charCodeAt(0).toString(16).toUpperCase().padStart(2, '0')); };
 const mdItem = (c) => `- ${mdt(c.name)} (${mdt(c.operator, 120)}): ${mdUrl(c.page) || ''}. ${state(c).text.replace(/[\[\]<>|`]/g, '')} Terms: ${mdUrl(c.terms_page) || 'not given'}.`;
 
-const MEO_NOTE = 'MEO BeachCam\'s site refused our data site\'s requests, so its terms have not been read by us and none of its cameras is embedded; viewing some cameras on its site may need a subscription.';
+const MEO_NOTE = 'MEO BeachCam\'s terms (section 1) need MEO\'s prior, express authorisation before a third-party site shows its live streams, so its cameras are credited links only. Its site refused our data site\'s checks, so whether a page answers is not known; viewing some cameras there may need a subscription.';
 const meoNote = (list) => (list.some(isMeo) ? `<p class="src">${esc(MEO_NOTE)}</p>` : '');
-const NOTE = 'Each link opens the operator\'s own page. This site never shows, fetches or keeps a frame or stream, and checks only whether the operator\'s page answers (data.promptugal.news does that, once an hour). Take-down on request.';
+const NOTE = 'Each link opens the operator\'s own page. This site shows in full only what it has full right to use (an open licence or the owner\'s written permission: Dinis, 19 Nov 2026), and no camera here has that, so every camera is a credited link. It never shows, fetches, records or re-hosts a frame or stream, and only data.promptugal.news checks whether the operator\'s page answers. Take-down on request.';
 
 // The section on a place page, or null when no camera is listed for the place.
 export function camsSection(api, placeId) {
@@ -76,7 +76,7 @@ export function camerasPage(api, placeName) {
   const gaps = Array.isArray(j?.gaps) ? j.gaps.slice(0, 30).filter((g) => g && txt(g.host) && txt(g.reason)) : [];
   const body = `<h1>Live cameras</h1>
 <p class="standfirst">Official cameras in the places this site covers, each a link to its operator's own page. ${cams.length} cameras in ${places.length} places: ${counts.up} with the operator's page answering, ${counts.down} not answering, ${counts.na} not checked.</p>
-<p class="note">${esc(NOTE)} No operator's embed terms have been read, so nothing is embedded here (Dinis, 18 Nov 2026: official cameras only; the operator's embed or a link; never record).</p>
+<p class="note">${esc(NOTE)} Nothing is embedded here: MEO BeachCam's terms need its express authorisation, and SkylineWebcams' terms need written permission for journalistic use (Dinis, 19 Nov 2026, about 17:40 UTC: credited links; never re-hosted).</p>
 ${meoNote(cams)}
 ${places.map((p) => `<section><h2>${placeName(p) ? `<a href="/places/${esc(p)}/">${esc(placeName(p))}</a>` : esc(p)}</h2><ul class="cam-list">${cams.filter((c) => c.place === p).map((c) => item(c, true)).join('')}</ul></section>`).join('\n')}
 ${gaps.length ? `<section><h2>What the list does not cover yet</h2><p>As recorded by data.promptugal.news (each refusal is respected, not worked around):</p><ul>${gaps.map((g) => `<li><strong>${esc(txt(g.host, 200))}</strong>: ${esc(txt(g.reason, 400))}</li>`).join('')}</ul></section>` : ''}

@@ -1,8 +1,11 @@
 {
- "data_read_at": "2026-11-19T16:07:30Z",
+ "data_read_at": "2026-11-19T18:14:27Z",
  "expected_cadence": {
-  "name": "hourly",
-  "seconds": 3600
+  "name": "twice a day",
+  "seconds": 43200,
+  "stale_after_seconds": 46800,
+  "collected_as": "hourly",
+  "why": "data.b@ collects twice a day (07:03 and 18:03 Lisbon) since 19 Nov 2026"
  },
  "schema": {
   "openapi": "https://data.promptugal.news/api/v1/ipma-warnings/openapi.json",
@@ -19,11 +22,11 @@
  },
  "source": "ipma-warnings",
  "title": "IPMA weather warnings",
- "read_at": "2026-11-19T16:07:30Z",
+ "read_at": "2026-11-19T18:14:27Z",
  "provenance": {
   "source": "https://api.ipma.pt/open-data/forecast/warnings/warnings_www.json",
   "page": "https://www.ipma.pt/en/otempo/prev-sam/",
-  "read_at": "2026-11-19T16:07:30Z",
+  "read_at": "2026-11-19T18:14:27Z",
   "by": "sources/ipma-warnings/collect.mjs (code, no model; run by data@PrompTugal.dinis)",
   "terms": "IPMA: free to copy and use for personal or public use if the use has no profit-making or offensive purpose; always name IPMA as the source."
  },

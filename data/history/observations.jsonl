@@ -156,3 +156,30 @@
 {"id":"1240675","name":"Viseu (Cidade)","hour_utc":"2026-11-19T15:00:00Z","temp_c":13.7,"rain_mm":0.1,"humidity_pct":71,"wind_kmh":null,"read_at":"2026-11-19T16:07:13Z"}
 {"id":"1240903","name":"Porto, Massarelos","hour_utc":"2026-11-19T15:00:00Z","temp_c":16.7,"rain_mm":0,"humidity_pct":78,"wind_kmh":null,"read_at":"2026-11-19T16:07:13Z"}
 {"id":"6210872","name":"Loulé (CML)","hour_utc":"2026-11-19T15:00:00Z","temp_c":null,"rain_mm":0,"humidity_pct":null,"wind_kmh":10.4,"read_at":"2026-11-19T16:07:13Z"}
+{"id":"1200533","name":"Sagres","hour_utc":"2026-11-19T17:00:00Z","temp_c":18.2,"rain_mm":0,"humidity_pct":54,"wind_kmh":12.2,"read_at":"2026-11-19T18:14:09Z"}
+{"id":"1200535","name":"Lisboa (Geofísico)","hour_utc":"2026-11-19T17:00:00Z","temp_c":16.4,"rain_mm":0,"humidity_pct":69,"wind_kmh":7.2,"read_at":"2026-11-19T18:14:09Z"}
+{"id":"1200554","name":"Faro (Aeródromo)","hour_utc":"2026-11-19T17:00:00Z","temp_c":20,"rain_mm":0,"humidity_pct":49,"wind_kmh":18.4,"read_at":"2026-11-19T18:14:09Z"}
+{"id":"1200558","name":"Évora (C.Coordenação)","hour_utc":"2026-11-19T17:00:00Z","temp_c":16.4,"rain_mm":null,"humidity_pct":null,"wind_kmh":10.1,"read_at":"2026-11-19T18:14:09Z"}
+{"id":"1200570","name":"Castelo Branco","hour_utc":"2026-11-19T17:00:00Z","temp_c":14.2,"rain_mm":0,"humidity_pct":72,"wind_kmh":15.5,"read_at":"2026-11-19T18:14:09Z"}
+{"id":"1200571","name":"Portalegre","hour_utc":"2026-11-19T17:00:00Z","temp_c":12.9,"rain_mm":0,"humidity_pct":63,"wind_kmh":18.7,"read_at":"2026-11-19T18:14:09Z"}
+{"id":"1200575","name":"Bragança","hour_utc":"2026-11-19T17:00:00Z","temp_c":9.9,"rain_mm":0.1,"humidity_pct":79,"wind_kmh":19.1,"read_at":"2026-11-19T18:14:09Z"}
+{"id":"1210683","name":"Guarda","hour_utc":"2026-11-19T17:00:00Z","temp_c":8.3,"rain_mm":0,"humidity_pct":77,"wind_kmh":6.1,"read_at":"2026-11-19T18:14:09Z"}
+{"id":"1210702","name":"Aveiro (Universidade)","hour_utc":"2026-11-19T17:00:00Z","temp_c":15.6,"rain_mm":0,"humidity_pct":80,"wind_kmh":13,"read_at":"2026-11-19T18:14:09Z"}
+{"id":"1210707","name":"Coimbra, Bencanta","hour_utc":"2026-11-19T17:00:00Z","temp_c":17.5,"rain_mm":0,"humidity_pct":70,"wind_kmh":7.9,"read_at":"2026-11-19T18:14:09Z"}
+{"id":"1210718","name":"Leiria (Aeródromo)","hour_utc":"2026-11-19T17:00:00Z","temp_c":16.7,"rain_mm":0,"humidity_pct":72,"wind_kmh":7.6,"read_at":"2026-11-19T18:14:09Z"}
+{"id":"1210734","name":"Santarém, Fonte Boa","hour_utc":"2026-11-19T17:00:00Z","temp_c":18,"rain_mm":0,"humidity_pct":61,"wind_kmh":9.7,"read_at":"2026-11-19T18:14:09Z"}
+{"id":"1210770","name":"Setúbal","hour_utc":"2026-11-19T17:00:00Z","temp_c":17.9,"rain_mm":0,"humidity_pct":52,"wind_kmh":7.2,"read_at":"2026-11-19T18:14:09Z"}
+{"id":"1210789","name":"Aljezur","hour_utc":"2026-11-19T17:00:00Z","temp_c":18.1,"rain_mm":0,"humidity_pct":72,"wind_kmh":2.9,"read_at":"2026-11-19T18:14:09Z"}
+{"id":"1210865","name":"Alcoutim, Mart.Longo","hour_utc":"2026-11-19T17:00:00Z","temp_c":17.3,"rain_mm":0,"humidity_pct":49,"wind_kmh":11.5,"read_at":"2026-11-19T18:14:09Z"}
+{"id":"1210866","name":"Vila Real de S. António","hour_utc":"2026-11-19T17:00:00Z","temp_c":20.2,"rain_mm":0,"humidity_pct":47,"wind_kmh":null,"read_at":"2026-11-19T18:14:09Z"}
+{"id":"1210867","name":"Castro Marim (RN Sapal)","hour_utc":"2026-11-19T17:00:00Z","temp_c":20.1,"rain_mm":0,"humidity_pct":48,"wind_kmh":9,"read_at":"2026-11-19T18:14:09Z"}
+{"id":"1210874","name":"Albufeira","hour_utc":"2026-11-19T17:00:00Z","temp_c":17.9,"rain_mm":0,"humidity_pct":57,"wind_kmh":14,"read_at":"2026-11-19T18:14:09Z"}
+{"id":"1210878","name":"Portimão (Aeródromo)","hour_utc":"2026-11-19T17:00:00Z","temp_c":null,"rain_mm":null,"humidity_pct":null,"wind_kmh":10.1,"read_at":"2026-11-19T18:14:09Z"}
+{"id":"1210881","name":"Olhão, EPPO","hour_utc":"2026-11-19T17:00:00Z","temp_c":20.6,"rain_mm":0,"humidity_pct":47,"wind_kmh":6.8,"read_at":"2026-11-19T18:14:09Z"}
+{"id":"1240566","name":"Vila Real (Cidade)","hour_utc":"2026-11-19T17:00:00Z","temp_c":11.7,"rain_mm":0.1,"humidity_pct":83,"wind_kmh":12.6,"read_at":"2026-11-19T18:14:09Z"}
+{"id":"1240610","name":"Viana do Castelo","hour_utc":"2026-11-19T17:00:00Z","temp_c":15,"rain_mm":2.2,"humidity_pct":89,"wind_kmh":null,"read_at":"2026-11-19T18:14:09Z"}
+{"id":"1240675","name":"Viseu (Cidade)","hour_utc":"2026-11-19T17:00:00Z","temp_c":12.2,"rain_mm":0.2,"humidity_pct":84,"wind_kmh":null,"read_at":"2026-11-19T18:14:09Z"}
+{"id":"1240903","name":"Porto, Massarelos","hour_utc":"2026-11-19T17:00:00Z","temp_c":15.9,"rain_mm":0.5,"humidity_pct":85,"wind_kmh":null,"read_at":"2026-11-19T18:14:09Z"}
+{"id":"6210872","name":"Loulé (CML)","hour_utc":"2026-11-19T17:00:00Z","temp_c":null,"rain_mm":0,"humidity_pct":null,"wind_kmh":9.7,"read_at":"2026-11-19T18:14:09Z"}
+{"id":"6210879","name":"Portimão (Praia da Rocha)","hour_utc":"2026-11-19T17:00:00Z","temp_c":19.2,"rain_mm":0,"humidity_pct":59,"wind_kmh":8.3,"read_at":"2026-11-19T18:14:09Z"}
+{"id":"6212124","name":"Braga (CIM)","hour_utc":"2026-11-19T17:00:00Z","temp_c":13,"rain_mm":null,"humidity_pct":88,"wind_kmh":null,"read_at":"2026-11-19T18:14:09Z"}

@@ -1,4 +1,17 @@
 {
+ "data_read_at": "2026-11-19T18:14:09Z",
+ "expected_cadence": {
+  "name": "twice a day",
+  "seconds": 43200,
+  "stale_after_seconds": 46800,
+  "collected_as": "hourly",
+  "why": "data.b@ collects twice a day (07:03 and 18:03 Lisbon) since 19 Nov 2026"
+ },
+ "schema": {
+  "openapi": "https://data.promptugal.news/api/v1/openapi.json",
+  "path": "/api/v1/history/weather/tavira.json",
+  "version": "v1"
+ },
  "license": {
   "name": "the source's terms",
   "url": "https://api.ipma.pt/",
@@ -10,7 +23,6 @@
  "place": "tavira",
  "country": "PT",
  "first_day": "2026-11-19",
- "data_read_at": "2026-11-19T16:07:13Z",
  "about": "The past in tavira, day by day since 2026-11-19: what IPMA's station Tavira (1210883) measured (low, high, rain; complete only when all 24 hours were seen) and what IPMA forecast for that day one, two and three days before (d1, d2, d3), as published. A null is a day or forecast we do not have: never filled in. Collections before 18 November 2026 were not kept.",
  "sources": {
   "observed": {
@@ -34,7 +46,7 @@
    }
   }
  },
- "commit": "11e096221d96c4c87d5c943ef91b534dd547f19c",
+ "commit": "64fbf7dda8967b6095e265f2e10aba0dfb3d65e8",
  "rows": [
   {
    "date": "2026-11-19",
