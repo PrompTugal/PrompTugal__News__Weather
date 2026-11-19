@@ -79,7 +79,7 @@ for (const [from, to] of API_FILES) { save(to, await fetchText(API + from)); got
 const catalogue = JSON.parse(await fetchText(API + 'index.json'));
 // the sites bar's registry (Dinis, 18 Nov 2026, Website board/guidance/2026-11-18-the-sites-bar.md): data, not code; the
 // vendored renderer checks every entry again. If it cannot be read, the committed copy (the last build's) is kept.
-try { const reg = JSON.parse(await fetchText('https://promptugal.news/api/v1/sites.json')); delete reg.bar; delete reg.obs_tz; /* install notes and integrity strings: not used at build, and high-entropy text the leak scan flags */ save('data/sites.json', JSON.stringify(reg, null, 1)); got.push({ from: 'https://promptugal.news/api/v1/sites.json', to: 'data/sites.json' }); } catch (e) { console.log('sites registry not read; the committed copy is kept: ' + e.message); }
+try { const reg = JSON.parse(await fetchText('https://promptugal.news/api/v1/sites.json')); /* of bar and obs_tz, keep only each version's pins (scripts/vendor-check.mjs checks the vendored files against them; the leak scan allows SRI strings in those fields only) */ for (const k of ['bar', 'obs_tz']) { const b = reg[k]; reg[k] = b && typeof b === 'object' ? { version: b.version, versions: b.versions } : null; } save('data/sites.json', JSON.stringify(reg, null, 1)); got.push({ from: 'https://promptugal.news/api/v1/sites.json', to: 'data/sites.json' }); } catch (e) { console.log('sites registry not read; the committed copy is kept: ' + e.message); }
 for (const [from, to] of WEB_FILES) {
   save(to, local ? readFileSync(join(SIBLING, from), 'utf8') : await fetchText(RAW + from));
   got.push({ from: `https://github.com/${REPO}/blob/dev/${from}`, to });

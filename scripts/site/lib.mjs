@@ -103,13 +103,16 @@ export const host = u => { try { return new URL(u).host; } catch { return u; } }
 
 // ---------------------------------------------------------------- the frame
 const NAV = [['/', 'Now'], ['/map/', 'Map'], ['/places/', 'Places'], ['/storms/', 'Storms'], ['/cameras/', 'Cameras'], ['/what-to-do/', 'What to do'], ['/about/', 'About']];
-// The sites bar 1.1.0 (Dinis, 18 Nov 2026; vendored, scripts/vendor/sites-bar/README.md): rendered once at build from the
-// registry copied to data/sites.json; '' (a registry the renderer refuses, or none) means no bar, never a hand-made one.
-import { render as renderSitesBar, check as checkSites } from '../vendor/sites-bar/1.1.0/sites-bar-render.mjs';
+// The sites bar 1.2.0 (Dinis, 18 Nov 2026 and 03:18 UTC 19 Nov: one way to move between the sites; vendored,
+// scripts/vendor/sites-bar/README.md): rendered once at build from the registry copied to data/sites.json, only while
+// scripts/vendor-check.mjs finds its version listed and its files matching the registry's pins. '' (the bar off, or a
+// registry the renderer refuses, or none) means no bar, never a hand-made one.
+import { vendoredState } from '../vendor-check.mjs';
+import { render as renderSitesBar, check as checkSites } from '../vendor/sites-bar/1.2.0/sites-bar-render.mjs';
 // When the data was read and the page built, on every page (conductor.b@, 19 Nov 2026, about 01:20 UTC: GitHub runs the
 // scheduled rebuild far less often than asked, so a page must not look fresher than its data). __BUILT__ is set by build.mjs.
 const DATA_READ = (() => { try { const t = JSON.parse(readFileSync('data/api/ipma-warnings.json', 'utf8')).read_at; const d = new Date(t); if (isNaN(+d)) return ''; return `${d.getUTCDate()} ${['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][d.getUTCMonth()]}, ${String(d.getUTCHours()).padStart(2, '0')}:${String(d.getUTCMinutes()).padStart(2, '0')} UTC`; } catch { return ''; } })();
-const SITES_BAR = (() => { try { return existsSync('data/sites.json') ? renderSitesBar(JSON.parse(readFileSync('data/sites.json', 'utf8')), { here: 'weather.promptugal.news' }) : ''; } catch { return ''; } })();
+const SITES_BAR = (() => { try { if (!vendoredState()['sites bar'].on) return ''; return existsSync('data/sites.json') ? renderSitesBar(JSON.parse(readFileSync('data/sites.json', 'utf8')), { here: 'weather.promptugal.news' }) : ''; } catch { return ''; } })();
 // The Content Security Policy (Dinis, 19 Nov 2026, Website board/guidance/2026-11-19-load-the-data-in-the-browser.md: "the
 // CSP's connect-src lists the exact hosts read, and script-src stays 'self'"). Hosts read by this site's scripts:
 // data.promptugal.news (live.js), every site in the registry (the sites bar's version.json and preview.svg, hosts checked
@@ -118,7 +121,7 @@ const SITES_BAR = (() => { try { return existsSync('data/sites.json') ? renderSi
 const SITE_HOSTS = (() => { try { return (checkSites(JSON.parse(readFileSync('data/sites.json', 'utf8'))) || []).map(e => new URL(e.url).origin); } catch { return []; } })();
 const OUR = [...new Set(['https://promptugal.news', 'https://data.promptugal.news', ...SITE_HOSTS])].filter(o => o !== SITE);
 export const CSP = [`default-src 'self'`, `script-src 'self'`, `style-src 'self' 'unsafe-inline'`, `img-src 'self' ${OUR.join(' ')}`, `connect-src 'self' ${OUR.join(' ')} https://dev.send.sgraph.ai`, `frame-src 'self'`, `font-src 'self'`, `object-src 'none'`, `base-uri 'self'`, `form-action 'self'`].join('; ');
-if (!SITES_BAR) console.warn('sites bar: data/sites.json missing or refused by the renderer; pages built without the bar');
+if (!SITES_BAR) console.warn('sites bar: off (see the vendor check above), or data/sites.json missing or refused by the renderer; pages built without the bar');
 export const CSS_VERSION = '6';
 
 // ---------------------------------------------------------------- the front pages that were offered (Dinis chose "Now", the live
@@ -171,7 +174,7 @@ export function page({ path, title, description, body: rawBody, md, made, extraH
 <link rel="alternate" type="text/markdown" href="${twin}">
 <link rel="icon" href="/brand/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/site.css?v=${CSS_VERSION}">
-${SITES_BAR ? '<link rel="stylesheet" href="/assets/sites-bar/1.1.0/sites-bar.css">\n<script defer src="/assets/sites-bar/1.1.0/sites-bar.js"></script>\n' : ''}
+${SITES_BAR ? '<link rel="stylesheet" href="/assets/sites-bar/1.2.0/sites-bar.css">\n<script defer src="/assets/sites-bar/1.2.0/sites-bar.js"></script>\n' : ''}
 <meta name="page-type" content="free">
 <script defer src="/assets/reading.js?v=${CSS_VERSION}"></script>
 <script defer src="/assets/live.js?v=${CSS_VERSION}"></script>

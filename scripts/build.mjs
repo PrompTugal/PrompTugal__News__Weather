@@ -5,20 +5,16 @@ import { cpSync, rmSync, readdirSync, readFileSync, writeFileSync, statSync, exi
 import { join } from 'node:path';
 const version = process.env.SITE_VERSION || 'dev';
 const BUILT = (d => `${d.getUTCDate()} ${['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][d.getUTCMonth()]}, ${String(d.getUTCHours()).padStart(2, '0')}:${String(d.getUTCMinutes()).padStart(2, '0')} UTC`)(new Date());
-// the vendored sites bar must be exactly the reviewed files (scripts/vendor/sites-bar/README.md): each one's sha256 is
-// pinned in SHA256SUMS (the values the registry and conductor.b@'s install note gave). The pin file itself must hold
-// exactly the three lines below and nothing else (the leak scan allows high-entropy text in it for that reason only).
-const { createHash } = await import('node:crypto');
-const BAR_FILES = ['scripts/vendor/sites-bar/1.1.0/sites-bar-render.mjs', 'src/assets/sites-bar/1.1.0/sites-bar.css', 'src/assets/sites-bar/1.1.0/sites-bar.js'];
-const pins = readFileSync('scripts/vendor/sites-bar/1.1.0/SHA256SUMS', 'utf8').split('\n').filter(Boolean).map(l => /^([0-9a-f]{64})  (\S+)$/.exec(l));
-if (pins.length !== BAR_FILES.length || pins.some((m, k) => !m || m[2] !== BAR_FILES[k])) { console.error('scripts/vendor/sites-bar/1.1.0/SHA256SUMS: not the expected three pins; not building'); process.exit(1); }
-for (const [, h, f] of pins) if (createHash('sha256').update(readFileSync(f)).digest('hex') !== h) { console.error(`${f}: sha256 differs from the reviewed file; not building`); process.exit(1); }
-// the shared time-zone-to-country table (promptugal.news/api/v1/sites.json obs_tz, version 1.0.0). Its full SRI string
-// matched the registry's when copied (19 Nov 2026); pinned here by git blob id, which the leak scan allows.
-{ const b = readFileSync('src/assets/obs/tz-country.json'); const id = createHash('sha1').update(Buffer.concat([Buffer.from(`blob ${b.length}\0`), b])).digest('hex');
-  if (id !== '38d261cc705d012017b7c0ad4dc35b244077acd6') { console.error('src/assets/obs/tz-country.json: differs from obs_tz 1.0.0; not building'); process.exit(1); } }
+// the pieces copied from promptugal.news (the sites bar, the time-zone table), checked against the registry's pins
+// (scripts/vendor-check.mjs, its tests first). A version the registry no longer lists is left out, never shipped unchecked.
+const { execFileSync } = await import('node:child_process');
+try { execFileSync(process.execPath, ['scripts/test-vendor-check.mjs'], { stdio: ['ignore', 'ignore', 'inherit'] }); } catch { console.error('vendor-check: its tests failed; not building'); process.exit(1); }
+const { vendoredState } = await import('./vendor-check.mjs');
+let VENDOR; try { VENDOR = vendoredState(); } catch (e) { console.error(e.message); process.exit(1); }
+for (const v of Object.values(VENDOR)) console.log(v.note);
 rmSync('_site', { recursive: true, force: true });
 cpSync('src', '_site', { recursive: true });
+if (!VENDOR['time-zone table'].on) rmSync('_site/assets/obs/tz-country.json'); // obs.js then sends no country
 await import('./site/generate.mjs');
 cpSync('data/now', '_site/data/now', { recursive: true });
 cpSync('data/api', '_site/data/api', { recursive: true });
@@ -42,6 +38,6 @@ for (const f of walk('_site')) {
   const s = readFileSync(f, 'utf8');
   if (s.includes('__VERSION__') || s.includes('__BUILT__')) writeFileSync(f, s.replaceAll('__VERSION__', version).replaceAll('__BUILT__', BUILT));
 }
-writeFileSync('_site/version.json', JSON.stringify({ license: { name: 'CC BY 4.0', url: 'https://creativecommons.org/licenses/by/4.0/' }, version, commit: process.env.GITHUB_SHA || 'local', built: new Date().toISOString(), data_read_at: JSON.parse(readFileSync('_site/preview.json', 'utf8')).read_at, preview: { svg: '/preview.svg', card_svg: '/preview-card.svg', png: '/preview.png', figures: '/preview.json' }, sites_bar: '1.1.0' }, null, 2) + '\n');
+writeFileSync('_site/version.json', JSON.stringify({ license: { name: 'CC BY 4.0', url: 'https://creativecommons.org/licenses/by/4.0/' }, version, commit: process.env.GITHUB_SHA || 'local', built: new Date().toISOString(), data_read_at: JSON.parse(readFileSync('_site/preview.json', 'utf8')).read_at, preview: { svg: '/preview.svg', card_svg: '/preview-card.svg', png: '/preview.png', figures: '/preview.json' }, sites_bar: VENDOR['sites bar'].on ? VENDOR['sites bar'].version : VENDOR['sites bar'].note, tz_country: VENDOR['time-zone table'].on ? VENDOR['time-zone table'].version : VENDOR['time-zone table'].note }, null, 2) + '\n');
 writeFileSync('_site/.nojekyll', '');
 console.log(`built _site/ (${version})`);

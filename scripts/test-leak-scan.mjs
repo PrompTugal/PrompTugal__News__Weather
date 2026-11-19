@@ -36,6 +36,19 @@ for (const t of TYPES) {
   expect('a PEM public key in team/keys.json passes', kinds('team/keys.json', pem), 'public key outside team/keys', false);
   expect('a PEM public key in a README fails', kinds('README.md', pem), 'public key outside team/keys', true); }
 
+// 5. the registry copy's pins: allowed in data/sites.json at bar.versions.<v>.{js,css,render} and
+//    obs_tz.versions.<v>.integrity only, whole values of the SRI shape only (security@'s ruling, 19 Nov 2026)
+{ const sri = () => 'sha256-' + randomBytes(32).toString('base64');
+  const HE = 'long high-entropy string';
+  const reg = (bar, tz) => JSON.stringify({ sites: [], bar: { version: '1.2.0', versions: { '1.2.0': bar } }, obs_tz: { version: '1.1.0', versions: { '1.1.0': tz } } }, null, 1);
+  expect('registry pins in their fields in data/sites.json pass', kinds('data/sites.json', reg({ js: sri(), css: sri(), render: sri() }, { integrity: sri() })), HE, false);
+  expect('the same pins in another file fail', kinds('data/other.json', reg({ js: sri(), css: sri(), render: sri() }, { integrity: sri() })), HE, true);
+  expect('a pin under another field name fails', kinds('data/sites.json', reg({ js: sri(), extra: sri() }, { integrity: sri() })), HE, true);
+  expect('a pin outside the versions block fails', kinds('data/sites.json', JSON.stringify({ bar: { integrity: { js: sri() } } }, null, 1)), HE, true);
+  expect('a sha256 pin with text after it fails', kinds('data/sites.json', reg({ js: sri() + ' x' }, { integrity: sri() })), HE, true);
+  expect('a random token in a pin field fails', kinds('data/sites.json', reg({ js: randomBytes(32).toString('base64') }, { integrity: sri() })), HE, true);
+  expect('a key header in data/sites.json still fails', kinds('data/sites.json', reg({ js: `${D}BEGIN OPENSSH PRIVATE KEY${D}` }, {})), 'private key block', true); }
+
 for (const r of results) if (!r.pass) console.log(`FAIL  ${r.name}  [${r.got}]`);
 const bad = results.filter((r) => !r.pass);
 if (bad.length) { console.error(`test-leak-scan: ${bad.length} of ${results.length} failed`); process.exit(1); }

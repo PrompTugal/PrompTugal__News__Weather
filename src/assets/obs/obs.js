@@ -70,8 +70,8 @@
             : /Googlebot/i.test(ua) ? 'googlebot' : /bingbot/i.test(ua) ? 'bingbot' : /bot|crawl|spider|slurp/i.test(ua) ? 'bot' : ''
         const w = window.innerWidth || 1024
         let ref = ''; try { ref = document.referrer ? new URL(document.referrer).host : '' } catch { }
-        // the country only, from the browser's own time zone through the one shared table (tz-country.json 1.0.0, beside
-        // this script, copied from promptugal.news and pinned by its integrity in scripts/build.mjs): built as a
+        // the country only, from the browser's own time zone through the one shared table (tz-country.json 1.1.0, beside
+        // this script, copied from promptugal.news and checked against the registry's pin by scripts/vendor-check.mjs): built as a
         // null-prototype map, looked up only as an own key, and accepted only as two letters A to Z. Read from this site's
         // own host, once per tab; no IP lookup, no region or city. Anything else sends no country.
         const place = async () => {
