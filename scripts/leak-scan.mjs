@@ -87,7 +87,11 @@ function highEntropy(line) {
 
 // Narrow allowlist: [path, kind, reason]. Keep each entry to one file and one kind.
 const ALLOW = [
-  // (none yet)
+  // The sha256 pins of the vendored sites bar (public hashes of public files, not secrets). Allowed at Dinis's word,
+  // given in weather.b@'s session on 19 Nov 2026 ("Yes, allowlist the sha256 pins in the leak scan"). The file's
+  // format is checked strictly by scripts/build.mjs (three lines, "<64 hex>  <path>" for the three vendored files
+  // only), so nothing else can sit in it.
+  ['scripts/vendor/sites-bar/1.1.0/SHA256SUMS', 'long high-entropy string', 'sha256 pins of the vendored sites bar 1.1.0'],
 ];
 const allowed = (path, kind) => ALLOW.some(([p, k]) => p === path && k === kind);
 

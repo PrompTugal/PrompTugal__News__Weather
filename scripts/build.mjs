@@ -4,12 +4,14 @@
 import { cpSync, rmSync, readdirSync, readFileSync, writeFileSync, statSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 const version = process.env.SITE_VERSION || 'dev';
-// the vendored sites bar must be exactly the reviewed files (scripts/vendor/sites-bar/README.md). Pinned by git blob id
-// (sha1 of "blob <size>\0<bytes>", the id `git hash-object` prints): their sha256 matched the registry's when copied.
+// the vendored sites bar must be exactly the reviewed files (scripts/vendor/sites-bar/README.md): each one's sha256 is
+// pinned in SHA256SUMS (the values the registry and conductor.b@'s install note gave). The pin file itself must hold
+// exactly the three lines below and nothing else (the leak scan allows high-entropy text in it for that reason only).
 const { createHash } = await import('node:crypto');
-const blobId = (b) => createHash('sha1').update(Buffer.concat([Buffer.from(`blob ${b.length}\0`), b])).digest('hex');
-for (const [f, h] of [['scripts/vendor/sites-bar/1.1.0/sites-bar-render.mjs', '5f021b7ad3de48ce0418245b47cf058555a38004'], ['src/assets/sites-bar/1.1.0/sites-bar.css', 'b1b0772e139a4e51ea6e71768552aee62e8bf24c'], ['src/assets/sites-bar/1.1.0/sites-bar.js', '0cdcc5cc84b19afb9fa5941e2f3b62b77d979a10']])
-  if (blobId(readFileSync(f)) !== h) { console.error(`${f}: differs from the reviewed file; not building`); process.exit(1); }
+const BAR_FILES = ['scripts/vendor/sites-bar/1.1.0/sites-bar-render.mjs', 'src/assets/sites-bar/1.1.0/sites-bar.css', 'src/assets/sites-bar/1.1.0/sites-bar.js'];
+const pins = readFileSync('scripts/vendor/sites-bar/1.1.0/SHA256SUMS', 'utf8').split('\n').filter(Boolean).map(l => /^([0-9a-f]{64})  (\S+)$/.exec(l));
+if (pins.length !== BAR_FILES.length || pins.some((m, k) => !m || m[2] !== BAR_FILES[k])) { console.error('scripts/vendor/sites-bar/1.1.0/SHA256SUMS: not the expected three pins; not building'); process.exit(1); }
+for (const [, h, f] of pins) if (createHash('sha256').update(readFileSync(f)).digest('hex') !== h) { console.error(`${f}: sha256 differs from the reviewed file; not building`); process.exit(1); }
 rmSync('_site', { recursive: true, force: true });
 cpSync('src', '_site', { recursive: true });
 await import('./site/generate.mjs');
