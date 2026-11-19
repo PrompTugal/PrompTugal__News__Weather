@@ -4,7 +4,7 @@
 // repository's own base pinned (the checker takes no override), and asserts the reason it fails.
 // weather.b@PrompTugal.dinis. Code: Apache-2.0.
 import { execFileSync, spawnSync } from 'node:child_process';
-import { mkdtempSync, writeFileSync, readFileSync, rmSync, mkdirSync } from 'node:fs';
+import { mkdtempSync, writeFileSync, readFileSync, rmSync, mkdirSync, symlinkSync } from 'node:fs';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 
@@ -68,6 +68,16 @@ t('a commit from a dropped run (between the anchor and BEFORE) fails', () => { c
 t('a tag on the pushed head itself does not empty the range', () => { const r = repo(); r.commit('a.txt', 'no trailer'); r.g('tag', 'v0.1.99'); const x = r.run('v0.1.99', 'v0.1.99'); rmSync(r.d, { recursive: true }); return fails(x, /no readable Agent/); });
 t('a push cannot exempt its own commit', () => { const r = repo(); const bad = r.commit('a.txt', 'no trailer'); writeFileSync(join(r.d, 'scripts/commit-exemptions.json'), JSON.stringify([{ commit: bad, reason: 'x', approved_by: 'Dinis Cruz', date: '2026-11-19' }])); r.commit('c.txt', OK_MSG); const ex = JSON.parse(r.g('show', 'HEAD:scripts/commit-exemptions.json'))[0].commit === bad; const x = r.run(); rmSync(r.d, { recursive: true }); return ex && fails(x, /no readable Agent/); });
 t('an option-looking commit argument is refused', () => { const r = repo(); const x = r.run('', '--all'); rmSync(r.d, { recursive: true }); return fails(x, /unknown commit/); });
+t('control 10: a pushed symbolic link fails', () => { const r = repo(); symlinkSync('../etc/passwd', join(r.d, 'evil')); r.commit('a.txt', OK_MSG); const x = r.run(); rmSync(r.d, { recursive: true }); return fails(x, /symbolic link \(evil\)/); });
+t('control 10: a link listed only in the pushed tree\'s exceptions fails', () => { const r = repo(); writeFileSync(join(r.d, 'scripts/symlink-exceptions.json'), JSON.stringify([{ path: 'evil', reason: 'x' }])); symlinkSync('x', join(r.d, 'evil')); r.commit('a.txt', OK_MSG); const x = r.run(); rmSync(r.d, { recursive: true }); return fails(x, /symbolic link \(evil\)/); });
+t('control 10: a link listed in the trusted base\'s exceptions passes', () => {
+  const d = mkdtempSync(join(tmpdir(), 'cc-test-')); const g = (...a) => execFileSync('git', ['-c', 'commit.gpgsign=false', '-c', 'user.name=t', '-c', 'user.email=t@example.invalid', ...a], { cwd: d, encoding: 'utf8' }).trim();
+  g('init', '-q', '-b', 'dev'); mkdirSync(join(d, 'scripts')); writeFileSync(join(d, 'scripts/check-commits.mjs'), SRC); writeFileSync(join(d, 'scripts/symlink-exceptions.json'), JSON.stringify([{ path: 'docs-link', reason: 'test' }])); writeFileSync(join(d, 'seed.txt'), String(Math.random()));
+  g('add', '.'); g('commit', '-q', '-m', OK_MSG); const base = g('rev-parse', 'HEAD');
+  writeFileSync(join(d, 'checker.mjs'), SRC.replace(/export const TRUSTED_BASE = '[0-9a-f]{40}'/, `export const TRUSTED_BASE = '${base}'`));
+  symlinkSync('seed.txt', join(d, 'docs-link')); g('add', 'docs-link'); g('commit', '-q', '-m', OK_MSG);
+  const x = spawnSync(process.execPath, [join(d, 'checker.mjs'), '', 'HEAD'], { cwd: d, encoding: 'utf8' }); rmSync(d, { recursive: true }); return x.status === 0;
+});
 t('the checker reads no override of the base from the environment', () => !/process\.env/.test(SRC));
 
 for (const r of results) if (!r.pass) console.log(`FAIL  ${r.name}${r.got ? '  [' + r.got.slice(0, 200) + ']' : ''}`);

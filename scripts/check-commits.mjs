@@ -50,12 +50,18 @@ if (exText) {
     exempt.set(x.commit, x);
   }
 }
+// Control 10 (security@ ed70bd996, relayed by conductor.b@ at 16:50 UTC): no commit after the base may add or change a
+// symbolic link (mode 120000), checked per commit with git diff-tree, not only in the final tree. The only exceptions
+// are paths listed, each with a reason, in scripts/symlink-exceptions.json in the trusted base's own tree.
+const SYMLINK_EX = (() => { const t = tryGit('show', `${TRUSTED_BASE}:scripts/symlink-exceptions.json`); if (!t) return new Set(); try { const l = JSON.parse(t); return new Set((Array.isArray(l) ? l : []).filter((x) => x && typeof x.path === 'string' && typeof x.reason === 'string' && x.reason.trim()).map((x) => x.path)); } catch { console.error('scripts/symlink-exceptions.json in the trusted base: not JSON: FAILED'); process.exit(1); } })();
+const symlinksIn = (c) => lines(git('diff-tree', '-r', '--raw', '--no-commit-id', '--root', '-m', '-z', c).replace(/\0(?=:)/g, '\n')).flatMap((l) => { const m = /^:(\d{6}) (\d{6}) [0-9a-f]+ [0-9a-f]+ [A-Z]\d*\0([^\0]+)/.exec(l); return m && m[2] === '120000' ? [m[3]] : []; });
 const errors = [];
 let checked = 0, exempted = 0;
 for (const c of added) {
   if (c === TRUSTED_BASE || isAncestorOfBase(c)) continue;
   checked++;
   if (!lines(git('log', '-1', '--format=%P', c)).join(' ').trim()) { errors.push(`${c.slice(0, 7)}: a commit with no parent (an orphan) after the trusted base: refused`); continue; }
+  for (const l of symlinksIn(c)) if (!SYMLINK_EX.has(l)) errors.push(`${c.slice(0, 7)}: adds or changes a symbolic link (${l.slice(0, 120)}): refused (control 10)`);
   if (exempt.has(c)) { exempted++; checked--; continue; }
   const agents = lines(git('log', '-1', '--format=%(trailers:key=Agent,valueonly)', c)).map((s) => s.trim());
   const subject = git('log', '-1', '--format=%s', c);
