@@ -10,8 +10,9 @@
  *
  * Data in the browser (Dinis, 19 Nov 2026, about 01:13 UTC, Website repo board/guidance/2026-11-19-load-the-data-in-the-
  * browser.md): our own host only, no cookie, no referrer; re-read every five minutes while the page is in view; the page
- * always says whether it shows the live file or the built copy, when that was read, and marks it stale after two hours
- * (the collection is hourly). */
+ * always says whether it shows the live file or the built copy, when that was read, and marks it stale after 13 hours (data is collected twice a day: Dinis, 19 Nov 2026, about 16:30 UTC, Website repo board/guidance/2026-11-19-twice-a-day.md)
+ * (the collection was hourly until 19 Nov 2026; it is now twice a day). */
+var STALE_H = 13; // hours: twice-daily data is not stale (Dinis, 19 Nov 2026, about 16:30 UTC)
 (function () {
     'use strict'
     var API = 'https://data.promptugal.news/api/v1/'
@@ -50,7 +51,7 @@
     // live: true when the figures above were just replaced from the live file; false when the built copy stays
     function fresh(box, readAt, live, unread) {
         if (!box || !sane(readAt)) return
-        var hours = (Date.now() - new Date(readAt)) / 36e5, stale = hours > 2
+        var hours = (Date.now() - new Date(readAt)) / 36e5, stale = hours > STALE_H
         var p = h('p', stale ? 'stale' : 'fresh')
         if (stale) p.setAttribute('role', 'status')
         p.textContent = (stale ? 'Stale: this data is ' + Math.round(hours) + ' hours old (read ' + whenUtc(readAt) + ')' : 'Read ' + whenUtc(readAt)) + '. ' +
@@ -122,7 +123,7 @@
     function lineText(what, readAt, live, failed) {
         if (!sane(readAt)) return what + ': ' + (failed ? 'the live file could not be read; the built copy is shown.' : 'the built copy.')
         var hours = (Date.now() - Date.parse(readAt)) / 36e5
-        return what + ': ' + (live ? 'live file from data.promptugal.news' : failed ? 'the built copy (the live file could not be read)' : 'the built copy (the live file is not newer)') + ', read ' + whenUtc(readAt) + (hours > 2 ? ' (stale: ' + Math.round(hours) + ' hours old)' : '')
+        return what + ': ' + (live ? 'live file from data.promptugal.news' : failed ? 'the built copy (the live file could not be read)' : 'the built copy (the live file is not newer)') + ', read ' + whenUtc(readAt) + (hours > STALE_H ? ' (stale: ' + Math.round(hours) + ' hours old)' : '')
     }
     if (placeCells.length && pLine) {
         var builtP = pLine.getAttribute('data-built-read') || ''
@@ -137,7 +138,7 @@
             res = res.filter(Boolean); if (!res.length) return
             var oldest = res.reduce(function (a, b) { return Date.parse(b.at) < Date.parse(a.at) ? b : a })
             pLine.textContent = lineText('The Now column', oldest.at, res.every(function (x) { return x.live }), res.some(function (x) { return x.failed })) + ". IPMA's data, under IPMA's terms (api.ipma.pt)."
-            pLine.classList.toggle('stale', (Date.now() - Date.parse(oldest.at)) / 36e5 > 2)
+            pLine.classList.toggle('stale', (Date.now() - Date.parse(oldest.at)) / 36e5 > STALE_H)
         })
     }
     var capCells = document.querySelectorAll('[data-live-station]'), chips = document.querySelectorAll('[data-live-area]')
@@ -160,7 +161,7 @@
         }).catch(function () { return { at: builtW, live: false, failed: true } })
         Promise.all([obsP, warnP]).then(function (r) {
             cLine.textContent = lineText('The Now column', r[0].at, r[0].live, r[0].failed) + '. ' + lineText('The warnings', r[1].at, r[1].live, r[1].failed) + ". IPMA's data, under IPMA's terms (api.ipma.pt)."
-            cLine.classList.toggle('stale', [r[0].at, r[1].at].some(function (t) { return sane(t) && (Date.now() - Date.parse(t)) / 36e5 > 2 }))
+            cLine.classList.toggle('stale', [r[0].at, r[1].at].some(function (t) { return sane(t) && (Date.now() - Date.parse(t)) / 36e5 > STALE_H }))
         })
     }
     }

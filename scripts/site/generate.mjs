@@ -39,7 +39,7 @@ function warningsMd(w) {
 }
 function freshness(iso) {
   const h = ageHours(iso, BUILT);
-  if (h <= 2) return `<p class="fresh">Read ${when(iso)}.</p>`;
+  if (h <= 13) return `<p class="fresh">Read ${when(iso)}.</p>`; // data is collected twice a day (Dinis, 19 Nov 2026, about 16:30 UTC)
   return `<p class="stale" role="status"><strong>This data is ${Math.round(h)} hours old</strong> (read ${when(iso)}). The page is rebuilt when new data is pushed; check IPMA for the latest.</p>`;
 }
 const fireChip = d => `<span class="chip ${fireClass(d.level)}" title="${esc(FIRE_PT[d.level] || '')}"><span class="d">${dayName(d.date)}</span> ${esc(d.level || 'unknown')}</span>`;
