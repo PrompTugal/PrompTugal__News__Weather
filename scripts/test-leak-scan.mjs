@@ -5,7 +5,7 @@
 // team/keys.json, including in another field of that file. Every key and header here is built at run time from parts,
 // so this file holds none; the key bodies are random bytes, not keys. weather.b@PrompTugal.dinis. Code: Apache-2.0.
 import { randomBytes } from 'node:crypto';
-import { scanText } from './leak-scan.mjs';
+import { scanText, scanBinary } from './leak-scan.mjs';
 
 const D = '-'.repeat(5), results = [];
 const kinds = (path, text) => scanText(path, text).map((f) => f.kind);
@@ -42,6 +42,13 @@ for (const t of TYPES) {
   expect('a registry pin (today\'s shape) in data/sites.json fails', kinds('data/sites.json', JSON.stringify({ bar: { versions: { '1.2.0': { js: sri() } } } }, null, 1)), HE, true);
   expect('a registry pin (the new shape) in data/sites.json fails', kinds('data/sites.json', JSON.stringify({ obs_tz: { versions: { '1.1.0': { integrity: { 'tz-country.json': sri() } } } } }, null, 1)), HE, true);
   expect('a pin in a code file fails', kinds('scripts/build.mjs', `const PIN = '${sri()}';`), HE, true); }
+
+// 6. a file with a NUL byte is still checked for key and token shapes (LIB-2026-067)
+{ const withNul = (s) => Buffer.concat([Buffer.from([0x89, 0x50, 0x4e, 0x47, 0, 0, 0, 0]), Buffer.from(s), Buffer.from([0, 1, 2])]);
+  const kb = (p, b) => scanBinary(p, b).map((f) => f.kind);
+  expect('a private key header in a file with a NUL byte fails', kb('src/a.png', withNul(`${D}BEGIN OPENSSH PRIVATE KEY${D}`)), 'private key block', true);
+  expect('an ssh public key in a file with a NUL byte fails', kb('src/a.png', withNul(`ssh-ed25519 ${body()}`)), 'ssh public key outside its published field', true);
+  expect('random binary bytes alone raise no key finding', kb('src/a.png', withNul(randomBytes(2000).toString('latin1'))).length === 0 ? [] : ['x'], 'x', false); }
 
 for (const r of results) if (!r.pass) console.log(`FAIL  ${r.name}  [${r.got}]`);
 const bad = results.filter((r) => !r.pass);

@@ -19,7 +19,7 @@
 // Public keys are allowed only in team/keys.json and team/keys/*.json, and only
 // when those files hold no private part. Any change to the allowlist below must
 // be narrow (one path, one kind) and say why.
-import { readFileSync, existsSync, statSync, readdirSync } from 'node:fs';
+import { readFileSync, existsSync, statSync, lstatSync, readdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
@@ -131,11 +131,25 @@ export function scanText(path, text) {
 
 function isBinary(buf) { return buf.subarray(0, 8000).includes(0); }
 
+// A file with a NUL byte is not skipped (library.b@'s LIB-2026-067, relayed by conductor.b@, 19 Nov 2026, 14:30 UTC):
+// it is read byte for byte and still checked for every key and token shape; only the entropy and assignment rules,
+// which random image bytes would trip, are left out for it.
+export function scanBinary(path, buf) {
+  const t = buf.toString('latin1'), found = [];
+  for (const [kind, re] of SHAPES) if (re.test(t)) found.push({ line: 0, kind });
+  if (PUBLIC_BEGIN.test(t) && !PUBLIC_KEY_FILES(path)) found.push({ line: 0, kind: 'public key outside team/keys' });
+  if (SSH_PUBLIC_LINE.test(t)) found.push({ line: 0, kind: 'ssh public key outside its published field' });
+  return found;
+}
+
+// Never follows a symbolic link: a link anywhere in the tree or the built site is itself a finding (same relay).
+const linkErrors = [];
 function walk(dir) {
   if (!existsSync(dir)) return [];
   return readdirSync(dir).flatMap((n) => {
-    const p = join(dir, n);
-    return statSync(p).isDirectory() ? walk(p) : [p];
+    const p = join(dir, n), st = lstatSync(p);
+    if (st.isSymbolicLink()) { linkErrors.push(`${p.slice(root.length + 1)}: a symbolic link (the scan follows none, and none may be published)`); return []; }
+    return st.isDirectory() ? walk(p) : [p];
   });
 }
 
@@ -145,7 +159,7 @@ function scanTree() {
   const siteDir = join(root, '_site');
   if (!existsSync(join(siteDir, 'index.html'))) return { errors: ['_site/ is not built: run node scripts/build.mjs first'], count: 0 };
   const paths = [...new Set([...files, ...walk(siteDir).map((p) => p.slice(root.length + 1))])];
-  const errors = [];
+  const errors = [...linkErrors];
   let count = 0, skipped = 0;
   // The vault's own secrets, when this checkout holds them, must appear nowhere.
   const secrets = [];
@@ -157,9 +171,17 @@ function scanTree() {
     if (p.startsWith('.sg_vault/local/')) { errors.push(`${p}: a file from .sg_vault/local/ is in the tree (it holds vault keys)`); continue; }
     if (p.startsWith('.sg_vault/bare/')) { skipped++; continue; } // ciphertext, protected by the vault key
     const full = join(root, p);
-    if (!existsSync(full) || statSync(full).isDirectory()) continue; // deleted in the working tree
+    let st; try { st = lstatSync(full); } catch { continue; } // deleted in the working tree
+    if (st.isSymbolicLink()) { errors.push(`${p}: a symbolic link (the scan follows none, and none may be committed or published)`); continue; }
+    if (st.isDirectory()) continue;
     const buf = readFileSync(full);
-    if (isBinary(buf)) { skipped++; continue; }
+    if (isBinary(buf)) {
+      skipped++;
+      for (const f of scanBinary(p, buf)) errors.push(`${p}: ${f.kind} (in a file with binary bytes)`);
+      const tb = buf.toString('latin1');
+      for (const x of secrets) if (x && x.length >= 8 && tb.includes(x)) errors.push(`${p}: holds this checkout's vault key or token`);
+      continue;
+    }
     count++;
     const t = buf.toString('utf8');
     for (const f of scanText(p, t)) errors.push(`${p}:${f.line}: ${f.kind}`);
@@ -206,5 +228,5 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     console.error(`FAILED (${errors.length}) in ${count} ${history ? 'commits' : 'files'}`);
     process.exit(1);
   }
-  console.log(history ? `OK (${count} commits)` : `OK (${count} files, ${skipped} binary skipped)`);
+  console.log(history ? `OK (${count} commits)` : `OK (${count} files, ${skipped} with binary bytes checked for key and token shapes only)`);
 }
