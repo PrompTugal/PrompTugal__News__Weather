@@ -13,6 +13,10 @@ const BAR_FILES = ['scripts/vendor/sites-bar/1.1.0/sites-bar-render.mjs', 'src/a
 const pins = readFileSync('scripts/vendor/sites-bar/1.1.0/SHA256SUMS', 'utf8').split('\n').filter(Boolean).map(l => /^([0-9a-f]{64})  (\S+)$/.exec(l));
 if (pins.length !== BAR_FILES.length || pins.some((m, k) => !m || m[2] !== BAR_FILES[k])) { console.error('scripts/vendor/sites-bar/1.1.0/SHA256SUMS: not the expected three pins; not building'); process.exit(1); }
 for (const [, h, f] of pins) if (createHash('sha256').update(readFileSync(f)).digest('hex') !== h) { console.error(`${f}: sha256 differs from the reviewed file; not building`); process.exit(1); }
+// the shared time-zone-to-country table (promptugal.news/api/v1/sites.json obs_tz, version 1.0.0). Its full SRI string
+// matched the registry's when copied (19 Nov 2026); pinned here by git blob id, which the leak scan allows.
+{ const b = readFileSync('src/assets/obs/tz-country.json'); const id = createHash('sha1').update(Buffer.concat([Buffer.from(`blob ${b.length}\0`), b])).digest('hex');
+  if (id !== '38d261cc705d012017b7c0ad4dc35b244077acd6') { console.error('src/assets/obs/tz-country.json: differs from obs_tz 1.0.0; not building'); process.exit(1); } }
 rmSync('_site', { recursive: true, force: true });
 cpSync('src', '_site', { recursive: true });
 await import('./site/generate.mjs');

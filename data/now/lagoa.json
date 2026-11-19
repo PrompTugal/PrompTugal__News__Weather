@@ -1,4 +1,14 @@
 {
+ "data_read_at": "2026-11-19T04:10:17Z",
+ "expected_cadence": {
+  "name": "hourly",
+  "seconds": 3600
+ },
+ "schema": {
+  "openapi": "https://data.promptugal.news/api/v1/openapi.json",
+  "path": "/api/v1/by-place/now/lagoa.json",
+  "version": "v1"
+ },
  "license": {
   "name": "CC BY 4.0",
   "url": "https://creativecommons.org/licenses/by/4.0/",
@@ -25,7 +35,7 @@
   }
  },
  "place": "lagoa",
- "read_at": "2026-11-19T00:29:50Z",
+ "read_at": "2026-11-19T04:10:17Z",
  "by": "collect/by-place-now.mjs (code, no model; data@PrompTugal.dinis), from this site's collected sources",
  "coords": {
   "lat": 37.13333,
@@ -58,13 +68,6 @@
   "page": "https://www.ipma.pt/en/otempo/prev.localidade.hora/",
   "days": [
    {
-    "date": "2026-11-18",
-    "t_min_c": 18.8,
-    "t_max_c": 22.7,
-    "rain_prob_pct": 100,
-    "weather_type": 10
-   },
-   {
     "date": "2026-11-19",
     "t_min_c": 11.2,
     "t_max_c": 20.4,
@@ -90,6 +93,13 @@
     "t_min_c": 10.6,
     "t_max_c": 19.1,
     "rain_prob_pct": 0,
+    "weather_type": 2
+   },
+   {
+    "date": "2026-11-23",
+    "t_min_c": 8.8,
+    "t_max_c": 18.7,
+    "rain_prob_pct": 8,
     "weather_type": 2
    }
   ],
@@ -138,10 +148,10 @@
  },
  "sea": {
   "coast": "Sagres coast",
-  "date": "2026-11-18",
-  "waves_max_m": 3.7,
+  "date": "2026-11-19",
+  "waves_max_m": 3.8,
   "sea_max_m": 4,
-  "sea_temp_max_c": 19,
+  "sea_temp_max_c": 19.1,
   "page": "https://www.ipma.pt/en/maritima/costeira/",
   "source": "https://api.ipma.pt/open-data/forecast/oceanography/daily/hp-daily-sea-forecast-day0.json"
  },
@@ -149,37 +159,37 @@
  "reads": {
   "observations": {
    "url": "https://data.promptugal.news/api/v1/ipma-observations/latest.json",
-   "at": "2026-11-19T00:29:22Z",
+   "at": "2026-11-19T04:09:52Z",
    "status": 200
   },
   "warnings": {
    "url": "https://data.promptugal.news/api/v1/ipma-warnings/latest.json",
-   "at": "2026-11-19T00:29:40Z",
+   "at": "2026-11-19T04:10:10Z",
    "status": 200
   },
   "forecasts": {
    "url": "https://data.promptugal.news/api/v1/ipma-city-forecasts/latest.json",
-   "at": "2026-11-19T00:27:45Z",
+   "at": "2026-11-19T04:08:17Z",
    "status": 200
   },
   "fire-risk": {
    "url": "https://data.promptugal.news/api/v1/ipma-fire-risk/latest.json",
-   "at": "2026-11-19T00:29:15Z",
+   "at": "2026-11-19T04:09:45Z",
    "status": 200
   },
   "uv": {
    "url": "https://data.promptugal.news/api/v1/ipma-uv/latest.json",
-   "at": "2026-11-19T00:29:37Z",
+   "at": "2026-11-19T04:10:07Z",
    "status": 200
   },
   "sea": {
    "url": "https://data.promptugal.news/api/v1/ipma-sea/latest.json",
-   "at": "2026-11-19T00:29:28Z",
+   "at": "2026-11-19T04:09:58Z",
    "status": 200
   },
   "adsb": {
    "url": "https://data.promptugal.news/api/v1/adsb-faro/latest.json",
-   "at": "2026-11-19T00:19:22Z",
+   "at": "2026-11-19T04:03:52Z",
    "status": 200
   }
  }

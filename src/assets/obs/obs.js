@@ -14,8 +14,8 @@
 //   read  the first time the tab is hidden or closed: seconds the page was visible and the deepest scroll (percent).
 // Each says: the page, the referring site (host only), the time to the minute, the site version, a random id that
 // ends with the tab, the screen size class, the browser's language and time zone, an automation class if a bot
-// declares itself, and the country only, worked out in the browser from its own time zone through a fixed table, with
-// no network call (Dinis, 19 Nov 2026, about 03:15 UTC, Website repo board/guidance/2026-11-19-no-ip-lookup-
+// declares itself, and the country only, worked out in the browser from its own time zone through the one shared table
+// (tz-country.json, read from this site), with no third party (Dinis, 19 Nov 2026, about 03:15 UTC, Website repo board/guidance/2026-11-19-no-ip-lookup-
 // predictions-and-small-decisions.md: "remove the IP base. So we're going to keep the country still"; the town lookup
 // through ipapi.co or ipwho.is is gone, and with it region, city and map position). No IP address, no cookie, no
 // user-agent string, no browser fingerprint. Sealed here to the drain key (sgit hybrid
@@ -70,32 +70,18 @@
             : /Googlebot/i.test(ua) ? 'googlebot' : /bingbot/i.test(ua) ? 'bingbot' : /bot|crawl|spider|slurp/i.test(ua) ? 'bot' : ''
         const w = window.innerWidth || 1024
         let ref = ''; try { ref = document.referrer ? new URL(document.referrer).host : '' } catch { }
-        // the country only, from the browser's own time zone through this fixed table; no network call, no region or city.
-        // A zone not in the table gives an empty country.
-        const TZ_COUNTRY = {
-            'Europe/Lisbon': ['PT', 'Portugal'], 'Atlantic/Madeira': ['PT', 'Portugal'], 'Atlantic/Azores': ['PT', 'Portugal'],
-            'Europe/London': ['GB', 'United Kingdom'], 'Europe/Dublin': ['IE', 'Ireland'], 'Europe/Madrid': ['ES', 'Spain'],
-            'Atlantic/Canary': ['ES', 'Spain'], 'Europe/Paris': ['FR', 'France'], 'Europe/Berlin': ['DE', 'Germany'],
-            'Europe/Amsterdam': ['NL', 'Netherlands'], 'Europe/Brussels': ['BE', 'Belgium'], 'Europe/Luxembourg': ['LU', 'Luxembourg'],
-            'Europe/Zurich': ['CH', 'Switzerland'], 'Europe/Rome': ['IT', 'Italy'], 'Europe/Vienna': ['AT', 'Austria'],
-            'Europe/Stockholm': ['SE', 'Sweden'], 'Europe/Oslo': ['NO', 'Norway'], 'Europe/Copenhagen': ['DK', 'Denmark'],
-            'Europe/Helsinki': ['FI', 'Finland'], 'Europe/Warsaw': ['PL', 'Poland'], 'Europe/Prague': ['CZ', 'Czechia'],
-            'Europe/Athens': ['GR', 'Greece'], 'Europe/Bucharest': ['RO', 'Romania'], 'Europe/Kyiv': ['UA', 'Ukraine'],
-            'Europe/Istanbul': ['TR', 'Turkey'], 'America/New_York': ['US', 'United States'], 'America/Chicago': ['US', 'United States'],
-            'America/Denver': ['US', 'United States'], 'America/Phoenix': ['US', 'United States'], 'America/Los_Angeles': ['US', 'United States'],
-            'America/Anchorage': ['US', 'United States'], 'Pacific/Honolulu': ['US', 'United States'], 'America/Toronto': ['CA', 'Canada'],
-            'America/Vancouver': ['CA', 'Canada'], 'America/Sao_Paulo': ['BR', 'Brazil'], 'America/Mexico_City': ['MX', 'Mexico'],
-            'America/Argentina/Buenos_Aires': ['AR', 'Argentina'], 'Africa/Luanda': ['AO', 'Angola'], 'Africa/Maputo': ['MZ', 'Mozambique'],
-            'Atlantic/Cape_Verde': ['CV', 'Cape Verde'], 'Africa/Johannesburg': ['ZA', 'South Africa'], 'Africa/Lagos': ['NG', 'Nigeria'],
-            'Asia/Kolkata': ['IN', 'India'], 'Asia/Dubai': ['AE', 'United Arab Emirates'], 'Asia/Singapore': ['SG', 'Singapore'],
-            'Asia/Tokyo': ['JP', 'Japan'], 'Asia/Shanghai': ['CN', 'China'], 'Asia/Hong_Kong': ['HK', 'Hong Kong'], 'Asia/Macau': ['MO', 'Macau'],
-            'Asia/Dili': ['TL', 'Timor-Leste'], 'Australia/Sydney': ['AU', 'Australia'], 'Australia/Melbourne': ['AU', 'Australia'],
-            'Pacific/Auckland': ['NZ', 'New Zealand']
-        }
-        const place = () => {
+        // the country only, from the browser's own time zone through the one shared table (tz-country.json 1.0.0, beside
+        // this script, copied from promptugal.news and pinned by its integrity in scripts/build.mjs): built as a
+        // null-prototype map, looked up only as an own key, and accepted only as two letters A to Z. Read from this site's
+        // own host, once per tab; no IP lookup, no region or city. Anything else sends no country.
+        const place = async () => {
             let z = ''; try { z = Intl.DateTimeFormat().resolvedOptions().timeZone || '' } catch { }
-            const hit = Object.prototype.hasOwnProperty.call(TZ_COUNTRY, z) ? TZ_COUNTRY[z] : ['', '']
-            return { country: hit[1], country_code: hit[0] }
+            try {
+                const r = await fetch(base + 'tz-country.json', { credentials: 'omit', referrerPolicy: 'no-referrer' }); if (!r.ok) return {}
+                const j = await r.json(), map = Object.assign(Object.create(null), j && typeof j.zones === 'object' ? j.zones : {})
+                const code = typeof z === 'string' && Object.prototype.hasOwnProperty.call(map, z) ? map[z] : ''
+                return typeof code === 'string' && /^[A-Z]{2}$/.test(code) ? { country_code: code } : {}
+            } catch { return {} }
         }
         // a link's tag (Dinis, 6 November: "I just sent a link to somebody ... I would like to see if they open it ... and
         // forward it"): ?via=<tag> (or utm_source / utm_campaign) on the link you send. Kept for the tab, so the pages read
@@ -128,7 +114,7 @@
             const c0 = await cfg(); const L = (c0.enabled && c0.lanes && c0.lanes[LANE]) || []; if (!L.length) return false
             // the drain key, the endpoint and the vault: this file's own, else promptugal.news's published obs.json (shared)
             const c = c0.recipient && c0.endpoint && c0.vault_id ? c0 : Object.assign({}, await shared(c0), c0)
-            if (!('country' in ev)) Object.assign(ev, place())
+            if (!('country_code' in ev)) Object.assign(ev, await place())
             const payload = await seal(c.recipient.encrypt, JSON.stringify(ev))
             const start = Math.floor(Math.random() * L.length)   // a random first lane spreads the load
             for (const token of L.map((_, i) => L[(start + i) % L.length])) {

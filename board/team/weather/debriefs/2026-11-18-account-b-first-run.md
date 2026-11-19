@@ -124,3 +124,4 @@ Station readings for the capitals (`ipma-observations`), UV once the file is und
 - 01:23 UTC: the Pages schedule removed at Dinis's word (every run starts from a commit). W-8 closed. Planned for the coming wakes: signed commits (07:13 Lisbon, with conductor.b@'s two corrections built in), then the past on every place page.
 - 01:50 UTC (from date -u): times corrected. Several times I wrote tonight were guessed, not read from the clock; they now match the commits. From now on every time comes from date -u (security@'s ruling 5).
 - 03:20 UTC: no IP-based location, at Dinis's word (about 03:15 UTC): obs.js keeps the country from the browser's time zone only; ipapi.co and ipwho.is out of the code, obs.json and the CSP. The "nosniff" and front-page asks are closed (security@: not needed on Pages; Dinis chose "Now").
+- 04:50 UTC: obs.js uses the one shared time-zone table (tz-country.json 1.0.0), pinned by git blob id after its SRI matched; own table dropped.
