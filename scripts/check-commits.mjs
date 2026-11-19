@@ -54,7 +54,19 @@ if (exText) {
 // symbolic link (mode 120000), checked per commit with git diff-tree, not only in the final tree. The only exceptions
 // are paths listed, each with a reason, in scripts/symlink-exceptions.json in the trusted base's own tree.
 const SYMLINK_EX = (() => { const t = tryGit('show', `${TRUSTED_BASE}:scripts/symlink-exceptions.json`); if (!t) return new Set(); try { const l = JSON.parse(t); return new Set((Array.isArray(l) ? l : []).filter((x) => x && typeof x.path === 'string' && typeof x.reason === 'string' && x.reason.trim()).map((x) => x.path)); } catch { console.error('scripts/symlink-exceptions.json in the trusted base: not JSON: FAILED'); process.exit(1); } })();
-const symlinksIn = (c) => lines(git('diff-tree', '-r', '--raw', '--no-commit-id', '--root', '-m', '-z', c).replace(/\0(?=:)/g, '\n')).flatMap((l) => { const m = /^:(\d{6}) (\d{6}) [0-9a-f]+ [0-9a-f]+ [A-Z]\d*\0([^\0]+)/.exec(l); return m && m[2] === '120000' ? [m[3]] : []; });
+// read diff-tree -z output as NUL-separated fields and compare whole paths, never line by line (events.b@'s finding,
+// relayed 16:57 UTC: a name containing a newline must not be cut short)
+const symlinksIn = (c) => {
+  const f = execFileSync('git', ['diff-tree', '-r', '--raw', '--no-commit-id', '--root', '-m', '-z', c], { maxBuffer: 256 * 1024 * 1024, stdio: ['ignore', 'pipe', 'pipe'] }).toString('utf8').split('\0');
+  const out = [];
+  for (let k = 0; k < f.length; k++) {
+    const m = /^:(\d{6}) (\d{6}) [0-9a-f]+ [0-9a-f]+ ([A-Z])\d*$/.exec(f[k]); if (!m) continue;
+    const paths = m[3] === 'R' || m[3] === 'C' ? [f[k + 1], f[k + 2]] : [f[k + 1]];
+    k += paths.length;
+    if (m[2] === '120000') out.push(paths[paths.length - 1]);
+  }
+  return out;
+};
 const errors = [];
 let checked = 0, exempted = 0;
 for (const c of added) {

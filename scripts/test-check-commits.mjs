@@ -78,6 +78,14 @@ t('control 10: a link listed in the trusted base\'s exceptions passes', () => {
   symlinkSync('seed.txt', join(d, 'docs-link')); g('add', 'docs-link'); g('commit', '-q', '-m', OK_MSG);
   const x = spawnSync(process.execPath, [join(d, 'checker.mjs'), '', 'HEAD'], { cwd: d, encoding: 'utf8' }); rmSync(d, { recursive: true }); return x.status === 0;
 });
+t('control 10: a link whose name has a newline is matched whole, not by its first line', () => {
+  const d = mkdtempSync(join(tmpdir(), 'cc-test-')); const g = (...a) => execFileSync('git', ['-c', 'commit.gpgsign=false', '-c', 'user.name=t', '-c', 'user.email=t@example.invalid', ...a], { cwd: d, encoding: 'utf8' }).trim();
+  g('init', '-q', '-b', 'dev'); mkdirSync(join(d, 'scripts')); writeFileSync(join(d, 'scripts/check-commits.mjs'), SRC); writeFileSync(join(d, 'scripts/symlink-exceptions.json'), JSON.stringify([{ path: 'ok', reason: 'test' }])); writeFileSync(join(d, 'seed.txt'), String(Math.random()));
+  g('add', '.'); g('commit', '-q', '-m', OK_MSG); const base = g('rev-parse', 'HEAD');
+  writeFileSync(join(d, 'checker.mjs'), SRC.replace(/export const TRUSTED_BASE = '[0-9a-f]{40}'/, `export const TRUSTED_BASE = '${base}'`));
+  symlinkSync('seed.txt', join(d, 'ok\nevil')); g('add', '-A'); g('commit', '-q', '-m', OK_MSG);
+  const x = spawnSync(process.execPath, [join(d, 'checker.mjs'), '', 'HEAD'], { cwd: d, encoding: 'utf8' }); rmSync(d, { recursive: true }); return fails(x, /symbolic link/);
+});
 t('the checker reads no override of the base from the environment', () => !/process\.env/.test(SRC));
 
 for (const r of results) if (!r.pass) console.log(`FAIL  ${r.name}${r.got ? '  [' + r.got.slice(0, 200) + ']' : ''}`);
