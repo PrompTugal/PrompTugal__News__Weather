@@ -1,5 +1,5 @@
 {
- "data_read_at": "2026-11-19T10:09:25Z",
+ "data_read_at": "2026-11-19T13:08:33Z",
  "expected_cadence": {
   "name": "hourly",
   "seconds": 3600
@@ -19,11 +19,11 @@
  },
  "source": "ipma-uv",
  "title": "IPMA UV index",
- "read_at": "2026-11-19T10:09:25Z",
+ "read_at": "2026-11-19T13:08:33Z",
  "provenance": {
   "source": "https://api.ipma.pt/open-data/forecast/meteorology/uv/uv.json",
   "page": "https://www.ipma.pt/en/otempo/prev.uv/",
-  "read_at": "2026-11-19T10:09:25Z",
+  "read_at": "2026-11-19T13:08:33Z",
   "by": "sources/ipma-uv/collect.mjs (code, no model; run by data@PrompTugal.dinis)",
   "terms": "IPMA: free to copy and use for personal or public use if the use has no profit-making or offensive purpose; always name IPMA as the source."
  },
@@ -44,13 +44,7 @@
     },
     {
      "date": "2026-11-19",
-     "index": 2.5,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-19",
-     "index": 2.5,
+     "index": 2.6,
      "period": 10,
      "hours": null
     },
@@ -62,121 +56,103 @@
     },
     {
      "date": "2026-11-19",
-     "index": 1.9,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-19",
-     "index": 2.2,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-19",
-     "index": 2.6,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-19",
-     "index": 2.6,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-19",
-     "index": 2.6,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-19",
-     "index": 3,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-20",
-     "index": 2.1,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-20",
-     "index": 1.9,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-20",
-     "index": 2.2,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-20",
-     "index": 2.8,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-20",
-     "index": 1.9,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-20",
-     "index": 2.1,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-20",
-     "index": 2.2,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-20",
-     "index": 2.2,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-20",
-     "index": 2.1,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-20",
      "index": 2.9,
      "period": 10,
      "hours": null
     },
     {
-     "date": "2026-11-21",
+     "date": "2026-11-19",
+     "index": 2,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-19",
+     "index": 2.2,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-19",
+     "index": 2.7,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-19",
+     "index": 2.7,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-19",
+     "index": 2.7,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-19",
+     "index": 2.9,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-20",
      "index": 0.7,
      "period": 10,
      "hours": null
     },
     {
-     "date": "2026-11-21",
-     "index": 1.1,
+     "date": "2026-11-20",
+     "index": 1.5,
      "period": 10,
      "hours": null
     },
     {
-     "date": "2026-11-21",
-     "index": 1.1,
+     "date": "2026-11-20",
+     "index": 1.7,
      "period": 10,
      "hours": null
     },
     {
-     "date": "2026-11-21",
-     "index": 1.8,
+     "date": "2026-11-20",
+     "index": 2.3,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-20",
+     "index": 1,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-20",
+     "index": 0.8,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-20",
+     "index": 1.9,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-20",
+     "index": 1.9,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-20",
+     "index": 1.9,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-20",
+     "index": 2.6,
      "period": 10,
      "hours": null
     },
@@ -194,61 +170,55 @@
     },
     {
      "date": "2026-11-21",
-     "index": 1.2,
+     "index": 0.9,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-21",
-     "index": 1.2,
+     "index": 1.7,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-21",
-     "index": 1.2,
+     "index": 0.2,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-21",
-     "index": 2.7,
+     "index": 0.3,
      "period": 10,
      "hours": null
     },
     {
-     "date": "2026-11-22",
-     "index": 1.9,
+     "date": "2026-11-21",
+     "index": 0.9,
      "period": 10,
      "hours": null
     },
     {
-     "date": "2026-11-22",
-     "index": 2.2,
+     "date": "2026-11-21",
+     "index": 0.9,
      "period": 10,
      "hours": null
     },
     {
-     "date": "2026-11-22",
+     "date": "2026-11-21",
+     "index": 0.7,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-21",
      "index": 2.1,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-22",
-     "index": 2.8,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-22",
-     "index": 1.9,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-22",
-     "index": 2.1,
+     "index": 2.4,
      "period": 10,
      "hours": null
     },
@@ -260,19 +230,109 @@
     },
     {
      "date": "2026-11-22",
-     "index": 2.2,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-22",
-     "index": 2.2,
+     "index": 2,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-22",
      "index": 2.9,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-22",
+     "index": 2,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-22",
+     "index": 2.2,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-22",
+     "index": 2.2,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-22",
+     "index": 2.2,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-22",
+     "index": 2.3,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-22",
+     "index": 3,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-23",
+     "index": 2.2,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-23",
+     "index": 2.2,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-23",
+     "index": 2.2,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-23",
+     "index": 2.5,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-23",
+     "index": 2.2,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-23",
+     "index": 2.2,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-23",
+     "index": 2.2,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-23",
+     "index": 2.2,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-23",
+     "index": 2.2,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-23",
+     "index": 2.7,
      "period": 10,
      "hours": null
     }
@@ -284,49 +344,61 @@
    "days": [
     {
      "date": "2026-11-19",
-     "index": 1.5,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-19",
-     "index": 1.6,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-20",
-     "index": 1.5,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-20",
-     "index": 1.8,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-21",
-     "index": 0.2,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-21",
-     "index": 0.2,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-22",
      "index": 1.7,
      "period": 10,
      "hours": null
     },
     {
+     "date": "2026-11-19",
+     "index": 1.7,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-20",
+     "index": 1.1,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-20",
+     "index": 1.1,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-21",
+     "index": 0.2,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-21",
+     "index": 0.2,
+     "period": 10,
+     "hours": null
+    },
+    {
      "date": "2026-11-22",
      "index": 1.8,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-22",
+     "index": 1.8,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-23",
+     "index": 2,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-23",
+     "index": 2.1,
      "period": 10,
      "hours": null
     }
@@ -338,7 +410,7 @@
    "days": [
     {
      "date": "2026-11-19",
-     "index": 2.7,
+     "index": 2.6,
      "period": 10,
      "hours": null
     },
@@ -350,13 +422,19 @@
     },
     {
      "date": "2026-11-21",
-     "index": 2.5,
+     "index": 2.3,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-22",
      "index": 2.8,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-23",
+     "index": 2.5,
      "period": 10,
      "hours": null
     }
@@ -374,7 +452,7 @@
     },
     {
      "date": "2026-11-20",
-     "index": 1,
+     "index": 0.7,
      "period": 10,
      "hours": null
     },
@@ -387,6 +465,12 @@
     {
      "date": "2026-11-22",
      "index": 1.5,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-23",
+     "index": 1.9,
      "period": 10,
      "hours": null
     }
@@ -398,25 +482,31 @@
    "days": [
     {
      "date": "2026-11-19",
-     "index": 1.5,
+     "index": 1.6,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-20",
-     "index": 1.2,
+     "index": 0.6,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-21",
-     "index": 0.2,
+     "index": 0.3,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-22",
-     "index": 1.2,
+     "index": 1.1,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-23",
+     "index": 2,
      "period": 10,
      "hours": null
     }
@@ -434,19 +524,25 @@
     },
     {
      "date": "2026-11-20",
-     "index": 1.7,
+     "index": 1.3,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-21",
-     "index": 1.4,
+     "index": 0.5,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-22",
-     "index": 1.9,
+     "index": 2.2,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-23",
+     "index": 2.3,
      "period": 10,
      "hours": null
     }
@@ -458,25 +554,31 @@
    "days": [
     {
      "date": "2026-11-19",
-     "index": 2,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-20",
      "index": 1.9,
      "period": 10,
      "hours": null
     },
     {
+     "date": "2026-11-20",
+     "index": 1.1,
+     "period": 10,
+     "hours": null
+    },
+    {
      "date": "2026-11-21",
-     "index": 0.4,
+     "index": 0.3,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-22",
-     "index": 1.7,
+     "index": 2,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-23",
+     "index": 2.2,
      "period": 10,
      "hours": null
     }
@@ -494,19 +596,25 @@
     },
     {
      "date": "2026-11-20",
-     "index": 2.7,
+     "index": 2.2,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-21",
-     "index": 2.3,
+     "index": 1.5,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-22",
-     "index": 2.6,
+     "index": 2.5,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-23",
+     "index": 2.4,
      "period": 10,
      "hours": null
     }
@@ -518,25 +626,31 @@
    "days": [
     {
      "date": "2026-11-19",
-     "index": 3.1,
+     "index": 3,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-20",
-     "index": 2.9,
+     "index": 2.6,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-21",
-     "index": 3,
+     "index": 2.4,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-22",
      "index": 3,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-23",
+     "index": 2.8,
      "period": 10,
      "hours": null
     }
@@ -554,19 +668,25 @@
     },
     {
      "date": "2026-11-20",
-     "index": 2.9,
+     "index": 2.2,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-21",
-     "index": 2.5,
+     "index": 2.3,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-22",
-     "index": 2.9,
+     "index": 3,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-23",
+     "index": 2.7,
      "period": 10,
      "hours": null
     }
@@ -578,25 +698,31 @@
    "days": [
     {
      "date": "2026-11-19",
-     "index": 1.8,
+     "index": 1.6,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-20",
-     "index": 1.1,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-21",
      "index": 1.3,
      "period": 10,
      "hours": null
     },
     {
+     "date": "2026-11-21",
+     "index": 0.3,
+     "period": 10,
+     "hours": null
+    },
+    {
      "date": "2026-11-22",
-     "index": 1.5,
+     "index": 1.6,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-23",
+     "index": 2.2,
      "period": 10,
      "hours": null
     }
@@ -608,25 +734,31 @@
    "days": [
     {
      "date": "2026-11-19",
-     "index": 1.9,
+     "index": 1.5,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-20",
-     "index": 1.4,
+     "index": 1.2,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-21",
-     "index": 0.8,
+     "index": 0.3,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-22",
-     "index": 1.5,
+     "index": 1.6,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-23",
+     "index": 2.2,
      "period": 10,
      "hours": null
     }
@@ -650,25 +782,31 @@
     },
     {
      "date": "2026-11-20",
-     "index": 1.9,
+     "index": 0.9,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-20",
-     "index": 1.9,
+     "index": 0.9,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-21",
-     "index": 0.6,
+     "index": 0.3,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-21",
-     "index": 0.6,
+     "index": 0.4,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-22",
+     "index": 2,
      "period": 10,
      "hours": null
     },
@@ -679,8 +817,14 @@
      "hours": null
     },
     {
-     "date": "2026-11-22",
-     "index": 1.8,
+     "date": "2026-11-23",
+     "index": 2.2,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-23",
+     "index": 2.2,
      "period": 10,
      "hours": null
     }
@@ -692,24 +836,30 @@
    "days": [
     {
      "date": "2026-11-19",
-     "index": 2.5,
+     "index": 2.7,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-20",
-     "index": 2,
+     "index": 1.6,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-21",
-     "index": 1.1,
+     "index": 0.8,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-22",
+     "index": 2,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-23",
      "index": 2.2,
      "period": 10,
      "hours": null
@@ -722,25 +872,31 @@
    "days": [
     {
      "date": "2026-11-19",
-     "index": 2.4,
+     "index": 2.5,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-20",
-     "index": 2.1,
+     "index": 1.7,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-21",
-     "index": 2.3,
+     "index": 1,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-22",
-     "index": 2.2,
+     "index": 2.3,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-23",
+     "index": 2.4,
      "period": 10,
      "hours": null
     }
@@ -752,13 +908,13 @@
    "days": [
     {
      "date": "2026-11-19",
-     "index": 1.5,
+     "index": 1.7,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-20",
-     "index": 1.2,
+     "index": 1,
      "period": 10,
      "hours": null
     },
@@ -770,7 +926,13 @@
     },
     {
      "date": "2026-11-22",
-     "index": 1.7,
+     "index": 1.8,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-23",
+     "index": 2,
      "period": 10,
      "hours": null
     }
@@ -788,31 +950,31 @@
     },
     {
      "date": "2026-11-19",
-     "index": 2.3,
+     "index": 2.4,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-20",
-     "index": 2.3,
+     "index": 1,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-20",
-     "index": 2.1,
+     "index": 1,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-21",
-     "index": 1.4,
+     "index": 1.2,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-21",
-     "index": 1.1,
+     "index": 1,
      "period": 10,
      "hours": null
     },
@@ -824,7 +986,19 @@
     },
     {
      "date": "2026-11-22",
-     "index": 2.1,
+     "index": 1.9,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-23",
+     "index": 2.3,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-23",
+     "index": 2.2,
      "period": 10,
      "hours": null
     }
@@ -836,25 +1010,31 @@
    "days": [
     {
      "date": "2026-11-19",
-     "index": 2.6,
+     "index": 2.8,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-20",
-     "index": 2.5,
+     "index": 1.9,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-21",
-     "index": 1.2,
+     "index": 1.3,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-22",
-     "index": 2.3,
+     "index": 2.1,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-23",
+     "index": 2.2,
      "period": 10,
      "hours": null
     }
@@ -866,25 +1046,31 @@
    "days": [
     {
      "date": "2026-11-19",
-     "index": 2.7,
+     "index": 2.8,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-20",
-     "index": 2.7,
+     "index": 2.1,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-21",
-     "index": 1.6,
+     "index": 1.8,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-22",
-     "index": 2.7,
+     "index": 2.6,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-23",
+     "index": 2.4,
      "period": 10,
      "hours": null
     }
@@ -902,37 +1088,7 @@
     },
     {
      "date": "2026-11-20",
-     "index": 0.9,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-21",
-     "index": 0.3,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-22",
-     "index": 1.5,
-     "period": 10,
-     "hours": null
-    }
-   ]
-  },
-  {
-   "id": 1171400,
-   "name": "Vila Real",
-   "days": [
-    {
-     "date": "2026-11-19",
-     "index": 1.6,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-20",
-     "index": 1.5,
+     "index": 0.7,
      "period": 10,
      "hours": null
     },
@@ -944,7 +1100,49 @@
     },
     {
      "date": "2026-11-22",
-     "index": 1.4,
+     "index": 1.6,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-23",
+     "index": 1.8,
+     "period": 10,
+     "hours": null
+    }
+   ]
+  },
+  {
+   "id": 1171400,
+   "name": "Vila Real",
+   "days": [
+    {
+     "date": "2026-11-19",
+     "index": 1.7,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-20",
+     "index": 0.9,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-21",
+     "index": 0.2,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-22",
+     "index": 1.5,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-23",
+     "index": 2.1,
      "period": 10,
      "hours": null
     }
@@ -956,25 +1154,31 @@
    "days": [
     {
      "date": "2026-11-19",
-     "index": 1.5,
+     "index": 1.6,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-20",
-     "index": 1.4,
+     "index": 1.1,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-21",
-     "index": 0.4,
+     "index": 0.2,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-22",
-     "index": 1.5,
+     "index": 1.6,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-23",
+     "index": 2.2,
      "period": 10,
      "hours": null
     }
@@ -986,25 +1190,31 @@
    "days": [
     {
      "date": "2026-11-19",
-     "index": 3.4,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-20",
-     "index": 3.7,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-21",
      "index": 3,
      "period": 10,
      "hours": null
     },
     {
-     "date": "2026-11-22",
+     "date": "2026-11-20",
      "index": 3.5,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-21",
+     "index": 3.4,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-22",
+     "index": 3.6,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-23",
+     "index": 2.7,
      "period": 10,
      "hours": null
     }
@@ -1022,19 +1232,25 @@
     },
     {
      "date": "2026-11-20",
-     "index": 3,
+     "index": 3.9,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-21",
-     "index": 3.1,
+     "index": 3.4,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-22",
      "index": 3.5,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-23",
+     "index": 3.1,
      "period": 10,
      "hours": null
     }
@@ -1046,13 +1262,13 @@
    "days": [
     {
      "date": "2026-11-19",
-     "index": 1.3,
+     "index": 0.8,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-20",
-     "index": 1.8,
+     "index": 2.3,
      "period": 10,
      "hours": null
     },
@@ -1064,7 +1280,13 @@
     },
     {
      "date": "2026-11-22",
-     "index": 2,
+     "index": 1.7,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-23",
+     "index": 2.2,
      "period": 10,
      "hours": null
     }
@@ -1076,37 +1298,7 @@
    "days": [
     {
      "date": "2026-11-19",
-     "index": 1.3,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-20",
-     "index": 2.1,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-21",
-     "index": 2,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-22",
-     "index": 1.3,
-     "period": 10,
-     "hours": null
-    }
-   ]
-  },
-  {
-   "id": 3470100,
-   "name": "Horta",
-   "days": [
-    {
-     "date": "2026-11-19",
-     "index": 1.1,
+     "index": 0.7,
      "period": 10,
      "hours": null
     },
@@ -1118,12 +1310,54 @@
     },
     {
      "date": "2026-11-21",
-     "index": 2,
+     "index": 2.4,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-22",
+     "index": 1.6,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-23",
+     "index": 1.7,
+     "period": 10,
+     "hours": null
+    }
+   ]
+  },
+  {
+   "id": 3470100,
+   "name": "Horta",
+   "days": [
+    {
+     "date": "2026-11-19",
+     "index": 0.8,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-20",
+     "index": 1.6,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-21",
+     "index": 1.9,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-22",
+     "index": 1.3,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-23",
      "index": 1.7,
      "period": 10,
      "hours": null
@@ -1136,25 +1370,31 @@
    "days": [
     {
      "date": "2026-11-19",
-     "index": 1.9,
+     "index": 0.8,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-20",
-     "index": 1.6,
+     "index": 1.9,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-21",
-     "index": 1.1,
+     "index": 1.5,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-22",
-     "index": 1.5,
+     "index": 1.8,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-23",
+     "index": 1.4,
      "period": 10,
      "hours": null
     }

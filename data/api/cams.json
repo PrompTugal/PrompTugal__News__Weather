@@ -1,5 +1,5 @@
 {
- "data_read_at": "2026-11-19T10:04:19Z",
+ "data_read_at": "2026-11-19T13:04:12Z",
  "expected_cadence": {
   "name": "hourly",
   "seconds": 3600
@@ -18,11 +18,11 @@
  },
  "source": "cams",
  "title": "Public live cameras: where they are and whether they are up",
- "read_at": "2026-11-19T10:04:19Z",
+ "read_at": "2026-11-19T13:04:12Z",
  "provenance": {
   "source": "https://github.com/PrompTugal/PrompTugal__News__Data/blob/dev/register/cams.json",
   "page": "https://data.promptugal.news/sources/cams/",
-  "read_at": "2026-11-19T10:04:19Z",
+  "read_at": "2026-11-19T13:04:12Z",
   "by": "sources/cams/collect.mjs (code, no model; run by data.b@PrompTugal.dinis)",
   "terms": "Official cameras of public bodies and operators' own pages only, by link; each camera's terms are recorded in register/cams.json (terms_page, terms_summary, licence_link). We ask for the operator's page only, once an hour, and keep only whether it answered and whether it still carries a player: never a frame, snapshot or stream, no face or plate recognition, no recording. Never an unsecured private camera. Take-down on request. Rules confirmed by Dinis Cruz on 18 November 2026, about 19:00 UTC (official cameras only; the operator's own embed or a link; never record; MEO BeachCam through its official embeds; Windy's webcams API under its terms, attributed). Not reviewed by a person.",
   "register": "register/cams.json"
@@ -78,10 +78,10 @@
    },
    "state": "up",
    "http": 200,
-   "checked_at": "2026-11-19T10:04:19Z",
+   "checked_at": "2026-11-19T13:04:12Z",
    "since": "2026-11-18T18:55:16Z",
-   "checks": 35,
-   "up_checks": 35,
+   "checks": 38,
+   "up_checks": 38,
    "history": [
     {
      "at": "2026-11-18T18:55:16Z",
@@ -95,7 +95,7 @@
     "listed_at": "2026-11-18T00:00:00Z",
     "register": "https://github.com/PrompTugal/PrompTugal__News__Data/blob/dev/register/cams.json",
     "status_how": "one GET of the operator page (HTML only; bytes dropped; no frame or stream)",
-    "status_at": "2026-11-19T10:04:19Z",
+    "status_at": "2026-11-19T13:04:12Z",
     "status_by": "sources/cams/collect.mjs (code, no model; run by data.b@PrompTugal.dinis)",
     "licence": "https://www.portodelisboa.pt/politica-de-privacidade",
     "terms_checked": "2026-11-18T00:00:00Z"
@@ -125,10 +125,10 @@
    },
    "state": "up",
    "http": 200,
-   "checked_at": "2026-11-19T10:04:19Z",
+   "checked_at": "2026-11-19T13:04:12Z",
    "since": "2026-11-18T18:55:16Z",
-   "checks": 35,
-   "up_checks": 35,
+   "checks": 38,
+   "up_checks": 38,
    "history": [
     {
      "at": "2026-11-18T18:55:16Z",
@@ -142,7 +142,7 @@
     "listed_at": "2026-11-18T00:00:00Z",
     "register": "https://github.com/PrompTugal/PrompTugal__News__Data/blob/dev/register/cams.json",
     "status_how": "one GET of the operator page (HTML only; bytes dropped; no frame or stream)",
-    "status_at": "2026-11-19T10:04:19Z",
+    "status_at": "2026-11-19T13:04:12Z",
     "status_by": "sources/cams/collect.mjs (code, no model; run by data.b@PrompTugal.dinis)",
     "licence": "https://www.portodelisboa.pt/politica-de-privacidade",
     "terms_checked": "2026-11-18T00:00:00Z"
@@ -172,10 +172,10 @@
    },
    "state": "up",
    "http": 200,
-   "checked_at": "2026-11-19T10:04:19Z",
+   "checked_at": "2026-11-19T13:04:12Z",
    "since": "2026-11-18T18:55:16Z",
-   "checks": 35,
-   "up_checks": 35,
+   "checks": 38,
+   "up_checks": 38,
    "history": [
     {
      "at": "2026-11-18T18:55:16Z",
@@ -189,7 +189,7 @@
     "listed_at": "2026-11-18T00:00:00Z",
     "register": "https://github.com/PrompTugal/PrompTugal__News__Data/blob/dev/register/cams.json",
     "status_how": "one GET of the operator page (HTML only; bytes dropped; no frame or stream)",
-    "status_at": "2026-11-19T10:04:19Z",
+    "status_at": "2026-11-19T13:04:12Z",
     "status_by": "sources/cams/collect.mjs (code, no model; run by data.b@PrompTugal.dinis)",
     "licence": "https://meteorologia.aemtg.pt/video",
     "terms_checked": null

@@ -1,5 +1,5 @@
 {
- "data_read_at": "2026-11-19T10:09:36Z",
+ "data_read_at": "2026-11-19T13:08:53Z",
  "expected_cadence": {
   "name": "hourly",
   "seconds": 3600
@@ -35,7 +35,7 @@
   }
  },
  "place": "castro-marim",
- "read_at": "2026-11-19T10:09:36Z",
+ "read_at": "2026-11-19T13:08:53Z",
  "by": "collect/by-place-now.mjs (code, no model; data@PrompTugal.dinis), from this site's collected sources",
  "coords": {
   "lat": 37.21667,
@@ -58,14 +58,14 @@
   "id": 1210867,
   "km": 1,
   "reading": {
-   "at": "2026-11-19T09:00:00Z",
-   "temp_c": 16.9,
-   "humidity_pct": 86,
-   "wind_kmh": 16.2,
-   "wind_dir_id": 9,
+   "at": "2026-11-19T12:00:00Z",
+   "temp_c": 19.9,
+   "humidity_pct": 56,
+   "wind_kmh": 17.6,
+   "wind_dir_id": 8,
    "rain_mm": 0,
    "pressure_hpa": null,
-   "radiation_kj_m2": 482.6
+   "radiation_kj_m2": 1943.3
   },
   "page": "https://www.ipma.pt/en/otempo/obs.superficie/",
   "source": "https://api.ipma.pt/open-data/observation/meteorology/stations/observations.json"
@@ -150,8 +150,8 @@
  },
  "uv": {
   "place": "Faro",
-  "date": "2026-11-22",
-  "index": 3,
+  "date": "2026-11-23",
+  "index": 2.8,
   "page": "https://www.ipma.pt/en/otempo/prev.uv/",
   "source": "https://api.ipma.pt/open-data/forecast/meteorology/uv/uv.json"
  },
@@ -168,37 +168,37 @@
  "reads": {
   "observations": {
    "url": "https://data.promptugal.news/api/v1/ipma-observations/latest.json",
-   "at": "2026-11-19T10:09:10Z",
+   "at": "2026-11-19T13:08:18Z",
    "status": 200
   },
   "warnings": {
    "url": "https://data.promptugal.news/api/v1/ipma-warnings/latest.json",
-   "at": "2026-11-19T10:09:28Z",
+   "at": "2026-11-19T13:08:35Z",
    "status": 200
   },
   "forecasts": {
    "url": "https://data.promptugal.news/api/v1/ipma-city-forecasts/latest.json",
-   "at": "2026-11-19T10:07:33Z",
+   "at": "2026-11-19T13:06:40Z",
    "status": 200
   },
   "fire-risk": {
    "url": "https://data.promptugal.news/api/v1/ipma-fire-risk/latest.json",
-   "at": "2026-11-19T10:09:03Z",
+   "at": "2026-11-19T13:08:10Z",
    "status": 200
   },
   "uv": {
    "url": "https://data.promptugal.news/api/v1/ipma-uv/latest.json",
-   "at": "2026-11-19T10:09:25Z",
+   "at": "2026-11-19T13:08:33Z",
    "status": 200
   },
   "sea": {
    "url": "https://data.promptugal.news/api/v1/ipma-sea/latest.json",
-   "at": "2026-11-19T10:09:15Z",
+   "at": "2026-11-19T13:08:23Z",
    "status": 200
   },
   "adsb": {
    "url": "https://data.promptugal.news/api/v1/adsb-faro/latest.json",
-   "at": "2026-11-19T10:04:18Z",
+   "at": "2026-11-19T11:04:46Z",
    "status": 200
   }
  }

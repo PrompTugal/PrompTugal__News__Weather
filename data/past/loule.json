@@ -10,7 +10,7 @@
  "place": "loule",
  "country": "PT",
  "first_day": "2026-11-17",
- "data_read_at": "2026-11-19T10:09:10Z",
+ "data_read_at": "2026-11-19T13:08:18Z",
  "about": "The past in loule, day by day since 2026-11-17: what IPMA's station Loulé (CML) (6210872) measured (low, high, rain; complete only when all 24 hours were seen) and what IPMA forecast for that day one, two and three days before (d1, d2, d3), as published. A null is a day or forecast we do not have: never filled in. Collections before 18 November 2026 were not kept.",
  "sources": {
   "observed": {
@@ -34,7 +34,7 @@
    }
   }
  },
- "commit": "1460f87e59532acd781b90ca10f34d7f5f1f6e79",
+ "commit": "4a4d13005725f1c24d6cd12ebee2d66ee2f2df91",
  "rows": [
   {
    "date": "2026-11-17",
@@ -72,7 +72,7 @@
     "low_c": null,
     "high_c": null,
     "rain_mm": 1.2,
-    "hours": 10,
+    "hours": 13,
     "complete": false
    },
    "forecast": {
