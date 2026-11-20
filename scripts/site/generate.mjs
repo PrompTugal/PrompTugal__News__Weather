@@ -265,6 +265,18 @@ ${lp.html}
   add(page({ path: '/london/', title: 'London: the forecast', description: 'The forecast for London, by day, from Open-Meteo, with its source and the time it was read; for warnings follow the Met Office.', body, md }));
 }
 
+// every UV day IPMA gives for a place (its Portugal-wide UV file, matched by IPMA's own place name; several
+// readings a day are kept as the highest), from today on; [] when the place is not named there
+function uvDays(place) {
+  const today = new Date(BUILT).toLocaleDateString('en-CA', { timeZone: 'Europe/Lisbon' }); // IPMA's days are Lisbon days
+  const p = typeof place === 'string' && place ? D.api['ipma-uv']?.places?.find(x => x && x.name === place) : null;
+  if (!p || !Array.isArray(p.days)) return [];
+  const by = {}; let multi = false;
+  for (const d of p.days) if (d && /^\d{4}-\d\d-\d\d$/.test(d.date) && d.date >= today && typeof d.index === 'number' && isFinite(d.index) && d.index >= 0 && d.index < 20) { if (d.date in by) multi = true; by[d.date] = Math.max(by[d.date] ?? -1, d.index); }
+  const out = Object.keys(by).sort().slice(0, 7).map(date => ({ date, index: by[date] }));
+  out.multi = multi; return out;
+}
+
 function mapPage() {
   const r = D.region, smap = sharedMap();
   const days = D.now.faro.fire_risk?.days || [];
@@ -307,6 +319,7 @@ ${t.html}
 function placePage(t) {
   const camT = camsSection(D.api, t.id), pastT = pastFor(t.id, t.name, t.now?.forecast);
   const n = t.now, st = n.station, rd = st?.reading || {}, fc = n.forecast, fr = n.fire_risk, uv = n.uv, sea = n.sea, ap = n.airport;
+  const uvd = uvDays(uv?.place);
   const coast = !!sea;
   const far = fc && fc.km > 15 ? `<p class="note">IPMA has no forecast place in ${esc(t.name)}: this is its forecast for <strong>${esc(fc.place)}</strong>, ${fc.km} km away. The station reading above is ${st?.km <= 5 ? 'the town\'s own' : `from ${esc(st?.name)}, ${st?.km} km away`}.</p>` : '';
   const reads = Object.entries(n.reads || {}).map(([k, v]) => `<tr><td>${esc(k)}</td><td><a href="${safeHref(v.url)}">${esc(host(v.url))}${esc(new URL(v.url).pathname.replace(/^\/open-data/, '').slice(0, 60))}</a></td><td>${when(v.at)}</td><td class="n">${esc(v.status)}</td></tr>`).join('');
@@ -328,7 +341,7 @@ function placePage(t) {
 ${far}<p class="src">IPMA forecast for ${esc(fc?.place)} (${fc?.km} km). <a href="${safeHref(fc?.page)}">IPMA forecast page</a>, <a href="${safeHref(fc?.source)}">open data</a>.</p></section>
 <section class="grid2">
   ${coast ? `<div class="panel"><h2>Sea</h2><dl class="kv"><dt>Highest waves</dt><dd>${show(sea.waves_max_m, ' m')}</dd><dt>Highest total sea</dt><dd>${show(sea.sea_max_m, ' m')}</dd><dt>Sea temperature, up to</dt><dd>${show(sea.sea_temp_max_c, '°C')}</dd></dl><p class="src">IPMA's coastal forecast for the ${esc(sea.coast)}, ${dayName(sea.date)}. <a href="${safeHref(sea.page)}">IPMA sea forecast</a>.</p></div>` : `<div class="panel"><h2>Sea</h2><p>${esc(t.name)} is inland: no coastal forecast is shown.</p></div>`}
-  <div class="panel"><h2>UV</h2>${uv ? `<p class="big">${show(uv.index, '', 1)}</p><p class="src">IPMA UV index forecast for ${esc(uv.place)}, ${dayName(uv.date)}. <a href="${safeHref(uv.page)}">IPMA UV</a>.</p>` : '<p class="na">No UV forecast in the data.</p>'}</div>
+  <div class="panel"><h2>UV</h2>${uvd.length ? `<p class="big">${show(uvd[0].index, '', 1)} <span class="note">${esc(uvBand(uvd[0].index))}, ${dayName(uvd[0].date)}</span></p><p>${uvd.map(d => `<span class="chip ${uvClass(d.index)}"><span class="d">${dayName(d.date)}</span> ${num(d.index, '', 1)} ${uvBand(d.index)}</span>`).join(' ')}</p><p class="src">IPMA UV index forecast for ${esc(uv.place)}${uvd.multi ? ', the highest value each day' : ''}. <a href="${safeHref(uv.page)}">IPMA UV</a>.</p>` : uv ? `<p class="big">${show(uv.index, '', 1)}</p><p class="src">IPMA UV index forecast for ${esc(uv.place)}, ${dayName(uv.date)} only (IPMA's Portugal-wide UV file does not name this place, so its other days are not matched). <a href="${safeHref(uv.page)}">IPMA UV</a>.</p>` : '<p class="na">No UV forecast in the data.</p>'}</div>
 </section>
 ${ap ? `<section class="panel"><h2>Faro airport</h2><p>${ap.airline.length} airline flight${ap.airline.length === 1 ? '' : 's'} and ${ap.other_aircraft} other aircraft seen within ${ap.within_nm} nautical miles at ${when(ap.at)}.</p><p class="src">${esc(ap.note)} <a href="${safeHref(ap.page)}">adsb.lol</a>. For flight status, ask your airline or <a href="https://www.aeroportofaro.pt/">the airport</a>.</p></section>` : ''}
 ${pastT ? pastT.html : ''}
@@ -361,7 +374,7 @@ Source: ${fc?.source}
 ${coast ? `\n## Sea\n\n${sea.coast}, ${dayName(sea.date)}: waves up to ${showMd(sea.waves_max_m, ' m')}, total sea up to ${showMd(sea.sea_max_m, ' m')}, sea temperature up to ${showMd(sea.sea_temp_max_c, '°C')}. Source: ${sea.source}\n` : ''}
 ## UV
 
-${uv ? `${uv.place}, ${dayName(uv.date)}: ${showMd(uv.index, '', 1)}. Source: ${uv.source}` : 'No UV forecast in the data.'}
+${uvd.length ? `IPMA's UV index forecast for ${uv.place}${uvd.multi ? ', the highest value each day' : ''}:\n\n${uvd.map(d => `- ${dayName(d.date)}: ${num(d.index, '', 1)} (${uvBand(d.index)})`).join('\n')}\n\nSource: ${uv.source}` : uv ? `${uv.place}, ${dayName(uv.date)} only: ${showMd(uv.index, '', 1)} (IPMA's Portugal-wide UV file does not name this place, so its other days are not matched). Source: ${uv.source}` : 'No UV forecast in the data.'}
 
 ${pastT ? pastT.md : ''}${camT ? camT.md : ''}## Who to follow
 
