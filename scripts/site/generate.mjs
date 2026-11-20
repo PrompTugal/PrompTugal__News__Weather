@@ -38,10 +38,14 @@ function warningsMd(w) {
   if (!active.length) return `No IPMA warning above green for ${w?.area || 'the Faro district'} in the file read. Source: ${w?.page}`;
   return active.map(a => `- **${levelWord(a.level)}: ${a.type}** (${a.type_pt}), ${localWhen(a.start)} to ${localWhen(a.end)} Portugal time. ${a.text ? `IPMA: "${a.text}"` : ''}`).join('\n') + `\n\nSource: IPMA, ${w.page} (open data ${w.source}).`;
 }
-function freshness(iso) {
+// stale after the data file's own expected_cadence.stale_after_seconds (data.b@'s files: 46800 s, for twice-daily
+// collection), kept within 1 to 48 hours; 13 hours when a file does not say (Dinis, 19 Nov 2026, about 16:30 UTC)
+const staleHours = (cadence) => { const s = cadence?.stale_after_seconds; return Number.isFinite(s) && s >= 3600 && s <= 172800 ? s / 3600 : 13; };
+function freshness(iso, cadence, latest = 'IPMA') {
   const h = ageHours(iso, BUILT);
-  if (h <= 13) return `<p class="fresh">Read ${when(iso)}.</p>`; // data is collected twice a day (Dinis, 19 Nov 2026, about 16:30 UTC)
-  return `<p class="stale" role="status"><strong>This data is ${Math.round(h)} hours old</strong> (read ${when(iso)}). The page is rebuilt when new data is pushed; check IPMA for the latest.</p>`;
+  if (!Number.isFinite(h)) return `<p class="stale" role="status"><strong>The time this data was read is not known.</strong> Check ${esc(latest)} for the latest.</p>`;
+  if (h <= staleHours(cadence)) return `<p class="fresh">Read ${when(iso)}.</p>`;
+  return `<p class="stale" role="status"><strong>This data is ${Math.round(h)} hours old</strong> (read ${when(iso)}${cadence?.name ? `; it is collected ${esc(String(cadence.name).slice(0, 40))}` : ''}). The page is rebuilt when new data is pushed; check ${esc(latest)} for the latest.</p>`;
 }
 const fireChip = d => `<span class="chip ${fireClass(d.level)}" title="${esc(FIRE_PT[d.level] || '')}"><span class="d">${dayName(d.date)}</span> ${esc(d.level || 'unknown')}</span>`;
 const typeOf = id => D.types[id]?.en || 'unknown';
@@ -103,7 +107,7 @@ function portugalSection() {
   <h2>Portugal: the district capitals today</h2>
   <p class="src" data-live-front="capitals" data-built-obs="${esc(D.api['ipma-observations']?.read_at || '')}" data-built-warn="${esc(D.api['ipma-warnings']?.read_at || '')}">The Now column: the built copy, read ${esc(when(D.api['ipma-observations']?.read_at))}. The warnings: the built copy, read ${esc(when(D.api['ipma-warnings']?.read_at))}.</p>
   <p>${n('red') ? `<strong>${n('red')} districts at red.</strong> ` : ''}${n('orange') ? `<strong>${n('orange')} at orange</strong>, ` : ''}${n('yellow')} at yellow, ${n('green')} at green, by each district's highest IPMA warning in force or announced. ${worst[0] && worst[0].level !== 'green' ? `Highest: ${worst.filter(c => c.level === worst[0].level).map(c => `<a href="/places/${c.id}/">${esc(c.district)}</a>`).join(', ')}.` : ''}</p>
-  ${freshness(D.api['ipma-warnings']?.read_at)}
+  ${freshness(D.api['ipma-warnings']?.read_at, D.api['ipma-warnings']?.expected_cadence)}
   <div class="table-wrap"><table class="capitals"><thead><tr><th scope="col">Capital</th><th scope="col">Now</th><th scope="col">District warning</th><th scope="col">Today high / low</th><th scope="col">Rain</th><th scope="col">Weather</th><th scope="col">Fire risk</th></tr></thead><tbody>${caps.map(capRow).join('')}</tbody></table></div>
   <p class="src">Warnings: <a href="${safeHref(D.api['ipma-warnings']?.provenance?.page)}">IPMA</a>, by district. Now: the nearest IPMA station that reported in the latest hour (within 25 km). Forecasts: IPMA's for each capital. Fire risk: IPMA's for the capital's municipality. All as collected by <a href="https://data.promptugal.news/">data.promptugal.news</a>; sources and times on each capital's page. Faro: see the Algarve above.</p>
 </section>`;
@@ -218,20 +222,46 @@ function sharedMap() {
     head: '<link rel="stylesheet" href="/assets/ptmap/1.0.2/ptmap.css">\n<script defer src="/assets/ptmap/1.0.2/ptmap.js"></script>\n<script defer src="/assets/ptmap-init.js"></script>\n' };
 }
 
+// London's past (Dinis, 19 Nov 2026, about 01:17 UTC: "show the past, not only the forecast"): data.b@'s history file,
+// rain measured by the Environment Agency's gauges beside what Open-Meteo forecast the day before. No measured
+// temperature yet (the Met Office needs a key), so none is shown. A day is marked partial unless every gauge reported
+// all 96 quarter-hours.
+function londonPast() {
+  const h = existsSync('data/past/london.json') ? readJSON('data/past/london.json') : null;
+  if (!h || h.place !== 'london' || !Array.isArray(h.rows)) return { html: '', md: '' };
+  const readAt = typeof h.data_read_at === 'string' && !isNaN(Date.parse(h.data_read_at)) ? when(h.data_read_at) : 'at a time not given';
+  const mm = (v) => (typeof v === 'number' && isFinite(v) && v >= 0 && v < 500 ? `${Math.round(v * 10) / 10} mm` : 'n/a');
+  const today = new Date(BUILT).toISOString().slice(0, 10);
+  const realDay = (d) => LONDON_DAY.test(d) && new Date(d + 'T12:00:00Z').toISOString().slice(0, 10) === d;
+  const rows = [...new Map(h.rows.filter(r => r && typeof r.date === 'string' && realDay(r.date) && r.date < today).map(r => [r.date, r])).values()].sort((a, b) => (a.date < b.date ? -1 : 1)).slice(-7);
+  if (!rows.length) return { html: '', md: '' };
+  const g = (o) => (Number.isInteger(o?.gauges) && o.gauges > 0 && o.gauges < 100 ? o.gauges : null);
+  const tr = rows.map(r => { const o = r.observed || {}; const n = g(o);
+    return `<tr><td>${esc(dayName(r.date))}</td><td class="n">${mm(r.forecast?.d1?.rain_mm)}</td><td class="n">${n ? mm(o.rain_mm_mean) : 'n/a'}${n && o.complete !== true ? ' <span class="note">(partial)</span>' : ''}</td><td class="n">${n ?? 'none'}</td></tr>`; }).join('');
+  const md = `## The past: rain forecast and measured\n\n| Day | Forecast the day before | Measured | Gauges |\n|---|---|---|---|\n${rows.map(r => { const o = r.observed || {}; const n = g(o); return `| ${dayName(r.date)} | ${mm(r.forecast?.d1?.rain_mm)} | ${n ? mm(o.rain_mm_mean) : 'n/a'}${n && o.complete !== true ? ' (partial)' : ''} | ${n ?? 'none'} |`; }).join('\n')}\n\nMeasured: Contains Environment Agency data, Open Government Licence v3.0. Forecast: Weather data by Open-Meteo.com. Both via https://data.promptugal.news/api/v1/history/weather/london.json, read ${readAt}.\n\n`;
+  const html = `<section class="london-past"><h2>The past: rain forecast and measured</h2>
+<p>What Open-Meteo forecast the day before, beside the rain the Environment Agency's gauges near central London measured (the mean across the gauges that reported). "Partial" means a gauge missed some of its 96 quarter-hour readings that day. "n/a" is a day we do not have. Temperature is not measured here yet.</p>
+<div class="table-wrap"><table><thead><tr><th scope="col">Day</th><th scope="col">Forecast the day before</th><th scope="col">Measured</th><th scope="col">Gauges</th></tr></thead><tbody>${tr}</tbody></table></div>
+<p class="src">Measured: Contains Environment Agency data, <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Licence v3.0</a>. Forecast: Weather data by <a href="https://open-meteo.com/">Open-Meteo.com</a>. Both as kept by <a href="https://data.promptugal.news/api/v1/history/weather/london.json">data.promptugal.news</a>, read ${esc(readAt)}.</p></section>`;
+  return { html, md };
+}
+
 // /london/: the first place beyond Portugal (Dinis, 18 Nov 2026, about 22:20 UTC, Website board/guidance/2026-11-18-london.md)
 function londonPage() {
   const j = D.api['open-meteo-london'];
   const days = londonDays();
   if (!days.length) return;
+  const lp = londonPast();
   const num = (v) => (typeof v === 'number' && isFinite(v) && Math.abs(v) < 100 ? v : null);
   const rows = days.map(d => `<tr><td>${esc(dayName(d.date))}</td><td class="n">${num(d.temperature_min_c) ?? 'n/a'} °C</td><td class="n">${num(d.temperature_max_c) ?? 'n/a'} °C</td><td class="n">${num(d.precipitation_sum_mm) ?? 'n/a'} mm</td></tr>`).join('');
   const lic = j.license || {};
   const body = `<h1>London: the forecast</h1>
 <p class="standfirst">The first place this site covers beyond Portugal. A model forecast for a point in London, not a warning: for warnings, follow the <a href="https://www.metoffice.gov.uk/weather/warnings-and-advice/uk-warnings">Met Office</a>; for floods, the <a href="https://check-for-flooding.service.gov.uk/">Environment Agency</a>.</p>
-${freshness(j.read_at)}
+${freshness(j.read_at, j.expected_cadence, 'Open-Meteo')}
+${lp.html}
 <div class="table-wrap"><table><thead><tr><th scope="col">Day</th><th scope="col">Low</th><th scope="col">High</th><th scope="col">Rain</th></tr></thead><tbody>${rows}</tbody></table></div>
-<p class="src">Weather data by <a href="https://open-meteo.com/">Open-Meteo.com</a>, as collected by <a href="https://data.promptugal.news/sources/open-meteo-london/">data.promptugal.news</a>, read ${esc(when(j.read_at))}. Licence: <a href="https://open-meteo.com/en/terms">Open-Meteo's terms</a> (${esc(String(lic.name || 'CC BY 4.0').slice(0, 120))}): data.promptugal.news uses the free, non-commercial tier, and this site is free.</p>`;
-  const md = `A model forecast for London, not a warning: follow the Met Office.\n\n| Day | Low | High | Rain |\n|---|---|---|---|\n${days.map(d => `| ${dayName(d.date)} | ${num(d.temperature_min_c) ?? 'n/a'} °C | ${num(d.temperature_max_c) ?? 'n/a'} °C | ${num(d.precipitation_sum_mm) ?? 'n/a'} mm |`).join('\n')}\n\nWeather data by Open-Meteo.com (Open-Meteo's terms, https://open-meteo.com/en/terms: the free, non-commercial tier; this site is free), via https://data.promptugal.news/sources/open-meteo-london/, read ${when(j.read_at)}.\n`;
+<p class="src">Weather data by <a href="https://open-meteo.com/">Open-Meteo.com</a>, as collected by <a href="https://data.promptugal.news/sources/open-meteo-london/">data.promptugal.news</a>, read ${esc(when(j.read_at))}. Terms: <a href="https://open-meteo.com/en/terms">Open-Meteo's</a> (${esc(String(lic.name || 'CC BY 4.0').slice(0, 120))}): data.promptugal.news uses the free, non-commercial tier, and this site is free.</p>`;
+  const md = `A model forecast for London, not a warning: follow the Met Office.\n\n| Day | Low | High | Rain |\n|---|---|---|---|\n${days.map(d => `| ${dayName(d.date)} | ${num(d.temperature_min_c) ?? 'n/a'} °C | ${num(d.temperature_max_c) ?? 'n/a'} °C | ${num(d.precipitation_sum_mm) ?? 'n/a'} mm |`).join('\n')}\n\n${lp.md}Weather data by Open-Meteo.com (Open-Meteo's terms, https://open-meteo.com/en/terms: the free, non-commercial tier; this site is free), via https://data.promptugal.news/sources/open-meteo-london/, read ${when(j.read_at)}.\n`;
   add(page({ path: '/london/', title: 'London: the forecast', description: 'The forecast for London, by day, from Open-Meteo, with its source and the time it was read; for warnings follow the Met Office.', body, md }));
 }
 
@@ -266,7 +296,7 @@ function timelineSection() {
   const t = timeline(); if (!t) return '';
   return `<section><h2>Warnings by district, over time</h2>
 <p>Every IPMA warning above green for mainland Portugal's 18 districts, from today to the last one's end. Each bar is one warning, coloured by level; the red line is when this page was built.</p>
-${freshness(D.api['ipma-warnings'].read_at)}
+${freshness(D.api['ipma-warnings'].read_at, D.api['ipma-warnings'].expected_cadence)}
 ${t.html}
 <details class="tl-table"><summary>The same warnings as a table</summary>${markdown(t.md)}</details>
 <p class="src">Source: <a href="${safeHref(D.api['ipma-warnings'].provenance?.page)}">IPMA warnings</a> (<a href="${safeHref(D.api['ipma-warnings'].provenance?.source)}">open data</a>), as collected by <a href="https://data.promptugal.news/sources/ipma-warnings/">data.promptugal.news</a>. Times are Portugal time. Check IPMA for the warning in force now.</p>

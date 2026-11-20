@@ -142,8 +142,10 @@ export const LICENCES = {
   ipma: { name: "the source's terms", url: 'https://api.ipma.pt/', of: 'IPMA (free for personal or public use with no profit-making purpose; name IPMA as the source)' },
   adsb: { name: 'ODbL 1.0', url: 'https://opendatacommons.org/licenses/odbl/1-0/', of: 'adsb.lol' },
   meteoalarm: { name: "the source's terms", url: 'https://www.meteoalarm.org/en/live/page/terms-and-conditions', of: 'MeteoAlarm' },
+  openmeteo: { name: 'CC BY 4.0, under its terms', url: 'https://open-meteo.com/en/terms', of: 'Open-Meteo (free, non-commercial tier; credit "Weather data by Open-Meteo.com")' },
+  ea: { name: 'Open Government Licence v3.0', url: 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/', of: 'Environment Agency (contains Environment Agency data)' },
 };
-const LIC_RULES = [[/adsb\.lol/i, 'adsb'], [/meteoalarm/i, 'meteoalarm'], [/IPMA/, 'ipma']];
+const LIC_RULES = [[/adsb\.lol/i, 'adsb'], [/meteoalarm/i, 'meteoalarm'], [/IPMA/, 'ipma'], [/Open-Meteo/, 'openmeteo'], [/Contains Environment Agency data/, 'ea']];
 export const licLink = k => `<a class="lic" href="${LICENCES[k].url}">${k === 'ours' ? 'CC BY 4.0' : `${LICENCES[k].of.split(' (')[0]}: ${LICENCES[k].name}`}</a>`;
 // every source line on a page names the licence of the data it cites
 function addLicences(html) {
