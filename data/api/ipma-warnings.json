@@ -1,5 +1,5 @@
 {
- "data_read_at": "2026-11-20T07:17:00Z",
+ "data_read_at": "2026-11-20T18:15:47Z",
  "expected_cadence": {
   "name": "twice a day",
   "seconds": 43200,
@@ -22,35 +22,25 @@
  },
  "source": "ipma-warnings",
  "title": "IPMA weather warnings",
- "read_at": "2026-11-20T07:17:00Z",
+ "read_at": "2026-11-20T18:15:47Z",
  "provenance": {
   "source": "https://api.ipma.pt/open-data/forecast/warnings/warnings_www.json",
   "page": "https://www.ipma.pt/en/otempo/prev-sam/",
-  "read_at": "2026-11-20T07:17:00Z",
+  "read_at": "2026-11-20T18:15:47Z",
   "by": "sources/ipma-warnings/collect.mjs (code, no model; run by data@PrompTugal.dinis)",
   "terms": "IPMA: free to copy and use for personal or public use if the use has no profit-making or offensive purpose; always name IPMA as the source."
  },
  "about": "IPMA's weather warnings, every area: the active ones (yellow, orange, red) in full, and a count of the rest. Times as IPMA gives them (Portugal local time). Not a warning service: follow IPMA and ANEPC.",
  "counts": {
-  "active": 32,
+  "active": 26,
   "by_level": {
-   "yellow": 24,
+   "yellow": 18,
    "orange": 8
   },
   "green": 200,
   "areas": 25
  },
  "active": [
-  {
-   "area": "AVR",
-   "area_name": "Aveiro",
-   "type": "rough sea",
-   "type_pt": "Agitação Marítima",
-   "level": "yellow",
-   "start": "2026-11-20T00:50:00",
-   "end": "2026-11-20T12:00:00",
-   "text": "Ondas de noroeste com 4 a 5 metros."
-  },
   {
    "area": "AVR",
    "area_name": "Aveiro",
@@ -82,26 +72,6 @@
    "text": "Chuva persistente, por vezes forte."
   },
   {
-   "area": "BJA",
-   "area_name": "Beja",
-   "type": "rough sea",
-   "type_pt": "Agitação Marítima",
-   "level": "yellow",
-   "start": "2026-11-20T00:50:00",
-   "end": "2026-11-20T09:00:00",
-   "text": "Ondas de noroeste com 4 a 5 metros."
-  },
-  {
-   "area": "BRG",
-   "area_name": "Braga",
-   "type": "rough sea",
-   "type_pt": "Agitação Marítima",
-   "level": "yellow",
-   "start": "2026-11-20T00:50:00",
-   "end": "2026-11-20T12:00:00",
-   "text": "Ondas de noroeste com 4 a 5 metros."
-  },
-  {
    "area": "BRG",
    "area_name": "Braga",
    "type": "rain",
@@ -122,6 +92,16 @@
    "text": "Chuva persistente, por vezes forte."
   },
   {
+   "area": "BRG",
+   "area_name": "Braga",
+   "type": "rain",
+   "type_pt": "Precipitação",
+   "level": "yellow",
+   "start": "2026-11-21T18:00:00",
+   "end": "2026-11-21T21:00:00",
+   "text": "Aguaceiros, por vezes fortes e que podem ser acompanhados de trovoada."
+  },
+  {
    "area": "CBO",
    "area_name": "Castelo Branco",
    "type": "rain",
@@ -134,16 +114,6 @@
   {
    "area": "CBR",
    "area_name": "Coimbra",
-   "type": "rough sea",
-   "type_pt": "Agitação Marítima",
-   "level": "yellow",
-   "start": "2026-11-20T00:50:00",
-   "end": "2026-11-20T12:00:00",
-   "text": "Ondas de noroeste com 4 a 5 metros."
-  },
-  {
-   "area": "CBR",
-   "area_name": "Coimbra",
    "type": "rain",
    "type_pt": "Precipitação",
    "level": "yellow",
@@ -160,16 +130,6 @@
    "start": "2026-11-21T06:00:00",
    "end": "2026-11-21T18:00:00",
    "text": "Chuva persistente, por vezes forte."
-  },
-  {
-   "area": "FAR",
-   "area_name": "Faro",
-   "type": "rough sea",
-   "type_pt": "Agitação Marítima",
-   "level": "yellow",
-   "start": "2026-11-20T00:50:00",
-   "end": "2026-11-20T09:00:00",
-   "text": "Na costa Ocidental, ondas de noroeste com 4 a 5 metros."
   },
   {
    "area": "GDA",
@@ -194,32 +154,12 @@
   {
    "area": "LRA",
    "area_name": "Leiria",
-   "type": "rough sea",
-   "type_pt": "Agitação Marítima",
-   "level": "yellow",
-   "start": "2026-11-20T00:50:00",
-   "end": "2026-11-20T12:00:00",
-   "text": "Ondas de noroeste com 4 a 5 metros."
-  },
-  {
-   "area": "LRA",
-   "area_name": "Leiria",
    "type": "rain",
    "type_pt": "Precipitação",
    "level": "yellow",
    "start": "2026-11-21T06:00:00",
    "end": "2026-11-21T18:00:00",
    "text": "Chuva persistente, por vezes forte."
-  },
-  {
-   "area": "LSB",
-   "area_name": "Lisboa",
-   "type": "rough sea",
-   "type_pt": "Agitação Marítima",
-   "level": "yellow",
-   "start": "2026-11-20T00:50:00",
-   "end": "2026-11-20T09:00:00",
-   "text": "Ondas de noroeste com 4 a 5 metros."
   },
   {
    "area": "LSB",
@@ -244,16 +184,6 @@
   {
    "area": "PTO",
    "area_name": "Porto",
-   "type": "rough sea",
-   "type_pt": "Agitação Marítima",
-   "level": "yellow",
-   "start": "2026-11-20T00:50:00",
-   "end": "2026-11-20T12:00:00",
-   "text": "Ondas de noroeste com 4 a 5 metros."
-  },
-  {
-   "area": "PTO",
-   "area_name": "Porto",
    "type": "rain",
    "type_pt": "Precipitação",
    "level": "yellow",
@@ -272,14 +202,14 @@
    "text": "Chuva persistente, por vezes forte."
   },
   {
-   "area": "STB",
-   "area_name": "Setúbal",
-   "type": "rough sea",
-   "type_pt": "Agitação Marítima",
+   "area": "PTO",
+   "area_name": "Porto",
+   "type": "rain",
+   "type_pt": "Precipitação",
    "level": "yellow",
-   "start": "2026-11-20T00:50:00",
-   "end": "2026-11-20T09:00:00",
-   "text": "Ondas de noroeste com 4 a 5 metros."
+   "start": "2026-11-21T18:00:00",
+   "end": "2026-11-21T21:00:00",
+   "text": "Aguaceiros, por vezes fortes e que podem ser acompanhados de trovoada."
   },
   {
    "area": "STM",
@@ -294,16 +224,6 @@
   {
    "area": "VCT",
    "area_name": "Viana do Castelo",
-   "type": "rough sea",
-   "type_pt": "Agitação Marítima",
-   "level": "yellow",
-   "start": "2026-11-20T00:50:00",
-   "end": "2026-11-20T12:00:00",
-   "text": "Ondas de noroeste com 4 a 5 metros."
-  },
-  {
-   "area": "VCT",
-   "area_name": "Viana do Castelo",
    "type": "rain",
    "type_pt": "Precipitação",
    "level": "yellow",
@@ -320,6 +240,16 @@
    "start": "2026-11-21T06:00:00",
    "end": "2026-11-21T18:00:00",
    "text": "Chuva persistente, por vezes forte."
+  },
+  {
+   "area": "VCT",
+   "area_name": "Viana do Castelo",
+   "type": "rain",
+   "type_pt": "Precipitação",
+   "level": "yellow",
+   "start": "2026-11-21T18:00:00",
+   "end": "2026-11-21T21:00:00",
+   "text": "Aguaceiros, por vezes fortes e que podem ser acompanhados de trovoada."
   },
   {
    "area": "VIS",
@@ -360,6 +290,16 @@
    "start": "2026-11-21T06:00:00",
    "end": "2026-11-21T18:00:00",
    "text": "Chuva persistente, por vezes forte."
+  },
+  {
+   "area": "VRL",
+   "area_name": "Vila Real",
+   "type": "rain",
+   "type_pt": "Precipitação",
+   "level": "yellow",
+   "start": "2026-11-21T18:00:00",
+   "end": "2026-11-21T21:00:00",
+   "text": "Aguaceiros, por vezes fortes e que podem ser acompanhados de trovoada."
   }
  ]
 }

@@ -1,5 +1,5 @@
 {
- "data_read_at": "2026-11-20T07:16:35Z",
+ "data_read_at": "2026-11-20T18:15:22Z",
  "expected_cadence": {
   "name": "twice a day",
   "seconds": 43200,
@@ -22,11 +22,11 @@
  },
  "source": "ipma-fire-risk",
  "title": "IPMA fire risk",
- "read_at": "2026-11-20T07:16:35Z",
+ "read_at": "2026-11-20T18:15:22Z",
  "provenance": {
   "source": "https://api.ipma.pt/open-data/forecast/meteorology/rcm/rcm-d0.json",
   "page": "https://www.ipma.pt/en/riscoincendio/rcm.pt/",
-  "read_at": "2026-11-20T07:16:35Z",
+  "read_at": "2026-11-20T18:15:22Z",
   "by": "sources/ipma-fire-risk/collect.mjs (code, no model; run by data@PrompTugal.dinis)",
   "terms": "IPMA: free to copy and use for personal or public use if the use has no profit-making or offensive purpose; always name IPMA as the source.",
   "sources": [
@@ -42,21 +42,21 @@
    "d": 0,
    "date": "2026-11-20",
    "run": "2026-11-19",
-   "file_date": "2026-11-20 00:05:02",
+   "file_date": "2026-11-20 09:35:01",
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/rcm/rcm-d0.json"
   },
   {
    "d": 1,
    "date": "2026-11-21",
    "run": "2026-11-19",
-   "file_date": "2026-11-20 00:05:02",
+   "file_date": "2026-11-20 09:35:02",
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/rcm/rcm-d1.json"
   },
   {
    "d": 2,
    "date": "2026-11-22",
    "run": "2026-11-19",
-   "file_date": "2026-11-20 00:05:03",
+   "file_date": "2026-11-20 09:35:03",
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/rcm/rcm-d2.json"
   }
  ],
