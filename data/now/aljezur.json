@@ -1,5 +1,5 @@
 {
- "data_read_at": "2026-11-20T18:16:43Z",
+ "data_read_at": "2026-11-21T07:13:27Z",
  "expected_cadence": {
   "name": "twice a day",
   "seconds": 43200,
@@ -38,7 +38,7 @@
   }
  },
  "place": "aljezur",
- "read_at": "2026-11-20T18:16:43Z",
+ "read_at": "2026-11-21T07:13:27Z",
  "by": "collect/by-place-now.mjs (code, no model; data@PrompTugal.dinis), from this site's collected sources",
  "coords": {
   "lat": 37.31778,
@@ -71,38 +71,38 @@
   "page": "https://www.ipma.pt/en/otempo/prev.localidade.hora/",
   "days": [
    {
-    "date": "2026-11-20",
-    "t_min_c": 10.5,
-    "t_max_c": 18.3,
-    "rain_prob_pct": 0,
-    "weather_type": 2
-   },
-   {
     "date": "2026-11-21",
-    "t_min_c": 13.6,
+    "t_min_c": 14.9,
     "t_max_c": 20.5,
-    "rain_prob_pct": 96,
-    "weather_type": 9
+    "rain_prob_pct": 100,
+    "weather_type": 10
    },
    {
     "date": "2026-11-22",
-    "t_min_c": 10.1,
-    "t_max_c": 19.3,
+    "t_min_c": 10.2,
+    "t_max_c": 19.4,
     "rain_prob_pct": 0,
     "weather_type": 1
    },
    {
     "date": "2026-11-23",
     "t_min_c": 8.8,
-    "t_max_c": 18.4,
+    "t_max_c": 18.1,
     "rain_prob_pct": 0,
-    "weather_type": 2
+    "weather_type": 5
    },
    {
     "date": "2026-11-24",
-    "t_min_c": 10.4,
-    "t_max_c": 19.2,
-    "rain_prob_pct": 47,
+    "t_min_c": 9.1,
+    "t_max_c": 17.4,
+    "rain_prob_pct": 57,
+    "weather_type": 7
+   },
+   {
+    "date": "2026-11-25",
+    "t_min_c": 9.2,
+    "t_max_c": 17.6,
+    "rain_prob_pct": 35,
     "weather_type": 3
    }
   ],
@@ -118,15 +118,15 @@
   "municipality": "0803",
   "days": [
    {
-    "date": "2026-11-20",
-    "level": "low"
-   },
-   {
     "date": "2026-11-21",
     "level": "low"
    },
    {
     "date": "2026-11-22",
+    "level": "low"
+   },
+   {
+    "date": "2026-11-23",
     "level": "low"
    }
   ],
@@ -142,10 +142,10 @@
  },
  "sea": {
   "coast": "Sagres coast",
-  "date": "2026-11-20",
-  "waves_max_m": 3.4,
-  "sea_max_m": 3.5,
-  "sea_temp_max_c": 18.8,
+  "date": "2026-11-21",
+  "waves_max_m": 2.1,
+  "sea_max_m": 2,
+  "sea_temp_max_c": 18.7,
   "page": "https://www.ipma.pt/en/maritima/costeira/",
   "source": "https://api.ipma.pt/open-data/forecast/oceanography/daily/hp-daily-sea-forecast-day0.json"
  },
@@ -153,37 +153,37 @@
  "reads": {
   "observations": {
    "url": "https://data.promptugal.news/api/v1/ipma-observations/latest.json",
-   "at": "2026-11-20T18:15:29Z",
+   "at": "2026-11-21T07:12:13Z",
    "status": 200
   },
   "warnings": {
    "url": "https://data.promptugal.news/api/v1/ipma-warnings/latest.json",
-   "at": "2026-11-20T18:15:47Z",
+   "at": "2026-11-21T07:12:31Z",
    "status": 200
   },
   "forecasts": {
    "url": "https://data.promptugal.news/api/v1/ipma-city-forecasts/latest.json",
-   "at": "2026-11-20T18:13:52Z",
+   "at": "2026-11-21T07:10:36Z",
    "status": 200
   },
   "fire-risk": {
    "url": "https://data.promptugal.news/api/v1/ipma-fire-risk/latest.json",
-   "at": "2026-11-20T18:15:22Z",
+   "at": "2026-11-21T07:12:06Z",
    "status": 200
   },
   "uv": {
    "url": "https://data.promptugal.news/api/v1/ipma-uv/latest.json",
-   "at": "2026-11-20T18:15:44Z",
+   "at": "2026-11-21T07:12:29Z",
    "status": 200
   },
   "sea": {
    "url": "https://data.promptugal.news/api/v1/ipma-sea/latest.json",
-   "at": "2026-11-20T18:15:34Z",
+   "at": "2026-11-21T07:12:19Z",
    "status": 200
   },
   "adsb": {
    "url": "https://data.promptugal.news/api/v1/adsb-faro/latest.json",
-   "at": "2026-11-20T18:04:26Z",
+   "at": "2026-11-21T07:04:19Z",
    "status": 200
   }
  }

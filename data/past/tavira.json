@@ -1,5 +1,5 @@
 {
- "data_read_at": "2026-11-20T18:15:29Z",
+ "data_read_at": "2026-11-21T07:12:13Z",
  "expected_cadence": {
   "name": "twice a day",
   "seconds": 43200,
@@ -46,7 +46,7 @@
    }
   }
  },
- "commit": "65c66677f4957a21ffbcf6d58b3f8794f505d39f",
+ "commit": "bd410a73762d6b0a755da0a946556d6e47d54c8e",
  "rows": [
   {
    "date": "2026-11-19",
@@ -69,8 +69,8 @@
     "low_c": 11.3,
     "high_c": 17.7,
     "rain_mm": 0,
-    "hours": 18,
-    "complete": false
+    "hours": 24,
+    "complete": true
    },
    "forecast": {
     "d1": {
@@ -82,6 +82,35 @@
      "rain_mm": null
     },
     "d2": null,
+    "d3": null
+   }
+  },
+  {
+   "date": "2026-11-21",
+   "observed": {
+    "low_c": 11.9,
+    "high_c": 12.5,
+    "rain_mm": 0.1,
+    "hours": 7,
+    "complete": false
+   },
+   "forecast": {
+    "d1": {
+     "issued": "2026-11-20T17:31:02",
+     "read_at": "2026-11-20T18:14:16Z",
+     "t_min_c": 13,
+     "t_max_c": 20.9,
+     "rain_prob_pct": 100,
+     "rain_mm": null
+    },
+    "d2": {
+     "issued": "2026-11-19T17:31:02",
+     "read_at": "2026-11-19T18:12:57Z",
+     "t_min_c": 11,
+     "t_max_c": 20.4,
+     "rain_prob_pct": 86,
+     "rain_mm": null
+    },
     "d3": null
    }
   }

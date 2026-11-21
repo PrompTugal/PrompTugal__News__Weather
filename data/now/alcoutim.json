@@ -1,5 +1,5 @@
 {
- "data_read_at": "2026-11-20T18:16:43Z",
+ "data_read_at": "2026-11-21T07:13:27Z",
  "expected_cadence": {
   "name": "twice a day",
   "seconds": 43200,
@@ -38,7 +38,7 @@
   }
  },
  "place": "alcoutim",
- "read_at": "2026-11-20T18:16:43Z",
+ "read_at": "2026-11-21T07:13:27Z",
  "by": "collect/by-place-now.mjs (code, no model; data@PrompTugal.dinis), from this site's collected sources",
  "coords": {
   "lat": 37.46997,
@@ -71,39 +71,39 @@
   "page": "https://www.ipma.pt/en/otempo/prev.localidade.hora/",
   "days": [
    {
-    "date": "2026-11-20",
-    "t_min_c": 9.2,
-    "t_max_c": 18.1,
-    "rain_prob_pct": 0,
-    "weather_type": 2
-   },
-   {
     "date": "2026-11-21",
-    "t_min_c": 11.1,
+    "t_min_c": 11.6,
     "t_max_c": 19.4,
     "rain_prob_pct": 100,
     "weather_type": 6
    },
    {
     "date": "2026-11-22",
-    "t_min_c": 10.2,
-    "t_max_c": 18.2,
+    "t_min_c": 9.9,
+    "t_max_c": 18.3,
     "rain_prob_pct": 0,
     "weather_type": 1
    },
    {
     "date": "2026-11-23",
-    "t_min_c": 7.9,
-    "t_max_c": 18.7,
+    "t_min_c": 8.2,
+    "t_max_c": 18.3,
     "rain_prob_pct": 0,
     "weather_type": 2
    },
    {
     "date": "2026-11-24",
-    "t_min_c": 10.9,
-    "t_max_c": 19,
-    "rain_prob_pct": 43,
+    "t_min_c": 9.1,
+    "t_max_c": 16.6,
+    "rain_prob_pct": 41,
     "weather_type": 3
+   },
+   {
+    "date": "2026-11-25",
+    "t_min_c": 8.6,
+    "t_max_c": 16.4,
+    "rain_prob_pct": 16,
+    "weather_type": 2
    }
   ],
   "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1080800.json"
@@ -118,15 +118,15 @@
   "municipality": "0802",
   "days": [
    {
-    "date": "2026-11-20",
-    "level": "low"
-   },
-   {
     "date": "2026-11-21",
     "level": "low"
    },
    {
     "date": "2026-11-22",
+    "level": "low"
+   },
+   {
+    "date": "2026-11-23",
     "level": "low"
    }
   ],
@@ -145,37 +145,37 @@
  "reads": {
   "observations": {
    "url": "https://data.promptugal.news/api/v1/ipma-observations/latest.json",
-   "at": "2026-11-20T18:15:29Z",
+   "at": "2026-11-21T07:12:13Z",
    "status": 200
   },
   "warnings": {
    "url": "https://data.promptugal.news/api/v1/ipma-warnings/latest.json",
-   "at": "2026-11-20T18:15:47Z",
+   "at": "2026-11-21T07:12:31Z",
    "status": 200
   },
   "forecasts": {
    "url": "https://data.promptugal.news/api/v1/ipma-city-forecasts/latest.json",
-   "at": "2026-11-20T18:13:52Z",
+   "at": "2026-11-21T07:10:36Z",
    "status": 200
   },
   "fire-risk": {
    "url": "https://data.promptugal.news/api/v1/ipma-fire-risk/latest.json",
-   "at": "2026-11-20T18:15:22Z",
+   "at": "2026-11-21T07:12:06Z",
    "status": 200
   },
   "uv": {
    "url": "https://data.promptugal.news/api/v1/ipma-uv/latest.json",
-   "at": "2026-11-20T18:15:44Z",
+   "at": "2026-11-21T07:12:29Z",
    "status": 200
   },
   "sea": {
    "url": "https://data.promptugal.news/api/v1/ipma-sea/latest.json",
-   "at": "2026-11-20T18:15:34Z",
+   "at": "2026-11-21T07:12:19Z",
    "status": 200
   },
   "adsb": {
    "url": "https://data.promptugal.news/api/v1/adsb-faro/latest.json",
-   "at": "2026-11-20T18:04:26Z",
+   "at": "2026-11-21T07:04:19Z",
    "status": 200
   }
  }
