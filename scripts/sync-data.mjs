@@ -26,6 +26,7 @@ const API_FILES = [
   ...PLACES.map(p => [`by-place/now/${p}.json`, `data/now/${p}.json`]),
   ...SOURCES.map(s => [`${s}/latest.json`, `data/api/${s}.json`]),
   ['storm/charles/exposure/people-by-hour.json', 'data/storm/charles-people-by-hour.json'],
+  ['storm/charles/weather/stations.json', 'data/storm/charles-stations.json'],
 ];
 const WEB_FILES = [
   ['data/by-place/places.json', 'data/map/places-source.json'],
@@ -66,6 +67,8 @@ const SHAPES = [
   [/^data\/past\/[a-z0-9-]{1,60}\.json$/, j => typeof j.place === 'string' && typeof j.first_day === 'string' && Array.isArray(j.rows) && j.rows.length <= 400 &&
     j.rows.every(r => r && typeof r.date === 'string')],
   [/^data\/sites\.json$/, j => Array.isArray(j.sites) && j.sites.length <= 32],
+  [/^data\/storm\/charles-stations\.json$/, j => typeof j.about === 'string' && Array.isArray(j.stations) && j.stations.length <= 20 &&
+    j.stations.every(x => x && typeof x.id === 'string' && typeof x.name === 'string' && Array.isArray(x.hourly) && x.hourly.length <= 400)],
   [/^data\/storm\//, j => Array.isArray(j.hours) && j.hours.length <= 400 && typeof j.about === 'string' &&
     j.hours.every(h => h && typeof h.hour_utc === 'string' && ['red', 'orange', 'yellow'].every(k => Number.isFinite(h[k]) && h[k] >= 0))],
 ];

@@ -6,7 +6,7 @@
   "maps_from": "https://github.com/PrompTugal/PrompTugal__News__Website",
   "maps_via": "raw.githubusercontent.com",
   "commit": "unknown",
-  "synced_at": "2026-11-21T08:14:38Z",
+  "synced_at": "2026-11-21T08:17:13Z",
   "files": [
     {
       "from": "https://data.promptugal.news/api/v1/by-place/now/algarve.json",
@@ -115,6 +115,10 @@
     {
       "from": "https://data.promptugal.news/api/v1/storm/charles/exposure/people-by-hour.json",
       "to": "data/storm/charles-people-by-hour.json"
+    },
+    {
+      "from": "https://data.promptugal.news/api/v1/storm/charles/weather/stations.json",
+      "to": "data/storm/charles-stations.json"
     },
     {
       "from": "https://data.promptugal.news/api/v1/history/weather/faro.json",

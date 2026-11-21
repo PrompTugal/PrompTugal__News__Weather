@@ -7,7 +7,7 @@ Each item lands on `/storms/charles/` (the archive) unless said otherwise. A pro
 | # | Item (data.b@'s name) | Kind | What this team does | When |
 |---|---|---|---|---|
 | 1 | Residents under each IPMA level, hour by hour | visualization | Take: on the archive, reusing data.b@'s port (`src/assets/viz/storm-labs.js` in the Data repo) or a build-time SVG from the API's `people-by-hour.json` | done, run 5 (18 Nov, 19:50 UTC) |
-| 2 | Warned against observed: every station on one time axis | visualization | Take: on the archive | next runs |
+| 2 | Warned against observed: every station on one time axis | visualization | Take: on the archive | done 21 Nov 2026 (scripts/site/stormwind.mjs): Lisbon's 8 stations, hourly mean wind, under the Lisboa wind warnings |
 | 3 | Forecast models side by side (IPMA, MET Norway, Open-Meteo, TAF) | visualization | Take: on the archive, labelled as a record of that week | next runs |
 | 4 | Wednesday hour by hour in bands | visualization | Take: on the archive; "our hypothesis" band marked as our analysis | after 3 |
 | 5 | Weather face: warnings by hour strip, observations, airport METAR, rain, Madeira | visualization | Take the warnings-by-hour strip (it matches `/map/`'s timeline); the rest as archive panels; drop `data/agents/now.json` (Storm-only, as data.b@ says) | after 4 |

@@ -2,9 +2,9 @@
   "role": "weather.b@PrompTugal.dinis",
   "account": "B",
   "started_by": "conductor.b@PrompTugal.dinis at Dinis's word (PrompTugal__News__Website board/guidance/2026-11-18-five-sites-on-account-b.md)",
-  "state": "19:13 Lisbon wake (20 Nov): UV for every day on the Algarve place pages pushed; waits for the 08:13 Lisbon wake (first outcomes then)",
-  "updated": "2026-11-20T19:40Z",
-  "debrief": "board/team/weather/debriefs/2026-11-20-account-b.md",
+  "state": "08:13 Lisbon wake (21 Nov): first outcomes recorded (32 held, 4 missed); Storm item 2 (warned against observed) pushed; waits for the 19:13 Lisbon wake",
+  "updated": "2026-11-21T09:10Z",
+  "debrief": "board/team/weather/debriefs/2026-11-21-account-b.md",
   "observability_lane": "weather",
   "observability_note": "For conductor.b@ to relay to account A's observability@: assets/obs/obs.js is on every page and writes only to obs.json lanes.weather, which is empty, so nothing is sent yet. observability@ issues the lane's append tokens (in the vault of its choice; the drain key is read from promptugal.news/assets/obs/obs.json unless set in this site's obs.json).",
   "fixes": {
@@ -59,16 +59,17 @@
     "control 10 per library.b@'s review of its own (LIB-2026-069, relayed by conductor.b@ 19:46 UTC; 2026-11-19T20:20Z): paths compared as raw bytes; each exception pins the link's blob id (re-pointing is refused; an exception without one covers nothing); AFTER's own tree checked with ls-tree, an unread link entry refused; merges (-m) and the unpruned .git walk already held. 7 new tests (27). Sonnet post-review: no bypass; its low (64-hex ids) fixed",
     "ptmap 1.0.2 in place of 1.0.0 (2026-11-19T20:15Z; relayed by conductor.b@ 20:07 UTC: registry v0.1.1924 serves map 1.0.2, review passed, security@ 168c14fc5; rights@ closed R12): files from Website design/shared-map/v1.0.2/ (0b49f7742), matching the live registry's sha384 pins; changes from 1.0.0 are the full ISC licence in the header and own-keys-only attributes (security@'s two lows)",
     "London's past on /london/ (2026-11-20T08:40Z; Dinis 19 Nov ~01:17 UTC, show the past): Open-Meteo's day-before rain forecast beside the Environment Agency's measured rain (data/past/london.json), partial days marked, credited, licences listed; the stale mark reads each file's expected_cadence.stale_after_seconds (1 to 48 h, else 13 h). Sonnet post-review: no injection; 5 low findings fixed",
-    "UV for every day on the Algarve place pages (2026-11-20T19:40Z): chips for each of IPMA's days from today (Lisbon), matched by IPMA's place name in its Portugal-wide UV file; the page had shown only the last day. Sagres (unnamed in that file) keeps one day, explained. Sonnet post-review clean; two nits fixed"
+    "UV for every day on the Algarve place pages (2026-11-20T19:40Z): chips for each of IPMA's days from today (Lisbon), matched by IPMA's place name in its Portugal-wide UV file; the page had shown only the last day. Sagres (unnamed in that file) keeps one day, explained. Sonnet post-review clean; two nits fixed",
+    "the first outcomes (2026-11-21T08:20Z, bc89c0e): 36 for 20 Nov, 32 held, 4 missed (all Monchique: said 18.3 °C, measured 13.1 °C)",
+    "Storm item 2 on /storms/charles/ (2026-11-21T09:10Z): Lisbon's 8 stations' hourly mean wind under the Lisboa wind warnings, build-time SVG with a table and markdown; a warning IPMA lowered before it began is drawn in outline. Sonnet post-review: 1 important (the lowered red shown as in force), 4 lower, all fixed"
   ],
   "next": [
-    "the first forecast outcomes once 20 Nov (UTC) is complete",
     "signed commits, once ssh-keygen is allowed: team/keys.json, repo-local signing config, scripts/check-signatures.mjs and its tests from data.b@'s pattern (credited, Apache-2.0), CI step (a workflow edit: needs Dinis's word)",
     "forecast-accuracy page, Faro first (station 1200554), then London: compare each archived forecast (data/history/forecasts.jsonl) with data.b@'s daily figures in ipma-observations/latest.json 'daily' (per UTC day and station: low_c, high_c, rain_mm, hours; 14 days kept; a day counts only when hours is 24; told by data.b@ at 22:22 UTC, live after the data site's next Pages run). Note: IPMA's forecast days are Portugal local days, the daily figures UTC days (the same in winter, one hour apart in summer)",
     "reader reports on the accuracy page: only the form's fields, the area matched to a known place, the conditions from the form's list, the time rounded to the hour, escaped text, the free-text box left out until a person reviews it, labelled 'observed by a reader on the ground (unverified)'; dropped when the issue is closed or edited away",
     "cameras: embed an operator's player only once its embed terms are read (none yet); Windy's webcams API needs a key and its terms read first",
     "provenance block on every item, as on the residents chart (Dinis's 19:00 UTC guidance)",
-    "Storm items 2 onwards (board/team/weather/storm-items.md)",
+    "Storm items 3 onwards (board/team/weather/storm-items.md): 3, forecast models side by side",
     "W-4: pin the build actions by commit (needs a person's yes for the CI workflow edit)",
     "W-5: pin the drain key in this site's obs.json when the lane opens",
     "W-6: read the Website map files from a pinned commit",

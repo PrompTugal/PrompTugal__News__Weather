@@ -13,6 +13,7 @@ import { previewSvg, previewFigures, previewBarSvg } from './preview.mjs';
 import { camsSection, camerasPage, CAMS_CSS } from './cams.mjs';
 import { pastSection, historyStation, PAST_CSS } from './past.mjs';
 import { recordPage } from './record.mjs';
+import { stormWindSection, STORMWIND_CSS } from './stormwind.mjs';
 import { vendorState } from '../vendor-check.mjs';
 import { DESIGNS } from './lib.mjs';
 const SHOTS_AT = existsSync('src/assets/designs/shots.json') ? JSON.parse(readFileSync('src/assets/designs/shots.json', 'utf8')).taken : 'not yet';
@@ -421,6 +422,7 @@ const src = (s, u) => u ? `<a href="${safeHref(u)}">${esc(s || host(u))}</a>` : 
 function stormPage(s) {
   const made = { code: 'scripts/site/generate.mjs renders data/storms/' + s.id + '.json.', agents: `${esc(s.written_by || 'weather.writer@PrompTugal.dinis')} (Claude, Sonnet) wrote the record from the Storm Charles repository; weather@PrompTugal.dinis (Claude, Opus) reviewed it.`, person: s.checked_by_person ? esc(s.checked_by_person) : 'Not yet checked by a person.' };
   const ex = s.id === 'charles' && D.stormExposure ? exposureSection(D.stormExposure) : null;
+  const sw = s.id === 'charles' && existsSync('data/storm/charles-stations.json') ? stormWindSection(readJSON('data/storm/charles-stations.json'), s.warnings) : null;
   const body = `<nav class="crumbs" aria-label="Breadcrumb"><a href="/storms/">Storms</a> › ${esc(s.name)}</nav>
 <h1>${esc(s.name)}, ${esc(s.dates.from)} to ${esc(s.dates.to)}</h1>
 <p class="kicker">Archived event · ${esc((s.areas || []).join(', '))}</p>
@@ -428,14 +430,15 @@ function stormPage(s) {
 <p>The full record, as it was kept during the storm: <a href="${safeHref(s.archive_site)}">${esc(host(s.archive_site))}</a> (<a href="${safeHref(s.archive_repo)}">repository</a>).</p>
 ${s.peaks?.length ? `<section><h2>The peaks</h2><div class="peaks">${s.peaks.map(p => `<div class="peak"><p class="v">${esc(p.value)}</p><p class="w">${esc(p.what)}${p.where ? `, ${esc(p.where)}` : ''}</p><p class="src">${lab(p.label)} ${src(p.source, p.url)}${p.read ? `, ${esc(p.read)}` : ''}</p></div>`).join('')}</div></section>` : ''}
 ${s.warnings?.length ? `<section><h2>IPMA's warnings</h2><div class="table-wrap"><table><thead><tr><th scope="col">District</th><th scope="col">Warning</th><th scope="col">Level</th><th scope="col">From</th><th scope="col">To</th><th scope="col">Source</th></tr></thead><tbody>${s.warnings.map(w => `<tr><td>${esc(w.district)}</td><td>${esc(w.kind)}</td><td><span class="chip ${warnClass(w.level)}">${esc(w.level)}</span></td><td>${esc(w.from)}</td><td>${esc(w.to)}</td><td>${src(w.source, w.url)}</td></tr>`).join('')}</tbody></table></div></section>` : ''}
+${sw ? sw.html : ''}
 ${ex ? ex.html : ''}
 ${s.algarve ? `<section><h2>In the Algarve</h2><p>${esc(s.algarve)}</p></section>` : ''}
 ${s.decisions?.length ? `<section><h2>Decisions</h2><ul class="decisions">${s.decisions.map(d => `<li><strong>${esc(d.who)}</strong>: ${esc(d.what)} <span class="when">${esc(d.at)}</span> ${src(d.source, d.url)}</li>`).join('')}</ul></section>` : ''}
 ${s.timeline?.length ? `<section><h2>Timeline</h2><ol class="timeline">${s.timeline.map(e => `<li><time>${when(e.at)}</time> ${lab(e.label)} ${esc(e.text)} <span class="src">${src(e.source, e.url)}</span></li>`).join('')}</ol></section>` : ''}
 ${s.lessons?.length ? `<section><h2>For the next storm</h2><p class="note">Our analysis, not advice: follow IPMA and ANEPC.</p><ul>${s.lessons.map(l => `<li>${esc(l)}</li>`).join('')}</ul></section>` : ''}
 ${s.sources?.length ? `<section><h2>Sources</h2><ul>${s.sources.map(x => `<li>${src(x.name, x.url)}</li>`).join('')}</ul></section>` : ''}`;
-  const md = `${s.standfirst}\n\nFull record: ${s.archive_site} (repository ${s.archive_repo}).\n\n${s.peaks?.length ? `## The peaks\n\n${s.peaks.map(p => `- **${p.value}**: ${p.what}${p.where ? `, ${p.where}` : ''} (${p.label}; ${p.source}${p.url ? `, ${p.url}` : ''})`).join('\n')}\n\n` : ''}${s.warnings?.length ? `## IPMA's warnings\n\n| District | Warning | Level | From | To | Source |\n|---|---|---|---|---|---|\n${s.warnings.map(w => `| ${w.district} | ${w.kind} | ${w.level} | ${w.from} | ${w.to} | ${w.url || w.source} |`).join('\n')}\n\n` : ''}${ex ? ex.md : ''}${s.algarve ? `## In the Algarve\n\n${s.algarve}\n\n` : ''}${s.decisions?.length ? `## Decisions\n\n${s.decisions.map(d => `- ${d.who}: ${d.what} (${d.at}; ${d.url || d.source})`).join('\n')}\n\n` : ''}${s.timeline?.length ? `## Timeline\n\n${s.timeline.map(e => `- ${when(e.at)} [${e.label}] ${e.text} (${e.url || e.source})`).join('\n')}\n\n` : ''}${s.lessons?.length ? `## For the next storm (our analysis)\n\n${s.lessons.map(l => `- ${l}`).join('\n')}\n\n` : ''}${s.sources?.length ? `## Sources\n\n${s.sources.map(x => `- ${x.name}: ${x.url}`).join('\n')}\n` : ''}`;
-  add(page({ path: `/storms/${s.id}/`, extraHead: ex ? `<style>${EXPOSURE_CSS}</style>\n` : '', title: `${s.name}: the archive`, description: `${s.name}, ${s.dates.from} to ${s.dates.to}: IPMA's warnings, the peaks, the decisions and the timeline, each with its source.`, body, md, made }));
+  const md = `${s.standfirst}\n\nFull record: ${s.archive_site} (repository ${s.archive_repo}).\n\n${s.peaks?.length ? `## The peaks\n\n${s.peaks.map(p => `- **${p.value}**: ${p.what}${p.where ? `, ${p.where}` : ''} (${p.label}; ${p.source}${p.url ? `, ${p.url}` : ''})`).join('\n')}\n\n` : ''}${s.warnings?.length ? `## IPMA's warnings\n\n| District | Warning | Level | From | To | Source |\n|---|---|---|---|---|---|\n${s.warnings.map(w => `| ${w.district} | ${w.kind} | ${w.level} | ${w.from} | ${w.to} | ${w.url || w.source} |`).join('\n')}\n\n` : ''}${sw ? sw.md : ''}${ex ? ex.md : ''}${s.algarve ? `## In the Algarve\n\n${s.algarve}\n\n` : ''}${s.decisions?.length ? `## Decisions\n\n${s.decisions.map(d => `- ${d.who}: ${d.what} (${d.at}; ${d.url || d.source})`).join('\n')}\n\n` : ''}${s.timeline?.length ? `## Timeline\n\n${s.timeline.map(e => `- ${when(e.at)} [${e.label}] ${e.text} (${e.url || e.source})`).join('\n')}\n\n` : ''}${s.lessons?.length ? `## For the next storm (our analysis)\n\n${s.lessons.map(l => `- ${l}`).join('\n')}\n\n` : ''}${s.sources?.length ? `## Sources\n\n${s.sources.map(x => `- ${x.name}: ${x.url}`).join('\n')}\n` : ''}`;
+  add(page({ path: `/storms/${s.id}/`, extraHead: `<style>${ex ? EXPOSURE_CSS : ''}${sw ? STORMWIND_CSS : ''}</style>\n`, title: `${s.name}: the archive`, description: `${s.name}, ${s.dates.from} to ${s.dates.to}: IPMA's warnings, the peaks, the decisions and the timeline, each with its source.`, body, md, made }));
 }
 function camerasPageMake() {
   const name = id => (D.towns.find(t => t.id === id) || D.capitals.find(c => c.id === id && c.live))?.name || null;
