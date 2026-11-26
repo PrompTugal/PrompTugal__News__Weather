@@ -46,7 +46,7 @@
    }
   }
  },
- "commit": "bd410a73762d6b0a755da0a946556d6e47d54c8e",
+ "commit": "3e1f62a5c73933984069e0ebe81d704ceb5c38d5",
  "rows": [
   {
    "date": "2026-11-17",
@@ -136,6 +136,75 @@
      "rain_mm": null
     },
     "d3": null
+   }
+  },
+  {
+   "date": "2026-11-22",
+   "observed": null,
+   "forecast": {
+    "d1": {
+     "issued": "2026-11-21T06:31:03",
+     "read_at": "2026-11-21T07:11:03Z",
+     "t_min_c": 9.5,
+     "t_max_c": 18.4,
+     "rain_prob_pct": 0,
+     "rain_mm": null
+    },
+    "d2": {
+     "issued": "2026-11-20T17:31:02",
+     "read_at": "2026-11-20T18:14:19Z",
+     "t_min_c": 9.9,
+     "t_max_c": 18.4,
+     "rain_prob_pct": 0,
+     "rain_mm": null
+    },
+    "d3": {
+     "issued": "2026-11-19T17:31:02",
+     "read_at": "2026-11-19T18:12:59Z",
+     "t_min_c": 9.9,
+     "t_max_c": 18.4,
+     "rain_prob_pct": 0,
+     "rain_mm": null
+    }
+   }
+  },
+  {
+   "date": "2026-11-23",
+   "observed": null,
+   "forecast": {
+    "d1": null,
+    "d2": {
+     "issued": "2026-11-21T06:31:03",
+     "read_at": "2026-11-21T07:11:03Z",
+     "t_min_c": 9,
+     "t_max_c": 17.3,
+     "rain_prob_pct": 0,
+     "rain_mm": null
+    },
+    "d3": {
+     "issued": "2026-11-20T17:31:02",
+     "read_at": "2026-11-20T18:14:19Z",
+     "t_min_c": 8.9,
+     "t_max_c": 18.4,
+     "rain_prob_pct": 0,
+     "rain_mm": null
+    }
+   }
+  },
+  {
+   "date": "2026-11-24",
+   "observed": null,
+   "forecast": {
+    "d1": null,
+    "d2": null,
+    "d3": {
+     "issued": "2026-11-21T06:31:03",
+     "read_at": "2026-11-21T07:11:03Z",
+     "t_min_c": 10.8,
+     "t_max_c": 17.2,
+     "rain_prob_pct": 60,
+     "rain_mm": null
+    }
    }
   }
  ]

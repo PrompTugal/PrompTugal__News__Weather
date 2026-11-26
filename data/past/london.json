@@ -61,7 +61,7 @@
    }
   }
  },
- "commit": "bd410a73762d6b0a755da0a946556d6e47d54c8e",
+ "commit": "3e1f62a5c73933984069e0ebe81d704ceb5c38d5",
  "rows": [
   {
    "date": "2026-11-17",
@@ -165,6 +165,40 @@
      "rain_prob_pct": null,
      "rain_mm": 0
     },
+    "d3": null
+   }
+  },
+  {
+   "date": "2026-11-22",
+   "observed": null,
+   "forecast": {
+    "d1": null,
+    "d2": {
+     "issued": "2026-11-20T18:16:06Z",
+     "read_at": "2026-11-20T18:16:06Z",
+     "t_min_c": 5.9,
+     "t_max_c": 9.2,
+     "rain_prob_pct": null,
+     "rain_mm": 0
+    },
+    "d3": null
+   }
+  },
+  {
+   "date": "2026-11-23",
+   "observed": null,
+   "forecast": {
+    "d1": null,
+    "d2": null,
+    "d3": null
+   }
+  },
+  {
+   "date": "2026-11-24",
+   "observed": null,
+   "forecast": {
+    "d1": null,
+    "d2": null,
     "d3": null
    }
   }
