@@ -1,5 +1,5 @@
 {
- "data_read_at": "2026-11-26T18:14:19Z",
+ "data_read_at": "2026-11-27T07:15:01Z",
  "expected_cadence": {
   "name": "twice a day",
   "seconds": 43200,
@@ -38,7 +38,7 @@
   }
  },
  "place": "algarve",
- "read_at": "2026-11-26T18:14:19Z",
+ "read_at": "2026-11-27T07:15:01Z",
  "by": "collect/by-place-now.mjs (code, no model; data@PrompTugal.dinis), from this site's collected sources",
  "about": "Now in the Algarve: IPMA's warnings for the Faro district, Faro airport, and each place's nearest station. Not a warning service.",
  "warnings": {
@@ -51,45 +51,27 @@
   "icao": "LPFR",
   "name": "Faro airport",
   "within_nm": 40,
-  "at": "2026-11-21T07:04:19Z",
+  "at": "2026-11-27T07:03:57Z",
   "airline": [
    {
-    "callsign": "RYR24GK",
+    "callsign": "RYR65EJ",
     "airline": "RYR",
-    "type": "B738",
-    "alt_ft": 36000,
+    "type": "B38M",
+    "alt_ft": 5525,
     "on_ground": false,
-    "ground_speed_kt": 481
-   },
-   {
-    "callsign": "RYR72MQ",
-    "airline": "RYR",
-    "type": "B738",
-    "alt_ft": 36000,
-    "on_ground": false,
-    "ground_speed_kt": 473.1
-   },
-   {
-    "callsign": "RYR74FK",
-    "airline": "RYR",
-    "type": "B738",
-    "alt_ft": 36000,
-    "on_ground": false,
-    "ground_speed_kt": 472.1
+    "ground_speed_kt": 297.7
    }
   ],
-  "other_aircraft": 1,
+  "other_aircraft": 0,
   "page": "https://globe.adsb.lol/?lat=37.014&lon=-7.966&zoom=9",
   "source": "https://api.adsb.lol/",
-  "note": "What adsb.lol's community receivers saw within 40 nautical miles at the time read. Airline flights by callsign; other aircraft only counted.",
-  "stale": true,
-  "stale_note": "adsb.lol could not be read at 2026-11-26T18:04:10Z; these values are from the last read, at read_at."
+  "note": "What adsb.lol's community receivers saw within 40 nautical miles at the time read. Airline flights by callsign; other aircraft only counted."
  },
  "places": [
   {
    "place": "faro",
    "station": "Faro (Aeródromo)",
-   "temp_c": 18.1
+   "temp_c": 10.1
   },
   {
    "place": "loule",
@@ -104,108 +86,108 @@
   {
    "place": "silves",
    "station": "Portimão (Praia da Rocha)",
-   "temp_c": 17.6
+   "temp_c": 9.8
   },
   {
    "place": "tavira",
    "station": "Tavira",
-   "temp_c": 17.4
+   "temp_c": 8.7
   },
   {
    "place": "vila-real-de-santo-antonio",
    "station": "Vila Real de S. António",
-   "temp_c": 17.5
+   "temp_c": 10.6
   },
   {
    "place": "portimao",
    "station": "Portimão (Praia da Rocha)",
-   "temp_c": 17.6
+   "temp_c": 9.8
   },
   {
    "place": "lagos",
    "station": "Portimão (Aeródromo)",
-   "temp_c": 16.9
+   "temp_c": 5.4
   },
   {
    "place": "olhao",
    "station": "Olhão, EPPO",
-   "temp_c": 18.4
+   "temp_c": 10.2
   },
   {
    "place": "albufeira",
    "station": "Albufeira",
-   "temp_c": 16.2
+   "temp_c": 10.6
   },
   {
    "place": "lagoa",
    "station": "Portimão (Praia da Rocha)",
-   "temp_c": 17.6
+   "temp_c": 9.8
   },
   {
    "place": "monchique",
    "station": "Fóia",
-   "temp_c": null
+   "temp_c": 8.3
   },
   {
    "place": "aljezur",
    "station": "Aljezur",
-   "temp_c": 16.1
+   "temp_c": 3.6
   },
   {
    "place": "vila-do-bispo",
    "station": "Sagres",
-   "temp_c": 15.6
+   "temp_c": 8.5
   },
   {
    "place": "castro-marim",
    "station": "Castro Marim (RN Sapal)",
-   "temp_c": 17.5
+   "temp_c": 10
   },
   {
    "place": "alcoutim",
    "station": "Alcoutim, Mart.Longo",
-   "temp_c": 15
+   "temp_c": 8.4
   },
   {
    "place": "sao-bras-de-alportel",
    "station": "Olhão, EPPO",
-   "temp_c": 18.4
+   "temp_c": 10.2
   }
  ],
  "reads": {
   "observations": {
    "url": "https://data.promptugal.news/api/v1/ipma-observations/latest.json",
-   "at": "2026-11-26T18:13:10Z",
+   "at": "2026-11-27T07:13:44Z",
    "status": 200
   },
   "warnings": {
    "url": "https://data.promptugal.news/api/v1/ipma-warnings/latest.json",
-   "at": "2026-11-26T18:13:28Z",
+   "at": "2026-11-27T07:14:02Z",
    "status": 200
   },
   "forecasts": {
    "url": "https://data.promptugal.news/api/v1/ipma-city-forecasts/latest.json",
-   "at": "2026-11-26T18:11:33Z",
+   "at": "2026-11-27T07:12:07Z",
    "status": 200
   },
   "fire-risk": {
    "url": "https://data.promptugal.news/api/v1/ipma-fire-risk/latest.json",
-   "at": "2026-11-26T18:13:03Z",
+   "at": "2026-11-27T07:13:37Z",
    "status": 200
   },
   "uv": {
    "url": "https://data.promptugal.news/api/v1/ipma-uv/latest.json",
-   "at": "2026-11-26T18:13:25Z",
+   "at": "2026-11-27T07:13:59Z",
    "status": 200
   },
   "sea": {
    "url": "https://data.promptugal.news/api/v1/ipma-sea/latest.json",
-   "at": "2026-11-26T18:13:15Z",
+   "at": "2026-11-27T07:13:50Z",
    "status": 200
   },
   "adsb": {
    "url": "https://data.promptugal.news/api/v1/adsb-faro/latest.json",
-   "at": "2026-11-21T07:04:19Z",
+   "at": "2026-11-27T07:03:57Z",
    "status": 200
   }
  }

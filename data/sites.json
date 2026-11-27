@@ -1,6 +1,6 @@
 {
  "about": "The registry of every *.promptugal.news site (Dinis, 18 November 2026, about 22:00 UTC: board/guidance/2026-11-18-the-sites-bar.md), published at promptugal.news/api/v1/sites.json and read by the sites bar on every site. Data, not code. Each site's version and last change are read from its own /version.json; its preview is its own /preview.svg. dev@PrompTugal.dinis keeps the list; a site lead asks to change its line or mark. The one lines are designer@'s (design/sites-bar/sites-bar.html.txt).",
- "version": "v0.1.2358",
+ "version": "v0.1.2373",
  "sites": [
   {
    "id": "news",

@@ -1,5 +1,5 @@
 {
- "data_read_at": "2026-11-26T18:13:10Z",
+ "data_read_at": "2026-11-27T07:13:44Z",
  "expected_cadence": {
   "name": "twice a day",
   "seconds": 43200,
@@ -46,7 +46,7 @@
    }
   }
  },
- "commit": "e803bc00dfac7ff2d6ce6ccc1ffa73b686f04703",
+ "commit": "d409b5734208af88d47485b2878734dbf9e6aa7c",
  "rows": [
   {
    "date": "2026-11-18",
@@ -213,8 +213,8 @@
     "low_c": 8.4,
     "high_c": 18.5,
     "rain_mm": 0,
-    "hours": 18,
-    "complete": false
+    "hours": 24,
+    "complete": true
    },
    "forecast": {
     "d1": null,
@@ -224,7 +224,13 @@
   },
   {
    "date": "2026-11-27",
-   "observed": null,
+   "observed": {
+    "low_c": 9.4,
+    "high_c": 10,
+    "rain_mm": 0,
+    "hours": 7,
+    "complete": false
+   },
    "forecast": {
     "d1": {
      "issued": "2026-11-26T17:31:02",
