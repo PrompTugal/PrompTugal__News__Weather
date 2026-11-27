@@ -1,5 +1,5 @@
 {
- "data_read_at": "2026-11-21T07:12:31Z",
+ "data_read_at": "2026-11-26T18:13:28Z",
  "expected_cadence": {
   "name": "twice a day",
   "seconds": 43200,
@@ -22,255 +22,20 @@
  },
  "source": "ipma-warnings",
  "title": "IPMA weather warnings",
- "read_at": "2026-11-21T07:12:31Z",
+ "read_at": "2026-11-26T18:13:28Z",
  "provenance": {
   "source": "https://api.ipma.pt/open-data/forecast/warnings/warnings_www.json",
   "page": "https://www.ipma.pt/en/otempo/prev-sam/",
-  "read_at": "2026-11-21T07:12:31Z",
+  "read_at": "2026-11-26T18:13:28Z",
   "by": "sources/ipma-warnings/collect.mjs (code, no model; run by data@PrompTugal.dinis)",
   "terms": "IPMA: free to copy and use for personal or public use if the use has no profit-making or offensive purpose; always name IPMA as the source."
  },
  "about": "IPMA's weather warnings, every area: the active ones (yellow, orange, red) in full, and a count of the rest. Times as IPMA gives them (Portugal local time). Not a warning service: follow IPMA and ANEPC.",
  "counts": {
-  "active": 23,
-  "by_level": {
-   "orange": 11,
-   "yellow": 9,
-   "red": 3
-  },
+  "active": 0,
+  "by_level": {},
   "green": 200,
   "areas": 25
  },
- "active": [
-  {
-   "area": "AVR",
-   "area_name": "Aveiro",
-   "type": "rain",
-   "type_pt": "Precipitação",
-   "level": "orange",
-   "start": "2026-11-21T06:00:00",
-   "end": "2026-11-21T18:00:00",
-   "text": "Chuva persistente, por vezes forte."
-  },
-  {
-   "area": "BGC",
-   "area_name": "Bragança",
-   "type": "rain",
-   "type_pt": "Precipitação",
-   "level": "yellow",
-   "start": "2026-11-21T06:00:00",
-   "end": "2026-11-21T18:00:00",
-   "text": "Chuva persistente, por vezes forte."
-  },
-  {
-   "area": "BRG",
-   "area_name": "Braga",
-   "type": "rain",
-   "type_pt": "Precipitação",
-   "level": "orange",
-   "start": "2026-11-21T06:00:00",
-   "end": "2026-11-21T18:00:00",
-   "text": "Chuva persistente, por vezes forte."
-  },
-  {
-   "area": "BRG",
-   "area_name": "Braga",
-   "type": "rain",
-   "type_pt": "Precipitação",
-   "level": "yellow",
-   "start": "2026-11-21T18:00:00",
-   "end": "2026-11-21T21:00:00",
-   "text": "Aguaceiros, por vezes fortes e que podem ser acompanhados de trovoada."
-  },
-  {
-   "area": "CBO",
-   "area_name": "Castelo Branco",
-   "type": "rain",
-   "type_pt": "Precipitação",
-   "level": "orange",
-   "start": "2026-11-21T06:00:00",
-   "end": "2026-11-21T18:00:00",
-   "text": "Chuva persistente, por vezes forte."
-  },
-  {
-   "area": "CBR",
-   "area_name": "Coimbra",
-   "type": "rain",
-   "type_pt": "Precipitação",
-   "level": "orange",
-   "start": "2026-11-21T06:00:00",
-   "end": "2026-11-21T09:00:00",
-   "text": "Chuva persistente, por vezes forte."
-  },
-  {
-   "area": "CBR",
-   "area_name": "Coimbra",
-   "type": "rain",
-   "type_pt": "Precipitação",
-   "level": "red",
-   "start": "2026-11-21T09:00:00",
-   "end": "2026-11-21T18:00:00",
-   "text": "Chuva persistente, por vezes forte."
-  },
-  {
-   "area": "EVR",
-   "area_name": "Évora",
-   "type": "rain",
-   "type_pt": "Precipitação",
-   "level": "yellow",
-   "start": "2026-11-21T12:00:00",
-   "end": "2026-11-21T18:00:00",
-   "text": "Chuva persistente, por vezes forte."
-  },
-  {
-   "area": "GDA",
-   "area_name": "Guarda",
-   "type": "rain",
-   "type_pt": "Precipitação",
-   "level": "orange",
-   "start": "2026-11-21T06:00:00",
-   "end": "2026-11-21T09:00:00",
-   "text": "Chuva persistente, por vezes forte."
-  },
-  {
-   "area": "GDA",
-   "area_name": "Guarda",
-   "type": "rain",
-   "type_pt": "Precipitação",
-   "level": "red",
-   "start": "2026-11-21T09:00:00",
-   "end": "2026-11-21T18:00:00",
-   "text": "Chuva persistente, por vezes forte."
-  },
-  {
-   "area": "LRA",
-   "area_name": "Leiria",
-   "type": "rain",
-   "type_pt": "Precipitação",
-   "level": "orange",
-   "start": "2026-11-21T06:00:00",
-   "end": "2026-11-21T18:00:00",
-   "text": "Chuva persistente, por vezes forte."
-  },
-  {
-   "area": "LSB",
-   "area_name": "Lisboa",
-   "type": "rain",
-   "type_pt": "Precipitação",
-   "level": "yellow",
-   "start": "2026-11-21T12:00:00",
-   "end": "2026-11-21T18:00:00",
-   "text": "Chuva persistente, por vezes forte."
-  },
-  {
-   "area": "PTG",
-   "area_name": "Portalegre",
-   "type": "rain",
-   "type_pt": "Precipitação",
-   "level": "yellow",
-   "start": "2026-11-21T12:00:00",
-   "end": "2026-11-21T18:00:00",
-   "text": "Chuva persistente, por vezes forte."
-  },
-  {
-   "area": "PTO",
-   "area_name": "Porto",
-   "type": "rain",
-   "type_pt": "Precipitação",
-   "level": "orange",
-   "start": "2026-11-21T06:00:00",
-   "end": "2026-11-21T18:00:00",
-   "text": "Chuva persistente, por vezes forte."
-  },
-  {
-   "area": "PTO",
-   "area_name": "Porto",
-   "type": "rain",
-   "type_pt": "Precipitação",
-   "level": "yellow",
-   "start": "2026-11-21T18:00:00",
-   "end": "2026-11-21T21:00:00",
-   "text": "Aguaceiros, por vezes fortes e que podem ser acompanhados de trovoada."
-  },
-  {
-   "area": "STB",
-   "area_name": "Setúbal",
-   "type": "rain",
-   "type_pt": "Precipitação",
-   "level": "yellow",
-   "start": "2026-11-21T12:00:00",
-   "end": "2026-11-21T18:00:00",
-   "text": "Chuva persistente, por vezes forte."
-  },
-  {
-   "area": "STM",
-   "area_name": "Santarém",
-   "type": "rain",
-   "type_pt": "Precipitação",
-   "level": "orange",
-   "start": "2026-11-21T06:00:00",
-   "end": "2026-11-21T18:00:00",
-   "text": "Chuva persistente, por vezes forte."
-  },
-  {
-   "area": "VCT",
-   "area_name": "Viana do Castelo",
-   "type": "rain",
-   "type_pt": "Precipitação",
-   "level": "orange",
-   "start": "2026-11-21T06:00:00",
-   "end": "2026-11-21T18:00:00",
-   "text": "Chuva persistente, por vezes forte."
-  },
-  {
-   "area": "VCT",
-   "area_name": "Viana do Castelo",
-   "type": "rain",
-   "type_pt": "Precipitação",
-   "level": "yellow",
-   "start": "2026-11-21T18:00:00",
-   "end": "2026-11-21T21:00:00",
-   "text": "Aguaceiros, por vezes fortes e que podem ser acompanhados de trovoada."
-  },
-  {
-   "area": "VIS",
-   "area_name": "Viseu",
-   "type": "rain",
-   "type_pt": "Precipitação",
-   "level": "orange",
-   "start": "2026-11-21T06:00:00",
-   "end": "2026-11-21T09:00:00",
-   "text": "Chuva persistente, por vezes forte."
-  },
-  {
-   "area": "VIS",
-   "area_name": "Viseu",
-   "type": "rain",
-   "type_pt": "Precipitação",
-   "level": "red",
-   "start": "2026-11-21T09:00:00",
-   "end": "2026-11-21T18:00:00",
-   "text": "Chuva persistente, por vezes forte."
-  },
-  {
-   "area": "VRL",
-   "area_name": "Vila Real",
-   "type": "rain",
-   "type_pt": "Precipitação",
-   "level": "orange",
-   "start": "2026-11-21T06:00:00",
-   "end": "2026-11-21T18:00:00",
-   "text": "Chuva persistente, por vezes forte."
-  },
-  {
-   "area": "VRL",
-   "area_name": "Vila Real",
-   "type": "rain",
-   "type_pt": "Precipitação",
-   "level": "yellow",
-   "start": "2026-11-21T18:00:00",
-   "end": "2026-11-21T21:00:00",
-   "text": "Aguaceiros, por vezes fortes e que podem ser acompanhados de trovoada."
-  }
- ]
+ "active": []
 }

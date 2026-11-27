@@ -1,5 +1,5 @@
 {
- "data_read_at": "2026-11-21T07:13:27Z",
+ "data_read_at": "2026-11-26T18:14:19Z",
  "expected_cadence": {
   "name": "twice a day",
   "seconds": 43200,
@@ -38,7 +38,7 @@
   }
  },
  "place": "algarve",
- "read_at": "2026-11-21T07:13:27Z",
+ "read_at": "2026-11-26T18:14:19Z",
  "by": "collect/by-place-now.mjs (code, no model; data@PrompTugal.dinis), from this site's collected sources",
  "about": "Now in the Algarve: IPMA's warnings for the Faro district, Faro airport, and each place's nearest station. Not a warning service.",
  "warnings": {
@@ -81,13 +81,15 @@
   "other_aircraft": 1,
   "page": "https://globe.adsb.lol/?lat=37.014&lon=-7.966&zoom=9",
   "source": "https://api.adsb.lol/",
-  "note": "What adsb.lol's community receivers saw within 40 nautical miles at the time read. Airline flights by callsign; other aircraft only counted."
+  "note": "What adsb.lol's community receivers saw within 40 nautical miles at the time read. Airline flights by callsign; other aircraft only counted.",
+  "stale": true,
+  "stale_note": "adsb.lol could not be read at 2026-11-26T18:04:10Z; these values are from the last read, at read_at."
  },
  "places": [
   {
    "place": "faro",
    "station": "Faro (Aeródromo)",
-   "temp_c": null
+   "temp_c": 18.1
   },
   {
    "place": "loule",
@@ -102,42 +104,42 @@
   {
    "place": "silves",
    "station": "Portimão (Praia da Rocha)",
-   "temp_c": 14
+   "temp_c": 17.6
   },
   {
    "place": "tavira",
    "station": "Tavira",
-   "temp_c": 12
+   "temp_c": 17.4
   },
   {
    "place": "vila-real-de-santo-antonio",
    "station": "Vila Real de S. António",
-   "temp_c": 12.4
+   "temp_c": 17.5
   },
   {
    "place": "portimao",
    "station": "Portimão (Praia da Rocha)",
-   "temp_c": 14
+   "temp_c": 17.6
   },
   {
    "place": "lagos",
    "station": "Portimão (Aeródromo)",
-   "temp_c": null
+   "temp_c": 16.9
   },
   {
    "place": "olhao",
    "station": "Olhão, EPPO",
-   "temp_c": 14.1
+   "temp_c": 18.4
   },
   {
    "place": "albufeira",
    "station": "Albufeira",
-   "temp_c": 14.5
+   "temp_c": 16.2
   },
   {
    "place": "lagoa",
    "station": "Portimão (Praia da Rocha)",
-   "temp_c": 14
+   "temp_c": 17.6
   },
   {
    "place": "monchique",
@@ -147,58 +149,58 @@
   {
    "place": "aljezur",
    "station": "Aljezur",
-   "temp_c": null
+   "temp_c": 16.1
   },
   {
    "place": "vila-do-bispo",
    "station": "Sagres",
-   "temp_c": null
+   "temp_c": 15.6
   },
   {
    "place": "castro-marim",
    "station": "Castro Marim (RN Sapal)",
-   "temp_c": null
+   "temp_c": 17.5
   },
   {
    "place": "alcoutim",
    "station": "Alcoutim, Mart.Longo",
-   "temp_c": null
+   "temp_c": 15
   },
   {
    "place": "sao-bras-de-alportel",
    "station": "Olhão, EPPO",
-   "temp_c": 14.1
+   "temp_c": 18.4
   }
  ],
  "reads": {
   "observations": {
    "url": "https://data.promptugal.news/api/v1/ipma-observations/latest.json",
-   "at": "2026-11-21T07:12:13Z",
+   "at": "2026-11-26T18:13:10Z",
    "status": 200
   },
   "warnings": {
    "url": "https://data.promptugal.news/api/v1/ipma-warnings/latest.json",
-   "at": "2026-11-21T07:12:31Z",
+   "at": "2026-11-26T18:13:28Z",
    "status": 200
   },
   "forecasts": {
    "url": "https://data.promptugal.news/api/v1/ipma-city-forecasts/latest.json",
-   "at": "2026-11-21T07:10:36Z",
+   "at": "2026-11-26T18:11:33Z",
    "status": 200
   },
   "fire-risk": {
    "url": "https://data.promptugal.news/api/v1/ipma-fire-risk/latest.json",
-   "at": "2026-11-21T07:12:06Z",
+   "at": "2026-11-26T18:13:03Z",
    "status": 200
   },
   "uv": {
    "url": "https://data.promptugal.news/api/v1/ipma-uv/latest.json",
-   "at": "2026-11-21T07:12:29Z",
+   "at": "2026-11-26T18:13:25Z",
    "status": 200
   },
   "sea": {
    "url": "https://data.promptugal.news/api/v1/ipma-sea/latest.json",
-   "at": "2026-11-21T07:12:19Z",
+   "at": "2026-11-26T18:13:15Z",
    "status": 200
   },
   "adsb": {

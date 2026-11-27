@@ -1,5 +1,5 @@
 {
- "data_read_at": "2026-11-21T07:10:36Z",
+ "data_read_at": "2026-11-26T18:11:33Z",
  "expected_cadence": {
   "name": "twice a day",
   "seconds": 43200,
@@ -22,11 +22,11 @@
  },
  "source": "ipma-city-forecasts",
  "title": "IPMA daily forecasts by place",
- "read_at": "2026-11-21T07:10:36Z",
+ "read_at": "2026-11-26T18:11:33Z",
  "provenance": {
   "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1010500.json",
   "page": "https://www.ipma.pt/en/otempo/prev.localidade.hora/",
-  "read_at": "2026-11-21T07:10:36Z",
+  "read_at": "2026-11-26T18:11:33Z",
   "by": "sources/ipma-city-forecasts/collect.mjs (code, no model; run by data@PrompTugal.dinis)",
   "terms": "IPMA: free to copy and use for personal or public use if the use has no profit-making or offensive purpose; always name IPMA as the source.",
   "sources": [
@@ -72,7 +72,7 @@
  "counts": {
   "places": 35,
   "read": 35,
-  "forecasts_kept": 700
+  "forecasts_kept": 770
  },
  "cities": [
   {
@@ -82,58 +82,58 @@
    "lat": 40.6413,
    "lon": -8.6535,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1010500.json",
-   "read_at": "2026-11-21T07:10:41Z",
-   "updated": "2026-11-21T06:31:03",
+   "read_at": "2026-11-26T18:11:37Z",
+   "updated": "2026-11-26T17:31:02",
    "days": [
     {
-     "date": "2026-11-21",
-     "t_min_c": 14.9,
-     "t_max_c": 18,
-     "rain_prob_pct": 100,
-     "weather_type": 9,
-     "wind_dir": "S",
-     "wind_class": 2,
-     "rain_class": 2
+     "date": "2026-11-26",
+     "t_min_c": 9.2,
+     "t_max_c": 17.1,
+     "rain_prob_pct": 82,
+     "weather_type": 10,
+     "wind_dir": "SE",
+     "wind_class": 1,
+     "rain_class": 1
     },
     {
-     "date": "2026-11-22",
-     "t_min_c": 10.7,
+     "date": "2026-11-27",
+     "t_min_c": 12.7,
      "t_max_c": 19.1,
-     "rain_prob_pct": 4,
-     "weather_type": 3,
-     "wind_dir": "NW",
-     "wind_class": 2,
-     "rain_class": null
-    },
-    {
-     "date": "2026-11-23",
-     "t_min_c": 8.1,
-     "t_max_c": 18,
-     "rain_prob_pct": 8,
+     "rain_prob_pct": 33,
      "weather_type": 3,
      "wind_dir": "SE",
      "wind_class": 1,
      "rain_class": null
     },
     {
-     "date": "2026-11-24",
-     "t_min_c": 11.3,
-     "t_max_c": 16.2,
-     "rain_prob_pct": 100,
+     "date": "2026-11-28",
+     "t_min_c": 12.6,
+     "t_max_c": 18.5,
+     "rain_prob_pct": 80,
      "weather_type": 6,
-     "wind_dir": "NW",
-     "wind_class": 2,
+     "wind_dir": "S",
+     "wind_class": 1,
      "rain_class": 2
     },
     {
-     "date": "2026-11-25",
-     "t_min_c": 10.7,
-     "t_max_c": 16.2,
-     "rain_prob_pct": 96,
-     "weather_type": 6,
-     "wind_dir": "NW",
+     "date": "2026-11-29",
+     "t_min_c": 10.8,
+     "t_max_c": 17.3,
+     "rain_prob_pct": 82,
+     "weather_type": 7,
+     "wind_dir": "N",
      "wind_class": 2,
-     "rain_class": 2
+     "rain_class": 1
+    },
+    {
+     "date": "2026-11-30",
+     "t_min_c": 8.7,
+     "t_max_c": 16,
+     "rain_prob_pct": 0,
+     "weather_type": 3,
+     "wind_dir": "SE",
+     "wind_class": 1,
+     "rain_class": null
     }
    ]
   },
@@ -144,57 +144,57 @@
    "lat": 38.02,
    "lon": -7.87,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1020500.json",
-   "read_at": "2026-11-21T07:10:43Z",
-   "updated": "2026-11-21T06:31:03",
+   "read_at": "2026-11-26T18:11:40Z",
+   "updated": "2026-11-26T17:31:02",
    "days": [
     {
-     "date": "2026-11-21",
-     "t_min_c": 12.7,
-     "t_max_c": 19.8,
-     "rain_prob_pct": 100,
-     "weather_type": 9,
-     "wind_dir": "S",
-     "wind_class": 2,
-     "rain_class": 2
+     "date": "2026-11-26",
+     "t_min_c": 6.9,
+     "t_max_c": 16.2,
+     "rain_prob_pct": 0,
+     "weather_type": 2,
+     "wind_dir": "NW",
+     "wind_class": 1,
+     "rain_class": null
     },
     {
-     "date": "2026-11-22",
-     "t_min_c": 9.2,
-     "t_max_c": 17.2,
+     "date": "2026-11-27",
+     "t_min_c": 8.7,
+     "t_max_c": 17.5,
+     "rain_prob_pct": 6,
+     "weather_type": 3,
+     "wind_dir": "SE",
+     "wind_class": 1,
+     "rain_class": null
+    },
+    {
+     "date": "2026-11-28",
+     "t_min_c": 8.5,
+     "t_max_c": 17.7,
      "rain_prob_pct": 0,
-     "weather_type": 1,
+     "weather_type": 5,
+     "wind_dir": "NE",
+     "wind_class": 1,
+     "rain_class": null
+    },
+    {
+     "date": "2026-11-29",
+     "t_min_c": 8,
+     "t_max_c": 17.7,
+     "rain_prob_pct": 12,
+     "weather_type": 3,
      "wind_dir": "N",
      "wind_class": 1,
      "rain_class": null
     },
     {
-     "date": "2026-11-23",
-     "t_min_c": 7,
-     "t_max_c": 16.6,
-     "rain_prob_pct": 4,
-     "weather_type": 5,
-     "wind_dir": "NW",
+     "date": "2026-11-30",
+     "t_min_c": 8.6,
+     "t_max_c": 17,
+     "rain_prob_pct": 2,
+     "weather_type": 3,
+     "wind_dir": "NE",
      "wind_class": 1,
-     "rain_class": null
-    },
-    {
-     "date": "2026-11-24",
-     "t_min_c": 8.1,
-     "t_max_c": 15.4,
-     "rain_prob_pct": 60,
-     "weather_type": 3,
-     "wind_dir": "NW",
-     "wind_class": 2,
-     "rain_class": null
-    },
-    {
-     "date": "2026-11-25",
-     "t_min_c": 8.4,
-     "t_max_c": 15,
-     "rain_prob_pct": 33,
-     "weather_type": 3,
-     "wind_dir": "W",
-     "wind_class": 2,
      "rain_class": null
     }
    ]
@@ -206,58 +206,58 @@
    "lat": 41.5475,
    "lon": -8.4227,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1030300.json",
-   "read_at": "2026-11-21T07:10:46Z",
-   "updated": "2026-11-21T06:31:03",
+   "read_at": "2026-11-26T18:11:42Z",
+   "updated": "2026-11-26T17:31:02",
    "days": [
     {
-     "date": "2026-11-21",
-     "t_min_c": 11.2,
-     "t_max_c": 16.6,
-     "rain_prob_pct": 100,
-     "weather_type": 9,
-     "wind_dir": "S",
-     "wind_class": 2,
-     "rain_class": 2
-    },
-    {
-     "date": "2026-11-22",
-     "t_min_c": 8,
-     "t_max_c": 17.5,
-     "rain_prob_pct": 40,
-     "weather_type": 7,
-     "wind_dir": "W",
+     "date": "2026-11-26",
+     "t_min_c": 5.1,
+     "t_max_c": 13.4,
+     "rain_prob_pct": 94,
+     "weather_type": 10,
+     "wind_dir": "E",
      "wind_class": 1,
      "rain_class": 1
     },
     {
-     "date": "2026-11-23",
-     "t_min_c": 4.8,
-     "t_max_c": 17.4,
-     "rain_prob_pct": 4,
-     "weather_type": 3,
-     "wind_dir": "E",
+     "date": "2026-11-27",
+     "t_min_c": 9.9,
+     "t_max_c": 17.1,
+     "rain_prob_pct": 60,
+     "weather_type": 4,
+     "wind_dir": "SE",
      "wind_class": 1,
      "rain_class": null
     },
     {
-     "date": "2026-11-24",
-     "t_min_c": 7.1,
-     "t_max_c": 14.1,
-     "rain_prob_pct": 100,
+     "date": "2026-11-28",
+     "t_min_c": 11.1,
+     "t_max_c": 16.1,
+     "rain_prob_pct": 98,
      "weather_type": 9,
      "wind_dir": "SW",
      "wind_class": 1,
      "rain_class": 2
     },
     {
-     "date": "2026-11-25",
-     "t_min_c": 5.8,
-     "t_max_c": 14.4,
-     "rain_prob_pct": 94,
+     "date": "2026-11-29",
+     "t_min_c": 5.9,
+     "t_max_c": 17.6,
+     "rain_prob_pct": 73,
      "weather_type": 6,
      "wind_dir": "NW",
      "wind_class": 1,
      "rain_class": 2
+    },
+    {
+     "date": "2026-11-30",
+     "t_min_c": 3.8,
+     "t_max_c": 17,
+     "rain_prob_pct": 0,
+     "weather_type": 3,
+     "wind_dir": "SW",
+     "wind_class": 1,
+     "rain_class": null
     }
    ]
   },
@@ -268,58 +268,58 @@
    "lat": 41.4434,
    "lon": -8.2938,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1030800.json",
-   "read_at": "2026-11-21T07:10:48Z",
-   "updated": "2026-11-21T06:31:03",
+   "read_at": "2026-11-26T18:11:45Z",
+   "updated": "2026-11-26T17:31:02",
    "days": [
     {
-     "date": "2026-11-21",
-     "t_min_c": 9.8,
-     "t_max_c": 15.5,
-     "rain_prob_pct": 100,
-     "weather_type": 9,
-     "wind_dir": "S",
-     "wind_class": 2,
-     "rain_class": 2
+     "date": "2026-11-26",
+     "t_min_c": 5.6,
+     "t_max_c": 12,
+     "rain_prob_pct": 82,
+     "weather_type": 10,
+     "wind_dir": "E",
+     "wind_class": 1,
+     "rain_class": 1
     },
     {
-     "date": "2026-11-22",
-     "t_min_c": 8,
-     "t_max_c": 15.5,
-     "rain_prob_pct": 43,
+     "date": "2026-11-27",
+     "t_min_c": 9.9,
+     "t_max_c": 15.7,
+     "rain_prob_pct": 29,
+     "weather_type": 4,
+     "wind_dir": "SW",
+     "wind_class": 1,
+     "rain_class": null
+    },
+    {
+     "date": "2026-11-28",
+     "t_min_c": 9.8,
+     "t_max_c": 15.3,
+     "rain_prob_pct": 90,
+     "weather_type": 10,
+     "wind_dir": "SW",
+     "wind_class": 1,
+     "rain_class": 1
+    },
+    {
+     "date": "2026-11-29",
+     "t_min_c": 5.9,
+     "t_max_c": 15.8,
+     "rain_prob_pct": 80,
      "weather_type": 7,
      "wind_dir": "W",
      "wind_class": 1,
      "rain_class": 1
     },
     {
-     "date": "2026-11-23",
-     "t_min_c": 5.1,
-     "t_max_c": 15.8,
-     "rain_prob_pct": 4,
+     "date": "2026-11-30",
+     "t_min_c": 4.9,
+     "t_max_c": 15.7,
+     "rain_prob_pct": 0,
      "weather_type": 3,
      "wind_dir": "E",
      "wind_class": 1,
      "rain_class": null
-    },
-    {
-     "date": "2026-11-24",
-     "t_min_c": 8.2,
-     "t_max_c": 12.5,
-     "rain_prob_pct": 100,
-     "weather_type": 6,
-     "wind_dir": "SW",
-     "wind_class": 1,
-     "rain_class": 2
-    },
-    {
-     "date": "2026-11-25",
-     "t_min_c": 6.3,
-     "t_max_c": 12.6,
-     "rain_prob_pct": 90,
-     "weather_type": 6,
-     "wind_dir": "NW",
-     "wind_class": 1,
-     "rain_class": 2
     }
    ]
   },
@@ -330,58 +330,58 @@
    "lat": 41.8076,
    "lon": -6.7606,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1040200.json",
-   "read_at": "2026-11-21T07:10:51Z",
-   "updated": "2026-11-21T06:31:03",
+   "read_at": "2026-11-26T18:11:47Z",
+   "updated": "2026-11-26T17:31:02",
    "days": [
     {
-     "date": "2026-11-21",
-     "t_min_c": 9.1,
-     "t_max_c": 12.4,
-     "rain_prob_pct": 100,
-     "weather_type": 9,
-     "wind_dir": "S",
-     "wind_class": 2,
-     "rain_class": 2
-    },
-    {
-     "date": "2026-11-22",
-     "t_min_c": 3.8,
-     "t_max_c": 12.5,
-     "rain_prob_pct": 4,
-     "weather_type": 3,
-     "wind_dir": "W",
-     "wind_class": 2,
+     "date": "2026-11-26",
+     "t_min_c": 2.7,
+     "t_max_c": 10.1,
+     "rain_prob_pct": 20,
+     "weather_type": 4,
+     "wind_dir": "SW",
+     "wind_class": 1,
      "rain_class": null
     },
     {
-     "date": "2026-11-23",
-     "t_min_c": 1.4,
-     "t_max_c": 12.1,
+     "date": "2026-11-27",
+     "t_min_c": 6.7,
+     "t_max_c": 13.6,
      "rain_prob_pct": 0,
      "weather_type": 3,
-     "wind_dir": "SE",
+     "wind_dir": "SW",
      "wind_class": 1,
      "rain_class": null
     },
     {
-     "date": "2026-11-24",
-     "t_min_c": 3.9,
-     "t_max_c": 12,
-     "rain_prob_pct": 100,
+     "date": "2026-11-28",
+     "t_min_c": 5.1,
+     "t_max_c": 12.7,
+     "rain_prob_pct": 31,
+     "weather_type": 4,
+     "wind_dir": "SW",
+     "wind_class": 1,
+     "rain_class": null
+    },
+    {
+     "date": "2026-11-29",
+     "t_min_c": 6.8,
+     "t_max_c": 14.4,
+     "rain_prob_pct": 65,
      "weather_type": 7,
-     "wind_dir": "W",
+     "wind_dir": "SW",
      "wind_class": 1,
      "rain_class": 1
     },
     {
-     "date": "2026-11-25",
-     "t_min_c": 4.1,
-     "t_max_c": 10.5,
-     "rain_prob_pct": 71,
-     "weather_type": 7,
-     "wind_dir": "W",
+     "date": "2026-11-30",
+     "t_min_c": 3.7,
+     "t_max_c": 11.2,
+     "rain_prob_pct": 6,
+     "weather_type": 3,
+     "wind_dir": "NE",
      "wind_class": 1,
-     "rain_class": 1
+     "rain_class": null
     }
    ]
   },
@@ -392,56 +392,56 @@
    "lat": 39.8217,
    "lon": -7.4957,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1050200.json",
-   "read_at": "2026-11-21T07:10:53Z",
-   "updated": "2026-11-21T06:31:03",
+   "read_at": "2026-11-26T18:11:50Z",
+   "updated": "2026-11-26T17:31:02",
    "days": [
     {
-     "date": "2026-11-21",
-     "t_min_c": 11.6,
-     "t_max_c": 15.4,
-     "rain_prob_pct": 100,
-     "weather_type": 9,
-     "wind_dir": "W",
-     "wind_class": 2,
-     "rain_class": 2
-    },
-    {
-     "date": "2026-11-22",
-     "t_min_c": 7.1,
-     "t_max_c": 17.1,
-     "rain_prob_pct": 0,
+     "date": "2026-11-26",
+     "t_min_c": 4.5,
+     "t_max_c": 14.4,
+     "rain_prob_pct": 2,
      "weather_type": 2,
-     "wind_dir": "NW",
+     "wind_dir": "S",
      "wind_class": 1,
      "rain_class": null
     },
     {
-     "date": "2026-11-23",
-     "t_min_c": 5.6,
-     "t_max_c": 14.7,
-     "rain_prob_pct": 0,
-     "weather_type": 2,
+     "date": "2026-11-27",
+     "t_min_c": 8.2,
+     "t_max_c": 14.2,
+     "rain_prob_pct": 37,
+     "weather_type": 3,
+     "wind_dir": "NE",
+     "wind_class": 1,
+     "rain_class": null
+    },
+    {
+     "date": "2026-11-28",
+     "t_min_c": 9.4,
+     "t_max_c": 14.9,
+     "rain_prob_pct": 16,
+     "weather_type": 4,
+     "wind_dir": "SE",
+     "wind_class": 1,
+     "rain_class": null
+    },
+    {
+     "date": "2026-11-29",
+     "t_min_c": 7.7,
+     "t_max_c": 15.8,
+     "rain_prob_pct": 31,
+     "weather_type": 3,
      "wind_dir": "N",
      "wind_class": 1,
      "rain_class": null
     },
     {
-     "date": "2026-11-24",
+     "date": "2026-11-30",
      "t_min_c": 7.7,
-     "t_max_c": 13,
-     "rain_prob_pct": 88,
-     "weather_type": 6,
-     "wind_dir": "W",
-     "wind_class": 1,
-     "rain_class": 2
-    },
-    {
-     "date": "2026-11-25",
-     "t_min_c": 6.1,
-     "t_max_c": 13.9,
-     "rain_prob_pct": 43,
+     "t_max_c": 14.6,
+     "rain_prob_pct": 2,
      "weather_type": 3,
-     "wind_dir": "W",
+     "wind_dir": "NE",
      "wind_class": 1,
      "rain_class": null
     }
@@ -454,58 +454,58 @@
    "lat": 40.2081,
    "lon": -8.4194,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1060300.json",
-   "read_at": "2026-11-21T07:10:56Z",
-   "updated": "2026-11-21T06:31:03",
+   "read_at": "2026-11-26T18:11:52Z",
+   "updated": "2026-11-26T17:31:02",
    "days": [
     {
-     "date": "2026-11-21",
-     "t_min_c": 12.2,
-     "t_max_c": 16.9,
-     "rain_prob_pct": 100,
-     "weather_type": 9,
-     "wind_dir": "S",
-     "wind_class": 2,
-     "rain_class": 2
-    },
-    {
-     "date": "2026-11-22",
-     "t_min_c": 10.3,
-     "t_max_c": 17.6,
-     "rain_prob_pct": 0,
-     "weather_type": 3,
-     "wind_dir": "NW",
-     "wind_class": 1,
-     "rain_class": null
-    },
-    {
-     "date": "2026-11-23",
-     "t_min_c": 7.2,
-     "t_max_c": 16.8,
-     "rain_prob_pct": 6,
-     "weather_type": 3,
-     "wind_dir": "E",
-     "wind_class": 1,
-     "rain_class": null
-    },
-    {
-     "date": "2026-11-24",
-     "t_min_c": 9.3,
-     "t_max_c": 14.4,
-     "rain_prob_pct": 100,
-     "weather_type": 6,
-     "wind_dir": "S",
-     "wind_class": 1,
-     "rain_class": 2
-    },
-    {
-     "date": "2026-11-25",
-     "t_min_c": 8.7,
-     "t_max_c": 14.1,
-     "rain_prob_pct": 92,
+     "date": "2026-11-26",
+     "t_min_c": 7.8,
+     "t_max_c": 16.2,
+     "rain_prob_pct": 40,
      "weather_type": 7,
      "wind_dir": "S",
      "wind_class": 1,
      "rain_class": 1
+    },
+    {
+     "date": "2026-11-27",
+     "t_min_c": 13.5,
+     "t_max_c": 18.1,
+     "rain_prob_pct": 31,
+     "weather_type": 3,
+     "wind_dir": "S",
+     "wind_class": 1,
+     "rain_class": null
+    },
+    {
+     "date": "2026-11-28",
+     "t_min_c": 12.9,
+     "t_max_c": 18.7,
+     "rain_prob_pct": 51,
+     "weather_type": 7,
+     "wind_dir": "S",
+     "wind_class": 1,
+     "rain_class": 1
+    },
+    {
+     "date": "2026-11-29",
+     "t_min_c": 9.9,
+     "t_max_c": 17.6,
+     "rain_prob_pct": 84,
+     "weather_type": 7,
+     "wind_dir": "NW",
+     "wind_class": 1,
+     "rain_class": 1
+    },
+    {
+     "date": "2026-11-30",
+     "t_min_c": 7.5,
+     "t_max_c": 15.2,
+     "rain_prob_pct": 8,
+     "weather_type": 3,
+     "wind_dir": "SE",
+     "wind_class": 1,
+     "rain_class": null
     }
    ]
   },
@@ -516,23 +516,13 @@
    "lat": 38.5701,
    "lon": -7.9104,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1070500.json",
-   "read_at": "2026-11-21T07:10:58Z",
-   "updated": "2026-11-21T06:31:03",
+   "read_at": "2026-11-26T18:11:55Z",
+   "updated": "2026-11-26T17:31:02",
    "days": [
     {
-     "date": "2026-11-21",
-     "t_min_c": 11.9,
-     "t_max_c": 19.1,
-     "rain_prob_pct": 100,
-     "weather_type": 6,
-     "wind_dir": "S",
-     "wind_class": 2,
-     "rain_class": 2
-    },
-    {
-     "date": "2026-11-22",
-     "t_min_c": 8.1,
-     "t_max_c": 17.7,
+     "date": "2026-11-26",
+     "t_min_c": 6.5,
+     "t_max_c": 16.8,
      "rain_prob_pct": 0,
      "weather_type": 2,
      "wind_dir": "NW",
@@ -540,34 +530,44 @@
      "rain_class": null
     },
     {
-     "date": "2026-11-23",
-     "t_min_c": 5.1,
-     "t_max_c": 16.9,
-     "rain_prob_pct": 2,
-     "weather_type": 5,
-     "wind_dir": "NE",
+     "date": "2026-11-27",
+     "t_min_c": 6.8,
+     "t_max_c": 17,
+     "rain_prob_pct": 6,
+     "weather_type": 4,
+     "wind_dir": "S",
      "wind_class": 1,
      "rain_class": null
     },
     {
-     "date": "2026-11-24",
-     "t_min_c": 7.7,
-     "t_max_c": 15.3,
-     "rain_prob_pct": 76,
-     "weather_type": 6,
-     "wind_dir": "W",
-     "wind_class": 2,
-     "rain_class": 2
+     "date": "2026-11-28",
+     "t_min_c": 6.8,
+     "t_max_c": 18.2,
+     "rain_prob_pct": 0,
+     "weather_type": 3,
+     "wind_dir": "N",
+     "wind_class": 1,
+     "rain_class": null
     },
     {
-     "date": "2026-11-25",
-     "t_min_c": 7.1,
-     "t_max_c": 15.3,
-     "rain_prob_pct": 40,
-     "weather_type": 7,
-     "wind_dir": "W",
-     "wind_class": 2,
-     "rain_class": 1
+     "date": "2026-11-29",
+     "t_min_c": 7.3,
+     "t_max_c": 18.8,
+     "rain_prob_pct": 18,
+     "weather_type": 3,
+     "wind_dir": "N",
+     "wind_class": 1,
+     "rain_class": null
+    },
+    {
+     "date": "2026-11-30",
+     "t_min_c": 7,
+     "t_max_c": 16.9,
+     "rain_prob_pct": 4,
+     "weather_type": 3,
+     "wind_dir": "NE",
+     "wind_class": 1,
+     "rain_class": null
     }
    ]
   },
@@ -578,33 +578,13 @@
    "lat": 37.0146,
    "lon": -7.9331,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1080500.json",
-   "read_at": "2026-11-21T07:11:01Z",
-   "updated": "2026-11-21T06:31:03",
+   "read_at": "2026-11-26T18:11:57Z",
+   "updated": "2026-11-26T17:31:02",
    "days": [
     {
-     "date": "2026-11-21",
-     "t_min_c": 13.2,
-     "t_max_c": 20.7,
-     "rain_prob_pct": 100,
-     "weather_type": 6,
-     "wind_dir": "SW",
-     "wind_class": 2,
-     "rain_class": 2
-    },
-    {
-     "date": "2026-11-22",
-     "t_min_c": 10.9,
-     "t_max_c": 19.4,
-     "rain_prob_pct": 0,
-     "weather_type": 1,
-     "wind_dir": "N",
-     "wind_class": 1,
-     "rain_class": null
-    },
-    {
-     "date": "2026-11-23",
-     "t_min_c": 9.3,
-     "t_max_c": 18.5,
+     "date": "2026-11-26",
+     "t_min_c": 8,
+     "t_max_c": 18.7,
      "rain_prob_pct": 0,
      "weather_type": 2,
      "wind_dir": "N",
@@ -612,23 +592,43 @@
      "rain_class": null
     },
     {
-     "date": "2026-11-24",
-     "t_min_c": 9.6,
-     "t_max_c": 17.9,
-     "rain_prob_pct": 37,
+     "date": "2026-11-27",
+     "t_min_c": 8.8,
+     "t_max_c": 18,
+     "rain_prob_pct": 0,
+     "weather_type": 2,
+     "wind_dir": "N",
+     "wind_class": 1,
+     "rain_class": null
+    },
+    {
+     "date": "2026-11-28",
+     "t_min_c": 10.1,
+     "t_max_c": 19.1,
+     "rain_prob_pct": 0,
+     "weather_type": 5,
+     "wind_dir": "NE",
+     "wind_class": 1,
+     "rain_class": null
+    },
+    {
+     "date": "2026-11-29",
+     "t_min_c": 10.8,
+     "t_max_c": 20.1,
+     "rain_prob_pct": 14,
+     "weather_type": 2,
+     "wind_dir": "N",
+     "wind_class": 1,
+     "rain_class": null
+    },
+    {
+     "date": "2026-11-30",
+     "t_min_c": 9.8,
+     "t_max_c": 18,
+     "rain_prob_pct": 20,
      "weather_type": 3,
-     "wind_dir": "W",
+     "wind_dir": "N",
      "wind_class": 1,
-     "rain_class": null
-    },
-    {
-     "date": "2026-11-25",
-     "t_min_c": 9.6,
-     "t_max_c": 17.6,
-     "rain_prob_pct": 4,
-     "weather_type": 2,
-     "wind_dir": "NW",
-     "wind_class": 2,
      "rain_class": null
     }
    ]
@@ -640,33 +640,13 @@
    "lat": 37.0168,
    "lon": -8.9403,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1081505.json",
-   "read_at": "2026-11-21T07:11:03Z",
-   "updated": "2026-11-21T06:31:03",
+   "read_at": "2026-11-26T18:12:00Z",
+   "updated": "2026-11-26T17:31:02",
    "days": [
     {
-     "date": "2026-11-21",
-     "t_min_c": 15.2,
-     "t_max_c": 21.3,
-     "rain_prob_pct": 100,
-     "weather_type": 10,
-     "wind_dir": "NW",
-     "wind_class": 2,
-     "rain_class": 1
-    },
-    {
-     "date": "2026-11-22",
-     "t_min_c": 9.5,
-     "t_max_c": 18.4,
-     "rain_prob_pct": 0,
-     "weather_type": 1,
-     "wind_dir": "N",
-     "wind_class": 2,
-     "rain_class": null
-    },
-    {
-     "date": "2026-11-23",
-     "t_min_c": 9,
-     "t_max_c": 17.3,
+     "date": "2026-11-26",
+     "t_min_c": 8.9,
+     "t_max_c": 17.5,
      "rain_prob_pct": 0,
      "weather_type": 2,
      "wind_dir": "N",
@@ -674,24 +654,44 @@
      "rain_class": null
     },
     {
-     "date": "2026-11-24",
+     "date": "2026-11-27",
+     "t_min_c": 7.8,
+     "t_max_c": 17.9,
+     "rain_prob_pct": 2,
+     "weather_type": 2,
+     "wind_dir": "S",
+     "wind_class": 1,
+     "rain_class": null
+    },
+    {
+     "date": "2026-11-28",
+     "t_min_c": 8.7,
+     "t_max_c": 19.1,
+     "rain_prob_pct": 0,
+     "weather_type": 5,
+     "wind_dir": "N",
+     "wind_class": 1,
+     "rain_class": null
+    },
+    {
+     "date": "2026-11-29",
      "t_min_c": 10.8,
-     "t_max_c": 17.2,
-     "rain_prob_pct": 60,
-     "weather_type": 3,
-     "wind_dir": "NW",
+     "t_max_c": 19.8,
+     "rain_prob_pct": 16,
+     "weather_type": 2,
+     "wind_dir": "N",
      "wind_class": 2,
      "rain_class": null
     },
     {
-     "date": "2026-11-25",
-     "t_min_c": 10.8,
-     "t_max_c": 16.6,
-     "rain_prob_pct": 71,
-     "weather_type": 7,
-     "wind_dir": "NW",
-     "wind_class": 2,
-     "rain_class": 1
+     "date": "2026-11-30",
+     "t_min_c": 9.7,
+     "t_max_c": 19,
+     "rain_prob_pct": 6,
+     "weather_type": 2,
+     "wind_dir": "N",
+     "wind_class": 1,
+     "rain_class": null
     }
    ]
   },
@@ -702,33 +702,33 @@
    "lat": 37.15,
    "lon": -8.52,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1081100.json",
-   "read_at": "2026-11-21T07:11:06Z",
-   "updated": "2026-11-21T06:31:03",
+   "read_at": "2026-11-26T18:12:02Z",
+   "updated": "2026-11-26T17:31:02",
    "days": [
     {
-     "date": "2026-11-21",
-     "t_min_c": 14.9,
-     "t_max_c": 20.5,
-     "rain_prob_pct": 100,
-     "weather_type": 10,
-     "wind_dir": "S",
-     "wind_class": 2,
-     "rain_class": 1
-    },
-    {
-     "date": "2026-11-22",
-     "t_min_c": 10.2,
-     "t_max_c": 19.4,
+     "date": "2026-11-26",
+     "t_min_c": 7.5,
+     "t_max_c": 18.9,
      "rain_prob_pct": 0,
-     "weather_type": 1,
+     "weather_type": 2,
      "wind_dir": "N",
      "wind_class": 1,
      "rain_class": null
     },
     {
-     "date": "2026-11-23",
-     "t_min_c": 8.8,
-     "t_max_c": 18.1,
+     "date": "2026-11-27",
+     "t_min_c": 8.4,
+     "t_max_c": 17.9,
+     "rain_prob_pct": 0,
+     "weather_type": 2,
+     "wind_dir": "N",
+     "wind_class": 1,
+     "rain_class": null
+    },
+    {
+     "date": "2026-11-28",
+     "t_min_c": 10,
+     "t_max_c": 18.9,
      "rain_prob_pct": 0,
      "weather_type": 5,
      "wind_dir": "N",
@@ -736,23 +736,23 @@
      "rain_class": null
     },
     {
-     "date": "2026-11-24",
-     "t_min_c": 9.1,
-     "t_max_c": 17.4,
-     "rain_prob_pct": 57,
-     "weather_type": 7,
+     "date": "2026-11-29",
+     "t_min_c": 10.3,
+     "t_max_c": 20.2,
+     "rain_prob_pct": 18,
+     "weather_type": 2,
      "wind_dir": "N",
      "wind_class": 1,
-     "rain_class": 1
+     "rain_class": null
     },
     {
-     "date": "2026-11-25",
-     "t_min_c": 9.2,
-     "t_max_c": 17.6,
-     "rain_prob_pct": 35,
-     "weather_type": 3,
-     "wind_dir": "NW",
-     "wind_class": 2,
+     "date": "2026-11-30",
+     "t_min_c": 10.1,
+     "t_max_c": 18.9,
+     "rain_prob_pct": 6,
+     "weather_type": 2,
+     "wind_dir": "N",
+     "wind_class": 1,
      "rain_class": null
     }
    ]
@@ -764,58 +764,58 @@
    "lat": 37.1397,
    "lon": -8.0202,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1080800.json",
-   "read_at": "2026-11-21T07:11:08Z",
-   "updated": "2026-11-21T06:31:03",
+   "read_at": "2026-11-26T18:12:05Z",
+   "updated": "2026-11-26T17:31:02",
    "days": [
     {
-     "date": "2026-11-21",
-     "t_min_c": 11.6,
-     "t_max_c": 19.4,
-     "rain_prob_pct": 100,
-     "weather_type": 6,
-     "wind_dir": "SW",
-     "wind_class": 2,
-     "rain_class": 2
-    },
-    {
-     "date": "2026-11-22",
-     "t_min_c": 9.9,
-     "t_max_c": 18.3,
+     "date": "2026-11-26",
+     "t_min_c": 7.8,
+     "t_max_c": 17.2,
      "rain_prob_pct": 0,
-     "weather_type": 1,
+     "weather_type": 2,
      "wind_dir": "N",
      "wind_class": 1,
      "rain_class": null
     },
     {
-     "date": "2026-11-23",
-     "t_min_c": 8.2,
-     "t_max_c": 18.3,
-     "rain_prob_pct": 0,
+     "date": "2026-11-27",
+     "t_min_c": 8.3,
+     "t_max_c": 17.8,
+     "rain_prob_pct": 2,
      "weather_type": 2,
      "wind_dir": "NE",
      "wind_class": 1,
      "rain_class": null
     },
     {
-     "date": "2026-11-24",
-     "t_min_c": 9.1,
-     "t_max_c": 16.6,
-     "rain_prob_pct": 41,
-     "weather_type": 3,
-     "wind_dir": "NW",
+     "date": "2026-11-28",
+     "t_min_c": 9,
+     "t_max_c": 19.1,
+     "rain_prob_pct": 8,
+     "weather_type": 5,
+     "wind_dir": "NE",
      "wind_class": 1,
      "rain_class": null
     },
     {
-     "date": "2026-11-25",
-     "t_min_c": 8.6,
-     "t_max_c": 16.4,
-     "rain_prob_pct": 16,
+     "date": "2026-11-29",
+     "t_min_c": 10.6,
+     "t_max_c": 19.5,
+     "rain_prob_pct": 18,
      "weather_type": 2,
-     "wind_dir": "NW",
-     "wind_class": 2,
+     "wind_dir": "NE",
+     "wind_class": 1,
      "rain_class": null
+    },
+    {
+     "date": "2026-11-30",
+     "t_min_c": 9,
+     "t_max_c": 18.6,
+     "rain_prob_pct": 40,
+     "weather_type": 7,
+     "wind_dir": "NE",
+     "wind_class": 1,
+     "rain_class": 1
     }
    ]
   },
@@ -826,58 +826,58 @@
    "lat": 40.5379,
    "lon": -7.2647,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1090700.json",
-   "read_at": "2026-11-21T07:11:11Z",
-   "updated": "2026-11-21T06:31:03",
+   "read_at": "2026-11-26T18:12:07Z",
+   "updated": "2026-11-26T17:31:02",
    "days": [
     {
-     "date": "2026-11-21",
-     "t_min_c": 6.8,
-     "t_max_c": 10,
-     "rain_prob_pct": 100,
-     "weather_type": 9,
-     "wind_dir": "S",
-     "wind_class": 2,
-     "rain_class": 2
-    },
-    {
-     "date": "2026-11-22",
-     "t_min_c": 3.7,
-     "t_max_c": 9.7,
-     "rain_prob_pct": 6,
+     "date": "2026-11-26",
+     "t_min_c": 3.2,
+     "t_max_c": 9.1,
+     "rain_prob_pct": 33,
      "weather_type": 3,
      "wind_dir": "NW",
-     "wind_class": 2,
+     "wind_class": 1,
      "rain_class": null
     },
     {
-     "date": "2026-11-23",
-     "t_min_c": 2.6,
-     "t_max_c": 10.1,
-     "rain_prob_pct": 4,
-     "weather_type": 2,
+     "date": "2026-11-27",
+     "t_min_c": 7,
+     "t_max_c": 11.3,
+     "rain_prob_pct": 43,
+     "weather_type": 4,
      "wind_dir": "S",
      "wind_class": 1,
      "rain_class": null
     },
     {
-     "date": "2026-11-24",
-     "t_min_c": 4,
-     "t_max_c": 8.2,
-     "rain_prob_pct": 100,
-     "weather_type": 7,
+     "date": "2026-11-28",
+     "t_min_c": 6.4,
+     "t_max_c": 10.1,
+     "rain_prob_pct": 40,
+     "weather_type": 10,
      "wind_dir": "S",
-     "wind_class": 2,
+     "wind_class": 1,
      "rain_class": 1
     },
     {
-     "date": "2026-11-25",
-     "t_min_c": 2.7,
-     "t_max_c": 7.2,
-     "rain_prob_pct": 65,
-     "weather_type": 6,
-     "wind_dir": "W",
-     "wind_class": 2,
-     "rain_class": 2
+     "date": "2026-11-29",
+     "t_min_c": 5.9,
+     "t_max_c": 11.8,
+     "rain_prob_pct": 61,
+     "weather_type": 7,
+     "wind_dir": "N",
+     "wind_class": 1,
+     "rain_class": 1
+    },
+    {
+     "date": "2026-11-30",
+     "t_min_c": 3.5,
+     "t_max_c": 10.4,
+     "rain_prob_pct": 12,
+     "weather_type": 3,
+     "wind_dir": "S",
+     "wind_class": 1,
+     "rain_class": null
     }
    ]
   },
@@ -888,58 +888,58 @@
    "lat": 40.4075,
    "lon": -7.5665,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1090821.json",
-   "read_at": "2026-11-21T07:11:13Z",
-   "updated": "2026-11-21T06:31:03",
+   "read_at": "2026-11-26T18:12:10Z",
+   "updated": "2026-11-26T17:31:02",
    "days": [
     {
-     "date": "2026-11-21",
-     "t_min_c": 5.1,
-     "t_max_c": 9.4,
-     "rain_prob_pct": 100,
-     "weather_type": 11,
-     "wind_dir": "W",
-     "wind_class": 2,
-     "rain_class": 3
-    },
-    {
-     "date": "2026-11-22",
-     "t_min_c": 2.7,
+     "date": "2026-11-26",
+     "t_min_c": 1.6,
      "t_max_c": 7.5,
-     "rain_prob_pct": 25,
+     "rain_prob_pct": 37,
      "weather_type": 3,
      "wind_dir": "W",
-     "wind_class": 2,
-     "rain_class": null
-    },
-    {
-     "date": "2026-11-23",
-     "t_min_c": 1.9,
-     "t_max_c": 9.4,
-     "rain_prob_pct": 4,
-     "weather_type": 5,
-     "wind_dir": "SE",
      "wind_class": 1,
      "rain_class": null
     },
     {
-     "date": "2026-11-24",
-     "t_min_c": 2.3,
-     "t_max_c": 8.3,
-     "rain_prob_pct": 100,
-     "weather_type": 9,
-     "wind_dir": "W",
-     "wind_class": 2,
-     "rain_class": 2
+     "date": "2026-11-27",
+     "t_min_c": 5.7,
+     "t_max_c": 9.9,
+     "rain_prob_pct": 60,
+     "weather_type": 4,
+     "wind_dir": "SW",
+     "wind_class": 1,
+     "rain_class": null
     },
     {
-     "date": "2026-11-25",
-     "t_min_c": 1.4,
-     "t_max_c": 5.1,
-     "rain_prob_pct": 88,
-     "weather_type": 10,
-     "wind_dir": "W",
-     "wind_class": 2,
-     "rain_class": 1
+     "date": "2026-11-28",
+     "t_min_c": 5,
+     "t_max_c": 9.5,
+     "rain_prob_pct": 41,
+     "weather_type": 4,
+     "wind_dir": "S",
+     "wind_class": 1,
+     "rain_class": null
+    },
+    {
+     "date": "2026-11-29",
+     "t_min_c": 3.7,
+     "t_max_c": 9.9,
+     "rain_prob_pct": 60,
+     "weather_type": 3,
+     "wind_dir": "NW",
+     "wind_class": 1,
+     "rain_class": null
+    },
+    {
+     "date": "2026-11-30",
+     "t_min_c": 1.8,
+     "t_max_c": 9.5,
+     "rain_prob_pct": 18,
+     "weather_type": 2,
+     "wind_dir": "S",
+     "wind_class": 1,
+     "rain_class": null
     }
    ]
   },
@@ -950,58 +950,58 @@
    "lat": 39.7473,
    "lon": -8.8069,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1100900.json",
-   "read_at": "2026-11-21T07:11:16Z",
-   "updated": "2026-11-21T06:31:03",
+   "read_at": "2026-11-26T18:12:12Z",
+   "updated": "2026-11-26T17:31:02",
    "days": [
     {
-     "date": "2026-11-21",
-     "t_min_c": 13.3,
-     "t_max_c": 19,
-     "rain_prob_pct": 100,
-     "weather_type": 9,
+     "date": "2026-11-26",
+     "t_min_c": 6.7,
+     "t_max_c": 17.6,
+     "rain_prob_pct": 40,
+     "weather_type": 7,
      "wind_dir": "S",
-     "wind_class": 2,
-     "rain_class": 2
+     "wind_class": 1,
+     "rain_class": 1
     },
     {
-     "date": "2026-11-22",
-     "t_min_c": 6.6,
-     "t_max_c": 18.1,
-     "rain_prob_pct": 0,
+     "date": "2026-11-27",
+     "t_min_c": 11.4,
+     "t_max_c": 18.9,
+     "rain_prob_pct": 51,
      "weather_type": 3,
-     "wind_dir": "NW",
+     "wind_dir": "S",
      "wind_class": 1,
      "rain_class": null
     },
     {
-     "date": "2026-11-23",
-     "t_min_c": 5.2,
-     "t_max_c": 17.6,
-     "rain_prob_pct": 8,
-     "weather_type": 2,
+     "date": "2026-11-28",
+     "t_min_c": 10.7,
+     "t_max_c": 19.1,
+     "rain_prob_pct": 47,
+     "weather_type": 7,
+     "wind_dir": "SE",
+     "wind_class": 1,
+     "rain_class": 1
+    },
+    {
+     "date": "2026-11-29",
+     "t_min_c": 7.1,
+     "t_max_c": 18,
+     "rain_prob_pct": 84,
+     "weather_type": 7,
+     "wind_dir": "N",
+     "wind_class": 1,
+     "rain_class": 1
+    },
+    {
+     "date": "2026-11-30",
+     "t_min_c": 5.3,
+     "t_max_c": 16.2,
+     "rain_prob_pct": 4,
+     "weather_type": 3,
      "wind_dir": "SE",
      "wind_class": 1,
      "rain_class": null
-    },
-    {
-     "date": "2026-11-24",
-     "t_min_c": 8.4,
-     "t_max_c": 15.8,
-     "rain_prob_pct": 100,
-     "weather_type": 9,
-     "wind_dir": "S",
-     "wind_class": 1,
-     "rain_class": 2
-    },
-    {
-     "date": "2026-11-25",
-     "t_min_c": 7.6,
-     "t_max_c": 15.6,
-     "rain_prob_pct": 96,
-     "weather_type": 7,
-     "wind_dir": "W",
-     "wind_class": 1,
-     "rain_class": 1
     }
    ]
   },
@@ -1012,58 +1012,58 @@
    "lat": 38.766,
    "lon": -9.1286,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1110600.json",
-   "read_at": "2026-11-21T07:11:18Z",
-   "updated": "2026-11-21T06:31:03",
+   "read_at": "2026-11-26T18:12:15Z",
+   "updated": "2026-11-26T17:31:02",
    "days": [
     {
-     "date": "2026-11-21",
-     "t_min_c": 14.3,
-     "t_max_c": 19,
-     "rain_prob_pct": 100,
-     "weather_type": 9,
-     "wind_dir": "S",
-     "wind_class": 2,
-     "rain_class": 2
-    },
-    {
-     "date": "2026-11-22",
-     "t_min_c": 11.1,
-     "t_max_c": 17.6,
-     "rain_prob_pct": 0,
-     "weather_type": 2,
-     "wind_dir": "NW",
-     "wind_class": 1,
-     "rain_class": null
-    },
-    {
-     "date": "2026-11-23",
-     "t_min_c": 9.2,
-     "t_max_c": 15.9,
+     "date": "2026-11-26",
+     "t_min_c": 9.7,
+     "t_max_c": 17.1,
      "rain_prob_pct": 8,
-     "weather_type": 2,
-     "wind_dir": "NE",
+     "weather_type": 3,
+     "wind_dir": "W",
      "wind_class": 1,
      "rain_class": null
     },
     {
-     "date": "2026-11-24",
-     "t_min_c": 11.1,
-     "t_max_c": 15.9,
-     "rain_prob_pct": 98,
-     "weather_type": 7,
-     "wind_dir": "NW",
-     "wind_class": 2,
-     "rain_class": 1
-    },
-    {
-     "date": "2026-11-25",
-     "t_min_c": 10.4,
-     "t_max_c": 15.8,
+     "date": "2026-11-27",
+     "t_min_c": 11.8,
+     "t_max_c": 17.1,
      "rain_prob_pct": 65,
      "weather_type": 7,
-     "wind_dir": "W",
-     "wind_class": 2,
+     "wind_dir": "SW",
+     "wind_class": 1,
      "rain_class": 1
+    },
+    {
+     "date": "2026-11-28",
+     "t_min_c": 11.3,
+     "t_max_c": 17.8,
+     "rain_prob_pct": 27,
+     "weather_type": 3,
+     "wind_dir": "SE",
+     "wind_class": 1,
+     "rain_class": null
+    },
+    {
+     "date": "2026-11-29",
+     "t_min_c": 11,
+     "t_max_c": 17.1,
+     "rain_prob_pct": 65,
+     "weather_type": 7,
+     "wind_dir": "N",
+     "wind_class": 1,
+     "rain_class": 1
+    },
+    {
+     "date": "2026-11-30",
+     "t_min_c": 8.4,
+     "t_max_c": 15.1,
+     "rain_prob_pct": 0,
+     "weather_type": 2,
+     "wind_dir": "N",
+     "wind_class": 1,
+     "rain_class": null
     }
    ]
   },
@@ -1074,58 +1074,58 @@
    "lat": 39.29,
    "lon": -7.42,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1121400.json",
-   "read_at": "2026-11-21T07:11:21Z",
-   "updated": "2026-11-21T06:31:03",
+   "read_at": "2026-11-26T18:12:18Z",
+   "updated": "2026-11-26T17:31:02",
    "days": [
     {
-     "date": "2026-11-21",
-     "t_min_c": 11,
-     "t_max_c": 15.4,
-     "rain_prob_pct": 100,
-     "weather_type": 9,
-     "wind_dir": "W",
-     "wind_class": 2,
-     "rain_class": 2
-    },
-    {
-     "date": "2026-11-22",
-     "t_min_c": 8.1,
-     "t_max_c": 13.8,
-     "rain_prob_pct": 0,
+     "date": "2026-11-26",
+     "t_min_c": 6.1,
+     "t_max_c": 13,
+     "rain_prob_pct": 4,
      "weather_type": 2,
      "wind_dir": "NW",
-     "wind_class": 2,
+     "wind_class": 1,
      "rain_class": null
     },
     {
-     "date": "2026-11-23",
-     "t_min_c": 7.3,
-     "t_max_c": 14,
-     "rain_prob_pct": 2,
-     "weather_type": 2,
+     "date": "2026-11-27",
+     "t_min_c": 8.7,
+     "t_max_c": 13.4,
+     "rain_prob_pct": 53,
+     "weather_type": 4,
+     "wind_dir": "W",
+     "wind_class": 1,
+     "rain_class": null
+    },
+    {
+     "date": "2026-11-28",
+     "t_min_c": 10.8,
+     "t_max_c": 14.8,
+     "rain_prob_pct": 16,
+     "weather_type": 3,
      "wind_dir": "NE",
      "wind_class": 1,
      "rain_class": null
     },
     {
-     "date": "2026-11-24",
-     "t_min_c": 7.6,
-     "t_max_c": 11.4,
-     "rain_prob_pct": 90,
-     "weather_type": 9,
-     "wind_dir": "W",
-     "wind_class": 2,
-     "rain_class": 2
+     "date": "2026-11-29",
+     "t_min_c": 9.3,
+     "t_max_c": 14.4,
+     "rain_prob_pct": 22,
+     "weather_type": 3,
+     "wind_dir": "NW",
+     "wind_class": 1,
+     "rain_class": null
     },
     {
-     "date": "2026-11-25",
-     "t_min_c": 6.4,
-     "t_max_c": 11.3,
-     "rain_prob_pct": 51,
-     "weather_type": 9,
-     "wind_dir": "W",
-     "wind_class": 2,
-     "rain_class": 2
+     "date": "2026-11-30",
+     "t_min_c": 8.5,
+     "t_max_c": 14.2,
+     "rain_prob_pct": 22,
+     "weather_type": 3,
+     "wind_dir": "E",
+     "wind_class": 1,
+     "rain_class": null
     }
    ]
   },
@@ -1136,58 +1136,58 @@
    "lat": 41.158,
    "lon": -8.6294,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1131200.json",
-   "read_at": "2026-11-21T07:11:23Z",
-   "updated": "2026-11-21T06:31:03",
+   "read_at": "2026-11-26T18:12:20Z",
+   "updated": "2026-11-26T17:31:02",
    "days": [
     {
-     "date": "2026-11-21",
-     "t_min_c": 12.8,
-     "t_max_c": 16.5,
-     "rain_prob_pct": 100,
-     "weather_type": 9,
+     "date": "2026-11-26",
+     "t_min_c": 8.1,
+     "t_max_c": 14.6,
+     "rain_prob_pct": 76,
+     "weather_type": 10,
      "wind_dir": "S",
-     "wind_class": 2,
-     "rain_class": 2
+     "wind_class": 1,
+     "rain_class": 1
     },
     {
-     "date": "2026-11-22",
-     "t_min_c": 11.1,
-     "t_max_c": 16.6,
-     "rain_prob_pct": 22,
+     "date": "2026-11-27",
+     "t_min_c": 12.8,
+     "t_max_c": 16.9,
+     "rain_prob_pct": 16,
      "weather_type": 3,
-     "wind_dir": "W",
-     "wind_class": 2,
-     "rain_class": null
-    },
-    {
-     "date": "2026-11-23",
-     "t_min_c": 8.5,
-     "t_max_c": 16.4,
-     "rain_prob_pct": 6,
-     "weather_type": 2,
-     "wind_dir": "E",
+     "wind_dir": "S",
      "wind_class": 1,
      "rain_class": null
     },
     {
-     "date": "2026-11-24",
-     "t_min_c": 9.2,
-     "t_max_c": 13.9,
-     "rain_prob_pct": 100,
-     "weather_type": 6,
-     "wind_dir": "SE",
+     "date": "2026-11-28",
+     "t_min_c": 13,
+     "t_max_c": 16.6,
+     "rain_prob_pct": 90,
+     "weather_type": 10,
+     "wind_dir": "S",
      "wind_class": 2,
+     "rain_class": 1
+    },
+    {
+     "date": "2026-11-29",
+     "t_min_c": 9.7,
+     "t_max_c": 16.1,
+     "rain_prob_pct": 82,
+     "weather_type": 6,
+     "wind_dir": "NW",
+     "wind_class": 1,
      "rain_class": 2
     },
     {
-     "date": "2026-11-25",
-     "t_min_c": 8.8,
-     "t_max_c": 14,
-     "rain_prob_pct": 94,
-     "weather_type": 6,
-     "wind_dir": "NW",
-     "wind_class": 2,
-     "rain_class": 2
+     "date": "2026-11-30",
+     "t_min_c": 7,
+     "t_max_c": 14.9,
+     "rain_prob_pct": 0,
+     "weather_type": 5,
+     "wind_dir": "E",
+     "wind_class": 1,
+     "rain_class": null
     }
    ]
   },
@@ -1198,57 +1198,57 @@
    "lat": 39.2,
    "lon": -8.74,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1141600.json",
-   "read_at": "2026-11-21T07:11:26Z",
-   "updated": "2026-11-21T06:31:03",
+   "read_at": "2026-11-26T18:12:23Z",
+   "updated": "2026-11-26T17:31:02",
    "days": [
     {
-     "date": "2026-11-21",
-     "t_min_c": 13.1,
-     "t_max_c": 18.1,
-     "rain_prob_pct": 100,
-     "weather_type": 9,
-     "wind_dir": "S",
-     "wind_class": 2,
-     "rain_class": 2
+     "date": "2026-11-26",
+     "t_min_c": 7.4,
+     "t_max_c": 18,
+     "rain_prob_pct": 0,
+     "weather_type": 3,
+     "wind_dir": "W",
+     "wind_class": 1,
+     "rain_class": null
     },
     {
-     "date": "2026-11-22",
+     "date": "2026-11-27",
+     "t_min_c": 10.1,
+     "t_max_c": 17.5,
+     "rain_prob_pct": 27,
+     "weather_type": 3,
+     "wind_dir": "S",
+     "wind_class": 1,
+     "rain_class": null
+    },
+    {
+     "date": "2026-11-28",
+     "t_min_c": 10.7,
+     "t_max_c": 19.2,
+     "rain_prob_pct": 10,
+     "weather_type": 3,
+     "wind_dir": "S",
+     "wind_class": 1,
+     "rain_class": null
+    },
+    {
+     "date": "2026-11-29",
      "t_min_c": 8.8,
-     "t_max_c": 18.4,
-     "rain_prob_pct": 0,
-     "weather_type": 2,
+     "t_max_c": 17.8,
+     "rain_prob_pct": 49,
+     "weather_type": 3,
      "wind_dir": "NW",
      "wind_class": 1,
      "rain_class": null
     },
     {
-     "date": "2026-11-23",
-     "t_min_c": 6.2,
-     "t_max_c": 16.8,
-     "rain_prob_pct": 10,
-     "weather_type": 2,
+     "date": "2026-11-30",
+     "t_min_c": 6.5,
+     "t_max_c": 15.3,
+     "rain_prob_pct": 0,
+     "weather_type": 3,
      "wind_dir": "NE",
      "wind_class": 1,
-     "rain_class": null
-    },
-    {
-     "date": "2026-11-24",
-     "t_min_c": 9.5,
-     "t_max_c": 15.6,
-     "rain_prob_pct": 94,
-     "weather_type": 6,
-     "wind_dir": "S",
-     "wind_class": 1,
-     "rain_class": 2
-    },
-    {
-     "date": "2026-11-25",
-     "t_min_c": 8.9,
-     "t_max_c": 15.8,
-     "rain_prob_pct": 57,
-     "weather_type": 3,
-     "wind_dir": "W",
-     "wind_class": 2,
      "rain_class": null
     }
    ]
@@ -1260,58 +1260,58 @@
    "lat": 38.5246,
    "lon": -8.8856,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1151200.json",
-   "read_at": "2026-11-21T07:11:28Z",
-   "updated": "2026-11-21T06:31:03",
+   "read_at": "2026-11-26T18:12:25Z",
+   "updated": "2026-11-26T17:31:02",
    "days": [
     {
-     "date": "2026-11-21",
-     "t_min_c": 14,
-     "t_max_c": 19.7,
-     "rain_prob_pct": 100,
-     "weather_type": 9,
-     "wind_dir": "S",
-     "wind_class": 2,
-     "rain_class": 2
+     "date": "2026-11-26",
+     "t_min_c": 7.4,
+     "t_max_c": 18.2,
+     "rain_prob_pct": 2,
+     "weather_type": 3,
+     "wind_dir": "SW",
+     "wind_class": 1,
+     "rain_class": null
     },
     {
-     "date": "2026-11-22",
-     "t_min_c": 10,
-     "t_max_c": 19.6,
+     "date": "2026-11-27",
+     "t_min_c": 10.7,
+     "t_max_c": 18,
+     "rain_prob_pct": 65,
+     "weather_type": 7,
+     "wind_dir": "SW",
+     "wind_class": 1,
+     "rain_class": 1
+    },
+    {
+     "date": "2026-11-28",
+     "t_min_c": 10.3,
+     "t_max_c": 19.1,
+     "rain_prob_pct": 10,
+     "weather_type": 5,
+     "wind_dir": "E",
+     "wind_class": 1,
+     "rain_class": null
+    },
+    {
+     "date": "2026-11-29",
+     "t_min_c": 9.1,
+     "t_max_c": 18.3,
+     "rain_prob_pct": 61,
+     "weather_type": 7,
+     "wind_dir": "N",
+     "wind_class": 1,
+     "rain_class": 1
+    },
+    {
+     "date": "2026-11-30",
+     "t_min_c": 7.6,
+     "t_max_c": 16.5,
      "rain_prob_pct": 0,
      "weather_type": 3,
      "wind_dir": "N",
      "wind_class": 1,
      "rain_class": null
-    },
-    {
-     "date": "2026-11-23",
-     "t_min_c": 8.1,
-     "t_max_c": 18.1,
-     "rain_prob_pct": 8,
-     "weather_type": 2,
-     "wind_dir": "N",
-     "wind_class": 1,
-     "rain_class": null
-    },
-    {
-     "date": "2026-11-24",
-     "t_min_c": 10.1,
-     "t_max_c": 17.6,
-     "rain_prob_pct": 90,
-     "weather_type": 7,
-     "wind_dir": "NW",
-     "wind_class": 1,
-     "rain_class": 1
-    },
-    {
-     "date": "2026-11-25",
-     "t_min_c": 9.8,
-     "t_max_c": 17.7,
-     "rain_prob_pct": 40,
-     "weather_type": 7,
-     "wind_dir": "NW",
-     "wind_class": 1,
-     "rain_class": 1
     }
    ]
   },
@@ -1322,58 +1322,58 @@
    "lat": 37.956,
    "lon": -8.8643,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1151300.json",
-   "read_at": "2026-11-21T07:11:31Z",
-   "updated": "2026-11-21T06:31:03",
+   "read_at": "2026-11-26T18:12:28Z",
+   "updated": "2026-11-26T17:31:02",
    "days": [
     {
-     "date": "2026-11-21",
-     "t_min_c": 15,
-     "t_max_c": 20.4,
-     "rain_prob_pct": 100,
-     "weather_type": 6,
-     "wind_dir": "S",
-     "wind_class": 2,
-     "rain_class": 2
-    },
-    {
-     "date": "2026-11-22",
-     "t_min_c": 10.1,
-     "t_max_c": 16.8,
+     "date": "2026-11-26",
+     "t_min_c": 6.8,
+     "t_max_c": 15.7,
      "rain_prob_pct": 0,
      "weather_type": 2,
-     "wind_dir": "N",
-     "wind_class": 2,
-     "rain_class": null
-    },
-    {
-     "date": "2026-11-23",
-     "t_min_c": 8.4,
-     "t_max_c": 15.8,
-     "rain_prob_pct": 6,
-     "weather_type": 2,
-     "wind_dir": "NE",
+     "wind_dir": "NW",
      "wind_class": 1,
      "rain_class": null
     },
     {
-     "date": "2026-11-24",
-     "t_min_c": 10.5,
-     "t_max_c": 15.1,
-     "rain_prob_pct": 88,
-     "weather_type": 10,
-     "wind_dir": "NW",
-     "wind_class": 2,
+     "date": "2026-11-27",
+     "t_min_c": 9.9,
+     "t_max_c": 17.5,
+     "rain_prob_pct": 10,
+     "weather_type": 3,
+     "wind_dir": "SW",
+     "wind_class": 1,
+     "rain_class": null
+    },
+    {
+     "date": "2026-11-28",
+     "t_min_c": 10.3,
+     "t_max_c": 17.6,
+     "rain_prob_pct": 2,
+     "weather_type": 3,
+     "wind_dir": "E",
+     "wind_class": 1,
+     "rain_class": null
+    },
+    {
+     "date": "2026-11-29",
+     "t_min_c": 9.4,
+     "t_max_c": 17.2,
+     "rain_prob_pct": 40,
+     "weather_type": 7,
+     "wind_dir": "NE",
+     "wind_class": 1,
      "rain_class": 1
     },
     {
-     "date": "2026-11-25",
-     "t_min_c": 10.1,
-     "t_max_c": 15.1,
-     "rain_prob_pct": 63,
-     "weather_type": 7,
-     "wind_dir": "NW",
-     "wind_class": 2,
-     "rain_class": 1
+     "date": "2026-11-30",
+     "t_min_c": 7.8,
+     "t_max_c": 16.6,
+     "rain_prob_pct": 8,
+     "weather_type": 2,
+     "wind_dir": "NE",
+     "wind_class": 1,
+     "rain_class": null
     }
    ]
   },
@@ -1384,58 +1384,58 @@
    "lat": 41.6952,
    "lon": -8.8365,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1160900.json",
-   "read_at": "2026-11-21T07:11:33Z",
-   "updated": "2026-11-21T06:31:03",
+   "read_at": "2026-11-26T18:12:30Z",
+   "updated": "2026-11-26T17:31:02",
    "days": [
     {
-     "date": "2026-11-21",
-     "t_min_c": 12.1,
-     "t_max_c": 16.2,
+     "date": "2026-11-26",
+     "t_min_c": 7.1,
+     "t_max_c": 13.1,
      "rain_prob_pct": 100,
      "weather_type": 9,
-     "wind_dir": "S",
-     "wind_class": 2,
+     "wind_dir": "E",
+     "wind_class": 1,
      "rain_class": 2
     },
     {
-     "date": "2026-11-22",
-     "t_min_c": 9.4,
-     "t_max_c": 16.4,
-     "rain_prob_pct": 33,
-     "weather_type": 3,
-     "wind_dir": "W",
+     "date": "2026-11-27",
+     "t_min_c": 12.1,
+     "t_max_c": 15.5,
+     "rain_prob_pct": 60,
+     "weather_type": 4,
+     "wind_dir": "SE",
      "wind_class": 1,
      "rain_class": null
     },
     {
-     "date": "2026-11-23",
-     "t_min_c": 7.1,
-     "t_max_c": 15.2,
-     "rain_prob_pct": 8,
+     "date": "2026-11-28",
+     "t_min_c": 13.1,
+     "t_max_c": 15.6,
+     "rain_prob_pct": 100,
+     "weather_type": 10,
+     "wind_dir": "S",
+     "wind_class": 1,
+     "rain_class": 1
+    },
+    {
+     "date": "2026-11-29",
+     "t_min_c": 7.3,
+     "t_max_c": 15.9,
+     "rain_prob_pct": 59,
+     "weather_type": 2,
+     "wind_dir": "N",
+     "wind_class": 1,
+     "rain_class": null
+    },
+    {
+     "date": "2026-11-30",
+     "t_min_c": 6,
+     "t_max_c": 14.3,
+     "rain_prob_pct": 0,
      "weather_type": 2,
      "wind_dir": "E",
      "wind_class": 1,
      "rain_class": null
-    },
-    {
-     "date": "2026-11-24",
-     "t_min_c": 8.1,
-     "t_max_c": 12.9,
-     "rain_prob_pct": 100,
-     "weather_type": 6,
-     "wind_dir": "NW",
-     "wind_class": 1,
-     "rain_class": 2
-    },
-    {
-     "date": "2026-11-25",
-     "t_min_c": 7.2,
-     "t_max_c": 13.2,
-     "rain_prob_pct": 100,
-     "weather_type": 6,
-     "wind_dir": "NW",
-     "wind_class": 2,
-     "rain_class": 2
     }
    ]
   },
@@ -1446,58 +1446,58 @@
    "lat": 41.3053,
    "lon": -7.744,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1171400.json",
-   "read_at": "2026-11-21T07:11:36Z",
-   "updated": "2026-11-21T06:31:03",
+   "read_at": "2026-11-26T18:12:33Z",
+   "updated": "2026-11-26T17:31:02",
    "days": [
     {
-     "date": "2026-11-21",
-     "t_min_c": 9.5,
-     "t_max_c": 14.3,
-     "rain_prob_pct": 100,
+     "date": "2026-11-26",
+     "t_min_c": 4.7,
+     "t_max_c": 10.7,
+     "rain_prob_pct": 76,
+     "weather_type": 10,
+     "wind_dir": "N",
+     "wind_class": 1,
+     "rain_class": 1
+    },
+    {
+     "date": "2026-11-27",
+     "t_min_c": 9.4,
+     "t_max_c": 14.2,
+     "rain_prob_pct": 12,
+     "weather_type": 4,
+     "wind_dir": "N",
+     "wind_class": 1,
+     "rain_class": null
+    },
+    {
+     "date": "2026-11-28",
+     "t_min_c": 8.2,
+     "t_max_c": 14.1,
+     "rain_prob_pct": 49,
      "weather_type": 9,
-     "wind_dir": "W",
-     "wind_class": 2,
+     "wind_dir": "NW",
+     "wind_class": 1,
      "rain_class": 2
     },
     {
-     "date": "2026-11-22",
-     "t_min_c": 5.8,
-     "t_max_c": 14,
-     "rain_prob_pct": 53,
+     "date": "2026-11-29",
+     "t_min_c": 6.8,
+     "t_max_c": 14.9,
+     "rain_prob_pct": 80,
      "weather_type": 7,
      "wind_dir": "W",
      "wind_class": 1,
      "rain_class": 1
     },
     {
-     "date": "2026-11-23",
-     "t_min_c": 4.6,
-     "t_max_c": 12,
-     "rain_prob_pct": 8,
+     "date": "2026-11-30",
+     "t_min_c": 4.4,
+     "t_max_c": 11.1,
+     "rain_prob_pct": 4,
      "weather_type": 3,
-     "wind_dir": "NE",
+     "wind_dir": "E",
      "wind_class": 1,
      "rain_class": null
-    },
-    {
-     "date": "2026-11-24",
-     "t_min_c": 6.7,
-     "t_max_c": 11.7,
-     "rain_prob_pct": 100,
-     "weather_type": 9,
-     "wind_dir": "W",
-     "wind_class": 1,
-     "rain_class": 2
-    },
-    {
-     "date": "2026-11-25",
-     "t_min_c": 4.9,
-     "t_max_c": 11.7,
-     "rain_prob_pct": 86,
-     "weather_type": 10,
-     "wind_dir": "W",
-     "wind_class": 1,
-     "rain_class": 1
     }
    ]
   },
@@ -1508,58 +1508,58 @@
    "lat": 40.6585,
    "lon": -7.912,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1182300.json",
-   "read_at": "2026-11-21T07:11:38Z",
-   "updated": "2026-11-21T06:31:03",
+   "read_at": "2026-11-26T18:12:35Z",
+   "updated": "2026-11-26T17:31:02",
    "days": [
     {
-     "date": "2026-11-21",
-     "t_min_c": 9.3,
-     "t_max_c": 13.1,
-     "rain_prob_pct": 100,
-     "weather_type": 9,
+     "date": "2026-11-26",
+     "t_min_c": 5.4,
+     "t_max_c": 10.3,
+     "rain_prob_pct": 47,
+     "weather_type": 4,
      "wind_dir": "S",
-     "wind_class": 2,
-     "rain_class": 2
-    },
-    {
-     "date": "2026-11-22",
-     "t_min_c": 4.9,
-     "t_max_c": 13.1,
-     "rain_prob_pct": 40,
-     "weather_type": 7,
-     "wind_dir": "NW",
-     "wind_class": 1,
-     "rain_class": 1
-    },
-    {
-     "date": "2026-11-23",
-     "t_min_c": 3.1,
-     "t_max_c": 13.9,
-     "rain_prob_pct": 2,
-     "weather_type": 2,
-     "wind_dir": "NE",
      "wind_class": 1,
      "rain_class": null
     },
     {
-     "date": "2026-11-24",
-     "t_min_c": 6.4,
-     "t_max_c": 11,
-     "rain_prob_pct": 100,
-     "weather_type": 9,
-     "wind_dir": "W",
+     "date": "2026-11-27",
+     "t_min_c": 9.3,
+     "t_max_c": 14,
+     "rain_prob_pct": 63,
+     "weather_type": 7,
+     "wind_dir": "SE",
      "wind_class": 1,
-     "rain_class": 2
+     "rain_class": 1
     },
     {
-     "date": "2026-11-25",
-     "t_min_c": 4.5,
-     "t_max_c": 10.3,
-     "rain_prob_pct": 86,
-     "weather_type": 7,
+     "date": "2026-11-28",
+     "t_min_c": 10.2,
+     "t_max_c": 13.6,
+     "rain_prob_pct": 65,
+     "weather_type": 10,
      "wind_dir": "SW",
-     "wind_class": 2,
+     "wind_class": 1,
      "rain_class": 1
+    },
+    {
+     "date": "2026-11-29",
+     "t_min_c": 5.7,
+     "t_max_c": 14.7,
+     "rain_prob_pct": 75,
+     "weather_type": 7,
+     "wind_dir": "W",
+     "wind_class": 1,
+     "rain_class": 1
+    },
+    {
+     "date": "2026-11-30",
+     "t_min_c": 4.7,
+     "t_max_c": 13.5,
+     "rain_prob_pct": 4,
+     "weather_type": 2,
+     "wind_dir": "NE",
+     "wind_class": 1,
+     "rain_class": null
     }
    ]
   },
@@ -1570,54 +1570,54 @@
    "lat": 32.6485,
    "lon": -16.9084,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/2310300.json",
-   "read_at": "2026-11-21T07:11:41Z",
-   "updated": "2026-11-21T06:31:03",
+   "read_at": "2026-11-26T18:12:38Z",
+   "updated": "2026-11-26T17:31:02",
    "days": [
     {
-     "date": "2026-11-21",
-     "t_min_c": 20.2,
-     "t_max_c": 24.8,
-     "rain_prob_pct": 100,
-     "weather_type": 7,
-     "wind_dir": "W",
-     "wind_class": 1,
-     "rain_class": 1
-    },
-    {
-     "date": "2026-11-22",
-     "t_min_c": 19.2,
-     "t_max_c": 22.9,
-     "rain_prob_pct": 35,
+     "date": "2026-11-26",
+     "t_min_c": 17.7,
+     "t_max_c": 22.1,
+     "rain_prob_pct": 14,
      "weather_type": 3,
-     "wind_dir": "E",
+     "wind_dir": "NE",
      "wind_class": 1,
      "rain_class": null
     },
     {
-     "date": "2026-11-23",
-     "t_min_c": 19.4,
-     "t_max_c": 23.5,
-     "rain_prob_pct": 73,
+     "date": "2026-11-27",
+     "t_min_c": 16.3,
+     "t_max_c": 22.3,
+     "rain_prob_pct": 65,
      "weather_type": 7,
-     "wind_dir": "E",
+     "wind_dir": "N",
      "wind_class": 1,
      "rain_class": 1
     },
     {
-     "date": "2026-11-24",
-     "t_min_c": 18.2,
-     "t_max_c": 23.8,
+     "date": "2026-11-28",
+     "t_min_c": 17.1,
+     "t_max_c": 21.9,
      "rain_prob_pct": 63,
+     "weather_type": 7,
+     "wind_dir": "NW",
+     "wind_class": 1,
+     "rain_class": 1
+    },
+    {
+     "date": "2026-11-29",
+     "t_min_c": 17.5,
+     "t_max_c": 22.5,
+     "rain_prob_pct": 41,
      "weather_type": 7,
      "wind_dir": "NE",
      "wind_class": 1,
      "rain_class": 1
     },
     {
-     "date": "2026-11-25",
-     "t_min_c": 17.1,
-     "t_max_c": 21.7,
-     "rain_prob_pct": 43,
+     "date": "2026-11-30",
+     "t_min_c": 16.8,
+     "t_max_c": 22.4,
+     "rain_prob_pct": 29,
      "weather_type": 3,
      "wind_dir": "NE",
      "wind_class": 1,
@@ -1632,57 +1632,57 @@
    "lat": 33.07,
    "lon": -16.34,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/2320100.json",
-   "read_at": "2026-11-21T07:11:43Z",
-   "updated": "2026-11-21T06:31:03",
+   "read_at": "2026-11-26T18:12:40Z",
+   "updated": "2026-11-26T17:31:02",
    "days": [
     {
-     "date": "2026-11-21",
-     "t_min_c": 18.8,
-     "t_max_c": 23.3,
-     "rain_prob_pct": 40,
-     "weather_type": 7,
-     "wind_dir": "W",
-     "wind_class": 2,
-     "rain_class": 1
-    },
-    {
-     "date": "2026-11-22",
-     "t_min_c": 18.3,
-     "t_max_c": 22.5,
-     "rain_prob_pct": 6,
-     "weather_type": 3,
-     "wind_dir": "E",
-     "wind_class": 2,
-     "rain_class": null
-    },
-    {
-     "date": "2026-11-23",
-     "t_min_c": 18.6,
-     "t_max_c": 23.2,
-     "rain_prob_pct": 41,
-     "weather_type": 3,
-     "wind_dir": "SE",
-     "wind_class": 2,
-     "rain_class": null
-    },
-    {
-     "date": "2026-11-24",
-     "t_min_c": 17.4,
-     "t_max_c": 22.3,
-     "rain_prob_pct": 33,
+     "date": "2026-11-26",
+     "t_min_c": 15.5,
+     "t_max_c": 21.6,
+     "rain_prob_pct": 60,
      "weather_type": 3,
      "wind_dir": "N",
      "wind_class": 2,
      "rain_class": null
     },
     {
-     "date": "2026-11-25",
+     "date": "2026-11-27",
      "t_min_c": 16.7,
      "t_max_c": 21.5,
-     "rain_prob_pct": 29,
+     "rain_prob_pct": 20,
+     "weather_type": 2,
+     "wind_dir": "NE",
+     "wind_class": 1,
+     "rain_class": null
+    },
+    {
+     "date": "2026-11-28",
+     "t_min_c": 15.7,
+     "t_max_c": 21.2,
+     "rain_prob_pct": 76,
+     "weather_type": 7,
+     "wind_dir": "NW",
+     "wind_class": 2,
+     "rain_class": 1
+    },
+    {
+     "date": "2026-11-29",
+     "t_min_c": 15.9,
+     "t_max_c": 22.3,
+     "rain_prob_pct": 59,
+     "weather_type": 2,
+     "wind_dir": "NE",
+     "wind_class": 1,
+     "rain_class": null
+    },
+    {
+     "date": "2026-11-30",
+     "t_min_c": 16.8,
+     "t_max_c": 22.1,
+     "rain_prob_pct": 37,
      "weather_type": 3,
      "wind_dir": "NE",
-     "wind_class": 2,
+     "wind_class": 1,
      "rain_class": null
     }
    ]
@@ -1694,58 +1694,58 @@
    "lat": 36.9563,
    "lon": -25.1409,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/3410100.json",
-   "read_at": "2026-11-21T07:11:46Z",
-   "updated": "2026-11-21T06:31:03",
+   "read_at": "2026-11-26T18:12:43Z",
+   "updated": "2026-11-26T17:31:02",
    "days": [
     {
-     "date": "2026-11-21",
-     "t_min_c": 14.8,
-     "t_max_c": 18.2,
-     "rain_prob_pct": 10,
-     "weather_type": 3,
+     "date": "2026-11-26",
+     "t_min_c": 14.6,
+     "t_max_c": 18.9,
+     "rain_prob_pct": 49,
+     "weather_type": 4,
      "wind_dir": "NW",
      "wind_class": 2,
      "rain_class": null
     },
     {
-     "date": "2026-11-22",
-     "t_min_c": 15.5,
-     "t_max_c": 20.2,
-     "rain_prob_pct": 20,
-     "weather_type": 3,
-     "wind_dir": "SW",
-     "wind_class": 2,
-     "rain_class": null
-    },
-    {
-     "date": "2026-11-23",
-     "t_min_c": 14.8,
-     "t_max_c": 19.2,
-     "rain_prob_pct": 67,
-     "weather_type": 6,
-     "wind_dir": "N",
-     "wind_class": 2,
-     "rain_class": 2
-    },
-    {
-     "date": "2026-11-24",
-     "t_min_c": 14.5,
-     "t_max_c": 18.5,
-     "rain_prob_pct": 2,
-     "weather_type": 3,
-     "wind_dir": "N",
-     "wind_class": 2,
-     "rain_class": null
-    },
-    {
-     "date": "2026-11-25",
+     "date": "2026-11-27",
      "t_min_c": 14.7,
-     "t_max_c": 19,
-     "rain_prob_pct": 4,
+     "t_max_c": 19.9,
+     "rain_prob_pct": 90,
+     "weather_type": 7,
+     "wind_dir": "W",
+     "wind_class": 2,
+     "rain_class": 1
+    },
+    {
+     "date": "2026-11-28",
+     "t_min_c": 13.9,
+     "t_max_c": 18.7,
+     "rain_prob_pct": 24,
      "weather_type": 2,
      "wind_dir": "N",
+     "wind_class": 1,
+     "rain_class": null
+    },
+    {
+     "date": "2026-11-29",
+     "t_min_c": 14.4,
+     "t_max_c": 19.4,
+     "rain_prob_pct": 10,
+     "weather_type": 3,
+     "wind_dir": "S",
      "wind_class": 2,
      "rain_class": null
+    },
+    {
+     "date": "2026-11-30",
+     "t_min_c": 16,
+     "t_max_c": 20.6,
+     "rain_prob_pct": 69,
+     "weather_type": 7,
+     "wind_dir": "SW",
+     "wind_class": 2,
+     "rain_class": 1
     }
    ]
   },
@@ -1756,58 +1756,58 @@
    "lat": 37.7415,
    "lon": -25.6677,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/3420300.json",
-   "read_at": "2026-11-21T07:11:48Z",
-   "updated": "2026-11-21T06:31:03",
+   "read_at": "2026-11-26T18:12:45Z",
+   "updated": "2026-11-26T17:31:02",
    "days": [
     {
-     "date": "2026-11-21",
-     "t_min_c": 13,
-     "t_max_c": 18,
-     "rain_prob_pct": 4,
+     "date": "2026-11-26",
+     "t_min_c": 14,
+     "t_max_c": 19,
+     "rain_prob_pct": 10,
      "weather_type": 3,
      "wind_dir": "NW",
      "wind_class": 2,
      "rain_class": null
     },
     {
-     "date": "2026-11-22",
-     "t_min_c": 13,
-     "t_max_c": 18,
-     "rain_prob_pct": 60,
+     "date": "2026-11-27",
+     "t_min_c": 13.3,
+     "t_max_c": 18.6,
+     "rain_prob_pct": 100,
+     "weather_type": 6,
+     "wind_dir": "W",
+     "wind_class": 2,
+     "rain_class": 2
+    },
+    {
+     "date": "2026-11-28",
+     "t_min_c": 12.7,
+     "t_max_c": 17.6,
+     "rain_prob_pct": 2,
+     "weather_type": 3,
+     "wind_dir": "N",
+     "wind_class": 2,
+     "rain_class": null
+    },
+    {
+     "date": "2026-11-29",
+     "t_min_c": 14,
+     "t_max_c": 19.1,
+     "rain_prob_pct": 16,
      "weather_type": 3,
      "wind_dir": "SW",
      "wind_class": 2,
      "rain_class": null
     },
     {
-     "date": "2026-11-23",
-     "t_min_c": 14,
-     "t_max_c": 17.5,
-     "rain_prob_pct": 53,
+     "date": "2026-11-30",
+     "t_min_c": 17.1,
+     "t_max_c": 20,
+     "rain_prob_pct": 86,
      "weather_type": 7,
-     "wind_dir": "N",
+     "wind_dir": "SW",
      "wind_class": 2,
      "rain_class": 1
-    },
-    {
-     "date": "2026-11-24",
-     "t_min_c": 13.7,
-     "t_max_c": 17.6,
-     "rain_prob_pct": 0,
-     "weather_type": 3,
-     "wind_dir": "N",
-     "wind_class": 2,
-     "rain_class": null
-    },
-    {
-     "date": "2026-11-25",
-     "t_min_c": 14.2,
-     "t_max_c": 17.9,
-     "rain_prob_pct": 0,
-     "weather_type": 3,
-     "wind_dir": "NW",
-     "wind_class": 2,
-     "rain_class": null
     }
    ]
   },
@@ -1818,58 +1818,58 @@
    "lat": 38.67,
    "lon": -27.22,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/3430100.json",
-   "read_at": "2026-11-21T07:11:51Z",
-   "updated": "2026-11-21T06:31:03",
+   "read_at": "2026-11-26T18:12:48Z",
+   "updated": "2026-11-26T17:31:02",
    "days": [
     {
-     "date": "2026-11-21",
-     "t_min_c": 12,
-     "t_max_c": 17,
-     "rain_prob_pct": 10,
+     "date": "2026-11-26",
+     "t_min_c": 13,
+     "t_max_c": 19,
+     "rain_prob_pct": 78,
+     "weather_type": 7,
+     "wind_dir": "W",
+     "wind_class": 2,
+     "rain_class": 1
+    },
+    {
+     "date": "2026-11-27",
+     "t_min_c": 11.9,
+     "t_max_c": 16.7,
+     "rain_prob_pct": 100,
+     "weather_type": 7,
+     "wind_dir": "NW",
+     "wind_class": 1,
+     "rain_class": 1
+    },
+    {
+     "date": "2026-11-28",
+     "t_min_c": 11.4,
+     "t_max_c": 15.8,
+     "rain_prob_pct": 8,
      "weather_type": 3,
      "wind_dir": "NW",
+     "wind_class": 1,
+     "rain_class": null
+    },
+    {
+     "date": "2026-11-29",
+     "t_min_c": 11.9,
+     "t_max_c": 17.7,
+     "rain_prob_pct": 24,
+     "weather_type": 3,
+     "wind_dir": "SW",
      "wind_class": 2,
      "rain_class": null
     },
     {
-     "date": "2026-11-22",
-     "t_min_c": 12,
-     "t_max_c": 17,
-     "rain_prob_pct": 98,
+     "date": "2026-11-30",
+     "t_min_c": 16.6,
+     "t_max_c": 18.6,
+     "rain_prob_pct": 100,
      "weather_type": 7,
      "wind_dir": "SW",
      "wind_class": 2,
      "rain_class": 1
-    },
-    {
-     "date": "2026-11-23",
-     "t_min_c": 12.7,
-     "t_max_c": 16,
-     "rain_prob_pct": 78,
-     "weather_type": 10,
-     "wind_dir": "NW",
-     "wind_class": 2,
-     "rain_class": 1
-    },
-    {
-     "date": "2026-11-24",
-     "t_min_c": 12.3,
-     "t_max_c": 17.5,
-     "rain_prob_pct": 51,
-     "weather_type": 7,
-     "wind_dir": "NW",
-     "wind_class": 1,
-     "rain_class": 1
-    },
-    {
-     "date": "2026-11-25",
-     "t_min_c": 12.3,
-     "t_max_c": 17.2,
-     "rain_prob_pct": 22,
-     "weather_type": 3,
-     "wind_dir": "NW",
-     "wind_class": 1,
-     "rain_class": null
     }
    ]
   },
@@ -1880,58 +1880,58 @@
    "lat": 39.08,
    "lon": -28,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/3440100.json",
-   "read_at": "2026-11-21T07:11:53Z",
-   "updated": "2026-11-21T06:31:03",
+   "read_at": "2026-11-26T18:12:50Z",
+   "updated": "2026-11-26T17:31:02",
    "days": [
     {
-     "date": "2026-11-21",
-     "t_min_c": 13.7,
-     "t_max_c": 17.4,
-     "rain_prob_pct": 0,
-     "weather_type": 3,
-     "wind_dir": "NW",
-     "wind_class": 2,
-     "rain_class": null
-    },
-    {
-     "date": "2026-11-22",
-     "t_min_c": 14.1,
-     "t_max_c": 18.6,
-     "rain_prob_pct": 90,
+     "date": "2026-11-26",
+     "t_min_c": 15,
+     "t_max_c": 18.8,
+     "rain_prob_pct": 96,
      "weather_type": 7,
-     "wind_dir": "SW",
+     "wind_dir": "W",
      "wind_class": 2,
      "rain_class": 1
     },
     {
-     "date": "2026-11-23",
-     "t_min_c": 13.6,
-     "t_max_c": 16.9,
-     "rain_prob_pct": 55,
-     "weather_type": 3,
+     "date": "2026-11-27",
+     "t_min_c": 13.4,
+     "t_max_c": 16.5,
+     "rain_prob_pct": 92,
+     "weather_type": 7,
      "wind_dir": "NW",
      "wind_class": 2,
-     "rain_class": null
+     "rain_class": 1
     },
     {
-     "date": "2026-11-24",
-     "t_min_c": 13.8,
-     "t_max_c": 17.9,
-     "rain_prob_pct": 31,
+     "date": "2026-11-28",
+     "t_min_c": 12.4,
+     "t_max_c": 16.6,
+     "rain_prob_pct": 6,
      "weather_type": 3,
      "wind_dir": "NW",
      "wind_class": 1,
      "rain_class": null
     },
     {
-     "date": "2026-11-25",
-     "t_min_c": 14.6,
-     "t_max_c": 17.7,
-     "rain_prob_pct": 2,
-     "weather_type": 4,
-     "wind_dir": "NW",
+     "date": "2026-11-29",
+     "t_min_c": 14.3,
+     "t_max_c": 19.4,
+     "rain_prob_pct": 0,
+     "weather_type": 3,
+     "wind_dir": "SW",
      "wind_class": 2,
      "rain_class": null
+    },
+    {
+     "date": "2026-11-30",
+     "t_min_c": 17,
+     "t_max_c": 19.9,
+     "rain_prob_pct": 100,
+     "weather_type": 9,
+     "wind_dir": "SW",
+     "wind_class": 2,
+     "rain_class": 2
     }
    ]
   },
@@ -1942,58 +1942,58 @@
    "lat": 38.6842,
    "lon": -28.2133,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/3450200.json",
-   "read_at": "2026-11-21T07:11:56Z",
-   "updated": "2026-11-21T06:31:03",
+   "read_at": "2026-11-26T18:12:53Z",
+   "updated": "2026-11-26T17:31:02",
    "days": [
     {
-     "date": "2026-11-21",
-     "t_min_c": 13.1,
-     "t_max_c": 17.6,
-     "rain_prob_pct": 8,
-     "weather_type": 4,
-     "wind_dir": "NW",
-     "wind_class": 2,
-     "rain_class": null
-    },
-    {
-     "date": "2026-11-22",
-     "t_min_c": 13.1,
-     "t_max_c": 18.8,
-     "rain_prob_pct": 67,
+     "date": "2026-11-26",
+     "t_min_c": 14.5,
+     "t_max_c": 19.1,
+     "rain_prob_pct": 96,
      "weather_type": 7,
-     "wind_dir": "SW",
-     "wind_class": 1,
+     "wind_dir": "W",
+     "wind_class": 2,
      "rain_class": 1
     },
     {
-     "date": "2026-11-23",
-     "t_min_c": 13.2,
-     "t_max_c": 16.8,
-     "rain_prob_pct": 60,
-     "weather_type": 3,
+     "date": "2026-11-27",
+     "t_min_c": 13.1,
+     "t_max_c": 17.2,
+     "rain_prob_pct": 100,
+     "weather_type": 7,
      "wind_dir": "NW",
      "wind_class": 2,
-     "rain_class": null
+     "rain_class": 1
     },
     {
-     "date": "2026-11-24",
-     "t_min_c": 13.3,
-     "t_max_c": 18,
-     "rain_prob_pct": 60,
+     "date": "2026-11-28",
+     "t_min_c": 12.2,
+     "t_max_c": 16.8,
+     "rain_prob_pct": 22,
      "weather_type": 3,
      "wind_dir": "NW",
      "wind_class": 1,
      "rain_class": null
     },
     {
-     "date": "2026-11-25",
-     "t_min_c": 13.4,
-     "t_max_c": 17.7,
-     "rain_prob_pct": 22,
-     "weather_type": 4,
-     "wind_dir": "NW",
+     "date": "2026-11-29",
+     "t_min_c": 13.5,
+     "t_max_c": 19.6,
+     "rain_prob_pct": 0,
+     "weather_type": 3,
+     "wind_dir": "SW",
      "wind_class": 1,
      "rain_class": null
+    },
+    {
+     "date": "2026-11-30",
+     "t_min_c": 16.2,
+     "t_max_c": 19.9,
+     "rain_prob_pct": 96,
+     "weather_type": 9,
+     "wind_dir": "SW",
+     "wind_class": 2,
+     "rain_class": 2
     }
    ]
   },
@@ -2004,58 +2004,58 @@
    "lat": 38.5325,
    "lon": -28.5237,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/3460200.json",
-   "read_at": "2026-11-21T07:11:58Z",
-   "updated": "2026-11-21T06:31:03",
+   "read_at": "2026-11-26T18:12:55Z",
+   "updated": "2026-11-26T17:31:02",
    "days": [
     {
-     "date": "2026-11-21",
-     "t_min_c": 13.4,
-     "t_max_c": 17.5,
-     "rain_prob_pct": 14,
-     "weather_type": 3,
-     "wind_dir": "NW",
-     "wind_class": 2,
-     "rain_class": null
-    },
-    {
-     "date": "2026-11-22",
-     "t_min_c": 12.8,
-     "t_max_c": 18.9,
-     "rain_prob_pct": 60,
-     "weather_type": 3,
-     "wind_dir": "SW",
-     "wind_class": 2,
-     "rain_class": null
-    },
-    {
-     "date": "2026-11-23",
-     "t_min_c": 13.1,
-     "t_max_c": 16.9,
-     "rain_prob_pct": 98,
+     "date": "2026-11-26",
+     "t_min_c": 14.2,
+     "t_max_c": 19.7,
+     "rain_prob_pct": 63,
      "weather_type": 6,
-     "wind_dir": "NW",
+     "wind_dir": "W",
      "wind_class": 2,
      "rain_class": 2
     },
     {
-     "date": "2026-11-24",
-     "t_min_c": 13.3,
-     "t_max_c": 18.1,
-     "rain_prob_pct": 73,
+     "date": "2026-11-27",
+     "t_min_c": 12.2,
+     "t_max_c": 17.1,
+     "rain_prob_pct": 100,
      "weather_type": 7,
      "wind_dir": "NW",
      "wind_class": 1,
      "rain_class": 1
     },
     {
-     "date": "2026-11-25",
-     "t_min_c": 13,
-     "t_max_c": 18,
-     "rain_prob_pct": 12,
-     "weather_type": 4,
+     "date": "2026-11-28",
+     "t_min_c": 11.9,
+     "t_max_c": 17.5,
+     "rain_prob_pct": 53,
+     "weather_type": 7,
      "wind_dir": "NW",
      "wind_class": 1,
+     "rain_class": 1
+    },
+    {
+     "date": "2026-11-29",
+     "t_min_c": 13.5,
+     "t_max_c": 19.7,
+     "rain_prob_pct": 14,
+     "weather_type": 3,
+     "wind_dir": "SW",
+     "wind_class": 2,
      "rain_class": null
+    },
+    {
+     "date": "2026-11-30",
+     "t_min_c": 16.4,
+     "t_max_c": 19.7,
+     "rain_prob_pct": 100,
+     "weather_type": 9,
+     "wind_dir": "SW",
+     "wind_class": 2,
+     "rain_class": 2
     }
    ]
   },
@@ -2066,58 +2066,58 @@
    "lat": 38.5363,
    "lon": -28.6315,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/3470100.json",
-   "read_at": "2026-11-21T07:12:01Z",
-   "updated": "2026-11-21T06:31:03",
+   "read_at": "2026-11-26T18:12:58Z",
+   "updated": "2026-11-26T17:31:02",
    "days": [
     {
-     "date": "2026-11-21",
+     "date": "2026-11-26",
+     "t_min_c": 14,
+     "t_max_c": 19,
+     "rain_prob_pct": 86,
+     "weather_type": 9,
+     "wind_dir": "W",
+     "wind_class": 2,
+     "rain_class": 2
+    },
+    {
+     "date": "2026-11-27",
      "t_min_c": 13,
-     "t_max_c": 18,
+     "t_max_c": 18.6,
+     "rain_prob_pct": 100,
+     "weather_type": 6,
+     "wind_dir": "N",
+     "wind_class": 2,
+     "rain_class": 2
+    },
+    {
+     "date": "2026-11-28",
+     "t_min_c": 12.9,
+     "t_max_c": 17.7,
      "rain_prob_pct": 0,
      "weather_type": 3,
      "wind_dir": "NW",
-     "wind_class": 2,
+     "wind_class": 1,
      "rain_class": null
     },
     {
-     "date": "2026-11-22",
-     "t_min_c": 13,
-     "t_max_c": 18,
-     "rain_prob_pct": 96,
-     "weather_type": 7,
+     "date": "2026-11-29",
+     "t_min_c": 15.6,
+     "t_max_c": 19.7,
+     "rain_prob_pct": 33,
+     "weather_type": 3,
      "wind_dir": "SW",
      "wind_class": 2,
-     "rain_class": 1
+     "rain_class": null
     },
     {
-     "date": "2026-11-23",
-     "t_min_c": 13.6,
-     "t_max_c": 18.5,
-     "rain_prob_pct": 41,
-     "weather_type": 3,
-     "wind_dir": "N",
+     "date": "2026-11-30",
+     "t_min_c": 17.5,
+     "t_max_c": 19.5,
+     "rain_prob_pct": 100,
+     "weather_type": 9,
+     "wind_dir": "SW",
      "wind_class": 2,
-     "rain_class": null
-    },
-    {
-     "date": "2026-11-24",
-     "t_min_c": 13.9,
-     "t_max_c": 19.8,
-     "rain_prob_pct": 31,
-     "weather_type": 3,
-     "wind_dir": "N",
-     "wind_class": 1,
-     "rain_class": null
-    },
-    {
-     "date": "2026-11-25",
-     "t_min_c": 14,
-     "t_max_c": 19.4,
-     "rain_prob_pct": 0,
-     "weather_type": 3,
-     "wind_dir": "NW",
-     "wind_class": 1,
-     "rain_class": null
+     "rain_class": 2
     }
    ]
   },
@@ -2128,58 +2128,58 @@
    "lat": 39.45,
    "lon": -31.13,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/3480200.json",
-   "read_at": "2026-11-21T07:12:03Z",
-   "updated": "2026-11-21T06:31:03",
+   "read_at": "2026-11-26T18:13:00Z",
+   "updated": "2026-11-26T17:31:02",
    "days": [
     {
-     "date": "2026-11-21",
-     "t_min_c": 12,
-     "t_max_c": 16.9,
-     "rain_prob_pct": 0,
-     "weather_type": 3,
-     "wind_dir": "NW",
-     "wind_class": 2,
-     "rain_class": null
-    },
-    {
-     "date": "2026-11-22",
-     "t_min_c": 12,
-     "t_max_c": 17,
+     "date": "2026-11-26",
+     "t_min_c": 13,
+     "t_max_c": 19,
      "rain_prob_pct": 100,
-     "weather_type": 7,
-     "wind_dir": "SW",
+     "weather_type": 10,
+     "wind_dir": "W",
      "wind_class": 2,
      "rain_class": 1
     },
     {
-     "date": "2026-11-23",
-     "t_min_c": 12.3,
-     "t_max_c": 16.9,
-     "rain_prob_pct": 49,
+     "date": "2026-11-27",
+     "t_min_c": 13,
+     "t_max_c": 17,
+     "rain_prob_pct": 60,
      "weather_type": 3,
      "wind_dir": "NW",
      "wind_class": 2,
      "rain_class": null
     },
     {
-     "date": "2026-11-24",
-     "t_min_c": 13.4,
-     "t_max_c": 18.4,
-     "rain_prob_pct": 12,
+     "date": "2026-11-28",
+     "t_min_c": 11.2,
+     "t_max_c": 17.2,
+     "rain_prob_pct": 0,
      "weather_type": 3,
-     "wind_dir": "NW",
-     "wind_class": 1,
+     "wind_dir": "SW",
+     "wind_class": 2,
      "rain_class": null
     },
     {
-     "date": "2026-11-25",
-     "t_min_c": 13.3,
-     "t_max_c": 18,
-     "rain_prob_pct": 2,
+     "date": "2026-11-29",
+     "t_min_c": 16,
+     "t_max_c": 20.1,
+     "rain_prob_pct": 53,
      "weather_type": 3,
-     "wind_dir": "W",
-     "wind_class": 1,
+     "wind_dir": "SW",
+     "wind_class": 2,
      "rain_class": null
+    },
+    {
+     "date": "2026-11-30",
+     "t_min_c": 15.8,
+     "t_max_c": 19.9,
+     "rain_prob_pct": 100,
+     "weather_type": 9,
+     "wind_dir": "SW",
+     "wind_class": 2,
+     "rain_class": 2
     }
    ]
   },
@@ -2190,58 +2190,58 @@
    "lat": 39.67,
    "lon": -31.12,
    "source": "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/3490100.json",
-   "read_at": "2026-11-21T07:12:06Z",
-   "updated": "2026-11-21T06:31:03",
+   "read_at": "2026-11-26T18:13:03Z",
+   "updated": "2026-11-26T17:31:02",
    "days": [
     {
-     "date": "2026-11-21",
-     "t_min_c": 13.2,
-     "t_max_c": 17.1,
-     "rain_prob_pct": 4,
-     "weather_type": 4,
-     "wind_dir": "W",
-     "wind_class": 2,
-     "rain_class": null
-    },
-    {
-     "date": "2026-11-22",
-     "t_min_c": 13.6,
-     "t_max_c": 18.2,
+     "date": "2026-11-26",
+     "t_min_c": 14.6,
+     "t_max_c": 19.9,
      "rain_prob_pct": 100,
-     "weather_type": 7,
-     "wind_dir": "SW",
+     "weather_type": 10,
+     "wind_dir": "W",
      "wind_class": 2,
      "rain_class": 1
     },
     {
-     "date": "2026-11-23",
-     "t_min_c": 13.5,
-     "t_max_c": 17.4,
-     "rain_prob_pct": 33,
+     "date": "2026-11-27",
+     "t_min_c": 13.3,
+     "t_max_c": 16,
+     "rain_prob_pct": 29,
      "weather_type": 3,
      "wind_dir": "NW",
      "wind_class": 2,
      "rain_class": null
     },
     {
-     "date": "2026-11-24",
-     "t_min_c": 15.2,
-     "t_max_c": 18.2,
-     "rain_prob_pct": 6,
-     "weather_type": 3,
-     "wind_dir": "NW",
-     "wind_class": 2,
-     "rain_class": null
-    },
-    {
-     "date": "2026-11-25",
-     "t_min_c": 15,
+     "date": "2026-11-28",
+     "t_min_c": 13.1,
      "t_max_c": 17.7,
      "rain_prob_pct": 2,
-     "weather_type": 3,
-     "wind_dir": "W",
+     "weather_type": 4,
+     "wind_dir": "SW",
      "wind_class": 2,
      "rain_class": null
+    },
+    {
+     "date": "2026-11-29",
+     "t_min_c": 17,
+     "t_max_c": 19.1,
+     "rain_prob_pct": 39,
+     "weather_type": 3,
+     "wind_dir": "SW",
+     "wind_class": 2,
+     "rain_class": null
+    },
+    {
+     "date": "2026-11-30",
+     "t_min_c": 17.4,
+     "t_max_c": 19.7,
+     "rain_prob_pct": 100,
+     "weather_type": 9,
+     "wind_dir": "SW",
+     "wind_class": 2,
+     "rain_class": 2
     }
    ]
   }
@@ -3068,6 +3068,88 @@
       "weather_type": 6
      }
     ]
+   },
+   {
+    "issued": "2026-11-26T06:31:02",
+    "read_at": "2026-11-26T07:11:08Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 8.9,
+      "t_max_c": 15.5,
+      "rain_prob_pct": 86,
+      "weather_type": 10
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 12.3,
+      "t_max_c": 18.7,
+      "rain_prob_pct": 10,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 12.2,
+      "t_max_c": 19,
+      "rain_prob_pct": 76,
+      "weather_type": 6
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 11.2,
+      "t_max_c": 17.3,
+      "rain_prob_pct": 75,
+      "weather_type": 6
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 8.7,
+      "t_max_c": 15.8,
+      "rain_prob_pct": 0,
+      "weather_type": 3
+     }
+    ]
+   },
+   {
+    "issued": "2026-11-26T17:31:02",
+    "read_at": "2026-11-26T18:11:37Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 9.2,
+      "t_max_c": 17.1,
+      "rain_prob_pct": 82,
+      "weather_type": 10
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 12.7,
+      "t_max_c": 19.1,
+      "rain_prob_pct": 33,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 12.6,
+      "t_max_c": 18.5,
+      "rain_prob_pct": 80,
+      "weather_type": 6
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 10.8,
+      "t_max_c": 17.3,
+      "rain_prob_pct": 82,
+      "weather_type": 7
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 8.7,
+      "t_max_c": 16,
+      "rain_prob_pct": 0,
+      "weather_type": 3
+     }
+    ]
    }
   ],
   "1020500": [
@@ -3887,6 +3969,88 @@
       "t_min_c": 8.4,
       "t_max_c": 15,
       "rain_prob_pct": 33,
+      "weather_type": 3
+     }
+    ]
+   },
+   {
+    "issued": "2026-11-26T06:31:02",
+    "read_at": "2026-11-26T07:11:10Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 6.8,
+      "t_max_c": 16.1,
+      "rain_prob_pct": 0,
+      "weather_type": 2
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 9.2,
+      "t_max_c": 17.2,
+      "rain_prob_pct": 33,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 9.2,
+      "t_max_c": 18.3,
+      "rain_prob_pct": 8,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 9.2,
+      "t_max_c": 17.7,
+      "rain_prob_pct": 35,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 7.6,
+      "t_max_c": 16.4,
+      "rain_prob_pct": 6,
+      "weather_type": 3
+     }
+    ]
+   },
+   {
+    "issued": "2026-11-26T17:31:02",
+    "read_at": "2026-11-26T18:11:40Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 6.9,
+      "t_max_c": 16.2,
+      "rain_prob_pct": 0,
+      "weather_type": 2
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 8.7,
+      "t_max_c": 17.5,
+      "rain_prob_pct": 6,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 8.5,
+      "t_max_c": 17.7,
+      "rain_prob_pct": 0,
+      "weather_type": 5
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 8,
+      "t_max_c": 17.7,
+      "rain_prob_pct": 12,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 8.6,
+      "t_max_c": 17,
+      "rain_prob_pct": 2,
       "weather_type": 3
      }
     ]
@@ -4712,6 +4876,88 @@
       "weather_type": 6
      }
     ]
+   },
+   {
+    "issued": "2026-11-26T06:31:02",
+    "read_at": "2026-11-26T07:11:13Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 4.8,
+      "t_max_c": 12.7,
+      "rain_prob_pct": 80,
+      "weather_type": 10
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 9.3,
+      "t_max_c": 18,
+      "rain_prob_pct": 43,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 10.2,
+      "t_max_c": 17.6,
+      "rain_prob_pct": 88,
+      "weather_type": 6
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 6.4,
+      "t_max_c": 17.7,
+      "rain_prob_pct": 60,
+      "weather_type": 2
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 4.6,
+      "t_max_c": 16.3,
+      "rain_prob_pct": 6,
+      "weather_type": 2
+     }
+    ]
+   },
+   {
+    "issued": "2026-11-26T17:31:02",
+    "read_at": "2026-11-26T18:11:42Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 5.1,
+      "t_max_c": 13.4,
+      "rain_prob_pct": 94,
+      "weather_type": 10
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 9.9,
+      "t_max_c": 17.1,
+      "rain_prob_pct": 60,
+      "weather_type": 4
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 11.1,
+      "t_max_c": 16.1,
+      "rain_prob_pct": 98,
+      "weather_type": 9
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 5.9,
+      "t_max_c": 17.6,
+      "rain_prob_pct": 73,
+      "weather_type": 6
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 3.8,
+      "t_max_c": 17,
+      "rain_prob_pct": 0,
+      "weather_type": 3
+     }
+    ]
    }
   ],
   "1030800": [
@@ -5532,6 +5778,88 @@
       "t_max_c": 12.6,
       "rain_prob_pct": 90,
       "weather_type": 6
+     }
+    ]
+   },
+   {
+    "issued": "2026-11-26T06:31:02",
+    "read_at": "2026-11-26T07:11:15Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 5.3,
+      "t_max_c": 12,
+      "rain_prob_pct": 61,
+      "weather_type": 10
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 8.9,
+      "t_max_c": 16.2,
+      "rain_prob_pct": 20,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 8.8,
+      "t_max_c": 16.6,
+      "rain_prob_pct": 82,
+      "weather_type": 10
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 6.4,
+      "t_max_c": 15.7,
+      "rain_prob_pct": 69,
+      "weather_type": 6
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 5,
+      "t_max_c": 15.2,
+      "rain_prob_pct": 6,
+      "weather_type": 2
+     }
+    ]
+   },
+   {
+    "issued": "2026-11-26T17:31:02",
+    "read_at": "2026-11-26T18:11:45Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 5.6,
+      "t_max_c": 12,
+      "rain_prob_pct": 82,
+      "weather_type": 10
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 9.9,
+      "t_max_c": 15.7,
+      "rain_prob_pct": 29,
+      "weather_type": 4
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 9.8,
+      "t_max_c": 15.3,
+      "rain_prob_pct": 90,
+      "weather_type": 10
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 5.9,
+      "t_max_c": 15.8,
+      "rain_prob_pct": 80,
+      "weather_type": 7
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 4.9,
+      "t_max_c": 15.7,
+      "rain_prob_pct": 0,
+      "weather_type": 3
      }
     ]
    }
@@ -6356,6 +6684,88 @@
       "weather_type": 7
      }
     ]
+   },
+   {
+    "issued": "2026-11-26T06:31:02",
+    "read_at": "2026-11-26T07:11:18Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 3.1,
+      "t_max_c": 10.6,
+      "rain_prob_pct": 18,
+      "weather_type": 4
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 6.3,
+      "t_max_c": 13.7,
+      "rain_prob_pct": 0,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 4.5,
+      "t_max_c": 12.1,
+      "rain_prob_pct": 22,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 6.6,
+      "t_max_c": 14.2,
+      "rain_prob_pct": 61,
+      "weather_type": 7
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 3.6,
+      "t_max_c": 11.8,
+      "rain_prob_pct": 2,
+      "weather_type": 3
+     }
+    ]
+   },
+   {
+    "issued": "2026-11-26T17:31:02",
+    "read_at": "2026-11-26T18:11:47Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 2.7,
+      "t_max_c": 10.1,
+      "rain_prob_pct": 20,
+      "weather_type": 4
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 6.7,
+      "t_max_c": 13.6,
+      "rain_prob_pct": 0,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 5.1,
+      "t_max_c": 12.7,
+      "rain_prob_pct": 31,
+      "weather_type": 4
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 6.8,
+      "t_max_c": 14.4,
+      "rain_prob_pct": 65,
+      "weather_type": 7
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 3.7,
+      "t_max_c": 11.2,
+      "rain_prob_pct": 6,
+      "weather_type": 3
+     }
+    ]
    }
   ],
   "1050200": [
@@ -7175,6 +7585,88 @@
       "t_min_c": 6.1,
       "t_max_c": 13.9,
       "rain_prob_pct": 43,
+      "weather_type": 3
+     }
+    ]
+   },
+   {
+    "issued": "2026-11-26T06:31:02",
+    "read_at": "2026-11-26T07:11:20Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 4.7,
+      "t_max_c": 14.3,
+      "rain_prob_pct": 16,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 7.5,
+      "t_max_c": 13.3,
+      "rain_prob_pct": 20,
+      "weather_type": 4
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 10.2,
+      "t_max_c": 14.9,
+      "rain_prob_pct": 18,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 8.8,
+      "t_max_c": 15.1,
+      "rain_prob_pct": 27,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 7.2,
+      "t_max_c": 13.9,
+      "rain_prob_pct": 2,
+      "weather_type": 3
+     }
+    ]
+   },
+   {
+    "issued": "2026-11-26T17:31:02",
+    "read_at": "2026-11-26T18:11:50Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 4.5,
+      "t_max_c": 14.4,
+      "rain_prob_pct": 2,
+      "weather_type": 2
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 8.2,
+      "t_max_c": 14.2,
+      "rain_prob_pct": 37,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 9.4,
+      "t_max_c": 14.9,
+      "rain_prob_pct": 16,
+      "weather_type": 4
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 7.7,
+      "t_max_c": 15.8,
+      "rain_prob_pct": 31,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 7.7,
+      "t_max_c": 14.6,
+      "rain_prob_pct": 2,
       "weather_type": 3
      }
     ]
@@ -8000,6 +8492,88 @@
       "weather_type": 7
      }
     ]
+   },
+   {
+    "issued": "2026-11-26T06:31:02",
+    "read_at": "2026-11-26T07:11:23Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 7.7,
+      "t_max_c": 15.8,
+      "rain_prob_pct": 49,
+      "weather_type": 7
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 12.7,
+      "t_max_c": 17.5,
+      "rain_prob_pct": 10,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 12.9,
+      "t_max_c": 17.7,
+      "rain_prob_pct": 37,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 9,
+      "t_max_c": 16.9,
+      "rain_prob_pct": 69,
+      "weather_type": 6
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 8.2,
+      "t_max_c": 15.7,
+      "rain_prob_pct": 8,
+      "weather_type": 3
+     }
+    ]
+   },
+   {
+    "issued": "2026-11-26T17:31:02",
+    "read_at": "2026-11-26T18:11:52Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 7.8,
+      "t_max_c": 16.2,
+      "rain_prob_pct": 40,
+      "weather_type": 7
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 13.5,
+      "t_max_c": 18.1,
+      "rain_prob_pct": 31,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 12.9,
+      "t_max_c": 18.7,
+      "rain_prob_pct": 51,
+      "weather_type": 7
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 9.9,
+      "t_max_c": 17.6,
+      "rain_prob_pct": 84,
+      "weather_type": 7
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 7.5,
+      "t_max_c": 15.2,
+      "rain_prob_pct": 8,
+      "weather_type": 3
+     }
+    ]
    }
   ],
   "1070500": [
@@ -8820,6 +9394,88 @@
       "t_max_c": 15.3,
       "rain_prob_pct": 40,
       "weather_type": 7
+     }
+    ]
+   },
+   {
+    "issued": "2026-11-26T06:31:02",
+    "read_at": "2026-11-26T07:11:25Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 6.8,
+      "t_max_c": 16.9,
+      "rain_prob_pct": 0,
+      "weather_type": 2
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 8.4,
+      "t_max_c": 16.5,
+      "rain_prob_pct": 18,
+      "weather_type": 4
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 9.9,
+      "t_max_c": 18.3,
+      "rain_prob_pct": 8,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 7.8,
+      "t_max_c": 18.1,
+      "rain_prob_pct": 35,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 6.7,
+      "t_max_c": 16.6,
+      "rain_prob_pct": 2,
+      "weather_type": 3
+     }
+    ]
+   },
+   {
+    "issued": "2026-11-26T17:31:02",
+    "read_at": "2026-11-26T18:11:55Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 6.5,
+      "t_max_c": 16.8,
+      "rain_prob_pct": 0,
+      "weather_type": 2
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 6.8,
+      "t_max_c": 17,
+      "rain_prob_pct": 6,
+      "weather_type": 4
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 6.8,
+      "t_max_c": 18.2,
+      "rain_prob_pct": 0,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 7.3,
+      "t_max_c": 18.8,
+      "rain_prob_pct": 18,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 7,
+      "t_max_c": 16.9,
+      "rain_prob_pct": 4,
+      "weather_type": 3
      }
     ]
    }
@@ -9644,6 +10300,88 @@
       "weather_type": 2
      }
     ]
+   },
+   {
+    "issued": "2026-11-26T06:31:02",
+    "read_at": "2026-11-26T07:11:28Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 9,
+      "t_max_c": 18.9,
+      "rain_prob_pct": 0,
+      "weather_type": 2
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 8.9,
+      "t_max_c": 17.4,
+      "rain_prob_pct": 14,
+      "weather_type": 2
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 10,
+      "t_max_c": 19,
+      "rain_prob_pct": 4,
+      "weather_type": 5
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 11.4,
+      "t_max_c": 19.6,
+      "rain_prob_pct": 40,
+      "weather_type": 7
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 9.3,
+      "t_max_c": 18.3,
+      "rain_prob_pct": 12,
+      "weather_type": 2
+     }
+    ]
+   },
+   {
+    "issued": "2026-11-26T17:31:02",
+    "read_at": "2026-11-26T18:11:57Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 8,
+      "t_max_c": 18.7,
+      "rain_prob_pct": 0,
+      "weather_type": 2
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 8.8,
+      "t_max_c": 18,
+      "rain_prob_pct": 0,
+      "weather_type": 2
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 10.1,
+      "t_max_c": 19.1,
+      "rain_prob_pct": 0,
+      "weather_type": 5
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 10.8,
+      "t_max_c": 20.1,
+      "rain_prob_pct": 14,
+      "weather_type": 2
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 9.8,
+      "t_max_c": 18,
+      "rain_prob_pct": 20,
+      "weather_type": 3
+     }
+    ]
    }
   ],
   "1080800": [
@@ -10464,6 +11202,88 @@
       "t_max_c": 16.4,
       "rain_prob_pct": 16,
       "weather_type": 2
+     }
+    ]
+   },
+   {
+    "issued": "2026-11-26T06:31:02",
+    "read_at": "2026-11-26T07:11:35Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 8.3,
+      "t_max_c": 17.4,
+      "rain_prob_pct": 0,
+      "weather_type": 2
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 8.5,
+      "t_max_c": 17.5,
+      "rain_prob_pct": 16,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 8.9,
+      "t_max_c": 19.2,
+      "rain_prob_pct": 4,
+      "weather_type": 5
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 10.5,
+      "t_max_c": 18.9,
+      "rain_prob_pct": 43,
+      "weather_type": 7
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 8.4,
+      "t_max_c": 18.1,
+      "rain_prob_pct": 12,
+      "weather_type": 3
+     }
+    ]
+   },
+   {
+    "issued": "2026-11-26T17:31:02",
+    "read_at": "2026-11-26T18:12:05Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 7.8,
+      "t_max_c": 17.2,
+      "rain_prob_pct": 0,
+      "weather_type": 2
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 8.3,
+      "t_max_c": 17.8,
+      "rain_prob_pct": 2,
+      "weather_type": 2
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 9,
+      "t_max_c": 19.1,
+      "rain_prob_pct": 8,
+      "weather_type": 5
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 10.6,
+      "t_max_c": 19.5,
+      "rain_prob_pct": 18,
+      "weather_type": 2
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 9,
+      "t_max_c": 18.6,
+      "rain_prob_pct": 40,
+      "weather_type": 7
      }
     ]
    }
@@ -11288,6 +12108,88 @@
       "weather_type": 3
      }
     ]
+   },
+   {
+    "issued": "2026-11-26T06:31:02",
+    "read_at": "2026-11-26T07:11:33Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 7.6,
+      "t_max_c": 19,
+      "rain_prob_pct": 2,
+      "weather_type": 2
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 8.6,
+      "t_max_c": 17.2,
+      "rain_prob_pct": 14,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 9.8,
+      "t_max_c": 18.8,
+      "rain_prob_pct": 2,
+      "weather_type": 5
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 10.3,
+      "t_max_c": 19,
+      "rain_prob_pct": 43,
+      "weather_type": 6
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 8.5,
+      "t_max_c": 18.2,
+      "rain_prob_pct": 4,
+      "weather_type": 2
+     }
+    ]
+   },
+   {
+    "issued": "2026-11-26T17:31:02",
+    "read_at": "2026-11-26T18:12:02Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 7.5,
+      "t_max_c": 18.9,
+      "rain_prob_pct": 0,
+      "weather_type": 2
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 8.4,
+      "t_max_c": 17.9,
+      "rain_prob_pct": 0,
+      "weather_type": 2
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 10,
+      "t_max_c": 18.9,
+      "rain_prob_pct": 0,
+      "weather_type": 5
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 10.3,
+      "t_max_c": 20.2,
+      "rain_prob_pct": 18,
+      "weather_type": 2
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 10.1,
+      "t_max_c": 18.9,
+      "rain_prob_pct": 6,
+      "weather_type": 2
+     }
+    ]
    }
   ],
   "1081505": [
@@ -12108,6 +13010,88 @@
       "t_max_c": 16.6,
       "rain_prob_pct": 71,
       "weather_type": 7
+     }
+    ]
+   },
+   {
+    "issued": "2026-11-26T06:31:02",
+    "read_at": "2026-11-26T07:11:30Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 9,
+      "t_max_c": 17.2,
+      "rain_prob_pct": 0,
+      "weather_type": 2
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 9.7,
+      "t_max_c": 17.7,
+      "rain_prob_pct": 22,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 8.2,
+      "t_max_c": 19,
+      "rain_prob_pct": 8,
+      "weather_type": 5
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 10.9,
+      "t_max_c": 18.5,
+      "rain_prob_pct": 40,
+      "weather_type": 7
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 8.3,
+      "t_max_c": 17.5,
+      "rain_prob_pct": 6,
+      "weather_type": 2
+     }
+    ]
+   },
+   {
+    "issued": "2026-11-26T17:31:02",
+    "read_at": "2026-11-26T18:12:00Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 8.9,
+      "t_max_c": 17.5,
+      "rain_prob_pct": 0,
+      "weather_type": 2
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 7.8,
+      "t_max_c": 17.9,
+      "rain_prob_pct": 2,
+      "weather_type": 2
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 8.7,
+      "t_max_c": 19.1,
+      "rain_prob_pct": 0,
+      "weather_type": 5
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 10.8,
+      "t_max_c": 19.8,
+      "rain_prob_pct": 16,
+      "weather_type": 2
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 9.7,
+      "t_max_c": 19,
+      "rain_prob_pct": 6,
+      "weather_type": 2
      }
     ]
    }
@@ -12932,6 +13916,88 @@
       "weather_type": 6
      }
     ]
+   },
+   {
+    "issued": "2026-11-26T06:31:02",
+    "read_at": "2026-11-26T07:11:38Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 2.6,
+      "t_max_c": 8.8,
+      "rain_prob_pct": 25,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 5.7,
+      "t_max_c": 11.2,
+      "rain_prob_pct": 10,
+      "weather_type": 4
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 6.8,
+      "t_max_c": 11,
+      "rain_prob_pct": 25,
+      "weather_type": 4
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 6.5,
+      "t_max_c": 11.7,
+      "rain_prob_pct": 61,
+      "weather_type": 7
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 4.1,
+      "t_max_c": 10.3,
+      "rain_prob_pct": 4,
+      "weather_type": 3
+     }
+    ]
+   },
+   {
+    "issued": "2026-11-26T17:31:02",
+    "read_at": "2026-11-26T18:12:07Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 3.2,
+      "t_max_c": 9.1,
+      "rain_prob_pct": 33,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 7,
+      "t_max_c": 11.3,
+      "rain_prob_pct": 43,
+      "weather_type": 4
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 6.4,
+      "t_max_c": 10.1,
+      "rain_prob_pct": 40,
+      "weather_type": 10
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 5.9,
+      "t_max_c": 11.8,
+      "rain_prob_pct": 61,
+      "weather_type": 7
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 3.5,
+      "t_max_c": 10.4,
+      "rain_prob_pct": 12,
+      "weather_type": 3
+     }
+    ]
    }
   ],
   "1090821": [
@@ -13752,6 +14818,88 @@
       "t_max_c": 5.1,
       "rain_prob_pct": 88,
       "weather_type": 10
+     }
+    ]
+   },
+   {
+    "issued": "2026-11-26T06:31:02",
+    "read_at": "2026-11-26T07:11:40Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 1.2,
+      "t_max_c": 6.2,
+      "rain_prob_pct": 27,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 5.1,
+      "t_max_c": 9.4,
+      "rain_prob_pct": 33,
+      "weather_type": 4
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 4.9,
+      "t_max_c": 10.1,
+      "rain_prob_pct": 33,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 4.4,
+      "t_max_c": 9.2,
+      "rain_prob_pct": 71,
+      "weather_type": 7
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 2.8,
+      "t_max_c": 8.6,
+      "rain_prob_pct": 12,
+      "weather_type": 3
+     }
+    ]
+   },
+   {
+    "issued": "2026-11-26T17:31:02",
+    "read_at": "2026-11-26T18:12:10Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 1.6,
+      "t_max_c": 7.5,
+      "rain_prob_pct": 37,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 5.7,
+      "t_max_c": 9.9,
+      "rain_prob_pct": 60,
+      "weather_type": 4
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 5,
+      "t_max_c": 9.5,
+      "rain_prob_pct": 41,
+      "weather_type": 4
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 3.7,
+      "t_max_c": 9.9,
+      "rain_prob_pct": 60,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 1.8,
+      "t_max_c": 9.5,
+      "rain_prob_pct": 18,
+      "weather_type": 2
      }
     ]
    }
@@ -14576,6 +15724,88 @@
       "weather_type": 7
      }
     ]
+   },
+   {
+    "issued": "2026-11-26T06:31:02",
+    "read_at": "2026-11-26T07:11:43Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 6.1,
+      "t_max_c": 17.1,
+      "rain_prob_pct": 43,
+      "weather_type": 7
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 10,
+      "t_max_c": 18.1,
+      "rain_prob_pct": 16,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 10.6,
+      "t_max_c": 17.7,
+      "rain_prob_pct": 43,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 7.6,
+      "t_max_c": 17.3,
+      "rain_prob_pct": 73,
+      "weather_type": 6
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 5.4,
+      "t_max_c": 16.5,
+      "rain_prob_pct": 4,
+      "weather_type": 3
+     }
+    ]
+   },
+   {
+    "issued": "2026-11-26T17:31:02",
+    "read_at": "2026-11-26T18:12:12Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 6.7,
+      "t_max_c": 17.6,
+      "rain_prob_pct": 40,
+      "weather_type": 7
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 11.4,
+      "t_max_c": 18.9,
+      "rain_prob_pct": 51,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 10.7,
+      "t_max_c": 19.1,
+      "rain_prob_pct": 47,
+      "weather_type": 7
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 7.1,
+      "t_max_c": 18,
+      "rain_prob_pct": 84,
+      "weather_type": 7
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 5.3,
+      "t_max_c": 16.2,
+      "rain_prob_pct": 4,
+      "weather_type": 3
+     }
+    ]
    }
   ],
   "1110600": [
@@ -15396,6 +16626,88 @@
       "t_max_c": 15.8,
       "rain_prob_pct": 65,
       "weather_type": 7
+     }
+    ]
+   },
+   {
+    "issued": "2026-11-26T06:31:02",
+    "read_at": "2026-11-26T07:11:45Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 9.1,
+      "t_max_c": 17.1,
+      "rain_prob_pct": 14,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 11.6,
+      "t_max_c": 17.7,
+      "rain_prob_pct": 31,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 12.4,
+      "t_max_c": 18.1,
+      "rain_prob_pct": 47,
+      "weather_type": 7
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 10.6,
+      "t_max_c": 17.7,
+      "rain_prob_pct": 60,
+      "weather_type": 2
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 9.1,
+      "t_max_c": 16.4,
+      "rain_prob_pct": 0,
+      "weather_type": 2
+     }
+    ]
+   },
+   {
+    "issued": "2026-11-26T17:31:02",
+    "read_at": "2026-11-26T18:12:15Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 9.7,
+      "t_max_c": 17.1,
+      "rain_prob_pct": 8,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 11.8,
+      "t_max_c": 17.1,
+      "rain_prob_pct": 65,
+      "weather_type": 7
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 11.3,
+      "t_max_c": 17.8,
+      "rain_prob_pct": 27,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 11,
+      "t_max_c": 17.1,
+      "rain_prob_pct": 65,
+      "weather_type": 7
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 8.4,
+      "t_max_c": 15.1,
+      "rain_prob_pct": 0,
+      "weather_type": 2
      }
     ]
    }
@@ -16220,6 +17532,88 @@
       "weather_type": 9
      }
     ]
+   },
+   {
+    "issued": "2026-11-26T06:31:02",
+    "read_at": "2026-11-26T07:11:48Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 6,
+      "t_max_c": 13.3,
+      "rain_prob_pct": 22,
+      "weather_type": 2
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 9.6,
+      "t_max_c": 13.3,
+      "rain_prob_pct": 37,
+      "weather_type": 4
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 9.7,
+      "t_max_c": 14,
+      "rain_prob_pct": 6,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 9.5,
+      "t_max_c": 14.4,
+      "rain_prob_pct": 25,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 8,
+      "t_max_c": 13.6,
+      "rain_prob_pct": 18,
+      "weather_type": 3
+     }
+    ]
+   },
+   {
+    "issued": "2026-11-26T17:31:02",
+    "read_at": "2026-11-26T18:12:18Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 6.1,
+      "t_max_c": 13,
+      "rain_prob_pct": 4,
+      "weather_type": 2
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 8.7,
+      "t_max_c": 13.4,
+      "rain_prob_pct": 53,
+      "weather_type": 4
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 10.8,
+      "t_max_c": 14.8,
+      "rain_prob_pct": 16,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 9.3,
+      "t_max_c": 14.4,
+      "rain_prob_pct": 22,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 8.5,
+      "t_max_c": 14.2,
+      "rain_prob_pct": 22,
+      "weather_type": 3
+     }
+    ]
    }
   ],
   "1131200": [
@@ -17042,6 +18436,88 @@
       "weather_type": 6
      }
     ]
+   },
+   {
+    "issued": "2026-11-26T06:31:02",
+    "read_at": "2026-11-26T07:11:50Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 8,
+      "t_max_c": 14.1,
+      "rain_prob_pct": 51,
+      "weather_type": 10
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 12.2,
+      "t_max_c": 17.2,
+      "rain_prob_pct": 6,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 12.2,
+      "t_max_c": 17.3,
+      "rain_prob_pct": 82,
+      "weather_type": 7
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 9.4,
+      "t_max_c": 16.2,
+      "rain_prob_pct": 65,
+      "weather_type": 6
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 7.9,
+      "t_max_c": 15.2,
+      "rain_prob_pct": 2,
+      "weather_type": 2
+     }
+    ]
+   },
+   {
+    "issued": "2026-11-26T17:31:02",
+    "read_at": "2026-11-26T18:12:20Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 8.1,
+      "t_max_c": 14.6,
+      "rain_prob_pct": 76,
+      "weather_type": 10
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 12.8,
+      "t_max_c": 16.9,
+      "rain_prob_pct": 16,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 13,
+      "t_max_c": 16.6,
+      "rain_prob_pct": 90,
+      "weather_type": 10
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 9.7,
+      "t_max_c": 16.1,
+      "rain_prob_pct": 82,
+      "weather_type": 6
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 7,
+      "t_max_c": 14.9,
+      "rain_prob_pct": 0,
+      "weather_type": 5
+     }
+    ]
    }
   ],
   "1141600": [
@@ -17861,6 +19337,88 @@
       "t_min_c": 8.9,
       "t_max_c": 15.8,
       "rain_prob_pct": 57,
+      "weather_type": 3
+     }
+    ]
+   },
+   {
+    "issued": "2026-11-26T06:31:02",
+    "read_at": "2026-11-26T07:11:53Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 7.8,
+      "t_max_c": 18.1,
+      "rain_prob_pct": 10,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 9.9,
+      "t_max_c": 18.3,
+      "rain_prob_pct": 6,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 11.4,
+      "t_max_c": 19.4,
+      "rain_prob_pct": 27,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 9.5,
+      "t_max_c": 18.9,
+      "rain_prob_pct": 59,
+      "weather_type": 7
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 7,
+      "t_max_c": 17,
+      "rain_prob_pct": 2,
+      "weather_type": 3
+     }
+    ]
+   },
+   {
+    "issued": "2026-11-26T17:31:02",
+    "read_at": "2026-11-26T18:12:23Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 7.4,
+      "t_max_c": 18,
+      "rain_prob_pct": 0,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 10.1,
+      "t_max_c": 17.5,
+      "rain_prob_pct": 27,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 10.7,
+      "t_max_c": 19.2,
+      "rain_prob_pct": 10,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 8.8,
+      "t_max_c": 17.8,
+      "rain_prob_pct": 49,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 6.5,
+      "t_max_c": 15.3,
+      "rain_prob_pct": 0,
       "weather_type": 3
      }
     ]
@@ -18686,6 +20244,88 @@
       "weather_type": 7
      }
     ]
+   },
+   {
+    "issued": "2026-11-26T06:31:02",
+    "read_at": "2026-11-26T07:11:55Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 8,
+      "t_max_c": 18.1,
+      "rain_prob_pct": 8,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 13,
+      "t_max_c": 18.4,
+      "rain_prob_pct": 53,
+      "weather_type": 7
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 12.1,
+      "t_max_c": 18.9,
+      "rain_prob_pct": 39,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 11,
+      "t_max_c": 19,
+      "rain_prob_pct": 59,
+      "weather_type": 2
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 8.5,
+      "t_max_c": 17.6,
+      "rain_prob_pct": 2,
+      "weather_type": 3
+     }
+    ]
+   },
+   {
+    "issued": "2026-11-26T17:31:02",
+    "read_at": "2026-11-26T18:12:25Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 7.4,
+      "t_max_c": 18.2,
+      "rain_prob_pct": 2,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 10.7,
+      "t_max_c": 18,
+      "rain_prob_pct": 65,
+      "weather_type": 7
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 10.3,
+      "t_max_c": 19.1,
+      "rain_prob_pct": 10,
+      "weather_type": 5
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 9.1,
+      "t_max_c": 18.3,
+      "rain_prob_pct": 61,
+      "weather_type": 7
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 7.6,
+      "t_max_c": 16.5,
+      "rain_prob_pct": 0,
+      "weather_type": 3
+     }
+    ]
    }
   ],
   "1151300": [
@@ -19506,6 +21146,88 @@
       "t_max_c": 15.1,
       "rain_prob_pct": 63,
       "weather_type": 7
+     }
+    ]
+   },
+   {
+    "issued": "2026-11-26T06:31:02",
+    "read_at": "2026-11-26T07:11:58Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 8.9,
+      "t_max_c": 15.8,
+      "rain_prob_pct": 0,
+      "weather_type": 2
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 11.3,
+      "t_max_c": 16.8,
+      "rain_prob_pct": 37,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 11,
+      "t_max_c": 17.8,
+      "rain_prob_pct": 18,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 9.6,
+      "t_max_c": 16.8,
+      "rain_prob_pct": 57,
+      "weather_type": 7
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 8.6,
+      "t_max_c": 16.1,
+      "rain_prob_pct": 6,
+      "weather_type": 2
+     }
+    ]
+   },
+   {
+    "issued": "2026-11-26T17:31:02",
+    "read_at": "2026-11-26T18:12:28Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 6.8,
+      "t_max_c": 15.7,
+      "rain_prob_pct": 0,
+      "weather_type": 2
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 9.9,
+      "t_max_c": 17.5,
+      "rain_prob_pct": 10,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 10.3,
+      "t_max_c": 17.6,
+      "rain_prob_pct": 2,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 9.4,
+      "t_max_c": 17.2,
+      "rain_prob_pct": 40,
+      "weather_type": 7
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 7.8,
+      "t_max_c": 16.6,
+      "rain_prob_pct": 8,
+      "weather_type": 2
      }
     ]
    }
@@ -20330,6 +22052,88 @@
       "weather_type": 6
      }
     ]
+   },
+   {
+    "issued": "2026-11-26T06:31:02",
+    "read_at": "2026-11-26T07:12:00Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 6.6,
+      "t_max_c": 12.7,
+      "rain_prob_pct": 84,
+      "weather_type": 10
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 10.8,
+      "t_max_c": 15.6,
+      "rain_prob_pct": 29,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 11.7,
+      "t_max_c": 15.6,
+      "rain_prob_pct": 86,
+      "weather_type": 9
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 7.6,
+      "t_max_c": 15.6,
+      "rain_prob_pct": 47,
+      "weather_type": 2
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 5.8,
+      "t_max_c": 14.6,
+      "rain_prob_pct": 4,
+      "weather_type": 2
+     }
+    ]
+   },
+   {
+    "issued": "2026-11-26T17:31:02",
+    "read_at": "2026-11-26T18:12:30Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 7.1,
+      "t_max_c": 13.1,
+      "rain_prob_pct": 100,
+      "weather_type": 9
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 12.1,
+      "t_max_c": 15.5,
+      "rain_prob_pct": 60,
+      "weather_type": 4
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 13.1,
+      "t_max_c": 15.6,
+      "rain_prob_pct": 100,
+      "weather_type": 10
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 7.3,
+      "t_max_c": 15.9,
+      "rain_prob_pct": 59,
+      "weather_type": 2
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 6,
+      "t_max_c": 14.3,
+      "rain_prob_pct": 0,
+      "weather_type": 2
+     }
+    ]
    }
   ],
   "1171400": [
@@ -21150,6 +22954,88 @@
       "t_max_c": 11.7,
       "rain_prob_pct": 86,
       "weather_type": 10
+     }
+    ]
+   },
+   {
+    "issued": "2026-11-26T06:31:02",
+    "read_at": "2026-11-26T07:12:03Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 4.3,
+      "t_max_c": 10.2,
+      "rain_prob_pct": 61,
+      "weather_type": 10
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 8.9,
+      "t_max_c": 14.7,
+      "rain_prob_pct": 14,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 7.1,
+      "t_max_c": 12.7,
+      "rain_prob_pct": 43,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 7,
+      "t_max_c": 14.6,
+      "rain_prob_pct": 75,
+      "weather_type": 7
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 5.1,
+      "t_max_c": 11.9,
+      "rain_prob_pct": 4,
+      "weather_type": 3
+     }
+    ]
+   },
+   {
+    "issued": "2026-11-26T17:31:02",
+    "read_at": "2026-11-26T18:12:33Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 4.7,
+      "t_max_c": 10.7,
+      "rain_prob_pct": 76,
+      "weather_type": 10
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 9.4,
+      "t_max_c": 14.2,
+      "rain_prob_pct": 12,
+      "weather_type": 4
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 8.2,
+      "t_max_c": 14.1,
+      "rain_prob_pct": 49,
+      "weather_type": 9
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 6.8,
+      "t_max_c": 14.9,
+      "rain_prob_pct": 80,
+      "weather_type": 7
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 4.4,
+      "t_max_c": 11.1,
+      "rain_prob_pct": 4,
+      "weather_type": 3
      }
     ]
    }
@@ -21974,6 +23860,88 @@
       "weather_type": 7
      }
     ]
+   },
+   {
+    "issued": "2026-11-26T06:31:02",
+    "read_at": "2026-11-26T07:12:05Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 4.6,
+      "t_max_c": 8.8,
+      "rain_prob_pct": 43,
+      "weather_type": 4
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 8.8,
+      "t_max_c": 13.5,
+      "rain_prob_pct": 27,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 8.7,
+      "t_max_c": 13.9,
+      "rain_prob_pct": 41,
+      "weather_type": 4
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 6.1,
+      "t_max_c": 13.7,
+      "rain_prob_pct": 63,
+      "weather_type": 6
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 5.6,
+      "t_max_c": 12.7,
+      "rain_prob_pct": 4,
+      "weather_type": 3
+     }
+    ]
+   },
+   {
+    "issued": "2026-11-26T17:31:02",
+    "read_at": "2026-11-26T18:12:35Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 5.4,
+      "t_max_c": 10.3,
+      "rain_prob_pct": 47,
+      "weather_type": 4
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 9.3,
+      "t_max_c": 14,
+      "rain_prob_pct": 63,
+      "weather_type": 7
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 10.2,
+      "t_max_c": 13.6,
+      "rain_prob_pct": 65,
+      "weather_type": 10
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 5.7,
+      "t_max_c": 14.7,
+      "rain_prob_pct": 75,
+      "weather_type": 7
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 4.7,
+      "t_max_c": 13.5,
+      "rain_prob_pct": 4,
+      "weather_type": 2
+     }
+    ]
    }
   ],
   "2310300": [
@@ -22793,6 +24761,88 @@
       "t_min_c": 17.1,
       "t_max_c": 21.7,
       "rain_prob_pct": 43,
+      "weather_type": 3
+     }
+    ]
+   },
+   {
+    "issued": "2026-11-26T06:31:02",
+    "read_at": "2026-11-26T07:12:08Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 17.7,
+      "t_max_c": 21.9,
+      "rain_prob_pct": 8,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 16.7,
+      "t_max_c": 22,
+      "rain_prob_pct": 61,
+      "weather_type": 7
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 16.3,
+      "t_max_c": 22.2,
+      "rain_prob_pct": 73,
+      "weather_type": 7
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 16.3,
+      "t_max_c": 22.5,
+      "rain_prob_pct": 49,
+      "weather_type": 7
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 16.6,
+      "t_max_c": 22.3,
+      "rain_prob_pct": 43,
+      "weather_type": 7
+     }
+    ]
+   },
+   {
+    "issued": "2026-11-26T17:31:02",
+    "read_at": "2026-11-26T18:12:38Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 17.7,
+      "t_max_c": 22.1,
+      "rain_prob_pct": 14,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 16.3,
+      "t_max_c": 22.3,
+      "rain_prob_pct": 65,
+      "weather_type": 7
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 17.1,
+      "t_max_c": 21.9,
+      "rain_prob_pct": 63,
+      "weather_type": 7
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 17.5,
+      "t_max_c": 22.5,
+      "rain_prob_pct": 41,
+      "weather_type": 7
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 16.8,
+      "t_max_c": 22.4,
+      "rain_prob_pct": 29,
       "weather_type": 3
      }
     ]
@@ -23618,6 +25668,88 @@
       "weather_type": 3
      }
     ]
+   },
+   {
+    "issued": "2026-11-26T06:31:02",
+    "read_at": "2026-11-26T07:12:10Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 16.2,
+      "t_max_c": 21.5,
+      "rain_prob_pct": 60,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 16.6,
+      "t_max_c": 22.2,
+      "rain_prob_pct": 41,
+      "weather_type": 2
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 16.4,
+      "t_max_c": 22.1,
+      "rain_prob_pct": 69,
+      "weather_type": 7
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 17.5,
+      "t_max_c": 22.4,
+      "rain_prob_pct": 60,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 16.7,
+      "t_max_c": 22,
+      "rain_prob_pct": 39,
+      "weather_type": 2
+     }
+    ]
+   },
+   {
+    "issued": "2026-11-26T17:31:02",
+    "read_at": "2026-11-26T18:12:40Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 15.5,
+      "t_max_c": 21.6,
+      "rain_prob_pct": 60,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 16.7,
+      "t_max_c": 21.5,
+      "rain_prob_pct": 20,
+      "weather_type": 2
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 15.7,
+      "t_max_c": 21.2,
+      "rain_prob_pct": 76,
+      "weather_type": 7
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 15.9,
+      "t_max_c": 22.3,
+      "rain_prob_pct": 59,
+      "weather_type": 2
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 16.8,
+      "t_max_c": 22.1,
+      "rain_prob_pct": 37,
+      "weather_type": 3
+     }
+    ]
    }
   ],
   "3410100": [
@@ -24438,6 +26570,88 @@
       "t_max_c": 19,
       "rain_prob_pct": 4,
       "weather_type": 2
+     }
+    ]
+   },
+   {
+    "issued": "2026-11-26T06:31:02",
+    "read_at": "2026-11-26T07:12:13Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 15.1,
+      "t_max_c": 18.7,
+      "rain_prob_pct": 20,
+      "weather_type": 4
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 14.8,
+      "t_max_c": 19.9,
+      "rain_prob_pct": 84,
+      "weather_type": 7
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 13.9,
+      "t_max_c": 18.4,
+      "rain_prob_pct": 22,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 14.4,
+      "t_max_c": 19.4,
+      "rain_prob_pct": 6,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 15.9,
+      "t_max_c": 20.2,
+      "rain_prob_pct": 49,
+      "weather_type": 3
+     }
+    ]
+   },
+   {
+    "issued": "2026-11-26T17:31:02",
+    "read_at": "2026-11-26T18:12:43Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 14.6,
+      "t_max_c": 18.9,
+      "rain_prob_pct": 49,
+      "weather_type": 4
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 14.7,
+      "t_max_c": 19.9,
+      "rain_prob_pct": 90,
+      "weather_type": 7
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 13.9,
+      "t_max_c": 18.7,
+      "rain_prob_pct": 24,
+      "weather_type": 2
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 14.4,
+      "t_max_c": 19.4,
+      "rain_prob_pct": 10,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 16,
+      "t_max_c": 20.6,
+      "rain_prob_pct": 69,
+      "weather_type": 7
      }
     ]
    }
@@ -25262,6 +27476,88 @@
       "weather_type": 3
      }
     ]
+   },
+   {
+    "issued": "2026-11-26T06:31:02",
+    "read_at": "2026-11-26T07:12:15Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 14,
+      "t_max_c": 19,
+      "rain_prob_pct": 2,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 13.2,
+      "t_max_c": 18,
+      "rain_prob_pct": 96,
+      "weather_type": 7
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 12.9,
+      "t_max_c": 16.8,
+      "rain_prob_pct": 2,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 14.1,
+      "t_max_c": 18.4,
+      "rain_prob_pct": 8,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 17.5,
+      "t_max_c": 19.2,
+      "rain_prob_pct": 84,
+      "weather_type": 7
+     }
+    ]
+   },
+   {
+    "issued": "2026-11-26T17:31:02",
+    "read_at": "2026-11-26T18:12:45Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 14,
+      "t_max_c": 19,
+      "rain_prob_pct": 10,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 13.3,
+      "t_max_c": 18.6,
+      "rain_prob_pct": 100,
+      "weather_type": 6
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 12.7,
+      "t_max_c": 17.6,
+      "rain_prob_pct": 2,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 14,
+      "t_max_c": 19.1,
+      "rain_prob_pct": 16,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 17.1,
+      "t_max_c": 20,
+      "rain_prob_pct": 86,
+      "weather_type": 7
+     }
+    ]
    }
   ],
   "3430100": [
@@ -26082,6 +28378,88 @@
       "t_max_c": 17.2,
       "rain_prob_pct": 22,
       "weather_type": 3
+     }
+    ]
+   },
+   {
+    "issued": "2026-11-26T06:31:02",
+    "read_at": "2026-11-26T07:12:18Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 13,
+      "t_max_c": 19,
+      "rain_prob_pct": 76,
+      "weather_type": 7
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 12,
+      "t_max_c": 16.8,
+      "rain_prob_pct": 96,
+      "weather_type": 7
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 11.5,
+      "t_max_c": 15.6,
+      "rain_prob_pct": 25,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 11.9,
+      "t_max_c": 17.7,
+      "rain_prob_pct": 18,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 16.5,
+      "t_max_c": 18.5,
+      "rain_prob_pct": 98,
+      "weather_type": 9
+     }
+    ]
+   },
+   {
+    "issued": "2026-11-26T17:31:02",
+    "read_at": "2026-11-26T18:12:48Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 13,
+      "t_max_c": 19,
+      "rain_prob_pct": 78,
+      "weather_type": 7
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 11.9,
+      "t_max_c": 16.7,
+      "rain_prob_pct": 100,
+      "weather_type": 7
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 11.4,
+      "t_max_c": 15.8,
+      "rain_prob_pct": 8,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 11.9,
+      "t_max_c": 17.7,
+      "rain_prob_pct": 24,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 16.6,
+      "t_max_c": 18.6,
+      "rain_prob_pct": 100,
+      "weather_type": 7
      }
     ]
    }
@@ -26906,6 +29284,88 @@
       "weather_type": 4
      }
     ]
+   },
+   {
+    "issued": "2026-11-26T06:31:02",
+    "read_at": "2026-11-26T07:12:20Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 14.7,
+      "t_max_c": 18.8,
+      "rain_prob_pct": 96,
+      "weather_type": 7
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 13.3,
+      "t_max_c": 16.2,
+      "rain_prob_pct": 92,
+      "weather_type": 7
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 11.6,
+      "t_max_c": 17.1,
+      "rain_prob_pct": 6,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 14.9,
+      "t_max_c": 19.4,
+      "rain_prob_pct": 4,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 17.2,
+      "t_max_c": 19.4,
+      "rain_prob_pct": 100,
+      "weather_type": 10
+     }
+    ]
+   },
+   {
+    "issued": "2026-11-26T17:31:02",
+    "read_at": "2026-11-26T18:12:50Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 15,
+      "t_max_c": 18.8,
+      "rain_prob_pct": 96,
+      "weather_type": 7
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 13.4,
+      "t_max_c": 16.5,
+      "rain_prob_pct": 92,
+      "weather_type": 7
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 12.4,
+      "t_max_c": 16.6,
+      "rain_prob_pct": 6,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 14.3,
+      "t_max_c": 19.4,
+      "rain_prob_pct": 0,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 17,
+      "t_max_c": 19.9,
+      "rain_prob_pct": 100,
+      "weather_type": 9
+     }
+    ]
    }
   ],
   "3450200": [
@@ -27726,6 +30186,88 @@
       "t_max_c": 17.7,
       "rain_prob_pct": 22,
       "weather_type": 4
+     }
+    ]
+   },
+   {
+    "issued": "2026-11-26T06:31:02",
+    "read_at": "2026-11-26T07:12:23Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 14,
+      "t_max_c": 18.5,
+      "rain_prob_pct": 92,
+      "weather_type": 7
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 12.5,
+      "t_max_c": 16.3,
+      "rain_prob_pct": 96,
+      "weather_type": 7
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 12,
+      "t_max_c": 16.6,
+      "rain_prob_pct": 16,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 13.1,
+      "t_max_c": 19.5,
+      "rain_prob_pct": 4,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 16.7,
+      "t_max_c": 19.6,
+      "rain_prob_pct": 98,
+      "weather_type": 9
+     }
+    ]
+   },
+   {
+    "issued": "2026-11-26T17:31:02",
+    "read_at": "2026-11-26T18:12:53Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 14.5,
+      "t_max_c": 19.1,
+      "rain_prob_pct": 96,
+      "weather_type": 7
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 13.1,
+      "t_max_c": 17.2,
+      "rain_prob_pct": 100,
+      "weather_type": 7
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 12.2,
+      "t_max_c": 16.8,
+      "rain_prob_pct": 22,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 13.5,
+      "t_max_c": 19.6,
+      "rain_prob_pct": 0,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 16.2,
+      "t_max_c": 19.9,
+      "rain_prob_pct": 96,
+      "weather_type": 9
      }
     ]
    }
@@ -28550,6 +31092,88 @@
       "weather_type": 4
      }
     ]
+   },
+   {
+    "issued": "2026-11-26T06:31:02",
+    "read_at": "2026-11-26T07:12:25Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 14.3,
+      "t_max_c": 19,
+      "rain_prob_pct": 51,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 11.7,
+      "t_max_c": 16.6,
+      "rain_prob_pct": 96,
+      "weather_type": 7
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 11.8,
+      "t_max_c": 16.8,
+      "rain_prob_pct": 43,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 13.5,
+      "t_max_c": 19.9,
+      "rain_prob_pct": 12,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 16.6,
+      "t_max_c": 19.8,
+      "rain_prob_pct": 100,
+      "weather_type": 10
+     }
+    ]
+   },
+   {
+    "issued": "2026-11-26T17:31:02",
+    "read_at": "2026-11-26T18:12:55Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 14.2,
+      "t_max_c": 19.7,
+      "rain_prob_pct": 63,
+      "weather_type": 6
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 12.2,
+      "t_max_c": 17.1,
+      "rain_prob_pct": 100,
+      "weather_type": 7
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 11.9,
+      "t_max_c": 17.5,
+      "rain_prob_pct": 53,
+      "weather_type": 7
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 13.5,
+      "t_max_c": 19.7,
+      "rain_prob_pct": 14,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 16.4,
+      "t_max_c": 19.7,
+      "rain_prob_pct": 100,
+      "weather_type": 9
+     }
+    ]
    }
   ],
   "3470100": [
@@ -29370,6 +31994,88 @@
       "t_max_c": 19.4,
       "rain_prob_pct": 0,
       "weather_type": 3
+     }
+    ]
+   },
+   {
+    "issued": "2026-11-26T06:31:02",
+    "read_at": "2026-11-26T07:12:28Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 14,
+      "t_max_c": 19,
+      "rain_prob_pct": 88,
+      "weather_type": 7
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 13,
+      "t_max_c": 18,
+      "rain_prob_pct": 92,
+      "weather_type": 6
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 12.5,
+      "t_max_c": 17.9,
+      "rain_prob_pct": 10,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 15.2,
+      "t_max_c": 19.9,
+      "rain_prob_pct": 18,
+      "weather_type": 4
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 16.6,
+      "t_max_c": 19.8,
+      "rain_prob_pct": 100,
+      "weather_type": 9
+     }
+    ]
+   },
+   {
+    "issued": "2026-11-26T17:31:02",
+    "read_at": "2026-11-26T18:12:58Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 14,
+      "t_max_c": 19,
+      "rain_prob_pct": 86,
+      "weather_type": 9
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 13,
+      "t_max_c": 18.6,
+      "rain_prob_pct": 100,
+      "weather_type": 6
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 12.9,
+      "t_max_c": 17.7,
+      "rain_prob_pct": 0,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 15.6,
+      "t_max_c": 19.7,
+      "rain_prob_pct": 33,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 17.5,
+      "t_max_c": 19.5,
+      "rain_prob_pct": 100,
+      "weather_type": 9
      }
     ]
    }
@@ -30194,6 +32900,88 @@
       "weather_type": 3
      }
     ]
+   },
+   {
+    "issued": "2026-11-26T06:31:02",
+    "read_at": "2026-11-26T07:12:30Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 13,
+      "t_max_c": 19,
+      "rain_prob_pct": 98,
+      "weather_type": 7
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 12,
+      "t_max_c": 17,
+      "rain_prob_pct": 60,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 11.8,
+      "t_max_c": 17.2,
+      "rain_prob_pct": 4,
+      "weather_type": 4
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 15.7,
+      "t_max_c": 19.8,
+      "rain_prob_pct": 45,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 15.9,
+      "t_max_c": 20,
+      "rain_prob_pct": 100,
+      "weather_type": 9
+     }
+    ]
+   },
+   {
+    "issued": "2026-11-26T17:31:02",
+    "read_at": "2026-11-26T18:13:00Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 13,
+      "t_max_c": 19,
+      "rain_prob_pct": 100,
+      "weather_type": 10
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 13,
+      "t_max_c": 17,
+      "rain_prob_pct": 60,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 11.2,
+      "t_max_c": 17.2,
+      "rain_prob_pct": 0,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 16,
+      "t_max_c": 20.1,
+      "rain_prob_pct": 53,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 15.8,
+      "t_max_c": 19.9,
+      "rain_prob_pct": 100,
+      "weather_type": 9
+     }
+    ]
    }
   ],
   "3490100": [
@@ -31014,6 +33802,88 @@
       "t_max_c": 17.7,
       "rain_prob_pct": 2,
       "weather_type": 3
+     }
+    ]
+   },
+   {
+    "issued": "2026-11-26T06:31:02",
+    "read_at": "2026-11-26T07:12:33Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 14.4,
+      "t_max_c": 19,
+      "rain_prob_pct": 100,
+      "weather_type": 10
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 13.2,
+      "t_max_c": 16.5,
+      "rain_prob_pct": 41,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 13,
+      "t_max_c": 17.8,
+      "rain_prob_pct": 6,
+      "weather_type": 4
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 17.2,
+      "t_max_c": 19.2,
+      "rain_prob_pct": 41,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 16.5,
+      "t_max_c": 19.9,
+      "rain_prob_pct": 100,
+      "weather_type": 6
+     }
+    ]
+   },
+   {
+    "issued": "2026-11-26T17:31:02",
+    "read_at": "2026-11-26T18:13:03Z",
+    "days": [
+     {
+      "date": "2026-11-26",
+      "t_min_c": 14.6,
+      "t_max_c": 19.9,
+      "rain_prob_pct": 100,
+      "weather_type": 10
+     },
+     {
+      "date": "2026-11-27",
+      "t_min_c": 13.3,
+      "t_max_c": 16,
+      "rain_prob_pct": 29,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-28",
+      "t_min_c": 13.1,
+      "t_max_c": 17.7,
+      "rain_prob_pct": 2,
+      "weather_type": 4
+     },
+     {
+      "date": "2026-11-29",
+      "t_min_c": 17,
+      "t_max_c": 19.1,
+      "rain_prob_pct": 39,
+      "weather_type": 3
+     },
+     {
+      "date": "2026-11-30",
+      "t_min_c": 17.4,
+      "t_max_c": 19.7,
+      "rain_prob_pct": 100,
+      "weather_type": 9
      }
     ]
    }
