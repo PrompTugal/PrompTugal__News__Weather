@@ -1,5 +1,5 @@
 {
- "data_read_at": "2026-11-27T18:04:20Z",
+ "data_read_at": "2026-11-28T18:04:35Z",
  "expected_cadence": {
   "name": "twice a day",
   "seconds": 43200,
@@ -21,11 +21,11 @@
  },
  "source": "cams",
  "title": "Public live cameras: where they are and whether they are up",
- "read_at": "2026-11-27T18:04:20Z",
+ "read_at": "2026-11-28T18:04:35Z",
  "provenance": {
   "source": "https://github.com/PrompTugal/PrompTugal__News__Data/blob/dev/register/cams.json",
   "page": "https://data.promptugal.news/sources/cams/",
-  "read_at": "2026-11-27T18:04:20Z",
+  "read_at": "2026-11-28T18:04:35Z",
   "by": "sources/cams/collect.mjs (code, no model; run by data.b@PrompTugal.dinis)",
   "terms": "Official cameras of public bodies and operators' own pages only, by link; each camera's terms are recorded in register/cams.json (terms_page, terms_summary, licence_link). We ask for the operator's page only, once an hour, and keep only whether it answered and whether it still carries a player: never a frame, snapshot or stream, no face or plate recognition, no recording. Never an unsecured private camera. Take-down on request. Rules confirmed by Dinis Cruz on 18 November 2026, about 19:00 UTC (official cameras only; the operator's own embed or a link; never record; MEO BeachCam through its official embeds; Windy's webcams API under its terms, attributed). Not reviewed by a person.",
   "register": "register/cams.json"
@@ -123,10 +123,10 @@
    },
    "state": "up",
    "http": 200,
-   "checked_at": "2026-11-27T18:04:20Z",
+   "checked_at": "2026-11-28T18:04:35Z",
    "since": "2026-11-18T18:55:16Z",
-   "checks": 51,
-   "up_checks": 51,
+   "checks": 53,
+   "up_checks": 53,
    "history": [
     {
      "at": "2026-11-18T18:55:16Z",
@@ -140,7 +140,7 @@
     "listed_at": "2026-11-18T00:00:00Z",
     "register": "https://github.com/PrompTugal/PrompTugal__News__Data/blob/dev/register/cams.json",
     "status_how": "one GET of the operator page (HTML only; bytes dropped; no frame or stream)",
-    "status_at": "2026-11-27T18:04:20Z",
+    "status_at": "2026-11-28T18:04:35Z",
     "status_by": "sources/cams/collect.mjs (code, no model; run by data.b@PrompTugal.dinis)",
     "licence": "https://www.portodelisboa.pt/politica-de-privacidade",
     "terms_checked": "2026-11-18T00:00:00Z"
@@ -172,10 +172,10 @@
    },
    "state": "up",
    "http": 200,
-   "checked_at": "2026-11-27T18:04:20Z",
+   "checked_at": "2026-11-28T18:04:35Z",
    "since": "2026-11-18T18:55:16Z",
-   "checks": 51,
-   "up_checks": 51,
+   "checks": 53,
+   "up_checks": 53,
    "history": [
     {
      "at": "2026-11-18T18:55:16Z",
@@ -189,7 +189,7 @@
     "listed_at": "2026-11-18T00:00:00Z",
     "register": "https://github.com/PrompTugal/PrompTugal__News__Data/blob/dev/register/cams.json",
     "status_how": "one GET of the operator page (HTML only; bytes dropped; no frame or stream)",
-    "status_at": "2026-11-27T18:04:20Z",
+    "status_at": "2026-11-28T18:04:35Z",
     "status_by": "sources/cams/collect.mjs (code, no model; run by data.b@PrompTugal.dinis)",
     "licence": "https://www.portodelisboa.pt/politica-de-privacidade",
     "terms_checked": "2026-11-18T00:00:00Z"
@@ -221,10 +221,10 @@
    },
    "state": "up",
    "http": 200,
-   "checked_at": "2026-11-27T18:04:20Z",
+   "checked_at": "2026-11-28T18:04:35Z",
    "since": "2026-11-18T18:55:16Z",
-   "checks": 51,
-   "up_checks": 51,
+   "checks": 53,
+   "up_checks": 53,
    "history": [
     {
      "at": "2026-11-18T18:55:16Z",
@@ -238,7 +238,7 @@
     "listed_at": "2026-11-18T00:00:00Z",
     "register": "https://github.com/PrompTugal/PrompTugal__News__Data/blob/dev/register/cams.json",
     "status_how": "one GET of the operator page (HTML only; bytes dropped; no frame or stream)",
-    "status_at": "2026-11-27T18:04:20Z",
+    "status_at": "2026-11-28T18:04:35Z",
     "status_by": "sources/cams/collect.mjs (code, no model; run by data.b@PrompTugal.dinis)",
     "licence": "https://meteorologia.aemtg.pt/video",
     "terms_checked": null
@@ -270,10 +270,10 @@
    },
    "state": "not checked",
    "http": null,
-   "checked_at": "2026-11-27T18:04:20Z",
+   "checked_at": "2026-11-28T18:04:35Z",
    "since": "2026-11-19T17:49:02Z",
-   "checks": 10,
-   "up_checks": 10,
+   "checks": 12,
+   "up_checks": 12,
    "history": [
     {
      "at": "2026-11-19T17:49:02Z",
@@ -287,7 +287,7 @@
     "listed_at": "2026-11-19T17:50:00Z",
     "register": "https://github.com/PrompTugal/PrompTugal__News__Data/blob/dev/register/cams.json",
     "status_how": "not checked: the host refused our fetches",
-    "status_at": "2026-11-27T18:04:20Z",
+    "status_at": "2026-11-28T18:04:35Z",
     "status_by": "sources/cams/collect.mjs (code, no model; run by data.b@PrompTugal.dinis)",
     "licence": "https://beachcam.meo.pt/termos-e-condicoes/",
     "terms_checked": "2026-11-19T17:50:00Z"
@@ -319,10 +319,10 @@
    },
    "state": "not checked",
    "http": null,
-   "checked_at": "2026-11-27T18:04:20Z",
+   "checked_at": "2026-11-28T18:04:35Z",
    "since": "2026-11-19T17:49:02Z",
-   "checks": 10,
-   "up_checks": 10,
+   "checks": 12,
+   "up_checks": 12,
    "history": [
     {
      "at": "2026-11-19T17:49:02Z",
@@ -336,7 +336,7 @@
     "listed_at": "2026-11-19T17:50:00Z",
     "register": "https://github.com/PrompTugal/PrompTugal__News__Data/blob/dev/register/cams.json",
     "status_how": "not checked: the host refused our fetches",
-    "status_at": "2026-11-27T18:04:20Z",
+    "status_at": "2026-11-28T18:04:35Z",
     "status_by": "sources/cams/collect.mjs (code, no model; run by data.b@PrompTugal.dinis)",
     "licence": "https://beachcam.meo.pt/termos-e-condicoes/",
     "terms_checked": "2026-11-19T17:50:00Z"
@@ -368,10 +368,10 @@
    },
    "state": "not checked",
    "http": null,
-   "checked_at": "2026-11-27T18:04:20Z",
+   "checked_at": "2026-11-28T18:04:35Z",
    "since": "2026-11-19T17:49:02Z",
-   "checks": 10,
-   "up_checks": 10,
+   "checks": 12,
+   "up_checks": 12,
    "history": [
     {
      "at": "2026-11-19T17:49:02Z",
@@ -385,7 +385,7 @@
     "listed_at": "2026-11-19T17:50:00Z",
     "register": "https://github.com/PrompTugal/PrompTugal__News__Data/blob/dev/register/cams.json",
     "status_how": "not checked: the host refused our fetches",
-    "status_at": "2026-11-27T18:04:20Z",
+    "status_at": "2026-11-28T18:04:35Z",
     "status_by": "sources/cams/collect.mjs (code, no model; run by data.b@PrompTugal.dinis)",
     "licence": "https://beachcam.meo.pt/termos-e-condicoes/",
     "terms_checked": "2026-11-19T17:50:00Z"
@@ -417,10 +417,10 @@
    },
    "state": "not checked",
    "http": null,
-   "checked_at": "2026-11-27T18:04:20Z",
+   "checked_at": "2026-11-28T18:04:35Z",
    "since": "2026-11-19T17:49:02Z",
-   "checks": 10,
-   "up_checks": 10,
+   "checks": 12,
+   "up_checks": 12,
    "history": [
     {
      "at": "2026-11-19T17:49:02Z",
@@ -434,7 +434,7 @@
     "listed_at": "2026-11-19T17:50:00Z",
     "register": "https://github.com/PrompTugal/PrompTugal__News__Data/blob/dev/register/cams.json",
     "status_how": "not checked: the host refused our fetches",
-    "status_at": "2026-11-27T18:04:20Z",
+    "status_at": "2026-11-28T18:04:35Z",
     "status_by": "sources/cams/collect.mjs (code, no model; run by data.b@PrompTugal.dinis)",
     "licence": "https://beachcam.meo.pt/termos-e-condicoes/",
     "terms_checked": "2026-11-19T17:50:00Z"
@@ -466,10 +466,10 @@
    },
    "state": "not checked",
    "http": null,
-   "checked_at": "2026-11-27T18:04:20Z",
+   "checked_at": "2026-11-28T18:04:35Z",
    "since": "2026-11-19T17:49:02Z",
-   "checks": 10,
-   "up_checks": 10,
+   "checks": 12,
+   "up_checks": 12,
    "history": [
     {
      "at": "2026-11-19T17:49:02Z",
@@ -483,7 +483,7 @@
     "listed_at": "2026-11-19T17:50:00Z",
     "register": "https://github.com/PrompTugal/PrompTugal__News__Data/blob/dev/register/cams.json",
     "status_how": "not checked: the host refused our fetches",
-    "status_at": "2026-11-27T18:04:20Z",
+    "status_at": "2026-11-28T18:04:35Z",
     "status_by": "sources/cams/collect.mjs (code, no model; run by data.b@PrompTugal.dinis)",
     "licence": "https://beachcam.meo.pt/termos-e-condicoes/",
     "terms_checked": "2026-11-19T17:50:00Z"
@@ -515,10 +515,10 @@
    },
    "state": "not checked",
    "http": null,
-   "checked_at": "2026-11-27T18:04:20Z",
+   "checked_at": "2026-11-28T18:04:35Z",
    "since": "2026-11-19T17:49:02Z",
-   "checks": 10,
-   "up_checks": 10,
+   "checks": 12,
+   "up_checks": 12,
    "history": [
     {
      "at": "2026-11-19T17:49:02Z",
@@ -532,7 +532,7 @@
     "listed_at": "2026-11-19T17:50:00Z",
     "register": "https://github.com/PrompTugal/PrompTugal__News__Data/blob/dev/register/cams.json",
     "status_how": "not checked: the host refused our fetches",
-    "status_at": "2026-11-27T18:04:20Z",
+    "status_at": "2026-11-28T18:04:35Z",
     "status_by": "sources/cams/collect.mjs (code, no model; run by data.b@PrompTugal.dinis)",
     "licence": "https://beachcam.meo.pt/termos-e-condicoes/",
     "terms_checked": "2026-11-19T17:50:00Z"
@@ -564,10 +564,10 @@
    },
    "state": "not checked",
    "http": null,
-   "checked_at": "2026-11-27T18:04:20Z",
+   "checked_at": "2026-11-28T18:04:35Z",
    "since": "2026-11-19T17:49:02Z",
-   "checks": 10,
-   "up_checks": 10,
+   "checks": 12,
+   "up_checks": 12,
    "history": [
     {
      "at": "2026-11-19T17:49:02Z",
@@ -581,7 +581,7 @@
     "listed_at": "2026-11-19T17:50:00Z",
     "register": "https://github.com/PrompTugal/PrompTugal__News__Data/blob/dev/register/cams.json",
     "status_how": "not checked: the host refused our fetches",
-    "status_at": "2026-11-27T18:04:20Z",
+    "status_at": "2026-11-28T18:04:35Z",
     "status_by": "sources/cams/collect.mjs (code, no model; run by data.b@PrompTugal.dinis)",
     "licence": "https://beachcam.meo.pt/termos-e-condicoes/",
     "terms_checked": "2026-11-19T17:50:00Z"
@@ -613,10 +613,10 @@
    },
    "state": "not checked",
    "http": null,
-   "checked_at": "2026-11-27T18:04:20Z",
+   "checked_at": "2026-11-28T18:04:35Z",
    "since": "2026-11-19T17:49:02Z",
-   "checks": 10,
-   "up_checks": 10,
+   "checks": 12,
+   "up_checks": 12,
    "history": [
     {
      "at": "2026-11-19T17:49:02Z",
@@ -630,7 +630,7 @@
     "listed_at": "2026-11-19T17:50:00Z",
     "register": "https://github.com/PrompTugal/PrompTugal__News__Data/blob/dev/register/cams.json",
     "status_how": "not checked: the host refused our fetches",
-    "status_at": "2026-11-27T18:04:20Z",
+    "status_at": "2026-11-28T18:04:35Z",
     "status_by": "sources/cams/collect.mjs (code, no model; run by data.b@PrompTugal.dinis)",
     "licence": "https://beachcam.meo.pt/termos-e-condicoes/",
     "terms_checked": "2026-11-19T17:50:00Z"
@@ -662,10 +662,10 @@
    },
    "state": "not checked",
    "http": null,
-   "checked_at": "2026-11-27T18:04:20Z",
+   "checked_at": "2026-11-28T18:04:35Z",
    "since": "2026-11-19T17:49:02Z",
-   "checks": 10,
-   "up_checks": 10,
+   "checks": 12,
+   "up_checks": 12,
    "history": [
     {
      "at": "2026-11-19T17:49:02Z",
@@ -679,7 +679,7 @@
     "listed_at": "2026-11-19T17:50:00Z",
     "register": "https://github.com/PrompTugal/PrompTugal__News__Data/blob/dev/register/cams.json",
     "status_how": "not checked: the host refused our fetches",
-    "status_at": "2026-11-27T18:04:20Z",
+    "status_at": "2026-11-28T18:04:35Z",
     "status_by": "sources/cams/collect.mjs (code, no model; run by data.b@PrompTugal.dinis)",
     "licence": "https://beachcam.meo.pt/termos-e-condicoes/",
     "terms_checked": "2026-11-19T17:50:00Z"
@@ -711,10 +711,10 @@
    },
    "state": "not checked",
    "http": null,
-   "checked_at": "2026-11-27T18:04:20Z",
+   "checked_at": "2026-11-28T18:04:35Z",
    "since": "2026-11-19T17:49:02Z",
-   "checks": 10,
-   "up_checks": 10,
+   "checks": 12,
+   "up_checks": 12,
    "history": [
     {
      "at": "2026-11-19T17:49:02Z",
@@ -728,7 +728,7 @@
     "listed_at": "2026-11-19T17:50:00Z",
     "register": "https://github.com/PrompTugal/PrompTugal__News__Data/blob/dev/register/cams.json",
     "status_how": "not checked: the host refused our fetches",
-    "status_at": "2026-11-27T18:04:20Z",
+    "status_at": "2026-11-28T18:04:35Z",
     "status_by": "sources/cams/collect.mjs (code, no model; run by data.b@PrompTugal.dinis)",
     "licence": "https://beachcam.meo.pt/termos-e-condicoes/",
     "terms_checked": "2026-11-19T17:50:00Z"
@@ -760,10 +760,10 @@
    },
    "state": "not checked",
    "http": null,
-   "checked_at": "2026-11-27T18:04:20Z",
+   "checked_at": "2026-11-28T18:04:35Z",
    "since": "2026-11-19T17:49:02Z",
-   "checks": 10,
-   "up_checks": 10,
+   "checks": 12,
+   "up_checks": 12,
    "history": [
     {
      "at": "2026-11-19T17:49:02Z",
@@ -777,7 +777,7 @@
     "listed_at": "2026-11-19T17:50:00Z",
     "register": "https://github.com/PrompTugal/PrompTugal__News__Data/blob/dev/register/cams.json",
     "status_how": "not checked: the host refused our fetches",
-    "status_at": "2026-11-27T18:04:20Z",
+    "status_at": "2026-11-28T18:04:35Z",
     "status_by": "sources/cams/collect.mjs (code, no model; run by data.b@PrompTugal.dinis)",
     "licence": "https://beachcam.meo.pt/termos-e-condicoes/",
     "terms_checked": "2026-11-19T17:50:00Z"
@@ -809,10 +809,10 @@
    },
    "state": "not checked",
    "http": null,
-   "checked_at": "2026-11-27T18:04:20Z",
+   "checked_at": "2026-11-28T18:04:35Z",
    "since": "2026-11-19T17:49:02Z",
-   "checks": 10,
-   "up_checks": 10,
+   "checks": 12,
+   "up_checks": 12,
    "history": [
     {
      "at": "2026-11-19T17:49:02Z",
@@ -826,7 +826,7 @@
     "listed_at": "2026-11-19T17:50:00Z",
     "register": "https://github.com/PrompTugal/PrompTugal__News__Data/blob/dev/register/cams.json",
     "status_how": "not checked: the host refused our fetches",
-    "status_at": "2026-11-27T18:04:20Z",
+    "status_at": "2026-11-28T18:04:35Z",
     "status_by": "sources/cams/collect.mjs (code, no model; run by data.b@PrompTugal.dinis)",
     "licence": "https://beachcam.meo.pt/termos-e-condicoes/",
     "terms_checked": "2026-11-19T17:50:00Z"
@@ -858,10 +858,10 @@
    },
    "state": "not checked",
    "http": null,
-   "checked_at": "2026-11-27T18:04:20Z",
+   "checked_at": "2026-11-28T18:04:35Z",
    "since": "2026-11-19T17:49:02Z",
-   "checks": 10,
-   "up_checks": 10,
+   "checks": 12,
+   "up_checks": 12,
    "history": [
     {
      "at": "2026-11-19T17:49:02Z",
@@ -875,7 +875,7 @@
     "listed_at": "2026-11-19T17:50:00Z",
     "register": "https://github.com/PrompTugal/PrompTugal__News__Data/blob/dev/register/cams.json",
     "status_how": "not checked: the host refused our fetches",
-    "status_at": "2026-11-27T18:04:20Z",
+    "status_at": "2026-11-28T18:04:35Z",
     "status_by": "sources/cams/collect.mjs (code, no model; run by data.b@PrompTugal.dinis)",
     "licence": "https://beachcam.meo.pt/termos-e-condicoes/",
     "terms_checked": "2026-11-19T17:50:00Z"
@@ -907,10 +907,10 @@
    },
    "state": "not checked",
    "http": null,
-   "checked_at": "2026-11-27T18:04:20Z",
+   "checked_at": "2026-11-28T18:04:35Z",
    "since": "2026-11-19T17:49:02Z",
-   "checks": 10,
-   "up_checks": 10,
+   "checks": 12,
+   "up_checks": 12,
    "history": [
     {
      "at": "2026-11-19T17:49:02Z",
@@ -924,7 +924,7 @@
     "listed_at": "2026-11-19T17:50:00Z",
     "register": "https://github.com/PrompTugal/PrompTugal__News__Data/blob/dev/register/cams.json",
     "status_how": "not checked: the host refused our fetches",
-    "status_at": "2026-11-27T18:04:20Z",
+    "status_at": "2026-11-28T18:04:35Z",
     "status_by": "sources/cams/collect.mjs (code, no model; run by data.b@PrompTugal.dinis)",
     "licence": "https://beachcam.meo.pt/termos-e-condicoes/",
     "terms_checked": "2026-11-19T17:50:00Z"
@@ -956,10 +956,10 @@
    },
    "state": "not checked",
    "http": null,
-   "checked_at": "2026-11-27T18:04:20Z",
+   "checked_at": "2026-11-28T18:04:35Z",
    "since": "2026-11-19T17:49:02Z",
-   "checks": 10,
-   "up_checks": 10,
+   "checks": 12,
+   "up_checks": 12,
    "history": [
     {
      "at": "2026-11-19T17:49:02Z",
@@ -973,7 +973,7 @@
     "listed_at": "2026-11-19T17:50:00Z",
     "register": "https://github.com/PrompTugal/PrompTugal__News__Data/blob/dev/register/cams.json",
     "status_how": "not checked: the host refused our fetches",
-    "status_at": "2026-11-27T18:04:20Z",
+    "status_at": "2026-11-28T18:04:35Z",
     "status_by": "sources/cams/collect.mjs (code, no model; run by data.b@PrompTugal.dinis)",
     "licence": "https://beachcam.meo.pt/termos-e-condicoes/",
     "terms_checked": "2026-11-19T17:50:00Z"
@@ -1005,10 +1005,10 @@
    },
    "state": "not checked",
    "http": null,
-   "checked_at": "2026-11-27T18:04:20Z",
+   "checked_at": "2026-11-28T18:04:35Z",
    "since": "2026-11-19T17:49:02Z",
-   "checks": 10,
-   "up_checks": 10,
+   "checks": 12,
+   "up_checks": 12,
    "history": [
     {
      "at": "2026-11-19T17:49:02Z",
@@ -1022,7 +1022,7 @@
     "listed_at": "2026-11-19T17:50:00Z",
     "register": "https://github.com/PrompTugal/PrompTugal__News__Data/blob/dev/register/cams.json",
     "status_how": "not checked: the host refused our fetches",
-    "status_at": "2026-11-27T18:04:20Z",
+    "status_at": "2026-11-28T18:04:35Z",
     "status_by": "sources/cams/collect.mjs (code, no model; run by data.b@PrompTugal.dinis)",
     "licence": "https://beachcam.meo.pt/termos-e-condicoes/",
     "terms_checked": "2026-11-19T17:50:00Z"
@@ -1054,10 +1054,10 @@
    },
    "state": "not checked",
    "http": null,
-   "checked_at": "2026-11-27T18:04:20Z",
+   "checked_at": "2026-11-28T18:04:35Z",
    "since": "2026-11-19T17:49:02Z",
-   "checks": 10,
-   "up_checks": 10,
+   "checks": 12,
+   "up_checks": 12,
    "history": [
     {
      "at": "2026-11-19T17:49:02Z",
@@ -1071,7 +1071,7 @@
     "listed_at": "2026-11-19T17:50:00Z",
     "register": "https://github.com/PrompTugal/PrompTugal__News__Data/blob/dev/register/cams.json",
     "status_how": "not checked: the host refused our fetches",
-    "status_at": "2026-11-27T18:04:20Z",
+    "status_at": "2026-11-28T18:04:35Z",
     "status_by": "sources/cams/collect.mjs (code, no model; run by data.b@PrompTugal.dinis)",
     "licence": "https://beachcam.meo.pt/termos-e-condicoes/",
     "terms_checked": "2026-11-19T17:50:00Z"
@@ -1103,10 +1103,10 @@
    },
    "state": "not checked",
    "http": null,
-   "checked_at": "2026-11-27T18:04:20Z",
+   "checked_at": "2026-11-28T18:04:35Z",
    "since": "2026-11-19T17:49:02Z",
-   "checks": 10,
-   "up_checks": 10,
+   "checks": 12,
+   "up_checks": 12,
    "history": [
     {
      "at": "2026-11-19T17:49:02Z",
@@ -1120,7 +1120,7 @@
     "listed_at": "2026-11-19T17:50:00Z",
     "register": "https://github.com/PrompTugal/PrompTugal__News__Data/blob/dev/register/cams.json",
     "status_how": "not checked: the host refused our fetches",
-    "status_at": "2026-11-27T18:04:20Z",
+    "status_at": "2026-11-28T18:04:35Z",
     "status_by": "sources/cams/collect.mjs (code, no model; run by data.b@PrompTugal.dinis)",
     "licence": "https://beachcam.meo.pt/termos-e-condicoes/",
     "terms_checked": "2026-11-19T17:50:00Z"
@@ -1152,10 +1152,10 @@
    },
    "state": "not checked",
    "http": null,
-   "checked_at": "2026-11-27T18:04:20Z",
+   "checked_at": "2026-11-28T18:04:35Z",
    "since": "2026-11-19T17:49:02Z",
-   "checks": 10,
-   "up_checks": 10,
+   "checks": 12,
+   "up_checks": 12,
    "history": [
     {
      "at": "2026-11-19T17:49:02Z",
@@ -1169,7 +1169,7 @@
     "listed_at": "2026-11-19T17:50:00Z",
     "register": "https://github.com/PrompTugal/PrompTugal__News__Data/blob/dev/register/cams.json",
     "status_how": "not checked: the host refused our fetches",
-    "status_at": "2026-11-27T18:04:20Z",
+    "status_at": "2026-11-28T18:04:35Z",
     "status_by": "sources/cams/collect.mjs (code, no model; run by data.b@PrompTugal.dinis)",
     "licence": "https://beachcam.meo.pt/termos-e-condicoes/",
     "terms_checked": "2026-11-19T17:50:00Z"
@@ -1201,10 +1201,10 @@
    },
    "state": "not checked",
    "http": null,
-   "checked_at": "2026-11-27T18:04:20Z",
+   "checked_at": "2026-11-28T18:04:35Z",
    "since": "2026-11-19T17:49:02Z",
-   "checks": 10,
-   "up_checks": 10,
+   "checks": 12,
+   "up_checks": 12,
    "history": [
     {
      "at": "2026-11-19T17:49:02Z",
@@ -1218,7 +1218,7 @@
     "listed_at": "2026-11-19T17:50:00Z",
     "register": "https://github.com/PrompTugal/PrompTugal__News__Data/blob/dev/register/cams.json",
     "status_how": "not checked: the host refused our fetches",
-    "status_at": "2026-11-27T18:04:20Z",
+    "status_at": "2026-11-28T18:04:35Z",
     "status_by": "sources/cams/collect.mjs (code, no model; run by data.b@PrompTugal.dinis)",
     "licence": "https://www.skylinewebcams.com/en/terms-of-use.html",
     "terms_checked": "2026-11-19T17:50:00Z"
@@ -1250,10 +1250,10 @@
    },
    "state": "not checked",
    "http": null,
-   "checked_at": "2026-11-27T18:04:20Z",
+   "checked_at": "2026-11-28T18:04:35Z",
    "since": "2026-11-19T17:49:02Z",
-   "checks": 10,
-   "up_checks": 10,
+   "checks": 12,
+   "up_checks": 12,
    "history": [
     {
      "at": "2026-11-19T17:49:02Z",
@@ -1267,7 +1267,7 @@
     "listed_at": "2026-11-19T17:50:00Z",
     "register": "https://github.com/PrompTugal/PrompTugal__News__Data/blob/dev/register/cams.json",
     "status_how": "not checked: the host refused our fetches",
-    "status_at": "2026-11-27T18:04:20Z",
+    "status_at": "2026-11-28T18:04:35Z",
     "status_by": "sources/cams/collect.mjs (code, no model; run by data.b@PrompTugal.dinis)",
     "licence": "https://www.skylinewebcams.com/en/terms-of-use.html",
     "terms_checked": "2026-11-19T17:50:00Z"

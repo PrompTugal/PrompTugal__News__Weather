@@ -1,5 +1,5 @@
 {
- "data_read_at": "2026-11-27T18:11:59Z",
+ "data_read_at": "2026-11-28T18:12:03Z",
  "expected_cadence": {
   "name": "twice a day",
   "seconds": 43200,
@@ -22,11 +22,11 @@
  },
  "source": "ipma-uv",
  "title": "IPMA UV index",
- "read_at": "2026-11-27T18:11:59Z",
+ "read_at": "2026-11-28T18:12:03Z",
  "provenance": {
   "source": "https://api.ipma.pt/open-data/forecast/meteorology/uv/uv.json",
   "page": "https://www.ipma.pt/en/otempo/prev.uv/",
-  "read_at": "2026-11-27T18:11:59Z",
+  "read_at": "2026-11-28T18:12:03Z",
   "by": "sources/ipma-uv/collect.mjs (code, no model; run by data@PrompTugal.dinis)",
   "terms": "IPMA: free to copy and use for personal or public use if the use has no profit-making or offensive purpose; always name IPMA as the source."
  },
@@ -40,302 +40,302 @@
    "name": null,
    "days": [
     {
-     "date": "2026-11-27",
+     "date": "2026-11-28",
+     "index": 1.5,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-28",
      "index": 1.9,
      "period": 10,
      "hours": null
     },
     {
-     "date": "2026-11-27",
-     "index": 1.6,
+     "date": "2026-11-28",
+     "index": 2.1,
      "period": 10,
      "hours": null
     },
     {
-     "date": "2026-11-27",
-     "index": 1.6,
+     "date": "2026-11-28",
+     "index": 2.3,
      "period": 10,
      "hours": null
     },
     {
-     "date": "2026-11-27",
-     "index": 2.2,
+     "date": "2026-11-28",
+     "index": 1.2,
      "period": 10,
      "hours": null
     },
     {
-     "date": "2026-11-27",
-     "index": 1.6,
+     "date": "2026-11-28",
+     "index": 1.3,
      "period": 10,
      "hours": null
     },
     {
-     "date": "2026-11-27",
-     "index": 1.8,
+     "date": "2026-11-28",
+     "index": 2.1,
      "period": 10,
      "hours": null
     },
     {
-     "date": "2026-11-27",
-     "index": 1.8,
+     "date": "2026-11-28",
+     "index": 2.1,
      "period": 10,
      "hours": null
     },
     {
-     "date": "2026-11-27",
-     "index": 1.8,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-27",
+     "date": "2026-11-28",
      "index": 2,
      "period": 10,
      "hours": null
     },
     {
-     "date": "2026-11-27",
+     "date": "2026-11-28",
+     "index": 2.4,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-29",
+     "index": 1.5,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-29",
+     "index": 1.6,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-29",
+     "index": 1.7,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-29",
+     "index": 2.3,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-29",
+     "index": 1.6,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-29",
+     "index": 1.5,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-29",
+     "index": 1.7,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-29",
+     "index": 1.7,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-29",
+     "index": 1.8,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-29",
+     "index": 2.4,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-30",
+     "index": 1.9,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-30",
+     "index": 2.1,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-30",
+     "index": 2,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-30",
+     "index": 2.3,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-30",
+     "index": 1.7,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-30",
+     "index": 1.9,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-30",
+     "index": 2.1,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-30",
+     "index": 2.1,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-30",
+     "index": 2.1,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-30",
+     "index": 2.3,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-12-01",
+     "index": 2.1,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-12-01",
+     "index": 2.2,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-12-01",
+     "index": 2.1,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-12-01",
+     "index": 2.4,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-12-01",
+     "index": 1.8,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-12-01",
+     "index": 2,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-12-01",
+     "index": 2.2,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-12-01",
+     "index": 2.2,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-12-01",
+     "index": 2.2,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-12-01",
+     "index": 2.4,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-12-02",
+     "index": 2.3,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-12-02",
+     "index": 2.3,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-12-02",
+     "index": 2.2,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-12-02",
      "index": 2.5,
      "period": 10,
      "hours": null
     },
     {
-     "date": "2026-11-28",
-     "index": 1.7,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-28",
-     "index": 2,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-28",
+     "date": "2026-12-02",
      "index": 2.1,
      "period": 10,
      "hours": null
     },
     {
-     "date": "2026-11-28",
+     "date": "2026-12-02",
+     "index": 2.2,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-12-02",
+     "index": 2.2,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-12-02",
+     "index": 2.2,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-12-02",
      "index": 2.3,
      "period": 10,
      "hours": null
     },
     {
-     "date": "2026-11-28",
-     "index": 1.4,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-28",
-     "index": 1.6,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-28",
-     "index": 2.1,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-28",
-     "index": 2.1,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-28",
-     "index": 2,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-28",
-     "index": 2.4,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-29",
-     "index": 1.9,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-29",
-     "index": 1.8,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-29",
-     "index": 1.8,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-29",
-     "index": 2.2,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-29",
-     "index": 1.7,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-29",
-     "index": 1.8,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-29",
-     "index": 1.9,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-29",
-     "index": 1.9,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-29",
-     "index": 2,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-29",
-     "index": 2.2,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-30",
-     "index": 2,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-30",
-     "index": 2.1,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-30",
-     "index": 2.1,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-30",
-     "index": 2.2,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-30",
-     "index": 1.7,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-30",
-     "index": 1.8,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-30",
-     "index": 2.1,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-30",
-     "index": 2.1,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-30",
-     "index": 2.1,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-30",
-     "index": 2.2,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-12-01",
-     "index": 2.1,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-12-01",
-     "index": 2.2,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-12-01",
-     "index": 2.2,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-12-01",
-     "index": 2.3,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-12-01",
-     "index": 1.6,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-12-01",
-     "index": 1.9,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-12-01",
-     "index": 2.2,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-12-01",
-     "index": 2.2,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-12-01",
-     "index": 2.2,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-12-01",
-     "index": 2.4,
+     "date": "2026-12-02",
+     "index": 2.5,
      "period": 10,
      "hours": null
     }
@@ -346,18 +346,6 @@
    "name": "Aveiro",
    "days": [
     {
-     "date": "2026-11-27",
-     "index": 1.3,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-27",
-     "index": 1.4,
-     "period": 10,
-     "hours": null
-    },
-    {
      "date": "2026-11-28",
      "index": 0.7,
      "period": 10,
@@ -365,7 +353,7 @@
     },
     {
      "date": "2026-11-28",
-     "index": 0.9,
+     "index": 1,
      "period": 10,
      "hours": null
     },
@@ -377,31 +365,43 @@
     },
     {
      "date": "2026-11-29",
-     "index": 1.6,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-30",
-     "index": 1.6,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-30",
-     "index": 1.6,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-12-01",
      "index": 1.7,
      "period": 10,
      "hours": null
     },
     {
-     "date": "2026-12-01",
+     "date": "2026-11-30",
      "index": 1.6,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-30",
+     "index": 1.6,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-12-01",
+     "index": 1.8,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-12-01",
+     "index": 1.8,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-12-02",
+     "index": 1.9,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-12-02",
+     "index": 2,
      "period": 10,
      "hours": null
     }
@@ -412,12 +412,6 @@
    "name": "Beja",
    "days": [
     {
-     "date": "2026-11-27",
-     "index": 2.1,
-     "period": 10,
-     "hours": null
-    },
-    {
      "date": "2026-11-28",
      "index": 2.3,
      "period": 10,
@@ -425,19 +419,25 @@
     },
     {
      "date": "2026-11-29",
-     "index": 2.1,
+     "index": 2.3,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-30",
-     "index": 2.2,
+     "index": 1.9,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-12-01",
-     "index": 2.3,
+     "index": 2,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-12-02",
+     "index": 2.4,
      "period": 10,
      "hours": null
     }
@@ -448,12 +448,6 @@
    "name": "Braga",
    "days": [
     {
-     "date": "2026-11-27",
-     "index": 1,
-     "period": 10,
-     "hours": null
-    },
-    {
      "date": "2026-11-28",
      "index": 0.6,
      "period": 10,
@@ -461,18 +455,24 @@
     },
     {
      "date": "2026-11-29",
-     "index": 1.6,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-30",
      "index": 1.7,
      "period": 10,
      "hours": null
     },
     {
+     "date": "2026-11-30",
+     "index": 1.6,
+     "period": 10,
+     "hours": null
+    },
+    {
      "date": "2026-12-01",
+     "index": 1.8,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-12-02",
      "index": 1.7,
      "period": 10,
      "hours": null
@@ -484,14 +484,308 @@
    "name": "Bragança",
    "days": [
     {
-     "date": "2026-11-27",
-     "index": 0.9,
+     "date": "2026-11-28",
+     "index": 0.6,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-29",
+     "index": 1.4,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-30",
+     "index": 1.6,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-12-01",
+     "index": 1.8,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-12-02",
+     "index": 1.6,
+     "period": 10,
+     "hours": null
+    }
+   ]
+  },
+  {
+   "id": 1050200,
+   "name": "Castelo Branco",
+   "days": [
+    {
+     "date": "2026-11-28",
+     "index": 1.4,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-29",
+     "index": 1.7,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-30",
+     "index": 2,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-12-01",
+     "index": 2.1,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-12-02",
+     "index": 2.2,
+     "period": 10,
+     "hours": null
+    }
+   ]
+  },
+  {
+   "id": 1060300,
+   "name": "Coimbra",
+   "days": [
+    {
+     "date": "2026-11-28",
+     "index": 1.2,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-29",
+     "index": 1.4,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-30",
+     "index": 1.7,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-12-01",
+     "index": 2,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-12-02",
+     "index": 2.1,
+     "period": 10,
+     "hours": null
+    }
+   ]
+  },
+  {
+   "id": 1070500,
+   "name": "Évora",
+   "days": [
+    {
+     "date": "2026-11-28",
+     "index": 1.9,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-29",
+     "index": 2,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-30",
+     "index": 1.8,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-12-01",
+     "index": 1.8,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-12-02",
+     "index": 2.4,
+     "period": 10,
+     "hours": null
+    }
+   ]
+  },
+  {
+   "id": 1080500,
+   "name": "Faro",
+   "days": [
+    {
+     "date": "2026-11-28",
+     "index": 2.4,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-29",
+     "index": 2.4,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-30",
+     "index": 2.2,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-12-01",
+     "index": 2.4,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-12-02",
+     "index": 2.5,
+     "period": 10,
+     "hours": null
+    }
+   ]
+  },
+  {
+   "id": 1081525,
+   "name": null,
+   "days": [
+    {
+     "date": "2026-11-28",
+     "index": 2.4,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-29",
+     "index": 2.4,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-30",
+     "index": 2.3,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-12-01",
+     "index": 2.4,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-12-02",
+     "index": 2.5,
+     "period": 10,
+     "hours": null
+    }
+   ]
+  },
+  {
+   "id": 1090700,
+   "name": "Guarda",
+   "days": [
+    {
+     "date": "2026-11-28",
+     "index": 1.3,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-29",
+     "index": 1.6,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-30",
+     "index": 1.9,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-12-01",
+     "index": 1.9,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-12-02",
+     "index": 2,
+     "period": 10,
+     "hours": null
+    }
+   ]
+  },
+  {
+   "id": 1090821,
+   "name": "Penhas Douradas",
+   "days": [
+    {
+     "date": "2026-11-28",
+     "index": 1.5,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-29",
+     "index": 1.6,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-30",
+     "index": 1.8,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-12-01",
+     "index": 1.9,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-12-02",
+     "index": 2.2,
+     "period": 10,
+     "hours": null
+    }
+   ]
+  },
+  {
+   "id": 1100900,
+   "name": "Leiria",
+   "days": [
+    {
+     "date": "2026-11-28",
+     "index": 1.3,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-28",
-     "index": 0.6,
+     "index": 1.3,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-29",
+     "index": 1.4,
      "period": 10,
      "hours": null
     },
@@ -503,73 +797,7 @@
     },
     {
      "date": "2026-11-30",
-     "index": 1.6,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-12-01",
-     "index": 1.7,
-     "period": 10,
-     "hours": null
-    }
-   ]
-  },
-  {
-   "id": 1050200,
-   "name": "Castelo Branco",
-   "days": [
-    {
-     "date": "2026-11-27",
-     "index": 1.4,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-28",
-     "index": 1.2,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-29",
-     "index": 1.9,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-30",
-     "index": 1.9,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-12-01",
-     "index": 1.9,
-     "period": 10,
-     "hours": null
-    }
-   ]
-  },
-  {
-   "id": 1060300,
-   "name": "Coimbra",
-   "days": [
-    {
-     "date": "2026-11-27",
-     "index": 1.5,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-28",
-     "index": 1.5,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-29",
-     "index": 1.6,
+     "index": 1.8,
      "period": 10,
      "hours": null
     },
@@ -581,253 +809,25 @@
     },
     {
      "date": "2026-12-01",
-     "index": 1.4,
-     "period": 10,
-     "hours": null
-    }
-   ]
-  },
-  {
-   "id": 1070500,
-   "name": "Évora",
-   "days": [
-    {
-     "date": "2026-11-27",
-     "index": 1.7,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-28",
      "index": 1.9,
      "period": 10,
      "hours": null
     },
     {
-     "date": "2026-11-29",
+     "date": "2026-12-01",
      "index": 2,
      "period": 10,
      "hours": null
     },
     {
-     "date": "2026-11-30",
-     "index": 2.1,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-12-01",
-     "index": 2.2,
-     "period": 10,
-     "hours": null
-    }
-   ]
-  },
-  {
-   "id": 1080500,
-   "name": "Faro",
-   "days": [
-    {
-     "date": "2026-11-27",
-     "index": 2.5,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-28",
-     "index": 2.4,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-29",
-     "index": 2.4,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-30",
+     "date": "2026-12-02",
      "index": 2.2,
      "period": 10,
      "hours": null
     },
     {
-     "date": "2026-12-01",
-     "index": 2.4,
-     "period": 10,
-     "hours": null
-    }
-   ]
-  },
-  {
-   "id": 1081525,
-   "name": null,
-   "days": [
-    {
-     "date": "2026-11-27",
-     "index": 2.5,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-28",
-     "index": 2.4,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-29",
+     "date": "2026-12-02",
      "index": 2.2,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-30",
-     "index": 2.2,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-12-01",
-     "index": 2.4,
-     "period": 10,
-     "hours": null
-    }
-   ]
-  },
-  {
-   "id": 1090700,
-   "name": "Guarda",
-   "days": [
-    {
-     "date": "2026-11-27",
-     "index": 1.5,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-28",
-     "index": 1.4,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-29",
-     "index": 1.5,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-30",
-     "index": 1.6,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-12-01",
-     "index": 1.8,
-     "period": 10,
-     "hours": null
-    }
-   ]
-  },
-  {
-   "id": 1090821,
-   "name": "Penhas Douradas",
-   "days": [
-    {
-     "date": "2026-11-27",
-     "index": 1.6,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-28",
-     "index": 1.5,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-29",
-     "index": 1.6,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-30",
-     "index": 1.6,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-12-01",
-     "index": 1.8,
-     "period": 10,
-     "hours": null
-    }
-   ]
-  },
-  {
-   "id": 1100900,
-   "name": "Leiria",
-   "days": [
-    {
-     "date": "2026-11-27",
-     "index": 1.6,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-27",
-     "index": 1.5,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-28",
-     "index": 1.6,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-28",
-     "index": 1.7,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-29",
-     "index": 1.7,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-29",
-     "index": 1.7,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-30",
-     "index": 1.8,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-30",
-     "index": 1.8,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-12-01",
-     "index": 1.8,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-12-01",
-     "index": 1.8,
      "period": 10,
      "hours": null
     }
@@ -838,12 +838,6 @@
    "name": "Lisboa",
    "days": [
     {
-     "date": "2026-11-27",
-     "index": 1.5,
-     "period": 10,
-     "hours": null
-    },
-    {
      "date": "2026-11-28",
      "index": 2,
      "period": 10,
@@ -851,18 +845,24 @@
     },
     {
      "date": "2026-11-29",
-     "index": 1.8,
+     "index": 1.6,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-30",
-     "index": 2.1,
+     "index": 2,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-12-01",
+     "index": 2.2,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-12-02",
      "index": 2.2,
      "period": 10,
      "hours": null
@@ -874,14 +874,8 @@
    "name": "Portalegre",
    "days": [
     {
-     "date": "2026-11-27",
-     "index": 1.2,
-     "period": 10,
-     "hours": null
-    },
-    {
      "date": "2026-11-28",
-     "index": 1.2,
+     "index": 1.5,
      "period": 10,
      "hours": null
     },
@@ -899,7 +893,13 @@
     },
     {
      "date": "2026-12-01",
-     "index": 1.9,
+     "index": 2.1,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-12-02",
+     "index": 2.3,
      "period": 10,
      "hours": null
     }
@@ -910,32 +910,32 @@
    "name": "Porto",
    "days": [
     {
-     "date": "2026-11-27",
-     "index": 1.3,
-     "period": 10,
-     "hours": null
-    },
-    {
      "date": "2026-11-28",
-     "index": 0.7,
+     "index": 0.8,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-29",
-     "index": 1.7,
+     "index": 1.8,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-30",
-     "index": 1.7,
+     "index": 1.6,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-12-01",
-     "index": 1.7,
+     "index": 1.8,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-12-02",
+     "index": 1.8,
      "period": 10,
      "hours": null
     }
@@ -946,62 +946,62 @@
    "name": "Santarém",
    "days": [
     {
-     "date": "2026-11-27",
-     "index": 1.5,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-27",
-     "index": 1.4,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-28",
-     "index": 2.1,
-     "period": 10,
-     "hours": null
-    },
-    {
      "date": "2026-11-28",
      "index": 2,
      "period": 10,
      "hours": null
     },
     {
-     "date": "2026-11-29",
+     "date": "2026-11-28",
      "index": 1.8,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-29",
+     "index": 1.6,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-29",
+     "index": 1.6,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-30",
+     "index": 1.6,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-30",
      "index": 1.8,
      "period": 10,
      "hours": null
     },
     {
-     "date": "2026-11-30",
-     "index": 2,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-30",
-     "index": 2,
+     "date": "2026-12-01",
+     "index": 1.8,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-12-01",
-     "index": 1.9,
+     "index": 1.7,
      "period": 10,
      "hours": null
     },
     {
-     "date": "2026-12-01",
-     "index": 1.9,
+     "date": "2026-12-02",
+     "index": 2.2,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-12-02",
+     "index": 2.2,
      "period": 10,
      "hours": null
     }
@@ -1012,12 +1012,6 @@
    "name": "Setúbal",
    "days": [
     {
-     "date": "2026-11-27",
-     "index": 1.7,
-     "period": 10,
-     "hours": null
-    },
-    {
      "date": "2026-11-28",
      "index": 2.1,
      "period": 10,
@@ -1025,18 +1019,24 @@
     },
     {
      "date": "2026-11-29",
-     "index": 2,
+     "index": 1.8,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-30",
-     "index": 2.1,
+     "index": 2,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-12-01",
+     "index": 2.1,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-12-02",
      "index": 2.2,
      "period": 10,
      "hours": null
@@ -1048,12 +1048,6 @@
    "name": "Sines",
    "days": [
     {
-     "date": "2026-11-27",
-     "index": 2.1,
-     "period": 10,
-     "hours": null
-    },
-    {
      "date": "2026-11-28",
      "index": 2.2,
      "period": 10,
@@ -1061,19 +1055,25 @@
     },
     {
      "date": "2026-11-29",
-     "index": 2.1,
+     "index": 2.2,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-30",
-     "index": 2.2,
+     "index": 2.3,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-12-01",
      "index": 2.3,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-12-02",
+     "index": 2.4,
      "period": 10,
      "hours": null
     }
@@ -1084,14 +1084,8 @@
    "name": "Viana do Castelo",
    "days": [
     {
-     "date": "2026-11-27",
-     "index": 1,
-     "period": 10,
-     "hours": null
-    },
-    {
      "date": "2026-11-28",
-     "index": 0.7,
+     "index": 0.9,
      "period": 10,
      "hours": null
     },
@@ -1103,12 +1097,18 @@
     },
     {
      "date": "2026-11-30",
-     "index": 1.7,
+     "index": 1.5,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-12-01",
+     "index": 1.8,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-12-02",
      "index": 1.6,
      "period": 10,
      "hours": null
@@ -1120,20 +1120,50 @@
    "name": "Vila Real",
    "days": [
     {
-     "date": "2026-11-27",
-     "index": 1.2,
-     "period": 10,
-     "hours": null
-    },
-    {
      "date": "2026-11-28",
-     "index": 0.9,
+     "index": 0.8,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-29",
-     "index": 1.4,
+     "index": 1.5,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-30",
+     "index": 1.5,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-12-01",
+     "index": 1.7,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-12-02",
+     "index": 1.7,
+     "period": 10,
+     "hours": null
+    }
+   ]
+  },
+  {
+   "id": 1182300,
+   "name": "Viseu",
+   "days": [
+    {
+     "date": "2026-11-28",
+     "index": 1.2,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-29",
+     "index": 1.5,
      "period": 10,
      "hours": null
     },
@@ -1145,43 +1175,13 @@
     },
     {
      "date": "2026-12-01",
-     "index": 1.6,
-     "period": 10,
-     "hours": null
-    }
-   ]
-  },
-  {
-   "id": 1182300,
-   "name": "Viseu",
-   "days": [
-    {
-     "date": "2026-11-27",
-     "index": 1.3,
+     "index": 2,
      "period": 10,
      "hours": null
     },
     {
-     "date": "2026-11-28",
-     "index": 1.1,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-29",
-     "index": 1.5,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-30",
-     "index": 1.6,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-12-01",
-     "index": 1.6,
+     "date": "2026-12-02",
+     "index": 2.1,
      "period": 10,
      "hours": null
     }
@@ -1192,14 +1192,8 @@
    "name": "Funchal",
    "days": [
     {
-     "date": "2026-11-27",
-     "index": 2.9,
-     "period": 10,
-     "hours": null
-    },
-    {
      "date": "2026-11-28",
-     "index": 2.7,
+     "index": 2.2,
      "period": 10,
      "hours": null
     },
@@ -1211,13 +1205,19 @@
     },
     {
      "date": "2026-11-30",
-     "index": 2.8,
+     "index": 2.9,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-12-01",
      "index": 3,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-12-02",
+     "index": 2.8,
      "period": 10,
      "hours": null
     }
@@ -1228,14 +1228,8 @@
    "name": "Porto Santo",
    "days": [
     {
-     "date": "2026-11-27",
-     "index": 2.9,
-     "period": 10,
-     "hours": null
-    },
-    {
      "date": "2026-11-28",
-     "index": 2.8,
+     "index": 2.4,
      "period": 10,
      "hours": null
     },
@@ -1247,13 +1241,19 @@
     },
     {
      "date": "2026-11-30",
-     "index": 2.7,
+     "index": 2.8,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-12-01",
-     "index": 2.9,
+     "index": 2.6,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-12-02",
+     "index": 2.8,
      "period": 10,
      "hours": null
     }
@@ -1264,20 +1264,50 @@
    "name": "Ponta Delgada",
    "days": [
     {
-     "date": "2026-11-27",
-     "index": 1.8,
-     "period": 10,
-     "hours": null
-    },
-    {
      "date": "2026-11-28",
-     "index": 1.9,
+     "index": 2,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-29",
-     "index": 1.9,
+     "index": 2.1,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-30",
+     "index": 2.6,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-12-01",
+     "index": 1.6,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-12-02",
+     "index": 2.1,
+     "period": 10,
+     "hours": null
+    }
+   ]
+  },
+  {
+   "id": 3430100,
+   "name": "Angra do Heroísmo",
+   "days": [
+    {
+     "date": "2026-11-28",
+     "index": 2.2,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-11-29",
+     "index": 2,
      "period": 10,
      "hours": null
     },
@@ -1289,43 +1319,13 @@
     },
     {
      "date": "2026-12-01",
-     "index": 0.5,
-     "period": 10,
-     "hours": null
-    }
-   ]
-  },
-  {
-   "id": 3430100,
-   "name": "Angra do Heroísmo",
-   "days": [
-    {
-     "date": "2026-11-27",
-     "index": 1.3,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-28",
      "index": 1.8,
      "period": 10,
      "hours": null
     },
     {
-     "date": "2026-11-29",
-     "index": 1.9,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-11-30",
-     "index": 2,
-     "period": 10,
-     "hours": null
-    },
-    {
-     "date": "2026-12-01",
-     "index": 1.1,
+     "date": "2026-12-02",
+     "index": 2.2,
      "period": 10,
      "hours": null
     }
@@ -1336,32 +1336,32 @@
    "name": "Horta",
    "days": [
     {
-     "date": "2026-11-27",
-     "index": 1,
-     "period": 10,
-     "hours": null
-    },
-    {
      "date": "2026-11-28",
-     "index": 1.8,
+     "index": 2,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-29",
-     "index": 1.9,
+     "index": 1.5,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-30",
-     "index": 1.1,
+     "index": 1.5,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-12-01",
-     "index": 1.4,
+     "index": 2,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-12-02",
+     "index": 2.2,
      "period": 10,
      "hours": null
     }
@@ -1372,32 +1372,32 @@
    "name": "Santa Cruz das Flores",
    "days": [
     {
-     "date": "2026-11-27",
-     "index": 1.5,
-     "period": 10,
-     "hours": null
-    },
-    {
      "date": "2026-11-28",
-     "index": 1.6,
+     "index": 1.3,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-29",
-     "index": 1.9,
+     "index": 2,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-11-30",
-     "index": 1.1,
+     "index": 0.3,
      "period": 10,
      "hours": null
     },
     {
      "date": "2026-12-01",
-     "index": 2,
+     "index": 1.9,
+     "period": 10,
+     "hours": null
+    },
+    {
+     "date": "2026-12-02",
+     "index": 1.4,
      "period": 10,
      "hours": null
     }
