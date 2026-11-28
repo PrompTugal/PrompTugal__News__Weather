@@ -61,7 +61,7 @@
    }
   }
  },
- "commit": "526dd0b8fd852d1fffb5fd1c54adb4760ccfe3e8",
+ "commit": "075e71119c76543c2e4b985e2468cf034417e920",
  "rows": [
   {
    "date": "2026-11-17",
@@ -252,6 +252,15 @@
     "readings_min": 71,
     "complete": false
    },
+   "forecast": {
+    "d1": null,
+    "d2": null,
+    "d3": null
+   }
+  },
+  {
+   "date": "2026-11-28",
+   "observed": null,
    "forecast": {
     "d1": null,
     "d2": null,
